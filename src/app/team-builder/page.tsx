@@ -1362,7 +1362,7 @@ export default function TeamBuilderPage() {
               <textarea
                 value={importText}
                 onChange={(e) => { setImportText(e.target.value); setImportError(""); }}
-                placeholder={`Incineroar @ Figy Berry\nAbility: Intimidate\nCareful Nature\nEVs: 252 HP / 4 Def / 252 SpD\n- Flare Blitz\n- Fake Out\n- Knock Off\n- Protect\n\nGarchomp @ Life Orb\n...`}
+                placeholder={`Incineroar @ Figy Berry\nAbility: Intimidate\nCareful Nature\nEVs: 252 HP / 4 Def / 252 SpD\n- Flare Blitz\n- Fake Out\n- Darkest Lariat\n- Protect\n\nGarchomp @ Life Orb\n...`}
                 className="w-full h-64 rounded-xl p-4 bg-gray-50 border border-gray-200 text-xs font-mono resize-none focus:outline-none focus:ring-2 focus:ring-violet-400"
               />
               {importError && <p className="text-xs text-red-500 mt-2">{importError}</p>}

@@ -529,11 +529,11 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
 
   // Incineroar (id: 727)
   727: [
-    { name: "Intimidate Support", nature: "Careful", ability: "Intimidate", item: "Sitrus Berry", moves: ["Flare Blitz", "Knock Off", "Fake Out", "Protect"], sp: { hp: 32, attack: 0, defense: 2, spAtk: 0, spDef: 32, speed: 0 }, teraType: "water" },
-    { name: "Assault Vest", nature: "Adamant", ability: "Intimidate", item: "Assault Vest", moves: ["Flare Blitz", "Knock Off", "Fake Out", "U-turn"], sp: { hp: 32, attack: 20, defense: 0, spAtk: 0, spDef: 14, speed: 0 }, teraType: "water" },
-    { name: "Offensive", nature: "Adamant", ability: "Intimidate", item: "Choice Band", moves: ["Flare Blitz", "Knock Off", "U-turn", "Close Combat"], sp: { hp: 20, attack: 32, defense: 2, spAtk: 0, spDef: 12, speed: 0 }, teraType: "ghost" },
-    { name: "Parting Shot Pivot", nature: "Careful", ability: "Intimidate", item: "Safety Goggles", moves: ["Fake Out", "Knock Off", "Parting Shot", "Protect"], sp: { hp: 32, attack: 0, defense: 2, spAtk: 0, spDef: 32, speed: 0 }, teraType: "water" },
-    { name: "Fast Fake Out", nature: "Jolly", ability: "Intimidate", item: "Focus Sash", moves: ["Fake Out", "Flare Blitz", "Knock Off", "Protect"], sp: { hp: 0, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 32 }, teraType: "ghost" },
+    { name: "Intimidate Support", nature: "Careful", ability: "Intimidate", item: "Sitrus Berry", moves: ["Flare Blitz", "Darkest Lariat", "Fake Out", "Protect"], sp: { hp: 32, attack: 0, defense: 2, spAtk: 0, spDef: 32, speed: 0 }, teraType: "water" },
+    { name: "Assault Vest", nature: "Adamant", ability: "Intimidate", item: "Assault Vest", moves: ["Flare Blitz", "Darkest Lariat", "Fake Out", "U-turn"], sp: { hp: 32, attack: 20, defense: 0, spAtk: 0, spDef: 14, speed: 0 }, teraType: "water" },
+    { name: "Offensive", nature: "Adamant", ability: "Intimidate", item: "Choice Band", moves: ["Flare Blitz", "Darkest Lariat", "U-turn", "Close Combat"], sp: { hp: 20, attack: 32, defense: 2, spAtk: 0, spDef: 12, speed: 0 }, teraType: "ghost" },
+    { name: "Parting Shot Pivot", nature: "Careful", ability: "Intimidate", item: "Safety Goggles", moves: ["Fake Out", "Darkest Lariat", "Parting Shot", "Protect"], sp: { hp: 32, attack: 0, defense: 2, spAtk: 0, spDef: 32, speed: 0 }, teraType: "water" },
+    { name: "Fast Fake Out", nature: "Jolly", ability: "Intimidate", item: "Focus Sash", moves: ["Fake Out", "Flare Blitz", "Darkest Lariat", "Protect"], sp: { hp: 0, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 32 }, teraType: "ghost" },
   ],
 
   // Crabominable (id: 740)
