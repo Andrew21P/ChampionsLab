@@ -79,6 +79,7 @@ export interface TeamSlot {
   teraType?: PokemonType;
   item?: string;
   isMega?: boolean;
+  megaFormIndex?: number;
 }
 
 export interface CommonSet {
