@@ -133,7 +133,7 @@ export default function HomePage() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          Explore the full roster, base stats, abilities, and competitive sets for all 93 eligible Pokémon.
+          Explore the full roster, base stats, abilities, and competitive sets for all {getPokemonBySeason(1).length} eligible Pokémon.
         </motion.p>
 
         {/* Engine Promotion Banner */}
