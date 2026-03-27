@@ -5,8 +5,9 @@ import type { ChampionsPokemon } from "./types";
  * Returns the mega form sprite URL for a given pokemon.
  * Falls back to the base sprite if no mega form exists.
  */
-export function getMegaSprite(pokemon: ChampionsPokemon): string {
-  const megaForm = pokemon.forms?.find(f => f.isMega);
+export function getMegaSprite(pokemon: ChampionsPokemon, formIndex?: number): string {
+  const megaForms = pokemon.forms?.filter(f => f.isMega) ?? [];
+  const megaForm = megaForms[formIndex ?? 0];
   return megaForm?.sprite ?? pokemon.sprite;
 }
 
@@ -14,8 +15,9 @@ export function getMegaSprite(pokemon: ChampionsPokemon): string {
  * Returns the mega form name for a given pokemon.
  * Falls back to the base name if no mega form exists.
  */
-export function getMegaName(pokemon: ChampionsPokemon): string {
-  const megaForm = pokemon.forms?.find(f => f.isMega);
+export function getMegaName(pokemon: ChampionsPokemon, formIndex?: number): string {
+  const megaForms = pokemon.forms?.filter(f => f.isMega) ?? [];
+  const megaForm = megaForms[formIndex ?? 0];
   return megaForm?.name ?? pokemon.name;
 }
 
