@@ -347,9 +347,10 @@ export default function MetaPage() {
           {/* ═══ 5. META TRENDS — Rising & Falling ═══ */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="glass rounded-2xl p-5 border border-emerald-200/60">
-              <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3 flex items-center gap-2">
+              <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-1 flex items-center gap-2">
                 <TrendingUp className="w-4 h-4 text-emerald-500" /> Rising in the Meta
               </h3>
+              <p className="text-[10px] text-muted-foreground mb-3">Based on ML simulation data. Will be supplemented with live tournament results post-launch.</p>
               <div className="space-y-2">
                 {trends.risers.map(p => {
                   const pokemon = POKEMON_SEED.find(pk => pk.id === p.pokemonId);
@@ -370,9 +371,10 @@ export default function MetaPage() {
               </div>
             </div>
             <div className="glass rounded-2xl p-5 border border-red-200/60">
-              <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3 flex items-center gap-2">
+              <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-1 flex items-center gap-2">
                 <TrendingDown className="w-4 h-4 text-red-500" /> Falling in the Meta
               </h3>
+              <p className="text-[10px] text-muted-foreground mb-3">Based on ML simulation data. Will be supplemented with live tournament results post-launch.</p>
               <div className="space-y-2">
                 {trends.fallers.map(p => {
                   const pokemon = POKEMON_SEED.find(pk => pk.id === p.pokemonId);
