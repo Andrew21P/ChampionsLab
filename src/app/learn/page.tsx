@@ -116,12 +116,12 @@ const SECTIONS: Section[] = [
         ],
       },
       {
-        title: "Tera Type Strategy",
+        title: "Mega Evolution Strategy",
         content: [
-          "Terastallization changes a Pokémon's type, giving it new resistances and STAB. This is a game-changing mechanic in the current VGC format.",
-          "Defensive Tera: Change type to dodge a super effective hit. Tera Water on a Fire-type to survive an incoming Water attack.",
-          "Offensive Tera: Change to a type that boosts your key attack. Tera Normal on a Pokémon with Hyper Voice gets a powerful STAB spread move.",
-          "Mind-games: Your opponent doesn't know your Tera type until you use it. This adds a layer of prediction and risk/reward to every game.",
+          "Mega Evolution transforms a Pokémon into a stronger form mid-battle, boosting stats and sometimes changing type or ability.",
+          "Each team can only Mega Evolve one Pokémon per battle — choose wisely which Pokémon benefits most from the power boost.",
+          "Mega Stones take up the held item slot, so Mega Pokémon can't hold other items like Life Orb or Choice Scarf.",
+          "Some Mega Evolutions change abilities on the turn they Mega Evolve (e.g., Mega Kangaskhan gains Parental Bond). Plan your first Mega turn carefully.",
         ],
       },
     ],

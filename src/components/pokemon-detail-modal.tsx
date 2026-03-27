@@ -575,18 +575,7 @@ export function PokemonDetailModal({ pokemon, onClose }: PokemonDetailModalProps
                               </div>
                               <span className="text-sm font-bold tracking-tight text-gray-900">{set.name}</span>
                             </div>
-                            {set.teraType && (
-                              <span
-                                className="px-2 py-0.5 text-[9px] font-bold rounded-lg border"
-                                style={{
-                                  backgroundColor: (TYPE_COLORS[set.teraType] || "#888") + "18",
-                                  color: TYPE_COLORS[set.teraType] || "#888",
-                                  borderColor: (TYPE_COLORS[set.teraType] || "#888") + "40",
-                                }}
-                              >
-                                TERA {set.teraType.toUpperCase()}
-                              </span>
-                            )}
+
                           </div>
 
                           <div className="grid grid-cols-3 gap-2 text-[12px]">

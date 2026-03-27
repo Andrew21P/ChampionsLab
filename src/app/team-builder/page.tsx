@@ -359,17 +359,6 @@ export default function TeamBuilderPage() {
       const info = [s.nature && `${s.nature} Nature`, s.ability].filter(Boolean).join(" · ");
       ctx.fillText(info, x + 110, y + 70);
 
-      // Tera type
-      if (s.teraType) {
-        ctx.fillStyle = "rgba(139,92,246,0.5)";
-        ctx.beginPath();
-        ctx.roundRect(x + 110 + ctx.measureText(info).width + 10, y + 58, ctx.measureText(`Tera: ${s.teraType}`).width + 16, 20, 6);
-        ctx.fill();
-        ctx.fillStyle = "#c4b5fd";
-        ctx.font = "11px Inter, system-ui, sans-serif";
-        ctx.fillText(`Tera: ${s.teraType}`, x + 118 + ctx.measureText(info).width + 10, y + 72);
-      }
-
       // Moves
       ctx.font = "12px Inter, system-ui, sans-serif";
       s.moves.forEach((m, mi) => {
