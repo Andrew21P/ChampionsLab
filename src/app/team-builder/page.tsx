@@ -241,7 +241,7 @@ export default function TeamBuilderPage() {
     ctx.fillStyle = accentGrad;
     ctx.fillRect(40, 100, 460, 3);
 
-    // Header RIGHT — Logo + brand + URL
+    // Header RIGHT — Logo + brand + URL (right-aligned)
     const logo = await new Promise<HTMLImageElement | null>((resolve) => {
       const img = new window.Image();
       img.crossOrigin = "anonymous";
@@ -249,19 +249,23 @@ export default function TeamBuilderPage() {
       img.onerror = () => resolve(null);
       img.src = "/logo.png";
     });
-    if (logo) {
-      const logoSize = 72;
-      ctx.drawImage(logo, W - 310, 15, logoSize, logoSize);
-    }
 
+    ctx.textAlign = "right";
     ctx.fillStyle = "#ffffff";
-    ctx.font = "bold 32px Inter, system-ui, sans-serif";
-    ctx.textAlign = "left";
-    ctx.fillText("Champions Lab", W - 230, 52);
+    ctx.font = "bold 36px Inter, system-ui, sans-serif";
+    const brandText = "Champions Lab";
+    const brandWidth = ctx.measureText(brandText).width;
+    ctx.fillText(brandText, W - 40, 52);
 
-    ctx.font = "bold 16px Inter, system-ui, sans-serif";
+    ctx.font = "bold 18px Inter, system-ui, sans-serif";
     ctx.fillStyle = "#a78bfa";
-    ctx.fillText("championslab.xyz", W - 230, 76);
+    ctx.fillText("championslab.xyz", W - 40, 80);
+
+    if (logo) {
+      const logoSize = 80;
+      ctx.drawImage(logo, W - 40 - brandWidth - logoSize - 14, 10, logoSize, logoSize);
+    }
+    ctx.textAlign = "left";
 
     // Load sprites as images
     const spritePromises = filled.map(s => {
