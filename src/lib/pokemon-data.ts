@@ -11921,7 +11921,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Legends: Arceus",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -16043,7 +16046,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -21814,7 +21820,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "BDSP",
+      "Legends: Arceus",
+      "Pokémon GO",
+      "Let's Go"
     ],
     "season": 1,
     "tier": "C",
@@ -22424,7 +22436,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "BDSP",
+      "Legends: Arceus",
+      "Pokémon GO",
+      "Let's Go"
     ],
     "season": 1,
     "tier": "C",
@@ -23978,7 +23996,12 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "BDSP",
+      "Pokémon GO",
+      "Let's Go"
     ],
     "season": 1,
     "tier": "C",
@@ -28131,7 +28154,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "BDSP",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -28724,7 +28750,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Legends: Arceus",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -35385,7 +35414,11 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "BDSP",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -36271,7 +36304,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -44970,7 +45006,11 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "BDSP",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -51633,7 +51673,11 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "BDSP",
+      "Legends: Arceus",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -52478,7 +52522,11 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "BDSP",
+      "Legends: Arceus",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -59770,7 +59818,12 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "BDSP",
+      "Legends: Arceus",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -75506,7 +75559,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -77665,7 +77721,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -79579,7 +79638,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -80746,7 +80808,9 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -81217,7 +81281,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -83794,7 +83861,9 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -88817,7 +88886,9 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -92155,7 +92226,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -92757,7 +92831,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -94995,7 +95072,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -95530,7 +95610,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -99764,7 +99847,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -100335,7 +100421,9 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -103669,7 +103757,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -109065,7 +109156,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -109468,7 +109562,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -110793,7 +110890,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -111832,7 +111932,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -112384,7 +112487,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Sword/Shield",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -116693,7 +116799,9 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -119454,7 +119562,9 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
@@ -121383,7 +121493,9 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Pokémon Champions"
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Pokémon GO"
     ],
     "season": 1,
     "tier": "C",
