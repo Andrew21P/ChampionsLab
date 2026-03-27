@@ -164,13 +164,14 @@ export default function MetaPage() {
       </motion.div>
 
       {/* Tab Navigation */}
-      <div className="flex gap-1 mb-8 overflow-x-auto pb-1">
+      <div className="-mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 mb-8 overflow-x-auto scrollbar-hide">
+        <div className="flex gap-1 pb-1 w-max">
         {tabs.map(tab => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={cn(
-              "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all whitespace-nowrap",
+              "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all whitespace-nowrap shrink-0",
               activeTab === tab.id
                 ? "bg-gradient-to-r from-emerald-500 to-cyan-500 text-white shadow-lg shadow-emerald-200"
                 : "glass glass-hover text-muted-foreground hover:text-foreground"
@@ -180,6 +181,7 @@ export default function MetaPage() {
             {tab.label}
           </button>
         ))}
+        </div>
       </div>
 
       {/* ══════════ OVERVIEW TAB ══════════ */}
