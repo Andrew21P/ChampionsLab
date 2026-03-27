@@ -114,7 +114,6 @@ export const TOURNAMENT_USAGE: TournamentUsage[] = [
   { pokemonId: 778, name: "Mimikyu",      usageRate: 6.8,  winRate: 51.6, avgPlacement: 31, topCutRate: 8.4,  leadRate: 24.6, bringRate: 54.2 },
   { pokemonId: 780, name: "Drampa",       usageRate: 2.4,  winRate: 52.1, avgPlacement: 31, topCutRate: 3.0,  leadRate: 14.2, bringRate: 42.8 },
   { pokemonId: 823, name: "Corviknight",  usageRate: 5.6,  winRate: 50.8, avgPlacement: 32, topCutRate: 7.0,  leadRate: 16.4, bringRate: 51.6 },
-  { pokemonId: 861, name: "Grimmsnarl",   usageRate: 8.2,  winRate: 50.6, avgPlacement: 31, topCutRate: 10.2, leadRate: 42.8, bringRate: 58.6 },
   { pokemonId: 901, name: "Ursaluna",     usageRate: 7.4,  winRate: 53.2, avgPlacement: 27, topCutRate: 9.4,  leadRate: 14.6, bringRate: 56.8 },
   { pokemonId: 903, name: "Sneasler",     usageRate: 4.8,  winRate: 51.4, avgPlacement: 32, topCutRate: 6.0,  leadRate: 28.4, bringRate: 50.2 },
   { pokemonId: 925, name: "Maushold",     usageRate: 3.2,  winRate: 51.8, avgPlacement: 32, topCutRate: 4.0,  leadRate: 38.2, bringRate: 45.8 },
@@ -475,14 +474,12 @@ export const CORE_PAIRS: CorePair[] = [
   { pokemon1: 727, pokemon2: 445, name: "Incineroar + Garchomp", winRate: 54.8, usage: 28.4, synergy: "Intimidate support + fast physical sweeper" },
   { pokemon1: 727, pokemon2: 887, name: "Incineroar + Dragapult", winRate: 53.2, usage: 22.6, synergy: "Intimidate + fast special attacker, anti-TR" },
   { pokemon1: 727, pokemon2: 983, name: "Incineroar + Kingambit", winRate: 54.6, usage: 20.2, synergy: "Intimidate pivot + Supreme Overlord finisher" },
-  { pokemon1: 861, pokemon2: 887, name: "Grimmsnarl + Dragapult", winRate: 55.1, usage: 20.1, synergy: "Prankster Screens + fast ghost sweeper behind dual screens" },
 
   // ════════════════════════════════════════════════════════════════
   // A-Tier cores (12–20% usage)
   // ════════════════════════════════════════════════════════════════
   { pokemon1: 248, pokemon2: 530, name: "Tyranitar + Excadrill", winRate: 56.4, usage: 18.2, synergy: "Sand Stream + Sand Rush classic weather core" },
   { pokemon1: 376, pokemon2: 727, name: "Metagross + Incineroar", winRate: 54.8, usage: 16.8, synergy: "Mega Metagross + Intimidate/Fake Out" },
-  { pokemon1: 861, pokemon2: 983, name: "Grimmsnarl + Kingambit", winRate: 55.8, usage: 16.6, synergy: "Prankster Screens + Supreme Overlord sweep behind safety" },
   { pokemon1: 547, pokemon2: 887, name: "Whimsicott + Dragapult", winRate: 53.8, usage: 16.4, synergy: "Tailwind + fast sweeper speed control" },
   { pokemon1: 115, pokemon2: 282, name: "Kangaskhan + Gardevoir", winRate: 55.4, usage: 14.8, synergy: "Mega Parental Bond + Follow Me Psychic/Fairy" },
   { pokemon1: 324, pokemon2: 3,   name: "Torkoal + Venusaur", winRate: 57.2, usage: 14.6, synergy: "Drought + Chlorophyll sun core" },
@@ -513,7 +510,6 @@ export const CORE_PAIRS: CorePair[] = [
   { pokemon1: 635, pokemon2: 547, name: "Hydreigon + Whimsicott", winRate: 53.0, usage: 8.6, synergy: "Tailwind + powerful special Dragon sweeper" },
   { pokemon1: 908, pokemon2: 547, name: "Meowscarada + Whimsicott", winRate: 52.4, usage: 8.4, synergy: "Protean sweeper + priority Tailwind" },
   { pokemon1: 778, pokemon2: 887, name: "Mimikyu + Dragapult", winRate: 52.8, usage: 8.4, synergy: "Disguise Trick Room + fast ghost mode flexibility" },
-  { pokemon1: 1018, pokemon2: 861, name: "Archaludon + Grimmsnarl", winRate: 55.2, usage: 8.2, synergy: "Stamina + Screens = unkillable Body Press" },
   { pokemon1: 727, pokemon2: 130, name: "Incineroar + Gyarados", winRate: 53.2, usage: 8.0, synergy: "Double Intimidate cycle + Moxie/Mega sweep" },
 
   // ════════════════════════════════════════════════════════════════
@@ -553,7 +549,6 @@ export const CORE_PAIRS: CorePair[] = [
   { pokemon1: 10100, pokemon2: 186, name: "Alolan Raichu + Politoed", winRate: 54.2, usage: 4.8, synergy: "Lightning Rod + Drizzle, Thunder never misses in rain" },
   { pokemon1: 715, pokemon2: 445, name: "Noivern + Garchomp", winRate: 52.4, usage: 4.8, synergy: "Tailwind + Super Fang chip, fast dragon duo" },
   { pokemon1: 727, pokemon2: 635, name: "Incineroar + Hydreigon", winRate: 53.0, usage: 4.6, synergy: "Fake Out + special Dark/Dragon sweeper" },
-  { pokemon1: 861, pokemon2: 445, name: "Grimmsnarl + Garchomp", winRate: 52.8, usage: 4.6, synergy: "Prankster Thunder Wave/Screens + SD sweep" },
   { pokemon1: 143, pokemon2: 858, name: "Snorlax + Hatterene", winRate: 54.8, usage: 4.6, synergy: "Trick Room + Gluttony Belly Drum nuke" },
   { pokemon1: 324, pokemon2: 6, name: "Torkoal + Charizard", winRate: 55.4, usage: 4.6, synergy: "Drought + Solar Power/Mega Y sun mode" },
   { pokemon1: 10103, pokemon2: 324, name: "Alolan Ninetales + Torkoal", winRate: 52.4, usage: 4.4, synergy: "Aurora Veil hail vs Drought sun weather toggle" },
@@ -589,7 +584,6 @@ export const CORE_PAIRS: CorePair[] = [
   { pokemon1: 334, pokemon2: 445, name: "Altaria + Garchomp", winRate: 52.6, usage: 2.6, synergy: "Mega Altaria Pixilate + fast Ground physical duo" },
   { pokemon1: 306, pokemon2: 858, name: "Aggron + Hatterene", winRate: 54.8, usage: 2.6, synergy: "Mega Aggron Filter + Trick Room wall" },
   { pokemon1: 310, pokemon2: 130, name: "Manectric + Gyarados", winRate: 53.6, usage: 2.6, synergy: "Mega Manectric Intimidate + Lightning Rod + rain" },
-  { pokemon1: 10340, pokemon2: 861, name: "Hisuian Zoroark + Grimmsnarl", winRate: 52.2, usage: 2.4, synergy: "Normal/Ghost Illusion + Prankster Screens mind games" },
   { pokemon1: 701, pokemon2: 547, name: "Hawlucha + Whimsicott", winRate: 52.8, usage: 2.4, synergy: "Unburden + Tailwind double speed control" },
   { pokemon1: 681, pokemon2: 983, name: "Aegislash + Kingambit", winRate: 54.2, usage: 2.4, synergy: "Steel/Ghost + Steel/Dark dual stance finishers" },
   { pokemon1: 308, pokemon2: 858, name: "Medicham + Hatterene", winRate: 55.0, usage: 2.2, synergy: "Mega Medicham Pure Power + Trick Room" },

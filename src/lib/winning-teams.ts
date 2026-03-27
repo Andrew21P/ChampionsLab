@@ -597,7 +597,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     placement: "Top Cut",
     event: "1M Battle Simulation — High ELO",
     pokemon: [
-      { pokemonId: 18, name: "Pidgeot" },
+      { pokemonId: 733, name: "Toucannon" },
       { pokemonId: 983, name: "Kingambit" },
       { pokemonId: 184, name: "Azumarill" },
       { pokemonId: 727, name: "Incineroar" },
@@ -613,7 +613,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     event: "1M Battle Simulation — Niche Pick",
     pokemon: [
       { pokemonId: 25, name: "Pikachu" },
-      { pokemonId: 861, name: "Grimmsnarl" },
+      { pokemonId: 302, name: "Sableye" },
       { pokemonId: 445, name: "Garchomp" },
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 858, name: "Hatterene" },
@@ -659,7 +659,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     pokemon: [
       { pokemonId: 65, name: "Alakazam" },
       { pokemonId: 727, name: "Incineroar" },
-      { pokemonId: 861, name: "Grimmsnarl" },
+      { pokemonId: 302, name: "Sableye" },
       { pokemonId: 983, name: "Kingambit" },
       { pokemonId: 445, name: "Garchomp" },
       { pokemonId: 282, name: "Gardevoir" },
@@ -692,7 +692,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
       { pokemonId: 445, name: "Garchomp" },
       { pokemonId: 547, name: "Whimsicott" },
       { pokemonId: 983, name: "Kingambit" },
-      { pokemonId: 861, name: "Grimmsnarl" },
+      { pokemonId: 302, name: "Sableye" },
     ],
   },
   {
@@ -720,7 +720,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
       { pokemonId: 132, name: "Ditto" },
       { pokemonId: 983, name: "Kingambit" },
       { pokemonId: 727, name: "Incineroar" },
-      { pokemonId: 861, name: "Grimmsnarl" },
+      { pokemonId: 302, name: "Sableye" },
       { pokemonId: 445, name: "Garchomp" },
       { pokemonId: 858, name: "Hatterene" },
     ],
@@ -808,7 +808,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     event: "1M Battle Simulation — High ELO",
     pokemon: [
       { pokemonId: 184, name: "Azumarill" },
-      { pokemonId: 861, name: "Grimmsnarl" },
+      { pokemonId: 302, name: "Sableye" },
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 445, name: "Garchomp" },
       { pokemonId: 547, name: "Whimsicott" },
@@ -841,7 +841,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 445, name: "Garchomp" },
       { pokemonId: 983, name: "Kingambit" },
-      { pokemonId: 861, name: "Grimmsnarl" },
+      { pokemonId: 302, name: "Sableye" },
       { pokemonId: 934, name: "Garganacl" },
     ],
   },
@@ -897,9 +897,9 @@ export const WINNING_TEAMS: WinningTeam[] = [
     placement: "Top Cut",
     event: "1M Battle Simulation — High ELO",
     pokemon: [
-      { pokemonId: 308, name: "Medicham" },
+      { pokemonId: 475, name: "Gallade" },
       { pokemonId: 727, name: "Incineroar" },
-      { pokemonId: 861, name: "Grimmsnarl" },
+      { pokemonId: 302, name: "Sableye" },
       { pokemonId: 445, name: "Garchomp" },
       { pokemonId: 700, name: "Sylveon" },
       { pokemonId: 823, name: "Corviknight" },
@@ -912,7 +912,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     placement: "Top Cut",
     event: "1M Battle Simulation — High ELO",
     pokemon: [
-      { pokemonId: 310, name: "Manectric" },
+      { pokemonId: 135, name: "Jolteon" },
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 445, name: "Garchomp" },
       { pokemonId: 858, name: "Hatterene" },
@@ -927,7 +927,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     placement: "Top Cut",
     event: "1M Battle Simulation — High ELO",
     pokemon: [
-      { pokemonId: 319, name: "Sharpedo" },
+      { pokemonId: 134, name: "Vaporeon" },
       { pokemonId: 547, name: "Whimsicott" },
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 445, name: "Garchomp" },
@@ -942,7 +942,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     placement: "Top Cut",
     event: "1M Battle Simulation — High ELO",
     pokemon: [
-      { pokemonId: 323, name: "Camerupt" },
+      { pokemonId: 324, name: "Torkoal" },
       { pokemonId: 858, name: "Hatterene" },
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 464, name: "Rhyperior" },
@@ -957,7 +957,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     placement: "Top 8",
     event: "1M Battle Simulation — Niche Pick",
     pokemon: [
-      { pokemonId: 354, name: "Banette" },
+      { pokemonId: 442, name: "Spiritomb" },
       { pokemonId: 983, name: "Kingambit" },
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 445, name: "Garchomp" },
@@ -972,7 +972,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     placement: "Top 8",
     event: "1M Battle Simulation — Niche Pick",
     pokemon: [
-      { pokemonId: 362, name: "Glalie" },
+      { pokemonId: 478, name: "Froslass" },
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 445, name: "Garchomp" },
       { pokemonId: 547, name: "Whimsicott" },
@@ -1003,7 +1003,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     event: "1M Battle Simulation — High ELO",
     pokemon: [
       { pokemonId: 428, name: "Lopunny" },
-      { pokemonId: 861, name: "Grimmsnarl" },
+      { pokemonId: 302, name: "Sableye" },
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 445, name: "Garchomp" },
       { pokemonId: 700, name: "Sylveon" },
@@ -1092,7 +1092,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     placement: "Top Cut",
     event: "1M Battle Simulation — High ELO",
     pokemon: [
-      { pokemonId: 473, name: "Mamoswine" },
+      { pokemonId: 461, name: "Weavile" },
       { pokemonId: 547, name: "Whimsicott" },
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 445, name: "Garchomp" },
@@ -1109,7 +1109,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     pokemon: [
       { pokemonId: 475, name: "Gallade" },
       { pokemonId: 727, name: "Incineroar" },
-      { pokemonId: 861, name: "Grimmsnarl" },
+      { pokemonId: 302, name: "Sableye" },
       { pokemonId: 445, name: "Garchomp" },
       { pokemonId: 700, name: "Sylveon" },
       { pokemonId: 823, name: "Corviknight" },
@@ -1140,7 +1140,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
       { pokemonId: 497, name: "Serperior" },
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 445, name: "Garchomp" },
-      { pokemonId: 861, name: "Grimmsnarl" },
+      { pokemonId: 302, name: "Sableye" },
       { pokemonId: 983, name: "Kingambit" },
       { pokemonId: 700, name: "Sylveon" },
     ],
@@ -1202,7 +1202,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 445, name: "Garchomp" },
       { pokemonId: 700, name: "Sylveon" },
-      { pokemonId: 861, name: "Grimmsnarl" },
+      { pokemonId: 302, name: "Sableye" },
     ],
   },
   {
@@ -1317,11 +1317,11 @@ export const WINNING_TEAMS: WinningTeam[] = [
     placement: "Top 8",
     event: "1M Battle Simulation — Niche Pick",
     pokemon: [
-      { pokemonId: 670, name: "Floette" },
+      { pokemonId: 700, name: "Sylveon" },
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 445, name: "Garchomp" },
       { pokemonId: 983, name: "Kingambit" },
-      { pokemonId: 861, name: "Grimmsnarl" },
+      { pokemonId: 302, name: "Sableye" },
       { pokemonId: 823, name: "Corviknight" },
     ],
   },
@@ -1407,7 +1407,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     placement: "Top Cut",
     event: "1M Battle Simulation — High ELO",
     pokemon: [
-      { pokemonId: 706, name: "Goodra" },
+      { pokemonId: 635, name: "Hydreigon" },
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 445, name: "Garchomp" },
       { pokemonId: 547, name: "Whimsicott" },
@@ -1422,7 +1422,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     placement: "Top 8",
     event: "1M Battle Simulation — High ELO",
     pokemon: [
-      { pokemonId: 709, name: "Trevenant" },
+      { pokemonId: 711, name: "Gourgeist" },
       { pokemonId: 858, name: "Hatterene" },
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 464, name: "Rhyperior" },
@@ -1437,7 +1437,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     placement: "Top 8",
     event: "1M Battle Simulation — Niche Pick",
     pokemon: [
-      { pokemonId: 713, name: "Avalugg" },
+      { pokemonId: 584, name: "Vanilluxe" },
       { pokemonId: 858, name: "Hatterene" },
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 464, name: "Rhyperior" },
@@ -1532,7 +1532,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 445, name: "Garchomp" },
       { pokemonId: 700, name: "Sylveon" },
-      { pokemonId: 861, name: "Grimmsnarl" },
+      { pokemonId: 302, name: "Sableye" },
     ],
   },
   {
@@ -1543,7 +1543,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     event: "1M Battle Simulation — High ELO",
     pokemon: [
       { pokemonId: 784, name: "Kommo-o" },
-      { pokemonId: 861, name: "Grimmsnarl" },
+      { pokemonId: 302, name: "Sableye" },
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 547, name: "Whimsicott" },
       { pokemonId: 700, name: "Sylveon" },
@@ -1572,7 +1572,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     placement: "1st Place",
     event: "1M Battle Simulation — Top Performer",
     pokemon: [
-      { pokemonId: 861, name: "Grimmsnarl" },
+      { pokemonId: 302, name: "Sableye" },
       { pokemonId: 983, name: "Kingambit" },
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 445, name: "Garchomp" },
@@ -1663,7 +1663,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     event: "1M Battle Simulation — High ELO",
     pokemon: [
       { pokemonId: 923, name: "Pawmot" },
-      { pokemonId: 861, name: "Grimmsnarl" },
+      { pokemonId: 302, name: "Sableye" },
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 445, name: "Garchomp" },
       { pokemonId: 700, name: "Sylveon" },
@@ -1678,7 +1678,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     event: "1M Battle Simulation — High ELO",
     pokemon: [
       { pokemonId: 925, name: "Maushold" },
-      { pokemonId: 861, name: "Grimmsnarl" },
+      { pokemonId: 302, name: "Sableye" },
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 445, name: "Garchomp" },
       { pokemonId: 700, name: "Sylveon" },
@@ -1738,7 +1738,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     event: "1M Battle Simulation — Top Performer",
     pokemon: [
       { pokemonId: 964, name: "Palafin" },
-      { pokemonId: 861, name: "Grimmsnarl" },
+      { pokemonId: 302, name: "Sableye" },
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 445, name: "Garchomp" },
       { pokemonId: 700, name: "Sylveon" },
@@ -1786,7 +1786,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
       { pokemonId: 983, name: "Kingambit" },
       { pokemonId: 727, name: "Incineroar" },
       { pokemonId: 445, name: "Garchomp" },
-      { pokemonId: 861, name: "Grimmsnarl" },
+      { pokemonId: 302, name: "Sableye" },
       { pokemonId: 700, name: "Sylveon" },
     ],
   },
