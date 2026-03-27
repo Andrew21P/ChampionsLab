@@ -296,7 +296,7 @@ export interface SimulationConfig {
   durationMs: number;           // How long to run (default: 3600000 = 1 hour)
   maxBattles: number;           // Stop after this many battles (default: Infinity)
   batchSize: number;            // Battles per batch before analysis (default: 50)
-  iterationsPerBattle: number;  // Monte Carlo iterations per matchup (default: 10)
+  iterationsPerBattle: number;  // Monte Carlo iterations per matchup (default: 20)
   onProgress?: (report: ProgressReport) => void;
   onInsight?: (insight: MLInsight) => void;
 }
@@ -486,7 +486,7 @@ export async function runMLSimulation(config: Partial<SimulationConfig> = {}): P
     durationMs = 3600000,     // 1 hour default
     maxBattles = Infinity,
     batchSize = 50,
-    iterationsPerBattle = 10,
+    iterationsPerBattle = 20,
     onProgress,
     onInsight,
   } = config;

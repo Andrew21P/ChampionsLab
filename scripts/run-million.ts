@@ -21,7 +21,7 @@ async function main() {
     durationMs: 86400000,          // 24h ceiling (battle count will stop us first)
     maxBattles: TARGET_BATTLES,
     batchSize: 100,                // Large batches for throughput
-    iterationsPerBattle: 3,        // 3 MC samples per matchup (fast + sufficient signal)
+    iterationsPerBattle: 7,        // 7 MC samples per matchup (balanced accuracy + speed)
     onProgress: (progress) => {
       // Print every 10,000 battles
       if (progress.battlesCompleted - lastProgressBattles >= 10000) {

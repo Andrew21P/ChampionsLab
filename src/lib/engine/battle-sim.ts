@@ -273,9 +273,9 @@ function aiChooseAction(
     return { moveName: mon.set.moves[0], targetSlot: 0 };
   }
   
-  // Add some randomness (±10 to score) for variety
+  // Add small randomness (±4 to score) for variety
   for (const c of allChoices) {
-    c.score += (Math.random() - 0.5) * 20;
+    c.score += (Math.random() - 0.5) * 8;
   }
   
   // Pick best option
@@ -707,7 +707,7 @@ export function simulateBattle(
     }
   }
   
-  const MAX_TURNS = 25;
+  const MAX_TURNS = 50;
   
   while (state.turn < MAX_TURNS && !state.winner) {
     state.turn++;
@@ -805,7 +805,7 @@ export function simulateBattle(
     const team2Alive = state.team2.filter(p => p.isAlive).length;
     
     if (team1Alive === 0 && team2Alive === 0) {
-      state.winner = 1; // Tie goes to team 1 (attacker advantage)
+      state.winner = Math.random() < 0.5 ? 1 : 2; // True coin flip on mutual KO
     } else if (team1Alive === 0) {
       state.winner = 2;
     } else if (team2Alive === 0) {
@@ -820,11 +820,17 @@ export function simulateBattle(
     }
   }
   
-  // Timeout: team with more alive wins
+  // Timeout: team with more alive wins, tie-break by total HP%
   if (!state.winner) {
-    const t1 = state.team1.filter(p => p.isAlive).length;
-    const t2 = state.team2.filter(p => p.isAlive).length;
-    state.winner = t1 >= t2 ? 1 : 2;
+    const t1Alive = state.team1.filter(p => p.isAlive).length;
+    const t2Alive = state.team2.filter(p => p.isAlive).length;
+    if (t1Alive !== t2Alive) {
+      state.winner = t1Alive > t2Alive ? 1 : 2;
+    } else {
+      const t1HP = state.team1.reduce((s, p) => s + (p.isAlive ? p.currentHP / p.maxHP : 0), 0);
+      const t2HP = state.team2.reduce((s, p) => s + (p.isAlive ? p.currentHP / p.maxHP : 0), 0);
+      state.winner = t1HP >= t2HP ? 1 : 2;
+    }
   }
   
   return {
@@ -915,7 +921,7 @@ export function simulateBattleWithLog(
     });
   }
 
-  const MAX_TURNS = 25;
+  const MAX_TURNS = 50;
   while (state.turn < MAX_TURNS && !state.winner) {
     state.turn++;
     const turnEvents: string[] = [];
@@ -995,7 +1001,7 @@ export function simulateBattleWithLog(
 
     const team1Alive = state.team1.filter(p => p.isAlive).length;
     const team2Alive = state.team2.filter(p => p.isAlive).length;
-    if (team1Alive === 0 && team2Alive === 0) state.winner = 1;
+    if (team1Alive === 0 && team2Alive === 0) state.winner = Math.random() < 0.5 ? 1 : 2;
     else if (team1Alive === 0) state.winner = 2;
     else if (team2Alive === 0) state.winner = 1;
 
@@ -1003,9 +1009,15 @@ export function simulateBattleWithLog(
   }
 
   if (!state.winner) {
-    const t1 = state.team1.filter(p => p.isAlive).length;
-    const t2 = state.team2.filter(p => p.isAlive).length;
-    state.winner = t1 >= t2 ? 1 : 2;
+    const t1Alive = state.team1.filter(p => p.isAlive).length;
+    const t2Alive = state.team2.filter(p => p.isAlive).length;
+    if (t1Alive !== t2Alive) {
+      state.winner = t1Alive > t2Alive ? 1 : 2;
+    } else {
+      const t1HP = state.team1.reduce((s, p) => s + (p.isAlive ? p.currentHP / p.maxHP : 0), 0);
+      const t2HP = state.team2.reduce((s, p) => s + (p.isAlive ? p.currentHP / p.maxHP : 0), 0);
+      state.winner = t1HP >= t2HP ? 1 : 2;
+    }
   }
 
   return {
