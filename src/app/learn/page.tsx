@@ -8,14 +8,60 @@ import {
   Award, Sparkles, Flame, Droplets, Wind, Star,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { AlertTriangle, Lightbulb, Trophy, Info } from "lucide-react";
+
+/* ─────────────── Rich text helpers ─────────────── */
+
+function renderRichText(text: string) {
+  // Split on **bold** and `code` patterns
+  const parts = text.split(/(\*\*[^*]+\*\*|`[^`]+`)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return <strong key={i} className="font-semibold text-foreground">{part.slice(2, -2)}</strong>;
+    }
+    if (part.startsWith("`") && part.endsWith("`")) {
+      return <code key={i} className="px-1.5 py-0.5 rounded bg-muted text-xs font-mono text-foreground/80">{part.slice(1, -1)}</code>;
+    }
+    return <span key={i}>{part}</span>;
+  });
+}
+
+const TIP_STYLES: Record<TipType, { icon: React.ElementType; label: string; border: string; bg: string; iconColor: string; labelColor: string }> = {
+  pro:          { icon: Lightbulb,      label: "Pro Tip",       border: "border-amber-400/50",  bg: "bg-amber-50/60 dark:bg-amber-950/20",  iconColor: "text-amber-500",  labelColor: "text-amber-700 dark:text-amber-400" },
+  "did-you-know": { icon: Info,         label: "Did You Know?", border: "border-blue-400/50",   bg: "bg-blue-50/60 dark:bg-blue-950/20",    iconColor: "text-blue-500",   labelColor: "text-blue-700 dark:text-blue-400" },
+  champions:    { icon: Trophy,         label: "Champions Tip", border: "border-violet-400/50", bg: "bg-violet-50/60 dark:bg-violet-950/20", iconColor: "text-violet-500", labelColor: "text-violet-700 dark:text-violet-400" },
+  warning:      { icon: AlertTriangle,  label: "Watch Out!",    border: "border-rose-400/50",   bg: "bg-rose-50/60 dark:bg-rose-950/20",    iconColor: "text-rose-500",   labelColor: "text-rose-700 dark:text-rose-400" },
+};
+
+function TipCallout({ type, text }: { type: TipType; text: string }) {
+  const style = TIP_STYLES[type];
+  const Icon = style.icon;
+  return (
+    <div className={cn("flex gap-3 rounded-xl border px-4 py-3 mt-2", style.border, style.bg)}>
+      <Icon className={cn("w-5 h-5 shrink-0 mt-0.5", style.iconColor)} />
+      <div>
+        <span className={cn("text-xs font-bold uppercase tracking-wide", style.labelColor)}>{style.label}</span>
+        <p className="text-sm text-muted-foreground leading-relaxed mt-0.5">{renderRichText(text)}</p>
+      </div>
+    </div>
+  );
+}
 
 /* ─────────────── Section data ─────────────── */
+
+type TipType = "pro" | "did-you-know" | "champions" | "warning";
+
+interface ContentBlock {
+  text: string;               // supports **bold** and `code`
+  tip?: { type: TipType; text: string };
+}
+
 interface Section {
   id: string;
   title: string;
   icon: React.ElementType;
   color: string;
-  subsections: { title: string; content: string[] }[];
+  subsections: { title: string; content: ContentBlock[] }[];
 }
 
 const SECTIONS: Section[] = [
@@ -28,25 +74,25 @@ const SECTIONS: Section[] = [
       {
         title: "Video Game Championships",
         content: [
-          "VGC (Video Game Championships) is the official competitive Pokémon format run by The Pokémon Company International. It uses Double Battles — each player selects 4 of their 6 Pokémon to bring to each game.",
-          "Matches are played on the actual Pokémon video games (currently Pokémon Scarlet & Violet / Champions). Players build teams of 6, following the current ruleset, and battle in a best-of-3 format at major tournaments.",
-          "VGC has a thriving global competitive scene with Regional Championships, International Championships, and the World Championships held annually. Players earn Championship Points (CP) to qualify for Worlds.",
+          { text: "**VGC (Video Game Championships)** is the official competitive Pokémon format run by **The Pokémon Company International**. It uses **Double Battles** — each player selects 4 of their 6 Pokémon to bring to each game." },
+          { text: "Matches are played on the actual Pokémon video games (currently **Pokémon Scarlet & Violet / Champions**). Players build teams of 6, following the current ruleset, and battle in a **best-of-3** format at major tournaments." },
+          { text: "VGC has a thriving global competitive scene with **Regional Championships**, **International Championships**, and the **World Championships** held annually. Players earn **Championship Points (CP)** to qualify for Worlds.", tip: { type: "did-you-know", text: "The VGC World Championships have been running since 2009. The prize pool has grown every year, and top players can earn scholarships and cash prizes!" } },
         ],
       },
       {
         title: "Double Battles vs Singles",
         content: [
-          "Unlike Smogon Singles (6v6, one Pokémon out at a time), VGC is a Doubles format — two Pokémon on each side of the field at all times. This fundamentally changes strategy.",
-          "In Doubles, you can target either opponent's Pokémon, use moves that hit multiple targets (Spread moves like Earthquake, Heat Wave), and support your partner with moves like Follow Me, Helping Hand, or Tailwind.",
-          "Positioning, turn order, and reading your opponent's plays become even more critical when you have 4 Pokémon interacting simultaneously.",
+          { text: "Unlike Smogon Singles (6v6, one Pokémon out at a time), VGC is a **Doubles format** — two Pokémon on each side of the field at all times. This **fundamentally changes strategy**." },
+          { text: "In Doubles, you can target **either** opponent's Pokémon, use moves that hit multiple targets (**Spread moves** like Earthquake, Heat Wave), and **support your partner** with moves like Follow Me, Helping Hand, or Tailwind." },
+          { text: "**Positioning**, **turn order**, and **reading your opponent's plays** become even more critical when you have 4 Pokémon interacting simultaneously.", tip: { type: "pro", text: "Doubles is fundamentally about interactions between 4 Pokémon on the field. Think of it as a 2v2 chess match — your partner's position matters just as much as your own." } },
         ],
       },
       {
         title: "Team Preview & Bring 4",
         content: [
-          "Before each game begins, both players see all 6 Pokémon on each team (Team Preview). You then choose which 4 to bring to the battle.",
-          "This 'Bring 4' mechanic is crucial — you don't always bring the same 4 Pokémon. Depending on your opponent's team, you'll adjust your selection to give yourself the best matchup.",
-          "Building a flexible team that has multiple 'modes' or good Pokémon for different matchups is key to success.",
+          { text: "Before each game begins, both players see all 6 Pokémon on each team (**Team Preview**). You then choose which **4 to bring** to the battle." },
+          { text: "This **'Bring 4'** mechanic is crucial — you don't always bring the same 4 Pokémon. Depending on your opponent's team, you'll adjust your selection to give yourself the **best matchup**.", tip: { type: "champions", text: "In Champions, Team Preview shows each Pokémon's sprite, types, and tier badge. Use this to quickly identify the opponent's strategy and plan your Bring 4!" } },
+          { text: "Building a flexible team that has **multiple 'modes'** or good Pokémon for different matchups is key to success." },
         ],
       },
     ],
@@ -60,34 +106,34 @@ const SECTIONS: Section[] = [
       {
         title: "The 6-Pokémon Puzzle",
         content: [
-          "A strong VGC team isn't just 6 individually powerful Pokémon — it's a cohesive unit where each member serves a purpose and covers the weaknesses of others.",
-          "Start by choosing a 'core' — 2-3 Pokémon that work well together. This might be a weather setter + abuser (Kyogre + Ludicolo), a Trick Room pair (Dusclops + Torkoal), or a speed control combo (Whimsicott + strong attacker).",
-          "Then fill the remaining slots with Pokémon that handle threats your core is weak to, provide alternative win conditions, and give you flexibility in Team Preview.",
+          { text: "A strong VGC team isn't just 6 individually powerful Pokémon — it's a **cohesive unit** where each member serves a purpose and covers the weaknesses of others." },
+          { text: "Start by choosing a **'core'** — 2-3 Pokémon that work well together. This might be a weather setter + abuser (`Torkoal + Venusaur`), a Trick Room pair (`Hatterene + Torkoal`), or a speed control combo (`Whimsicott + Kingambit`).", tip: { type: "champions", text: "Check the META page's Best Cores section — our 1M battle simulation shows which pairs have the highest win rates. Gliscor + Archaludon currently dominates at 71%!" } },
+          { text: "Then fill the remaining slots with Pokémon that **handle threats** your core is weak to, provide **alternative win conditions**, and give you **flexibility** in Team Preview." },
         ],
       },
       {
         title: "Roles to Cover",
         content: [
-          "Speed Control: Tailwind setters (Tornadus, Whimsicott), Trick Room setters (Dusclops, Porygon2), Icy Wind/Electroweb users. Controlling who moves first wins games.",
-          "Offensive Threats: You need Pokémon that can deal significant damage. Mix physical and special attackers so you can't be walled by a single defensive stat.",
-          "Support & Redirection: Pokémon like Amoonguss (Rage Powder), Indeedee (Follow Me), or Grimmsnarl (screens, Thunder Wave) protect your key threats.",
-          "Defensive Backbone: At least one bulky Pokémon that can take hits and provide utility — Intimidate users, Will-o-Wisp spreaders, or tanky redirectors.",
+          { text: "**Speed Control:** Tailwind setters (`Whimsicott`, `Talonflame`), Trick Room setters (`Hatterene`, `Oranguru`), Icy Wind/Electroweb users. **Controlling who moves first wins games.**" },
+          { text: "**Offensive Threats:** You need Pokémon that can deal significant damage. **Mix physical and special attackers** so you can't be walled by a single defensive stat." },
+          { text: "**Support & Redirection:** Pokémon like `Amoonguss` (Rage Powder), `Indeedee` (Follow Me), or `Sableye` (Prankster Will-O-Wisp, Quash) protect your key threats.", tip: { type: "pro", text: "Every great team has at least one 'glue' Pokémon — a support that doesn't sweep itself but enables everything else. Incineroar with Fake Out + Intimidate is the GOAT of this role." } },
+          { text: "**Defensive Backbone:** At least one bulky Pokémon that can take hits and provide utility — **Intimidate** users, **Will-o-Wisp** spreaders, or tanky redirectors." },
         ],
       },
       {
         title: "Type Synergy & Coverage",
         content: [
-          "Ensure your team isn't overly weak to any one type. If 3+ Pokémon share a weakness (e.g., all weak to Ground), a single Earthquake can devastate you.",
-          "Check that your team can hit every type for at least neutral damage. The Champions Lab team builder's coverage chart helps visualize this.",
-          "Consider immunities and resistances. A Flying-type or Levitate Pokémon is great alongside an Earthquake user. A Steel-type resists many common attack types.",
+          { text: "Ensure your team **isn't overly weak** to any one type. If 3+ Pokémon share a weakness (e.g., all weak to Ground), a single `Earthquake` can devastate you.", tip: { type: "warning", text: "Common trap: loading up on Steel-types because they're individually strong. Your team will crumble to a single Earthquake or Heat Wave from a Fire-type." } },
+          { text: "Check that your team can hit **every type** for at least neutral damage. The **Champions Lab team builder** coverage chart helps visualize this." },
+          { text: "Consider **immunities** and **resistances**. A **Flying-type** or **Levitate** Pokémon is great alongside an Earthquake user. A **Steel-type** resists 10 types!" },
         ],
       },
       {
-        title: "Speed Tiers",
+        title: "Stat Points (SP) in Champions",
         content: [
-          "Speed determines turn order. Know the key speed benchmarks: common Tailwind setters, max speed threats, and Trick Room slow Pokémon.",
-          "EV your Pokémon to outspeed specific threats or survive specific attacks. Don't just dump max Speed/max Attack unless there's a reason.",
-          "Consider speed control interactions: under Tailwind, under Trick Room, after an Icy Wind, after a Choice Scarf boost, or with abilities like Swift Swim / Chlorophyll.",
+          { text: "In Champions, the traditional **EV/IV** system is replaced by **Stat Points (SP)** — a simpler, more strategic allocation system.", tip: { type: "champions", text: "Each Pokémon gets 66 total Stat Points to distribute, with a maximum of 32 in any single stat. This means every point matters — no wasted EVs!" } },
+          { text: "**Common spreads:** `32/32/2/0/0/0` (max two stats + a little extra), `32/0/2/32/0/0` (offensive + bulk), `32/0/32/0/0/2` (pure tank). The 2 leftover points are your 'tech' investment." },
+          { text: "**Speed tiers** are especially important with SP. Know whether you need `32 Speed` to outrun key threats, or if you can invest those points elsewhere for bulk.", tip: { type: "pro", text: "A common mistake is always maxing Speed. Many Pokémon like Kingambit, Snorlax, and Torkoal don't need Speed at all — invest in HP and Attack/SpA instead for maximum impact." } },
         ],
       },
     ],
@@ -101,27 +147,27 @@ const SECTIONS: Section[] = [
       {
         title: "The 18 Types",
         content: [
-          "There are 18 types in Pokémon, each with its own offensive and defensive interactions. Mastering type matchups is the foundation of competitive play.",
-          "Key offensive types: Fairy (hits Dragon, Dark, Fighting for SE), Ground (hits 5 types SE, only resisted by Bug, Grass), Ice (hits Dragon, Ground, Flying, Grass SE).",
-          "Key defensive types: Steel (resists 10 types!), Fairy (immune to Dragon, resists Fighting, Bug, Dark), Water (resists 4 types).",
+          { text: "There are **18 types** in Pokémon, each with its own offensive and defensive interactions. **Mastering type matchups** is the foundation of competitive play." },
+          { text: "**Key offensive types:** Fairy (hits Dragon, Dark, Fighting), Ground (hits **5 types** SE, only resisted by Bug, Grass), Ice (hits Dragon, Ground, Flying, Grass)." },
+          { text: "**Key defensive types:** Steel (**resists 10 types!**), Fairy (immune to Dragon, resists Fighting, Bug, Dark), Water (resists 4 types).", tip: { type: "did-you-know", text: "Steel-type is so defensively dominant that 49 of the 159 Pokémon in the Champions roster can learn a Steel-type move to deal with it. Always have a plan for Steel!" } },
         ],
       },
       {
         title: "Common Offensive Combinations",
         content: [
-          "Ice + Ground: Only resisted by a handful of Pokémon (Surskit line, Shedinja). Incredible neutral coverage.",
-          "Fairy + Fire: Fairy handles Dragon/Dark/Fighting, Fire handles Steel/Bug/Grass — hitting almost everything neutrally.",
-          "Ghost + Fighting: Ghost is immune to Normal and Fighting, Fighting is super effective against Normal and Steel. Together they hit everything for at least neutral except Normal/Ghost types.",
-          "Water + Grass: Water hits Fire/Ground/Rock, Grass handles Water/Ground/Rock from a different angle. Very solid neutral coverage.",
+          { text: "**Ice + Ground:** Only resisted by a handful of Pokémon (Water/Bug types). Incredible neutral coverage — this is why `Garchomp` with Earthquake + Ice move is so dominant." },
+          { text: "**Fairy + Fire:** Fairy handles Dragon/Dark/Fighting, Fire handles Steel/Bug/Grass — hitting **almost everything** neutrally.", tip: { type: "pro", text: "Mega Gardevoir (Fairy) + Arcanine (Fire) is a classic example of this offensive pairing. Together they can threaten nearly the entire metagame!" } },
+          { text: "**Ghost + Fighting:** Ghost is immune to Normal and Fighting, Fighting is super effective against Normal and Steel. Together they hit everything for at least neutral except Normal/Ghost types." },
+          { text: "**Water + Grass:** Water hits Fire/Ground/Rock, Grass handles Water/Ground/Rock from a different angle. Very solid neutral coverage." },
         ],
       },
       {
         title: "Mega Evolution Strategy",
         content: [
-          "Mega Evolution transforms a Pokémon into a stronger form mid-battle, boosting stats and sometimes changing type or ability.",
-          "Each team can only Mega Evolve one Pokémon per battle — choose wisely which Pokémon benefits most from the power boost.",
-          "Mega Stones take up the held item slot, so Mega Pokémon can't hold other items like Life Orb or Choice Scarf.",
-          "Some Mega Evolutions change abilities on the turn they Mega Evolve (e.g., Mega Kangaskhan gains Parental Bond). Plan your first Mega turn carefully.",
+          { text: "**Mega Evolution** transforms a Pokémon into a **stronger form** mid-battle, boosting stats and sometimes **changing type or ability**.", tip: { type: "champions", text: "Champions features both classic Megas (Garchomp, Kangaskhan, Metagross) AND exclusive new ones (Mega Meganium, Mega Feraligatr, Mega Tatsugiri). Experiment with them in the Team Builder!" } },
+          { text: "Each team can only **Mega Evolve one Pokémon** per battle — choose wisely which Pokémon benefits most from the power boost." },
+          { text: "**Mega Stones** take up the held item slot, so Mega Pokémon can't hold other items like Life Orb or Choice Scarf." },
+          { text: "Some Mega Evolutions **change abilities** on the turn they Mega Evolve (e.g., `Mega Kangaskhan` gains **Parental Bond**). Plan your first Mega turn carefully.", tip: { type: "warning", text: "If your Mega uses Intimidate in base form (like Gyarados), Mega Evolving removes Intimidate. Sometimes it's better NOT to Mega on turn 1 if you need that Intimidate cycle!" } },
         ],
       },
     ],
@@ -135,44 +181,44 @@ const SECTIONS: Section[] = [
       {
         title: "Tailwind Teams",
         content: [
-          "Tailwind doubles your team's Speed for 4 turns. It's the most common speed control in VGC, used by Pokémon like Tornadus, Whimsicott, Suicune, and Talonflame.",
-          "Strategy: Lead with your Tailwind setter + a strong attacker. Set Tailwind turn 1, then sweep with your faster Pokémon in the following turns.",
-          "Counter-play: Fake Out the Tailwind setter, use your own speed control (opposing Tailwind or Trick Room), or use priority moves to bypass the speed boost.",
+          { text: "**Tailwind** doubles your team's Speed for **4 turns**. It's the most common speed control in VGC, used by Pokémon like `Whimsicott`, `Talonflame`, `Pelipper`, and `Tornadus`." },
+          { text: "**Strategy:** Lead with your Tailwind setter + a strong attacker. Set Tailwind **turn 1**, then sweep with your faster Pokémon in the following turns.", tip: { type: "pro", text: "Whimsicott is the best Tailwind setter because of Prankster — it gives Tailwind +1 priority, meaning it almost always goes first. Pair it with Kingambit for devastating double attacks." } },
+          { text: "**Counter-play:** Fake Out the Tailwind setter, use your own speed control (opposing Tailwind or Trick Room), or use **priority moves** to bypass the speed boost." },
         ],
       },
       {
         title: "Trick Room Teams",
         content: [
-          "Trick Room reverses the speed order for 5 turns — the slowest Pokémon move first. This enables extremely powerful but slow Pokémon like Torkoal, Dusclops, and Glastrier.",
-          "Strategy: Protect your Trick Room setter (often by pairing with Follow Me/Rage Powder support), set Trick Room, then unleash powerful slow attackers.",
-          "Building: Your Trick Room sweepers should have very low Speed IVs (0 IV) and no Speed investment. Every point of Speed you can drop matters.",
-          "Counter-play: Knock out or Taunt the setter, use Imprison with Trick Room on your own Pokémon, or bring fast Pokémon that can threaten the setter before it moves.",
+          { text: "**Trick Room** reverses the speed order for **5 turns** — the **slowest Pokémon move first**. This enables extremely powerful but slow Pokémon like `Torkoal`, `Snorlax`, and `Hatterene`.", tip: { type: "champions", text: "Our 1M simulation shows Slowbro Trick Room is the #1 archetype with a 65.6% win rate! Slowbro's incredible bulk makes it nearly impossible to stop from setting up." } },
+          { text: "**Strategy:** Protect your Trick Room setter (often by pairing with **Follow Me/Rage Powder** support), set Trick Room, then unleash powerful slow attackers." },
+          { text: "**Building:** Your Trick Room sweepers should have **minimum Speed** — in Champions, that means `0 SP in Speed`. Every point of Speed you drop matters under Trick Room." },
+          { text: "**Counter-play:** Knock out or `Taunt` the setter, use Imprison with Trick Room on your own Pokémon, or bring fast Pokémon that can threaten the setter before it moves." },
         ],
       },
       {
         title: "Weather Teams",
         content: [
-          "Weather (Sun, Rain, Sand, Snow) boosts certain types and enables abilities like Swift Swim, Chlorophyll, Sand Rush, and Slush Rush.",
-          "Sun: Set by Drought (Torkoal, Groudon). Powers up Fire moves, weakens Water. Enables Chlorophyll. Pairs with powerful Fire-types and Solar Beam users.",
-          "Rain: Set by Drizzle (Pelipper, Kyogre). Powers up Water, weakens Fire. Enables Swift Swim. Rain teams apply pressure with boosted spread Water moves.",
-          "Sand: Set by Sand Stream (Tyranitar, Hippowdon). Grants SpD boost to Rock-types, deals chip damage. Enables Sand Rush sweepers like Excadrill.",
+          { text: "**Weather** (Sun, Rain, Sand, Snow) boosts certain types and enables abilities like **Swift Swim**, **Chlorophyll**, **Sand Rush**, and **Slush Rush**." },
+          { text: "**☀️ Sun:** Set by `Drought` (`Torkoal`). Powers up Fire moves, weakens Water. Enables Chlorophyll speed. Pairs with powerful Fire-types and **Solar Beam** users." },
+          { text: "**🌧️ Rain:** Set by `Drizzle` (`Pelipper`). Powers up Water, weakens Fire. Enables Swift Swim. Rain teams apply pressure with boosted **spread Water moves**.", tip: { type: "did-you-know", text: "Pelipper + Swift Swim Kingdra was one of the most iconic VGC cores of all time. In Champions, Pelipper + Azumarill or Primarina fills a similar role!" } },
+          { text: "**🏜️ Sand:** Set by `Sand Stream` (`Tyranitar`, `Hippowdon`). Grants **SpD boost** to Rock-types, deals chip damage. Enables Sand Rush sweepers like `Excadrill`." },
         ],
       },
       {
         title: "Goodstuff / Balance",
         content: [
-          "'Goodstuff' means building a team of individually strong Pokémon that don't rely on a specific archetype. The goal is flexibility and consistency.",
-          "These teams excel in Team Preview because they have answers to everything — they don't auto-lose to any matchup.",
-          "Include a mix of speed control options, offensive pressure, and defensive utility. Intimidate, redirection, and priority moves are staples.",
-          "Goodstuff teams reward strong in-game play and adaptation. You need to outplay your opponent rather than relying on a single setup.",
+          { text: "**'Goodstuff'** means building a team of individually strong Pokémon that don't rely on a specific archetype. The goal is **flexibility and consistency**." },
+          { text: "These teams excel in **Team Preview** because they have answers to everything — they don't auto-lose to any matchup.", tip: { type: "champions", text: "Balance is the #2 archetype in our simulation at 54.4% WR. It's the most beginner-friendly strategy because it doesn't require perfect execution of a single game plan." } },
+          { text: "Include a mix of **speed control options**, **offensive pressure**, and **defensive utility**. `Intimidate`, redirection, and priority moves are staples." },
+          { text: "Goodstuff teams reward **strong in-game play** and adaptation. You need to **outplay your opponent** rather than relying on a single setup." },
         ],
       },
       {
         title: "Hyper Offense",
         content: [
-          "Hyper Offense prioritizes dealing maximum damage as quickly as possible. The philosophy: 'If I KO their Pokémon fast enough, they can't fight back.'",
-          "Typically includes strong Tailwind or Choice Scarf users, powerful spread moves (Heat Wave, Rock Slide, Dazzling Gleam), and Helping Hand support.",
-          "Risk: If you don't get early KOs, you may lack the defensive tools to recover. HO teams live and die by their early momentum.",
+          { text: "**Hyper Offense** prioritizes dealing **maximum damage** as quickly as possible. The philosophy: *'If I KO their Pokémon fast enough, they can't fight back.'*" },
+          { text: "Typically includes strong **Tailwind** or **Choice Scarf** users, powerful spread moves (`Heat Wave`, `Rock Slide`, `Dazzling Gleam`), and **Helping Hand** support." },
+          { text: "**Risk:** If you don't get early KOs, you may lack the defensive tools to recover. HO teams **live and die** by their early momentum.", tip: { type: "warning", text: "Hyper Offense is a double-edged sword. If your opponent reads your turn 1 play and Protects correctly, you can fall behind immediately. Always have a Plan B lead." } },
         ],
       },
     ],
@@ -186,33 +232,33 @@ const SECTIONS: Section[] = [
       {
         title: "Lead Selection",
         content: [
-          "Choosing the right lead (your first 2 Pokémon) is critical. You want to establish an advantage or set up your win condition early.",
-          "Consider: Do I need speed control? Can I threaten their likely leads? Do I need to protect a key Pokémon with redirection?",
-          "Have a default lead for your team, but be flexible. Adjust based on your opponent's team during Team Preview.",
+          { text: "Choosing the right **lead** (your first 2 Pokémon) is critical. You want to **establish an advantage** or set up your win condition early." },
+          { text: "Consider: Do I need speed control? Can I **threaten their likely leads**? Do I need to protect a key Pokémon with redirection?" },
+          { text: "Have a **default lead** for your team, but be flexible. Adjust based on your opponent's team during **Team Preview**.", tip: { type: "pro", text: "Write down your default leads and your 'anti-Trick Room' leads before a tournament. Having a plan ready means faster, more confident decisions under pressure." } },
         ],
       },
       {
         title: "Protect & Predictions",
         content: [
-          "Protect is the most important move in VGC. It blocks all moves for one turn (with some exceptions like Feint). Almost every Pokémon should run Protect.",
-          "Use Protect to: scout your opponent's moves, stall out Trick Room/Tailwind turns, ensure a safe switch, block a predicted double-target.",
-          "Predicting your opponent's Protect is key to gaining advantage. If you think they'll Protect, use a setup move, switch, or target their partner.",
+          { text: "`Protect` is the **most important move in VGC**. It blocks all moves for one turn (with some exceptions like `Feint`). Almost every Pokémon should run Protect." },
+          { text: "**Use Protect to:** scout your opponent's moves, stall out Trick Room/Tailwind turns, ensure a safe switch, block a predicted **double-target**.", tip: { type: "did-you-know", text: "At the 2023 World Championships, the winning player used Protect on 5 of their 6 Pokémon. The only one without it was a Choice-locked attacker. Protect really IS that important!" } },
+          { text: "**Predicting your opponent's Protect** is key to gaining advantage. If you think they'll Protect, use a **setup move**, switch, or target their partner." },
         ],
       },
       {
         title: "Switching & Positioning",
         content: [
-          "Switching in Doubles is riskier than Singles — you're still vulnerable on the other slot. But smart switches win games.",
-          "Switch to bring in a Pokémon with a type advantage, to activate Intimidate, or to position for a better endgame.",
-          "Think about your 'back 2' — the Pokémon you didn't lead with. Plan how and when they come in. Save them for the right moment.",
+          { text: "Switching in Doubles is **riskier** than Singles — you're still vulnerable on the other slot. But **smart switches win games**." },
+          { text: "Switch to bring in a Pokémon with a **type advantage**, to activate **Intimidate**, or to position for a better **endgame**.", tip: { type: "pro", text: "The 'Intimidate cycle' is a powerful technique — switching Incineroar/Arcanine in and out to repeatedly lower the opponent's Attack. Pokémon with Intimidate are always in demand!" } },
+          { text: "Think about your **'back 2'** — the Pokémon you didn't lead with. Plan **how and when** they come in. Save them for the right moment." },
         ],
       },
       {
         title: "Endgame & Win Conditions",
         content: [
-          "VGC games are often decided in the last 2-3 turns. Identify your win condition early: which of your Pokémon can close out the game?",
-          "Common endgame scenarios: a fast sweeper cleaning up weakened Pokémon, a bulky Pokémon stalling out the timer, Trick Room sweeping with 2-3 slow hitters.",
-          "Preserve your win condition throughout the game. Don't sacrifice your endgame sweeper for chip damage early on.",
+          { text: "VGC games are often decided in the **last 2-3 turns**. Identify your **win condition** early: which of your Pokémon can close out the game?" },
+          { text: "**Common endgame scenarios:** a fast sweeper cleaning up weakened Pokémon, a bulky Pokémon stalling out the timer, Trick Room sweeping with 2-3 slow hitters." },
+          { text: "**Preserve your win condition** throughout the game. Don't sacrifice your endgame sweeper for chip damage early on.", tip: { type: "warning", text: "One of the biggest beginner mistakes: trading your best Pokémon early for a KO on something that doesn't matter. Always think 'who closes this game out?' and keep them healthy." } },
         ],
       },
     ],
@@ -226,31 +272,31 @@ const SECTIONS: Section[] = [
       {
         title: "Must-Know Moves",
         content: [
-          "Protect: Blocks all attacks for 1 turn. The most important move in VGC — run it on nearly everything.",
-          "Fake Out: Priority +3 flinch move (first turn only). Disrupts setup, guarantees chip damage. Used by Incineroar, Rillaboom, Mienshao.",
-          "Follow Me / Rage Powder: Redirects single-target moves to the user. Lets your key Pokémon set up or attack safely.",
-          "Tailwind: Doubles your team's Speed for 4 turns. The primary speed control move in most formats.",
-          "Trick Room: Reverses speed order for 5 turns. Enables slow powerhouses to dominate.",
-          "Helping Hand: Boosts your partner's attack by 50% that turn. Free damage amplifier with no drawbacks.",
+          { text: "**`Protect`** — Blocks all attacks for 1 turn. The most important move in VGC — run it on **nearly everything**." },
+          { text: "**`Fake Out`** — Priority +3 flinch move (first turn only). Disrupts setup, guarantees chip damage. Used by `Incineroar`, `Lopunny`, `Mienshao`." },
+          { text: "**`Follow Me` / `Rage Powder`** — Redirects single-target moves to the user. Lets your key Pokémon set up or attack safely." },
+          { text: "**`Tailwind`** — Doubles your team's Speed for 4 turns. The primary speed control move in most formats." },
+          { text: "**`Trick Room`** — Reverses speed order for 5 turns. Enables slow powerhouses to dominate." },
+          { text: "**`Helping Hand`** — Boosts your partner's attack by **50%** that turn. Free damage amplifier with no drawbacks.", tip: { type: "pro", text: "Helping Hand is one of the most underrated moves in VGC. That +50% can turn a 2HKO into an OHKO, completely swinging the game in your favor. It also has +5 priority!" } },
         ],
       },
       {
         title: "Key Held Items",
         content: [
-          "Focus Sash: Survive any one attack with 1 HP. Essential on frail setup Pokémon and Trick Room setters.",
-          "Choice Scarf: Boosts Speed by 50% but locks you into one move. Enables Pokémon to outspeed threats they normally can't.",
-          "Assault Vest: Boosts SpD by 50% but prevents status moves. Great on bulky offensive Pokémon.",
-          "Life Orb: Boosts damage by 30% at the cost of 10% HP per attack. For Pokémon that need power without being Choice-locked.",
-          "Sitrus Berry: Restores 25% HP when below 50%. Reliable longevity for bulky Pokémon and support.",
-          "Safety Goggles: Immunity to weather damage and powder moves (Spore, Sleep Powder). Key counter to Amoonguss.",
+          { text: "**Focus Sash** — Survive any one attack with 1 HP. Essential on frail setup Pokémon and Trick Room setters." },
+          { text: "**Choice Scarf** — Boosts Speed by **50%** but locks you into one move. Enables Pokémon to outspeed threats they normally can't." },
+          { text: "**Assault Vest** — Boosts SpD by **50%** but prevents status moves. Great on bulky offensive Pokémon like `Kingambit` and `Goodra`.", tip: { type: "did-you-know", text: "Assault Vest Kingambit is one of the most popular sets in the current Champions meta. It lets Kingambit survive special attacks it normally couldn't, turning it into an unstoppable tank." } },
+          { text: "**Life Orb** — Boosts damage by **30%** at the cost of 10% HP per attack. For Pokémon that need power without being Choice-locked." },
+          { text: "**Sitrus Berry** — Restores **25% HP** when below 50%. Reliable longevity for bulky Pokémon and support." },
+          { text: "**Safety Goggles** — Immunity to weather damage and powder moves (`Spore`, `Sleep Powder`). Key counter to Amoonguss." },
         ],
       },
       {
         title: "Spread Moves",
         content: [
-          "Spread moves hit both opponents (and sometimes your partner). In Doubles, a move that hits 2 Pokémon deals 75% of its normal damage to each.",
-          "Top spread moves: Earthquake (Ground, physical, hits both foes AND your partner), Heat Wave (Fire, special, both foes), Rock Slide (Rock, physical, both foes, flinch chance), Dazzling Gleam (Fairy, special, both foes).",
-          "Be careful with ally-hitting spread moves like Earthquake and Surf — make sure your partner resists, is immune, or has a Wide Guard user nearby.",
+          { text: "**Spread moves** hit both opponents (and sometimes your partner). In Doubles, a move hitting 2 Pokémon deals **75% of its normal damage** to each." },
+          { text: "**Top spread moves:** `Earthquake` (Ground, physical, hits foes AND partner), `Heat Wave` (Fire, special, foes only), `Rock Slide` (Rock, physical, foes only, **flinch chance**), `Dazzling Gleam` (Fairy, special, foes only).", tip: { type: "champions", text: "Our simulation shows Body Slam (59.3% WR), High Horsepower (59.3% WR), and Beat Up (58.9% WR) as the highest win-rate moves. Check the META page for the full move rankings!" } },
+          { text: "Be careful with **ally-hitting moves** like `Earthquake` and `Surf` — make sure your partner resists, is immune, or has a **Wide Guard** user nearby." },
         ],
       },
     ],
@@ -264,34 +310,34 @@ const SECTIONS: Section[] = [
       {
         title: "Reading the Metagame",
         content: [
-          "The 'meta' is the current popular strategies, Pokémon, and team structures being used. It constantly evolves as players innovate and counter each other.",
-          "Check tournament results on VictoryRoadVGC, Champions Lab's META page, and community resources. Know what's popular so you can prepare for it.",
-          "Don't just copy top teams — understand WHY they work. What matchups do they beat? What's their game plan? What are their weaknesses?",
+          { text: "The **'meta'** is the current popular strategies, Pokémon, and team structures being used. It **constantly evolves** as players innovate and counter each other." },
+          { text: "Check tournament results on VictoryRoadVGC, **Champions Lab's META page**, and community resources. Know what's popular so you can **prepare for it**.", tip: { type: "champions", text: "Our META page is powered by a 1M battle simulation that ranks every Pokémon, move, core pair, and archetype. Use it to spot trends before your opponents do!" } },
+          { text: "Don't just copy top teams — understand **WHY** they work. What matchups do they beat? What's their game plan? What are their weaknesses?" },
         ],
       },
       {
         title: "Practice & Ladder",
         content: [
-          "Play on Pokémon Showdown (online battle simulator) to test your team before taking it to a tournament. Aim for a high ladder rating to validate your team.",
-          "Track your games: note what you lose to, which leads feel bad, and which Pokémon you rarely bring. This data helps you refine your team.",
-          "Practice specific matchups against friends or in tournament practice groups. Bo3 (Best of 3) practice is essential for tournament readiness.",
+          { text: "Play on **Pokémon Showdown** (online battle simulator) to test your team before taking it to a tournament. Aim for a high ladder rating to validate your team." },
+          { text: "**Track your games:** note what you lose to, which leads feel bad, and which Pokémon you rarely bring. This data helps you **refine** your team.", tip: { type: "pro", text: "Keep a simple spreadsheet: opponent's team, your leads, win/loss, notes. After 20+ games, clear patterns emerge about what your team struggles against." } },
+          { text: "Practice **specific matchups** against friends or in tournament practice groups. **Bo3** (Best of 3) practice is essential for tournament readiness." },
         ],
       },
       {
         title: "Mental Game",
         content: [
-          "VGC tournaments are long — Regionals can be 7-9 rounds. Mental stamina matters as much as team strength.",
-          "Stay hydrated, eat well, and take breaks between rounds. A clear mind makes better decisions under pressure.",
-          "Don't tilt after a loss. Every top player loses games. Focus on the next round and what you can control.",
-          "Review your games between rounds if possible. Did you misplay, or did you get unlucky? Knowing the difference prevents repeat mistakes.",
+          { text: "VGC tournaments are long — Regionals can be **7-9 rounds**. **Mental stamina** matters as much as team strength." },
+          { text: "Stay **hydrated**, eat well, and take breaks between rounds. A clear mind makes better decisions under pressure." },
+          { text: "**Don't tilt** after a loss. Every top player loses games. Focus on the next round and what you can control.", tip: { type: "did-you-know", text: "Wolfe Glick, 2016 World Champion, went 6-3 at multiple Regionals before winning Worlds. Consistency and mental resilience beat any individual result." } },
+          { text: "Review your games between rounds if possible. Did you **misplay**, or did you get **unlucky**? Knowing the difference prevents repeat mistakes." },
         ],
       },
       {
         title: "Championship Points & Qualification",
         content: [
-          "Earn Championship Points (CP) by placing well at sanctioned tournaments: local events, Regionals, Internationals, and Special Events.",
-          "You need a certain CP threshold to qualify for the World Championships. The threshold varies by region and season.",
-          "The road to Worlds is a marathon, not a sprint. Consistent top placements across multiple events matter more than one lucky win.",
+          { text: "Earn **Championship Points (CP)** by placing well at sanctioned tournaments: local events, Regionals, Internationals, and Special Events." },
+          { text: "You need a certain **CP threshold** to qualify for the **World Championships**. The threshold varies by region and season." },
+          { text: "The road to Worlds is a **marathon, not a sprint**. Consistent top placements across multiple events matter more than one lucky win.", tip: { type: "pro", text: "Focus on making Day 2 consistently rather than winning the whole event. A string of Top 16 finishes earns more CP than one lucky Top 4." } },
         ],
       },
     ],
@@ -305,33 +351,33 @@ const SECTIONS: Section[] = [
       {
         title: "Damage Calculation",
         content: [
-          "Knowing how much damage your attacks deal is crucial. Use a damage calculator (like the one built into Champions Lab's engine) to check benchmarks.",
-          "'Benchmarks' are key calculations: Can my Pokémon OHKO (one-hit KO) a common threat? Can it survive a specific attack? These benchmarks inform your EV spread.",
-          "EV spreads aren't just max Attack/max Speed. The best players 'creep' — adding just enough bulk to survive key attacks while maintaining offensive power.",
+          { text: "Knowing **how much damage** your attacks deal is crucial. Use a damage calculator (like the one built into **Champions Lab's engine**) to check benchmarks." },
+          { text: "**'Benchmarks'** are key calculations: Can my Pokémon **OHKO** a common threat? Can it **survive** a specific attack? These benchmarks inform your SP spread.", tip: { type: "champions", text: "Use our Battle Bot to test specific matchups. It uses the full damage formula including spread reduction, weather, abilities, and items to give you accurate results." } },
+          { text: "SP spreads aren't just `32 Atk / 32 Spe`. The best players **'creep'** — adding just enough bulk to survive key attacks while maintaining offensive power." },
         ],
       },
       {
         title: "Speed Control Stacking",
         content: [
-          "Some teams run multiple forms of speed control. For example, Tailwind + Icy Wind, or Trick Room + Thunder Wave.",
-          "This flexibility lets you adapt mid-game. If your first speed control is blocked, you have a backup.",
-          "Advanced technique: 'Trick Room toggle' teams can play at fast or slow speed, choosing based on the matchup.",
+          { text: "Some teams run **multiple forms** of speed control. For example, `Tailwind + Icy Wind`, or `Trick Room + Thunder Wave`." },
+          { text: "This flexibility lets you **adapt mid-game**. If your first speed control is blocked, you have a backup." },
+          { text: "**Advanced technique:** 'Trick Room toggle' teams can play at **fast or slow speed**, choosing based on the matchup.", tip: { type: "pro", text: "The most flexible teams can win under Tailwind AND under Trick Room. Having Snorlax (slow) and Garchomp (fast) on the same team gives you both modes." } },
         ],
       },
       {
         title: "Slot Conditioning",
         content: [
-          "Your opponent makes predictions based on what they expect you to do. 'Conditioning' means setting up patterns, then breaking them.",
-          "Example: Protect with Pokémon A for two turns, conditioning your opponent to ignore it. On turn 3, attack with Pokémon A when they don't expect it.",
-          "At the highest level, VGC is a game of reads and counter-reads. The best players are unpredictable and adapt to their opponent's tendencies.",
+          { text: "Your opponent makes predictions based on what they **expect you to do**. **'Conditioning'** means setting up patterns, then breaking them." },
+          { text: "**Example:** Protect with Pokémon A for two turns, conditioning your opponent to ignore it. On turn 3, **attack** with Pokémon A when they don't expect it." },
+          { text: "At the highest level, VGC is a game of **reads and counter-reads**. The best players are **unpredictable** and adapt to their opponent's tendencies.", tip: { type: "did-you-know", text: "Japanese VGC players are famous for 'hard reads' — making bold predictions like double-targeting into an expected switch. It's risky but devastatingly effective when it works." } },
         ],
       },
       {
         title: "Team Report Analysis",
         content: [
-          "After major tournaments, top players publish 'team reports' — detailed explanations of their team, sets, and strategies.",
-          "Study these reports to understand high-level thinking. Pay attention to EV spreads (what they lived/KO'd), lead choices, and game-plan explanations.",
-          "Champions Lab's META page and Battle Bot let you test and analyze these strategies yourself.",
+          { text: "After major tournaments, top players publish **'team reports'** — detailed explanations of their team, sets, and strategies." },
+          { text: "Study these reports to understand **high-level thinking**. Pay attention to SP spreads (what they survived/KO'd), lead choices, and game-plan explanations.", tip: { type: "pro", text: "When reading a team report, focus on the 'matchup chart' section — it tells you what the player thought about each common team archetype and how they planned to beat it." } },
+          { text: "Champions Lab's **META page** and **Battle Bot** let you test and analyze these strategies yourself." },
         ],
       },
     ],
@@ -554,10 +600,15 @@ export default function LearnPage() {
                                   className="overflow-hidden"
                                 >
                                   <div className="px-4 py-3 ml-8 space-y-3">
-                                    {sub.content.map((paragraph, pi) => (
-                                      <p key={pi} className="text-sm text-muted-foreground leading-relaxed">
-                                        {paragraph}
-                                      </p>
+                                    {sub.content.map((block, pi) => (
+                                      <div key={pi}>
+                                        <p className="text-sm text-muted-foreground leading-relaxed">
+                                          {renderRichText(block.text)}
+                                        </p>
+                                        {block.tip && (
+                                          <TipCallout type={block.tip.type} text={block.tip.text} />
+                                        )}
+                                      </div>
                                     ))}
                                   </div>
                                 </motion.div>
