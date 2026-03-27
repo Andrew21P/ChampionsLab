@@ -148,7 +148,7 @@ export function PokemonDetailModal({ pokemon, onClose }: PokemonDetailModalProps
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 40 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed inset-x-3 top-12 bottom-6 sm:inset-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 z-50 sm:w-full sm:max-w-2xl sm:h-[85vh] flex flex-col rounded-3xl bg-white border border-gray-200/60 shadow-2xl shadow-black/10 overflow-hidden"
+            className="fixed inset-x-0 top-[72px] bottom-0 sm:inset-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 z-50 sm:w-full sm:max-w-2xl sm:h-[85vh] flex flex-col rounded-t-3xl sm:rounded-3xl bg-white border border-gray-200/60 shadow-2xl shadow-black/10 overflow-hidden"
           >
             {/* Close button */}
             <button
@@ -190,7 +190,7 @@ export function PokemonDetailModal({ pokemon, onClose }: PokemonDetailModalProps
                         alt={currentForm?.name || pokemon.name}
                         width={200}
                         height={200}
-                        className="relative z-10 drop-shadow-2xl w-[100px] h-[100px] sm:w-[200px] sm:h-[200px]"
+                        className="relative z-10 drop-shadow-2xl w-[120px] h-[120px] sm:w-[200px] sm:h-[200px]"
                         unoptimized
                         onError={() => setSpriteError(true)}
                       />
