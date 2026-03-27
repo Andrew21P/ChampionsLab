@@ -744,9 +744,11 @@ export default function TeamBuilderPage() {
 
   // Import from Pokepaste format
   const importPokepaste = (text: string) => {
+    const isMegaItem = (item: string) => item.endsWith("ite") || item.endsWith("ite X") || item.endsWith("ite Y") || item.endsWith("ite Z");
     const blocks = text.trim().split(/\n\n+/).filter(Boolean);
     if (blocks.length === 0) { setImportError("No Pokémon found in the paste."); return; }
     const newSlots: TeamSlot[] = [];
+    let teamHasMega = false;
     for (const block of blocks.slice(0, 6)) {
       const lines = block.split("\n").map(l => l.trim()).filter(Boolean);
       if (lines.length === 0) continue;
@@ -764,6 +766,17 @@ export default function TeamBuilderPage() {
       if (parenMatch) pokeName = parenMatch[1].trim();
       // Strip gender suffix
       pokeName = pokeName.replace(/\s*\((?:M|F)\)\s*$/, "").trim();
+      // Handle Showdown mega suffixes: "Charizard-Mega-X" → "Charizard", "Lucario-Mega" → "Lucario"
+      let showdownMegaSuffix: string | null = null;
+      const megaXY = pokeName.match(/^(.+)-Mega-([XY])$/i);
+      const megaPlain = pokeName.match(/^(.+)-Mega$/i);
+      if (megaXY) {
+        pokeName = megaXY[1].trim();
+        showdownMegaSuffix = megaXY[2].toUpperCase();
+      } else if (megaPlain) {
+        pokeName = megaPlain[1].trim();
+        showdownMegaSuffix = "";
+      }
       const pokemon = POKEMON_SEED.find(p => p.name.toLowerCase() === pokeName.toLowerCase());
       if (!pokemon) continue;
       let ability: string | undefined;
@@ -803,6 +816,40 @@ export default function TeamBuilderPage() {
       }
       // Convert Showdown EVs to our stat point system (skip if already native SP)
       const converted = isNativeSP ? sp : evsToStatPoints(sp);
+      // Auto-detect mega from item or Showdown suffix
+      let isMega = false;
+      let megaFormIndex = 0;
+      if (pokemon.hasMega && !teamHasMega) {
+        const megaForms = pokemon.forms?.filter(f => f.isMega) ?? [];
+        if (showdownMegaSuffix !== null) {
+          // Came from Showdown mega name like "Charizard-Mega-X"
+          isMega = true;
+          teamHasMega = true;
+          if (showdownMegaSuffix === "X") megaFormIndex = 0;
+          else if (showdownMegaSuffix === "Y") megaFormIndex = megaForms.length > 1 ? 1 : 0;
+          else megaFormIndex = 0;
+          // Auto-assign mega stone if missing
+          if (!item) {
+            const megaSet = (USAGE_DATA[pokemon.id] ?? []).find(s => isMegaItem(s.item) && s.ability === megaForms[megaFormIndex]?.abilities?.[0]?.name);
+            item = megaSet?.item;
+          }
+          // Auto-assign mega ability if missing
+          if (!ability && megaForms[megaFormIndex]) {
+            ability = megaForms[megaFormIndex].abilities[0]?.name;
+          }
+        } else if (item && isMegaItem(item)) {
+          // Detected mega from item (standard Showdown format)
+          isMega = true;
+          teamHasMega = true;
+          if (ability) {
+            const idx = megaForms.findIndex(f => f.abilities.some(a => a.name === ability));
+            megaFormIndex = idx >= 0 ? idx : 0;
+          } else {
+            megaFormIndex = 0;
+            ability = megaForms[0]?.abilities?.[0]?.name;
+          }
+        }
+      }
       newSlots.push({
         pokemon,
         ability: ability ?? pokemon.abilities[0]?.name,
@@ -810,6 +857,8 @@ export default function TeamBuilderPage() {
         moves: moves.length > 0 ? moves.slice(0, 4) : pokemon.moves.slice(0, 4).map(m => m.name),
         statPoints: converted,
         item,
+        isMega,
+        megaFormIndex,
       });
     }
     if (newSlots.length === 0) { setImportError("Could not match any Pokémon names. Make sure it's in Pokepaste/Showdown format."); return; }
@@ -823,10 +872,22 @@ export default function TeamBuilderPage() {
 
   // Export to Pokepaste format
   const exportPokepaste = () => {
+    const isMegaItem = (item: string) => item.endsWith("ite") || item.endsWith("ite X") || item.endsWith("ite Y") || item.endsWith("ite Z");
     return filledSlots
       .map((s) => {
         const p = s.pokemon!;
-        const nameLine = s.item ? `${p.name} @ ${s.item}` : p.name;
+        // Use Showdown mega naming for mega Pokemon (e.g., Charizard-Mega-Y)
+        let exportName = p.name;
+        if (s.isMega && p.hasMega) {
+          const megaForms = p.forms?.filter(f => f.isMega) ?? [];
+          if (megaForms.length > 1) {
+            // Multi-form mega: Charizard-Mega-X or Charizard-Mega-Y
+            exportName = `${p.name}-Mega-${s.megaFormIndex === 1 ? "Y" : "X"}`;
+          } else if (megaForms.length === 1) {
+            exportName = `${p.name}-Mega`;
+          }
+        }
+        const nameLine = s.item ? `${exportName} @ ${s.item}` : exportName;
         const lines = [nameLine];
         if (s.ability) lines.push(`Ability: ${s.ability}`);
         if (s.nature) lines.push(`${s.nature} Nature`);
