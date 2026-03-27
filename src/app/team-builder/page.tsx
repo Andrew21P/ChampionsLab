@@ -90,6 +90,9 @@ export default function TeamBuilderPage() {
   const [showPokemonPicker, setShowPokemonPicker] = useState(false);
   const [pickerSearch, setPickerSearch] = useState("");
   const [showExport, setShowExport] = useState(false);
+  const [showImport, setShowImport] = useState(false);
+  const [importText, setImportText] = useState("");
+  const [importError, setImportError] = useState("");
   const [selectedPokemonDetail, setSelectedPokemonDetail] = useState<ChampionsPokemon | null>(null);
   const [selectedSlotIndex, setSelectedSlotIndex] = useState<number | null>(null);
   const [savedTeams, setSavedTeams] = useState<SavedTeam[]>([]);
@@ -598,6 +601,78 @@ export default function TeamBuilderPage() {
     offensiveCoverage[defType] = best;
   });
 
+  // Import from Pokepaste format
+  const importPokepaste = (text: string) => {
+    const blocks = text.trim().split(/\n\n+/).filter(Boolean);
+    if (blocks.length === 0) { setImportError("No Pokémon found in the paste."); return; }
+    const newSlots: TeamSlot[] = [];
+    for (const block of blocks.slice(0, 6)) {
+      const lines = block.split("\n").map(l => l.trim()).filter(Boolean);
+      if (lines.length === 0) continue;
+      // First line: "Name @ Item" or just "Name"
+      const firstLine = lines[0];
+      let pokeName = firstLine;
+      let item: string | undefined;
+      if (firstLine.includes(" @ ")) {
+        const parts = firstLine.split(" @ ");
+        pokeName = parts[0].trim();
+        item = parts[1].trim();
+      }
+      // Handle nicknamed Pokémon: "Nickname (Species)"
+      const parenMatch = pokeName.match(/\((.+?)\)/);
+      if (parenMatch) pokeName = parenMatch[1].trim();
+      // Strip gender suffix
+      pokeName = pokeName.replace(/\s*\((?:M|F)\)\s*$/, "").trim();
+      const pokemon = POKEMON_SEED.find(p => p.name.toLowerCase() === pokeName.toLowerCase());
+      if (!pokemon) continue;
+      let ability: string | undefined;
+      let nature: string | undefined;
+      const moves: string[] = [];
+      const sp: StatPoints = { hp: 0, attack: 0, defense: 0, spAtk: 0, spDef: 0, speed: 0 };
+      for (let i = 1; i < lines.length; i++) {
+        const line = lines[i];
+        if (line.startsWith("Ability:")) {
+          ability = line.replace("Ability:", "").trim();
+        } else if (line.endsWith("Nature")) {
+          nature = line.replace("Nature", "").trim();
+        } else if (line.startsWith("- ")) {
+          moves.push(line.slice(2).trim());
+        } else if (line.startsWith("EVs:") || line.startsWith("Stat Points:")) {
+          const evStr = line.replace(/^(?:EVs|Stat Points):/, "").trim();
+          const evParts = evStr.split("/").map(s => s.trim());
+          for (const part of evParts) {
+            const m = part.match(/(\d+)\s+(HP|Atk|Def|SpA|SpD|Spe)/i);
+            if (m) {
+              const val = parseInt(m[1]);
+              const stat = m[2].toLowerCase();
+              if (stat === "hp") sp.hp = val;
+              else if (stat === "atk") sp.attack = val;
+              else if (stat === "def") sp.defense = val;
+              else if (stat === "spa") sp.spAtk = val;
+              else if (stat === "spd") sp.spDef = val;
+              else if (stat === "spe") sp.speed = val;
+            }
+          }
+        }
+      }
+      newSlots.push({
+        pokemon,
+        ability: ability ?? pokemon.abilities[0]?.name,
+        nature: nature ?? "Adamant",
+        moves: moves.length > 0 ? moves.slice(0, 4) : pokemon.moves.slice(0, 4).map(m => m.name),
+        statPoints: sp,
+        item,
+      });
+    }
+    if (newSlots.length === 0) { setImportError("Could not match any Pokémon names. Make sure it's in Pokepaste/Showdown format."); return; }
+    while (newSlots.length < 6) newSlots.push(createEmptySlot());
+    setSlots(newSlots);
+    setSelectedSlotIndex(0);
+    setShowImport(false);
+    setImportText("");
+    setImportError("");
+  };
+
   // Export to Pokepaste format
   const exportPokepaste = () => {
     return filledSlots
@@ -684,6 +759,13 @@ export default function TeamBuilderPage() {
             >
               <FolderOpen className="w-4 h-4" />
               Load
+            </button>
+            <button
+              onClick={() => { setShowImport(true); setImportText(""); setImportError(""); }}
+              className="px-4 py-2 text-sm rounded-xl glass glass-hover flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Upload className="w-4 h-4" />
+              Import
             </button>
             <button
               onClick={() => setShowExport(true)}
@@ -1233,6 +1315,58 @@ export default function TeamBuilderPage() {
           </div>
         </div>
       </div>
+
+      {/* Import Modal */}
+      <AnimatePresence>
+        {showImport && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm"
+              onClick={() => setShowImport(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="fixed inset-4 sm:inset-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 z-50 sm:w-full sm:max-w-lg glass rounded-2xl border border-gray-200/60 p-6"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold">Import Team</h3>
+                <button onClick={() => setShowImport(false)} className="p-1 rounded-lg hover:bg-gray-100">
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              <p className="text-xs text-muted-foreground mb-3">Paste a team in Pokepaste / Pokémon Showdown format below.</p>
+              <textarea
+                value={importText}
+                onChange={(e) => { setImportText(e.target.value); setImportError(""); }}
+                placeholder={`Incineroar @ Figy Berry\nAbility: Intimidate\nCareful Nature\nEVs: 252 HP / 4 Def / 252 SpD\n- Flare Blitz\n- Fake Out\n- Knock Off\n- Protect\n\nGarchomp @ Life Orb\n...`}
+                className="w-full h-64 rounded-xl p-4 bg-gray-50 border border-gray-200 text-xs font-mono resize-none focus:outline-none focus:ring-2 focus:ring-violet-400"
+              />
+              {importError && <p className="text-xs text-red-500 mt-2">{importError}</p>}
+              <div className="flex gap-2 mt-4">
+                <button
+                  onClick={() => importPokepaste(importText)}
+                  disabled={!importText.trim()}
+                  className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-600 text-white text-sm font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-40"
+                >
+                  <Upload className="w-4 h-4" />
+                  Import Team
+                </button>
+                <button
+                  onClick={() => setShowImport(false)}
+                  className="flex-1 py-2.5 rounded-xl glass glass-hover text-sm font-medium flex items-center justify-center gap-2"
+                >
+                  Cancel
+                </button>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       {/* Export Modal */}
       <AnimatePresence>
