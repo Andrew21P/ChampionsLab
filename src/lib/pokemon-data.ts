@@ -122788,7 +122788,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "forms": [
       {
         "name": "Mega Tatsugiri",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/978.png",
+        "sprite": "/sprites/mega-tatsugiri.png",
         "types": [
           "dragon",
           "water"
