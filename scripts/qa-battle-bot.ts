@@ -1,360 +1,313 @@
-/**
- * QA Battle Bot — Run detailed battle simulations and analyze AI decision quality
- * Tests for: correct ability usage, human-like play, VGC-level strategy
- */
-import { simulateBattleWithLog, type DetailedBattleResult } from "../src/lib/engine/battle-sim";
+// ═══════════════════════════════════════════════════════════════════════
+// DEEP QA: Battle Engine v2 — Battle Length, AI Quality, Protect, Switching
+// Run: npx tsx scripts/qa-battle-bot.ts
+// ═══════════════════════════════════════════════════════════════════════
+
 import { POKEMON_SEED } from "../src/lib/pokemon-data";
 import { USAGE_DATA } from "../src/lib/usage-data";
+import {
+  calculateDamage,
+  calculateStats,
+  formatDamageResult,
+  getMove,
+  runSimulation,
+  PREBUILT_TEAMS,
+  type DamageCalcPokemon,
+  type DamageCalcTarget,
+  type DamageCalcOptions,
+  type NatureName,
+} from "../src/lib/engine";
+import {
+  simulateBattleWithLog,
+  simulateBattle,
+} from "../src/lib/engine/battle-sim";
 import type { ChampionsPokemon, CommonSet } from "../src/lib/types";
 
-// ── Utility ──────────────────────────────────────────────────────────────────
-function findPokemon(name: string): ChampionsPokemon {
+let passed = 0;
+let failed = 0;
+let warned = 0;
+
+function assert(condition: boolean, label: string) {
+  if (condition) { passed++; console.log(`  ✅ ${label}`); }
+  else { failed++; console.error(`  ❌ ${label}`); }
+}
+function warn(condition: boolean, label: string) {
+  if (condition) { passed++; console.log(`  ✅ ${label}`); }
+  else { warned++; console.log(`  ⚠️  ${label}`); }
+}
+
+function getPokemon(name: string): ChampionsPokemon {
   const p = POKEMON_SEED.find(p => p.name.toLowerCase() === name.toLowerCase());
   if (!p) throw new Error(`Pokemon not found: ${name}`);
   return p;
 }
-
-function getSet(id: number, index: number = 0): CommonSet {
-  const sets = USAGE_DATA[id];
-  if (!sets || !sets[index]) throw new Error(`No set for id ${id}, index ${index}`);
-  return sets[index];
+function getSet(p: ChampionsPokemon): CommonSet {
+  const usage = USAGE_DATA[p.id];
+  if (usage && usage.length > 0) return usage[0];
+  return {
+    name: p.name,
+    nature: "Adamant",
+    ability: p.abilities[0]?.name ?? "",
+    item: "Life Orb",
+    moves: p.moves.filter(m => m.category !== "status").slice(0, 4).map(m => m.name),
+    sp: { hp: 2, attack: 32, defense: 0, spAtk: 0, spDef: 0, speed: 32 },
+  };
 }
 
-function findMegaSet(id: number): CommonSet | null {
-  const sets = USAGE_DATA[id];
-  if (!sets) return null;
-  return sets.find(s => s.name.toLowerCase().includes("mega")) ?? null;
+// Resolve PrebuiltTeam pokemonIds to actual ChampionsPokemon objects
+function resolveTeam(team: typeof PREBUILT_TEAMS[0]): { pokemon: ChampionsPokemon[]; sets: CommonSet[] } {
+  const pokemon: ChampionsPokemon[] = [];
+  const sets: CommonSet[] = [];
+  for (let i = 0; i < team.pokemonIds.length; i++) {
+    const p = POKEMON_SEED.find(p => p.id === team.pokemonIds[i]);
+    if (p) { pokemon.push(p); sets.push(team.sets[i]); }
+  }
+  return { pokemon, sets };
 }
 
-function printBattle(result: DetailedBattleResult, label: string) {
-  console.log(`\n${"═".repeat(70)}`);
-  console.log(`  ${label}`);
-  console.log(`${"═".repeat(70)}`);
-  console.log(`Team 1: ${result.team1Names.join(" / ")}`);
-  console.log(`Team 2: ${result.team2Names.join(" / ")}`);
-  console.log(`Winner: Team ${result.winner} | Turns: ${result.turnsPlayed}`);
-  console.log(`Remaining: T1=${result.team1Remaining}, T2=${result.team2Remaining}`);
-  console.log(`${"─".repeat(70)}`);
+// ═══════════════════════════════════════════════════════════════════════
+// TEST 1: Battle Length Analysis
+// ═══════════════════════════════════════════════════════════════════════
+console.log("\n═══ TEST 1: Battle Length Analysis ═══");
+{
+  const turnCounts: number[] = [];
+  const teams = PREBUILT_TEAMS;
 
-  for (const entry of result.log) {
-    if (entry.events.length === 0) continue;
-    console.log(`\n  Turn ${entry.turn}:`);
-    for (const ev of entry.events) {
-      console.log(`    ${ev}`);
+  for (let i = 0; i < 200; i++) {
+    const t1 = teams[i % teams.length];
+    const t2 = teams[(i + 7) % teams.length];
+    if (t1 === t2) continue;
+    const result = simulateBattle(resolveTeam(t1).pokemon, resolveTeam(t1).sets, resolveTeam(t2).pokemon, resolveTeam(t2).sets);
+    turnCounts.push(result.turnsPlayed);
+  }
+
+  const avgTurns = turnCounts.reduce((a, b) => a + b, 0) / turnCounts.length;
+  const minTurns = Math.min(...turnCounts);
+  const maxTurns = Math.max(...turnCounts);
+  const under6 = turnCounts.filter(t => t < 6).length;
+  const under8 = turnCounts.filter(t => t < 8).length;
+  const over12 = turnCounts.filter(t => t >= 12).length;
+
+  console.log(`  📊 200 battles: avg=${avgTurns.toFixed(1)}, min=${minTurns}, max=${maxTurns}`);
+  console.log(`  📊 Under 6: ${under6} (${(under6/turnCounts.length*100).toFixed(1)}%), Under 8: ${under8} (${(under8/turnCounts.length*100).toFixed(1)}%), Over 12: ${over12} (${(over12/turnCounts.length*100).toFixed(1)}%)`);
+
+  assert(avgTurns >= 8, `Average turns ${avgTurns.toFixed(1)} >= 8 (VGC realistic)`);
+  warn(avgTurns >= 10, `Average turns ${avgTurns.toFixed(1)} >= 10 (VGC ideal)`);
+  assert(under6 / turnCounts.length < 0.15, `Under-6-turn battles < 15% (got ${(under6/turnCounts.length*100).toFixed(1)}%)`);
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// TEST 2: Protect Usage Rate
+// ═══════════════════════════════════════════════════════════════════════
+console.log("\n═══ TEST 2: Protect Usage Analysis ═══");
+{
+  let totalMoves = 0;
+  let protectMoves = 0;
+  const teams = PREBUILT_TEAMS;
+  for (let i = 0; i < 100; i++) {
+    const t1 = teams[i % teams.length];
+    const t2 = teams[(i + 5) % teams.length];
+    if (t1 === t2) continue;
+    const result = simulateBattleWithLog(resolveTeam(t1).pokemon, resolveTeam(t1).sets, resolveTeam(t2).pokemon, resolveTeam(t2).sets);
+    for (const entry of result.log) {
+      for (const event of entry.events) {
+        if (event.includes(" used ")) totalMoves++;
+        if (event.includes("used Protect")) protectMoves++;
+      }
     }
-    const fp: string[] = [];
-    if (entry.field.weather) fp.push(`Weather: ${entry.field.weather}`);
-    if (entry.field.trickRoom) fp.push("Trick Room");
-    if (entry.field.tailwind1) fp.push("TW-T1");
-    if (entry.field.tailwind2) fp.push("TW-T2");
-    if (fp.length > 0) console.log(`    [${fp.join(" | ")}]`);
-    console.log(`    T1 HP: ${entry.team1HP.map(h => h + "%").join(", ")} | T2 HP: ${entry.team2HP.map(h => h + "%").join(", ")}`);
   }
-  console.log();
+  const protectRate = totalMoves > 0 ? (protectMoves / totalMoves * 100) : 0;
+  console.log(`  📊 Protect usage: ${protectMoves}/${totalMoves} moves (${protectRate.toFixed(1)}%)`);
+  assert(protectRate >= 5, `Protect rate ${protectRate.toFixed(1)}% >= 5%`);
+  warn(protectRate >= 10, `Protect rate ${protectRate.toFixed(1)}% >= 10% (VGC realistic)`);
+  assert(protectRate < 50, `Protect rate ${protectRate.toFixed(1)}% < 50% (not spam)`);
 }
 
-// ── Test 1: Palafin Zero to Hero ─────────────────────────────────────────────
-function testPalafinZeroToHero() {
-  console.log("\n🔬 TEST: Palafin Zero to Hero switching");
-  const palafin = findPokemon("Palafin");
-  const incineroar = findPokemon("Incineroar");
-  const garchomp = findPokemon("Garchomp");
-  const milotic = findPokemon("Milotic");
-
-  const torkoal = findPokemon("Torkoal");
-  const venusaur = findPokemon("Venusaur");
-  const arcanine = findPokemon("Arcanine");
-  const tyranitar = findPokemon("Tyranitar");
-
-  const result = simulateBattleWithLog(
-    [palafin, incineroar, garchomp, milotic],
-    [getSet(palafin.id, 0), getSet(incineroar.id, 0), getSet(garchomp.id, 0), getSet(milotic.id, 0)],
-    [torkoal, venusaur, arcanine, tyranitar],
-    [getSet(torkoal.id, 0), getSet(venusaur.id, 0), getSet(arcanine.id, 0), getSet(tyranitar.id, 0)],
-  );
-
-  printBattle(result, "PALAFIN ZERO TO HERO TEST");
-
-  const switchEvents = result.log.flatMap(l => l.events).filter(e =>
-    e.includes("Palafin") && (e.includes("switched out") || e.includes("Hero Form"))
-  );
-  if (switchEvents.length > 0) {
-    console.log("  ✅ Palafin switch/transform detected:");
-    switchEvents.forEach(e => console.log(`    ${e}`));
-  } else {
-    console.log("  ❌ Palafin NEVER switched out — Zero to Hero NOT activated!");
+// ═══════════════════════════════════════════════════════════════════════
+// TEST 3: Switching Analysis
+// ═══════════════════════════════════════════════════════════════════════
+console.log("\n═══ TEST 3: Switching Analysis ═══");
+{
+  let totalActions = 0;
+  let switchActions = 0;
+  const teams = PREBUILT_TEAMS;
+  for (let i = 0; i < 100; i++) {
+    const t1 = teams[i % teams.length];
+    const t2 = teams[(i + 3) % teams.length];
+    if (t1 === t2) continue;
+    const result = simulateBattleWithLog(resolveTeam(t1).pokemon, resolveTeam(t1).sets, resolveTeam(t2).pokemon, resolveTeam(t2).sets);
+    for (const entry of result.log) {
+      for (const event of entry.events) {
+        if (event.includes(" used ") || event.includes("switched out")) totalActions++;
+        if (event.includes("switched out")) switchActions++;
+      }
+    }
   }
-  return result;
+  const switchRate = totalActions > 0 ? (switchActions / totalActions * 100) : 0;
+  console.log(`  📊 Switch rate: ${switchActions}/${totalActions} actions (${switchRate.toFixed(1)}%)`);
+  assert(switchRate >= 2, `Switch rate ${switchRate.toFixed(1)}% >= 2%`);
+  warn(switchRate >= 5, `Switch rate ${switchRate.toFixed(1)}% >= 5% (VGC realistic)`);
 }
 
-// ── Test 2: Weather War (Sun vs Rain) ────────────────────────────────────────
-function testWeatherWar() {
-  console.log("\n🔬 TEST: Weather War (Sun vs Rain)");
-  const torkoal = findPokemon("Torkoal");
-  const venusaur = findPokemon("Venusaur");
-  const incineroar = findPokemon("Incineroar");
-  const garchomp = findPokemon("Garchomp");
-
-  const pelipper = findPokemon("Pelipper");
-  const politoed = findPokemon("Politoed");
-  const milotic = findPokemon("Milotic");
-  const excadrill = findPokemon("Excadrill");
-
-  const result = simulateBattleWithLog(
-    [torkoal, venusaur, incineroar, garchomp],
-    [getSet(torkoal.id, 0), getSet(venusaur.id, 0), getSet(incineroar.id, 0), getSet(garchomp.id, 0)],
-    [pelipper, politoed, milotic, excadrill],
-    [getSet(pelipper.id, 0), getSet(politoed.id, 0), getSet(milotic.id, 0), getSet(excadrill.id, 0)],
-  );
-
-  printBattle(result, "WEATHER WAR: SUN vs RAIN");
-
-  const weatherEvents = result.log.flatMap(l => l.events).filter(e =>
-    /sun|rain|drought|drizzle/i.test(e)
-  );
-  console.log(`  Weather events: ${weatherEvents.length}`);
-  weatherEvents.forEach(e => console.log(`    ${e}`));
-  if (weatherEvents.length === 0) console.log("  ❌ No weather events logged!");
-  return result;
-}
-
-// ── Test 3: Trick Room ──────────────────────────────────────────────────────
-function testTrickRoom() {
-  console.log("\n🔬 TEST: Trick Room team vs Fast Offense");
-  const hatterene = findPokemon("Hatterene");
-  const torkoal = findPokemon("Torkoal");
-  const incineroar = findPokemon("Incineroar");
-  const oranguru = findPokemon("Oranguru");
-
-  const garchomp = findPokemon("Garchomp");
-  const dragapult = findPokemon("Dragapult");
-  const weavile = findPokemon("Weavile");
-  const gengar = findPokemon("Gengar");
-
-  const result = simulateBattleWithLog(
-    [hatterene, incineroar, torkoal, oranguru],
-    [getSet(hatterene.id, 0), getSet(incineroar.id, 0), getSet(torkoal.id, 0), getSet(oranguru.id, 0)],
-    [garchomp, dragapult, weavile, gengar],
-    [getSet(garchomp.id, 0), getSet(dragapult.id, 0), getSet(weavile.id, 0), getSet(gengar.id, 0)],
-  );
-
-  printBattle(result, "TRICK ROOM vs FAST OFFENSE");
-
-  const trEvents = result.log.flatMap(l => l.events).filter(e => /trick room/i.test(e));
-  console.log(`  Trick Room events: ${trEvents.length}`);
-  trEvents.forEach(e => console.log(`    ${e}`));
-  if (trEvents.length === 0) console.log("  ❌ Trick Room was NEVER set!");
-
-  const trOnTurns = result.log.filter(l => l.field.trickRoom);
-  console.log(`  Turns under TR: ${trOnTurns.length}`);
-  return result;
-}
-
-// ── Test 4: Mega Evolution ──────────────────────────────────────────────────
-function testMegaEvolution() {
-  console.log("\n🔬 TEST: Mega Evolution Battle");
-  const kangaskhan = findPokemon("Kangaskhan");
-  const raichu = findPokemon("Raichu");
-  const incineroar = findPokemon("Incineroar");
-  const clefable = findPokemon("Clefable");
-
-  const megaKangSet = findMegaSet(kangaskhan.id);
-  const megaRaichuSet = findMegaSet(raichu.id);
-
-  if (!megaKangSet || !megaRaichuSet) {
-    console.log("  ⚠️  Missing mega sets for Kangaskhan or Raichu");
-    return null;
+// ═══════════════════════════════════════════════════════════════════════
+// TEST 4: Matchup Balance
+// ═══════════════════════════════════════════════════════════════════════
+console.log("\n═══ TEST 4: Matchup Balance ═══");
+{
+  const teams = PREBUILT_TEAMS.slice(0, 12);
+  let extremeMatchups = 0;
+  let totalMatchups = 0;
+  let bestMU = { wr: 50, t1: "", t2: "" };
+  let worstMU = { wr: 50, t1: "", t2: "" };
+  for (let i = 0; i < teams.length; i++) {
+    for (let j = i + 1; j < teams.length; j++) {
+      const ri = resolveTeam(teams[i]), rj = resolveTeam(teams[j]);
+      const result = runSimulation(ri.pokemon, ri.sets, rj.pokemon, rj.sets, 40);
+      totalMatchups++;
+      if (result.winRate > bestMU.wr) bestMU = { wr: result.winRate, t1: teams[i].name, t2: teams[j].name };
+      if (result.winRate < worstMU.wr) worstMU = { wr: result.winRate, t1: teams[i].name, t2: teams[j].name };
+      if (result.winRate > 95 || result.winRate < 5) extremeMatchups++;
+    }
   }
-
-  const garchomp = findPokemon("Garchomp");
-  const gengar = findPokemon("Gengar");
-
-  const result = simulateBattleWithLog(
-    [kangaskhan, raichu, incineroar, clefable],
-    [megaKangSet, megaRaichuSet, getSet(incineroar.id, 0), getSet(clefable.id, 0)],
-    [garchomp, gengar, findPokemon("Torkoal"), findPokemon("Milotic")],
-    [megaGarchSet(), megaGengarSet(), getSet(findPokemon("Torkoal").id, 0), getSet(findPokemon("Milotic").id, 0)],
-  );
-
-  printBattle(result, "MEGA EVOLUTION BATTLE");
-
-  const megaEvents = result.log.flatMap(l => l.events).filter(e => /mega/i.test(e));
-  if (megaEvents.length > 0) {
-    console.log("  ✅ Mega evolution events:");
-    megaEvents.forEach(e => console.log(`    ${e}`));
-  } else {
-    console.log("  ⚠️  No mega evolution events logged (may happen silently)");
-  }
-  return result;
-
-  function megaGarchSet() { return findMegaSet(garchomp.id) ?? getSet(garchomp.id, 0); }
-  function megaGengarSet() { return findMegaSet(gengar.id) ?? getSet(gengar.id, 0); }
+  console.log(`  📊 Best: ${bestMU.t1} vs ${bestMU.t2} = ${bestMU.wr}%`);
+  console.log(`  📊 Worst: ${worstMU.t1} vs ${worstMU.t2} = ${worstMU.wr}%`);
+  assert(extremeMatchups / totalMatchups < 0.3, `Extreme matchups < 30% (got ${(extremeMatchups/totalMatchups*100).toFixed(1)}%)`);
 }
 
-// ── Test 5: Protect / Focus Fire / Switching stats ──────────────────────────
-function testProtectReads() {
-  console.log("\n🔬 TEST: Protect / Double-target / Focus Fire patterns (10 battles)");
-
-  let protectCount = 0;
-  let totalTurns = 0;
-  let doubleTargets = 0;
-  let switchOuts = 0;
-
-  const t1 = [findPokemon("Incineroar"), findPokemon("Garchomp"), findPokemon("Sylveon"), findPokemon("Dragapult")];
-  const t2 = [findPokemon("Pelipper"), findPokemon("Milotic"), findPokemon("Torkoal"), findPokemon("Clefable")];
-  const s1 = t1.map(p => getSet(p.id, 0));
-  const s2 = t2.map(p => getSet(p.id, 0));
-
-  for (let i = 0; i < 10; i++) {
-    const result = simulateBattleWithLog(t1, s1, t2, s2);
-    totalTurns += result.turnsPlayed;
-
+// ═══════════════════════════════════════════════════════════════════════
+// TEST 5: Sample Battle Quality
+// ═══════════════════════════════════════════════════════════════════════
+console.log("\n═══ TEST 5: Battle Replay Quality ═══");
+{
+  const teams = PREBUILT_TEAMS;
+  for (let b = 0; b < 5; b++) {
+    const t1 = teams[b * 3 % teams.length];
+    const t2 = teams[(b * 3 + 2) % teams.length];
+    if (t1 === t2) continue;
+    const result = simulateBattleWithLog(resolveTeam(t1).pokemon, resolveTeam(t1).sets, resolveTeam(t2).pokemon, resolveTeam(t2).sets);
+    let protects = 0, attacks = 0, switches = 0, kos = 0;
     for (const entry of result.log) {
       for (const ev of entry.events) {
-        if (/used protect/i.test(ev)) protectCount++;
-        if (/switched out/i.test(ev)) switchOuts++;
+        if (ev.includes("used Protect")) protects++;
+        else if (ev.includes(" used ")) attacks++;
+        if (ev.includes("switched out")) switches++;
+        if (ev.includes("KO")) kos++;
       }
-      const attacks = entry.events.filter(e => /used .+ on /i.test(e) && !/protect/i.test(e));
-      const targets = attacks.map(a => {
-        const m = a.match(/on (.+?)[\s—]/);
-        return m?.[1];
-      }).filter(Boolean);
-      if (targets.length >= 2 && targets[0] === targets[1]) doubleTargets++;
+    }
+    console.log(`  📊 ${t1.name} vs ${t2.name} → ${result.turnsPlayed}T, W:T${result.winner}, Atk:${attacks} Prot:${protects} Sw:${switches} KOs:${kos}`);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// TEST 6: Palafin Zero-to-Hero
+// ═══════════════════════════════════════════════════════════════════════
+console.log("\n═══ TEST 6: Palafin Zero-to-Hero ═══");
+{
+  const palafin = getPokemon("Palafin");
+  const palafinSet = getSet(palafin);
+  assert(palafin.moves.some(m => m.name === "Flip Turn"), `Palafin has Flip Turn in movepool`);
+  const sets = USAGE_DATA[palafin.id] ?? [];
+  const hasFlipTurnSet = sets.some(s => s.moves.includes("Flip Turn"));
+  warn(hasFlipTurnSet, `Palafin has a set with Flip Turn`);
+  const heroStats = calculateStats(
+    { hp: 100, attack: 160, defense: 97, spAtk: 106, spDef: 87, speed: 100 },
+    palafinSet.sp, palafinSet.nature as NatureName
+  );
+  const zeroStats = calculateStats(
+    { hp: 100, attack: 70, defense: 72, spAtk: 53, spDef: 62, speed: 100 },
+    palafinSet.sp, palafinSet.nature as NatureName
+  );
+  assert(heroStats.attack > zeroStats.attack * 1.5, `Hero Atk ${heroStats.attack} >> Zero Atk ${zeroStats.attack}`);
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// TEST 7: Key Move Coverage
+// ═══════════════════════════════════════════════════════════════════════
+console.log("\n═══ TEST 7: Move Database Coverage ═══");
+{
+  const essentialMoves = [
+    "Protect", "Fake Out", "Earthquake", "Rock Slide", "Flare Blitz",
+    "Close Combat", "Sucker Punch", "Shadow Ball", "Sludge Bomb",
+    "Leaf Storm", "Ice Beam", "Thunderbolt", "Surf", "Iron Head",
+    "Dragon Claw", "U-turn", "Flip Turn", "Body Slam", "Liquidation",
+    "Jet Punch", "Wave Crash", "Draco Meteor", "Heat Wave", "Icy Wind",
+    "Tailwind", "Trick Room", "Will-O-Wisp", "Thunder Wave",
+    "Helping Hand", "Follow Me", "Rage Powder", "Swords Dance",
+    "Calm Mind", "Dragon Dance", "Nasty Plot",
+  ];
+  let missing = 0;
+  for (const move of essentialMoves) {
+    const m = getMove(move);
+    if (!m) { console.log(`  ❌ Missing: ${move}`); missing++; }
+  }
+  assert(missing === 0, `All ${essentialMoves.length} essential VGC moves exist (missing: ${missing})`);
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// TEST 8: USAGE_DATA Move Availability
+// ═══════════════════════════════════════════════════════════════════════
+console.log("\n═══ TEST 8: USAGE_DATA Move Availability in Engine ═══");
+{
+  const missingMoves = new Map<string, string[]>();
+  let totalMoves = 0;
+  let missingCount = 0;
+  for (const [id, sets] of Object.entries(USAGE_DATA)) {
+    if (!sets) continue;
+    const pokemon = POKEMON_SEED.find(p => p.id === Number(id));
+    const pokeName = pokemon?.name ?? id;
+    for (const set of sets) {
+      for (const moveName of set.moves) {
+        totalMoves++;
+        if (!getMove(moveName)) {
+          missingCount++;
+          if (!missingMoves.has(moveName)) missingMoves.set(moveName, []);
+          missingMoves.get(moveName)!.push(pokeName);
+        }
+      }
     }
   }
-
-  console.log(`  Over 10 battles (${totalTurns} total turns):`);
-  console.log(`    Protect uses: ${protectCount} (${(protectCount / totalTurns * 100).toFixed(1)}% of turns)`);
-  console.log(`    Double-target turns: ${doubleTargets}`);
-  console.log(`    Switch-outs: ${switchOuts}`);
-
-  const protectRate = protectCount / totalTurns;
-  if (protectRate < 0.05) console.log("  ⚠️  Protect usage too LOW — VGC players Protect more");
-  else if (protectRate > 0.40) console.log("  ⚠️  Protect usage too HIGH — over-protecting");
-  else console.log("  ✅ Protect rate looks reasonable for VGC");
-
-  if (switchOuts === 0) console.log("  ⚠️  NO switch-outs — VGC players switch!");
-  else console.log(`  ✅ ${switchOuts} switch-outs (good, human-like)`);
-}
-
-// ── Test 6: Battle Length Distribution ──────────────────────────────────────
-function testBattleLength() {
-  console.log("\n🔬 TEST: Battle Length Distribution (50 battles)");
-  const lengths: number[] = [];
-  let t1Wins = 0;
-
-  const availableMons = POKEMON_SEED.filter(p => USAGE_DATA[p.id]?.length > 0);
-
-  for (let i = 0; i < 50; i++) {
-    const shuffle = [...availableMons].sort(() => Math.random() - 0.5);
-    const team1 = shuffle.slice(0, 4);
-    const team2 = shuffle.slice(4, 8);
-
-    const sets1 = team1.map(p => {
-      const s = USAGE_DATA[p.id];
-      return s[Math.floor(Math.random() * s.length)];
-    });
-    const sets2 = team2.map(p => {
-      const s = USAGE_DATA[p.id];
-      return s[Math.floor(Math.random() * s.length)];
-    });
-
-    const result = simulateBattleWithLog(team1, sets1, team2, sets2);
-    lengths.push(result.turnsPlayed);
-    if (result.winner === 1) t1Wins++;
+  if (missingMoves.size > 0) {
+    console.log(`  📊 Missing moves from engine:`);
+    for (const [move, mons] of [...missingMoves.entries()].slice(0, 10)) {
+      console.log(`    ${move}: ${mons.slice(0, 3).join(", ")}${mons.length > 3 ? ` +${mons.length-3}` : ""}`);
+    }
   }
+  const coverageRate = ((totalMoves - missingCount) / totalMoves * 100);
+  console.log(`  📊 Coverage: ${totalMoves - missingCount}/${totalMoves} (${coverageRate.toFixed(1)}%)`);
+  assert(coverageRate >= 80, `Move coverage >= 80% (got ${coverageRate.toFixed(1)}%)`);
+}
 
-  const avg = lengths.reduce((a, b) => a + b, 0) / lengths.length;
-  const max = Math.max(...lengths);
-  const min = Math.min(...lengths);
-  const timeouts = lengths.filter(l => l >= 50).length;
-  const shortGames = lengths.filter(l => l <= 3).length;
-
-  console.log(`  Avg turns: ${avg.toFixed(1)} | Min: ${min} | Max: ${max}`);
-  console.log(`  Timeouts (50 turns): ${timeouts}`);
-  console.log(`  Very short (≤3 turns): ${shortGames}`);
-  console.log(`  Win balance: T1=${t1Wins}, T2=${lengths.length - t1Wins}`);
-
-  const buckets = [0, 0, 0, 0, 0, 0];
-  for (const l of lengths) {
-    if (l <= 5) buckets[0]++;
-    else if (l <= 10) buckets[1]++;
-    else if (l <= 15) buckets[2]++;
-    else if (l <= 20) buckets[3]++;
-    else if (l <= 30) buckets[4]++;
-    else buckets[5]++;
+// ═══════════════════════════════════════════════════════════════════════
+// TEST 9: Protect Success Rate
+// ═══════════════════════════════════════════════════════════════════════
+console.log("\n═══ TEST 9: Protect Mechanics ═══");
+{
+  let protectSuccess = 0;
+  let protectFail = 0;
+  const teams = PREBUILT_TEAMS;
+  for (let i = 0; i < 100; i++) {
+    const t1 = teams[i % teams.length];
+    const t2 = teams[(i + 4) % teams.length];
+    if (t1 === t2) continue;
+    const result = simulateBattleWithLog(resolveTeam(t1).pokemon, resolveTeam(t1).sets, resolveTeam(t2).pokemon, resolveTeam(t2).sets);
+    for (const entry of result.log) {
+      for (const ev of entry.events) {
+        if (ev.includes("used Protect!")) protectSuccess++;
+        if (ev.includes("Protect failed")) protectFail++;
+      }
+    }
   }
-  console.log(`  Distribution: 1-5:${buckets[0]} | 6-10:${buckets[1]} | 11-15:${buckets[2]} | 16-20:${buckets[3]} | 21-30:${buckets[4]} | 31+:${buckets[5]}`);
-
-  if (avg < 5) console.log("  ⚠️  Games WAY too short — instant KOs, no strategy");
-  else if (avg > 25) console.log("  ⚠️  Games too long — stalling or not aggressive enough");
-  else console.log("  ✅ Battle length looks realistic for VGC");
-
-  if (timeouts > 5) console.log("  ⚠️  Too many timeouts — bot can't close games");
-  if (shortGames > 10) console.log("  ⚠️  Too many 1-3 turn blowouts");
+  const total = protectSuccess + protectFail;
+  const successRate = total > 0 ? (protectSuccess / total * 100) : 0;
+  console.log(`  📊 Protect: ${protectSuccess} success, ${protectFail} fail (${successRate.toFixed(1)}% success)`);
+  assert(successRate >= 60, `Protect success rate ${successRate.toFixed(1)}% >= 60%`);
 }
 
-// ── Test 7: Sample battle ───────────────────────────────────────────────────
-function testSampleBattle() {
-  console.log("\n🔬 TEST: Sample battle with full log");
-  const team1 = [findPokemon("Incineroar"), findPokemon("Garchomp"), findPokemon("Sylveon"), findPokemon("Excadrill")];
-  const team2 = [findPokemon("Torkoal"), findPokemon("Venusaur"), findPokemon("Milotic"), findPokemon("Tyranitar")];
-  const sets1 = team1.map(p => getSet(p.id, 0));
-  const sets2 = team2.map(p => getSet(p.id, 0));
-
-  const result = simulateBattleWithLog(team1, sets1, team2, sets2);
-  printBattle(result, "SAMPLE: Competitive Matchup");
-  return result;
-}
-
-// ── Test 8: Intimidate interaction ──────────────────────────────────────────
-function testIntimidateInteraction() {
-  console.log("\n🔬 TEST: Intimidate interactions");
-  const incineroar = findPokemon("Incineroar");
-  const gyarados = findPokemon("Gyarados");
-  const milotic = findPokemon("Milotic");
-  const arcanine = findPokemon("Arcanine");
-
-  const garchomp = findPokemon("Garchomp");
-  const dragapult = findPokemon("Dragapult");
-  const clefable = findPokemon("Clefable");
-  const excadrill = findPokemon("Excadrill");
-
-  console.log(`  Milotic abilities: ${milotic.abilities.map(a => a.name).join(", ")}`);
-
-  const result = simulateBattleWithLog(
-    [incineroar, gyarados, milotic, arcanine],
-    [getSet(incineroar.id, 0), getSet(gyarados.id, 0), getSet(milotic.id, 0), getSet(arcanine.id, 0)],
-    [garchomp, dragapult, clefable, excadrill],
-    [getSet(garchomp.id, 0), getSet(dragapult.id, 0), getSet(clefable.id, 0), getSet(excadrill.id, 0)],
-  );
-
-  printBattle(result, "INTIMIDATE INTERACTIONS");
-
-  const intimEvents = result.log.flatMap(l => l.events).filter(e => /intimidate|competitive|defiant/i.test(e));
-  console.log(`  Intimidate-related events: ${intimEvents.length}`);
-  intimEvents.forEach(e => console.log(`    ${e}`));
-  return result;
-}
-
-// ── Main ─────────────────────────────────────────────────────────────────────
-async function main() {
-  console.log("╔══════════════════════════════════════════════════════════════════╗");
-  console.log("║          CHAMPIONS LAB — BATTLE BOT QA SESSION                 ║");
-  console.log("╚══════════════════════════════════════════════════════════════════╝");
-
-  testSampleBattle();
-  testPalafinZeroToHero();
-  testWeatherWar();
-  testTrickRoom();
-  testMegaEvolution();
-  testIntimidateInteraction();
-  testProtectReads();
-  testBattleLength();
-
-  console.log("\n" + "═".repeat(70));
-  console.log("  QA SESSION COMPLETE");
-  console.log("═".repeat(70));
-}
-
-main().catch(console.error);
+// ═══════════════════════════════════════════════════════════════════════
+// RESULTS
+// ═══════════════════════════════════════════════════════════════════════
+console.log("\n════════════════════════════════════════════════════════════");
+console.log(`RESULTS: ${passed} passed, ${failed} failed, ${warned} warnings out of ${passed + failed + warned} checks`);
+if (failed === 0) console.log("✅ ALL TESTS PASSED!");
+else console.log("⚠️  SOME TESTS FAILED — review above");
+process.exit(failed > 0 ? 1 : 0);

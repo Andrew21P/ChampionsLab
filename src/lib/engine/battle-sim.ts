@@ -355,33 +355,45 @@ function evaluateMoveOption(
   if (move.category === "status") {
     let score = 0;
     
-    // Protect: key VGC move — value depends on position
+    // Protect: essential VGC move — used 15-20% of turns by top players
     if (move.flags.protect) {
-      const protectPenalty = user.protectCount * 80; // Double-protect is almost never correct
-      score = 10 - protectPenalty;
+      // Consecutive Protect penalty (only punish double-protecting)
+      const protectPenalty = user.protectCount * 60;
+      score = 30 - protectPenalty;
       
       // Protect is good when being doubled into by heavy threats
       if (beingDoubled) score += 20;
       
-      // Protect when low HP and heavily threatened
-      if (user.currentHP < user.maxHP * 0.3 && maxIncomingThreat >= 80) score += 18;
+      // Protect when threatened with >50% HP damage
+      if (maxIncomingThreat >= 50) score += 12;
+      if (maxIncomingThreat >= 80) score += 8;
       
-      // Protect when ally can KO a threat this turn
+      // Protect when low HP and threatened
+      if (user.currentHP < user.maxHP * 0.4 && maxIncomingThreat >= 40) score += 15;
+      
+      // Protect when ally can KO a threat this turn (coordinate)
       const ally = allies.find(a => a && !a.isFainted);
       if (ally) {
         for (const opp of targets) {
-          if (opp && !opp.isFainted && allyCanKO(ally, opp, field, userSide)) score += 8;
+          if (opp && !opp.isFainted && allyCanKO(ally, opp, field, userSide)) score += 10;
         }
       }
       
-      // Protect to stall when ahead in endgame
+      // Protect to stall when ahead
+      if (isAhead) score += 6;
       if (isAhead && isEndgame) score += 10;
       
-      // When Tailwind/TR is about to end, protect to stall
+      // Protect to stall out field effects
       const mySide = userSide === 1 ? field.side1 : field.side2;
-      if (mySide.tailwind === 1 && isAhead) score += 6;
+      if (mySide.tailwind > 0 && isAhead) score += 6;
+      if (field.trickRoom && isAhead) score += 6;
       
-      // Penalty when we can OHKO something — attacking is better
+      // Protect when opponent has weather/terrain advantage
+      const oppSideRef = userSide === 1 ? field.side2 : field.side1;
+      if (oppSideRef.tailwind > 0) score += 6;
+      
+      // Penalty when we can OHKO something — attacking is usually better
+      let canKO = false;
       for (const opp of targets) {
         if (!opp || opp.isFainted) continue;
         for (const m of user.set.moves) {
@@ -403,12 +415,14 @@ function evaluateMoveOption(
             };
             const res = calculateDamage(atk, def, m, { weather: field.weather as DamageCalcOptions["weather"], isDoubles: true });
             if (res.isOHKO || (res.damage[0] / opp.currentHP) >= 1.0) {
-              score -= 40; // Don't Protect when you can KO!
+              canKO = true;
               break;
             }
           }
         }
+        if (canKO) break;
       }
+      if (canKO) score -= 35; // Don't Protect when you can KO!
       
       choices.push({ moveIndex: 0, moveName, targetSlot: -1, score: Math.max(score, -10) });
       return choices;
@@ -786,7 +800,7 @@ function aiChooseAction(
       switchScore = 150; // Higher than any move score — this is mandatory VGC play
     }
     
-    // Bad matchup switch: if our best move does poor damage and we're threatened
+    // Tactical switching: evaluate matchup quality
     if (switchScore < 0) {
       const oppSide: 1 | 2 = sideIndex === 1 ? 2 : 1;
       let maxIncomingDmg = 0;
@@ -794,9 +808,36 @@ function aiChooseAction(
         if (!opp || opp.isFainted) continue;
         maxIncomingDmg = Math.max(maxIncomingDmg, estimateThreatLevel(opp, mon, field, oppSide));
       }
-      // If threatened with >60% and our best move is weak (<30 score), consider switching
-      if (maxIncomingDmg >= 60 && bestMoveScore < 30) {
-        switchScore = 35;
+      // If threatened with >50% and our best move is mediocre, consider switching
+      if (maxIncomingDmg >= 50 && bestMoveScore < 45) {
+        switchScore = 40;
+      }
+      // If threatened with OHKO, strongly consider switching
+      if (maxIncomingDmg >= 95 && bestMoveScore < 90) {
+        switchScore = 55;
+      }
+      // If we can't do meaningful damage, consider repositioning
+      if (bestMoveScore < 25) {
+        switchScore = Math.max(switchScore, 28);
+      }
+      // Pivot for better type matchup if we have good bench options
+      if (maxIncomingDmg >= 35 && bestMoveScore < 55) {
+        // Check if bench has a significantly better matchup
+        for (const candidate of bench) {
+          let typeScore = 0;
+          for (const opp of opponents) {
+            if (!opp || opp.isFainted) continue;
+            for (const type of candidate.types) {
+              const eff = getMatchup(type, opp.types);
+              if (eff < 1) typeScore += 8; // Resists their attacks
+            }
+            for (const oppType of opp.types) {
+              const eff = getMatchup(oppType, candidate.types);
+              if (eff > 1) typeScore -= 5;
+            }
+          }
+          if (typeScore >= 8) { switchScore = Math.max(switchScore, 35); break; }
+        }
       }
     }
     

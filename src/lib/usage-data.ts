@@ -707,6 +707,7 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
     { name: "Choice Band Hero", nature: "Adamant", ability: "Zero to Hero", item: "Choice Band", moves: ["Jet Punch", "Wave Crash", "Close Combat", "Ice Punch"], sp: { hp: 4, attack: 32, defense: 0, spAtk: 0, spDef: 0, speed: 30 } },
     { name: "Bulk Up", nature: "Adamant", ability: "Zero to Hero", item: "Sitrus Berry", moves: ["Bulk Up", "Jet Punch", "Drain Punch", "Protect"], sp: { hp: 32, attack: 20, defense: 14, spAtk: 0, spDef: 0, speed: 0 } },
     { name: "Fast Hero", nature: "Jolly", ability: "Zero to Hero", item: "Life Orb", moves: ["Jet Punch", "Close Combat", "Wave Crash", "Protect"], sp: { hp: 0, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 32 } },
+    { name: "Pivot Hero", nature: "Adamant", ability: "Zero to Hero", item: "Mystic Water", moves: ["Flip Turn", "Jet Punch", "Close Combat", "Protect"], sp: { hp: 4, attack: 32, defense: 0, spAtk: 0, spDef: 0, speed: 30 } },
   ],
 
   // Glimmora (id: 970)

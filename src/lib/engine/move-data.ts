@@ -258,6 +258,12 @@ export const MOVE_DATA: Record<string, EngineMove> = {
     flags: { contact: true },
     secondary: { chance: 20, volatileStatus: "flinch" },
   },
+  "Flip Turn": {
+    name: "Flip Turn", type: "water", category: "physical", basePower: 60,
+    accuracy: 100, pp: 20, priority: 0, target: "normal",
+    flags: { contact: true },
+    effect: "Switches out after attacking.",
+  },
   "Water Pulse": {
     name: "Water Pulse", type: "water", category: "special", basePower: 60,
     accuracy: 100, pp: 20, priority: 0, target: "normal",
@@ -584,6 +590,12 @@ export const MOVE_DATA: Record<string, EngineMove> = {
   },
 
   // ── POISON ─────────────────────────────────────────────────────────────────
+  "Poison Jab": {
+    name: "Poison Jab", type: "poison", category: "physical", basePower: 80,
+    accuracy: 100, pp: 20, priority: 0, target: "normal",
+    flags: { contact: true },
+    secondary: { chance: 30, status: "poison" },
+  },
   "Sludge Bomb": {
     name: "Sludge Bomb", type: "poison", category: "special", basePower: 90,
     accuracy: 100, pp: 10, priority: 0, target: "normal",
@@ -1285,6 +1297,190 @@ export const MOVE_DATA: Record<string, EngineMove> = {
     name: "Hidden Power Fire", type: "fire", category: "special", basePower: 60,
     accuracy: 100, pp: 15, priority: 0, target: "normal",
     flags: {},
+  },
+
+  // ── MISSING COMPETITIVE MOVES ──────────────────────────────────────
+  "Darkest Lariat": {
+    name: "Darkest Lariat", type: "dark", category: "physical", basePower: 85,
+    accuracy: 100, pp: 10, priority: 0, target: "normal",
+    flags: { contact: true },
+    effect: "Ignores target's stat changes.",
+  },
+  "Drill Run": {
+    name: "Drill Run", type: "ground", category: "physical", basePower: 80,
+    accuracy: 95, pp: 10, priority: 0, target: "normal",
+    flags: { contact: true },
+  },
+  "Fell Stinger": {
+    name: "Fell Stinger", type: "bug", category: "physical", basePower: 50,
+    accuracy: 100, pp: 25, priority: 0, target: "normal",
+    flags: { contact: true },
+    effect: "Sharply raises Attack if this KOs the target.",
+  },
+  "Morning Sun": {
+    name: "Morning Sun", type: "normal", category: "status", basePower: 0,
+    accuracy: 100, pp: 5, priority: 0, target: "self",
+    flags: {},
+    effect: "Heals 50% HP (more in sun).",
+  },
+  "Perish Song": {
+    name: "Perish Song", type: "normal", category: "status", basePower: 0,
+    accuracy: 100, pp: 5, priority: 0, target: "all",
+    flags: {},
+    effect: "All Pokemon faint in 3 turns unless they switch.",
+  },
+  "Feint": {
+    name: "Feint", type: "normal", category: "physical", basePower: 30,
+    accuracy: 100, pp: 10, priority: 2, target: "normal",
+    flags: {},
+    effect: "Hits through Protect.",
+  },
+  "Flame Charge": {
+    name: "Flame Charge", type: "fire", category: "physical", basePower: 50,
+    accuracy: 100, pp: 20, priority: 0, target: "normal",
+    flags: { contact: true },
+    selfBoost: { speed: 1 },
+  },
+  "Dual Wingbeat": {
+    name: "Dual Wingbeat", type: "flying", category: "physical", basePower: 40,
+    accuracy: 90, pp: 10, priority: 0, target: "normal",
+    flags: { contact: true },
+    multiHit: [2, 2],
+  },
+  "Extrasensory": {
+    name: "Extrasensory", type: "psychic", category: "special", basePower: 80,
+    accuracy: 100, pp: 20, priority: 0, target: "normal",
+    flags: {},
+    secondary: { chance: 10, volatileStatus: "flinch" },
+  },
+  "Transform": {
+    name: "Transform", type: "normal", category: "status", basePower: 0,
+    accuracy: 100, pp: 10, priority: 0, target: "normal",
+    flags: {},
+    effect: "Transforms into the target.",
+  },
+  "Stored Power": {
+    name: "Stored Power", type: "psychic", category: "special", basePower: 20,
+    accuracy: 100, pp: 10, priority: 0, target: "normal",
+    flags: {},
+    effect: "Power increases with stat boosts.",
+  },
+  "Gyro Ball": {
+    name: "Gyro Ball", type: "steel", category: "physical", basePower: 1,
+    accuracy: 100, pp: 5, priority: 0, target: "normal",
+    flags: { contact: true, bullet: true },
+    effect: "More power the slower the user is vs the target (max 150).",
+  },
+  "Drill Peck": {
+    name: "Drill Peck", type: "flying", category: "physical", basePower: 80,
+    accuracy: 100, pp: 20, priority: 0, target: "normal",
+    flags: { contact: true },
+  },
+  "Quash": {
+    name: "Quash", type: "dark", category: "status", basePower: 0,
+    accuracy: 100, pp: 15, priority: 0, target: "normal",
+    flags: {},
+    effect: "Forces target to move last this turn.",
+  },
+  "Recover": {
+    name: "Recover", type: "normal", category: "status", basePower: 0,
+    accuracy: 100, pp: 5, priority: 0, target: "self",
+    flags: {},
+    effect: "Heals 50% HP.",
+  },
+  "Heavy Slam": {
+    name: "Heavy Slam", type: "steel", category: "physical", basePower: 80,
+    accuracy: 100, pp: 10, priority: 0, target: "normal",
+    flags: { contact: true },
+    effect: "More damage if user is much heavier than target.",
+  },
+  "Iron Defense": {
+    name: "Iron Defense", type: "steel", category: "status", basePower: 0,
+    accuracy: 100, pp: 15, priority: 0, target: "self",
+    flags: {},
+    selfBoost: { defense: 2 },
+  },
+  "Head Smash": {
+    name: "Head Smash", type: "rock", category: "physical", basePower: 150,
+    accuracy: 80, pp: 5, priority: 0, target: "normal",
+    flags: { contact: true, recoil: 50 },
+    effect: "User takes 50% recoil damage.",
+  },
+  "Zen Headbutt": {
+    name: "Zen Headbutt", type: "psychic", category: "physical", basePower: 80,
+    accuracy: 90, pp: 15, priority: 0, target: "normal",
+    flags: { contact: true },
+    secondary: { chance: 20, volatileStatus: "flinch" },
+  },
+  "Fire Fang": {
+    name: "Fire Fang", type: "fire", category: "physical", basePower: 65,
+    accuracy: 95, pp: 15, priority: 0, target: "normal",
+    flags: { contact: true, bite: true },
+    secondary: { chance: 10, status: "burn" },
+  },
+  "Ice Shard": {
+    name: "Ice Shard", type: "ice", category: "physical", basePower: 40,
+    accuracy: 100, pp: 30, priority: 1, target: "normal",
+    flags: {},
+  },
+  "Psycho Cut": {
+    name: "Psycho Cut", type: "psychic", category: "physical", basePower: 70,
+    accuracy: 100, pp: 20, priority: 0, target: "normal",
+    flags: { slicing: true },
+  },
+  "Charm": {
+    name: "Charm", type: "fairy", category: "status", basePower: 0,
+    accuracy: 100, pp: 20, priority: 0, target: "normal",
+    flags: {},
+    effect: "Lowers target's Attack by 2.",
+  },
+  "Gunk Shot": {
+    name: "Gunk Shot", type: "poison", category: "physical", basePower: 120,
+    accuracy: 80, pp: 5, priority: 0, target: "normal",
+    flags: {},
+    secondary: { chance: 30, status: "poison" },
+  },
+  "Discharge": {
+    name: "Discharge", type: "electric", category: "special", basePower: 80,
+    accuracy: 100, pp: 15, priority: 0, target: "allAdjacent",
+    flags: {},
+    secondary: { chance: 30, status: "paralysis" },
+  },
+  "Poltergeist": {
+    name: "Poltergeist", type: "ghost", category: "physical", basePower: 110,
+    accuracy: 90, pp: 5, priority: 0, target: "normal",
+    flags: {},
+    effect: "Fails if the target has no held item.",
+  },
+  "Quiver Dance": {
+    name: "Quiver Dance", type: "bug", category: "status", basePower: 0,
+    accuracy: 100, pp: 20, priority: 0, target: "self",
+    flags: {},
+    selfBoost: { spAtk: 1, spDef: 1, speed: 1 },
+  },
+  "Bug Buzz": {
+    name: "Bug Buzz", type: "bug", category: "special", basePower: 90,
+    accuracy: 100, pp: 10, priority: 0, target: "normal",
+    flags: { sound: true },
+    effect: "10% chance to lower target's Sp. Def.",
+  },
+  "Mystical Fire": {
+    name: "Mystical Fire", type: "fire", category: "special", basePower: 75,
+    accuracy: 100, pp: 10, priority: 0, target: "normal",
+    flags: {},
+    effect: "Lowers target's Sp. Atk by 1.",
+  },
+  "Synthesis": {
+    name: "Synthesis", type: "grass", category: "status", basePower: 0,
+    accuracy: 100, pp: 5, priority: 0, target: "self",
+    flags: {},
+    effect: "Heals 50% HP.",
+  },
+  "Toxic Spikes": {
+    name: "Toxic Spikes", type: "poison", category: "status", basePower: 0,
+    accuracy: 100, pp: 20, priority: 0, target: "foeSide",
+    flags: {},
+    effect: "Poisons grounded foes switching in.",
   },
 };
 
