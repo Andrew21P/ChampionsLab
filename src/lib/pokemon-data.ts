@@ -26619,7 +26619,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       {
         "name": "Mega Sol",
         "description": "All moves used by this Pokémon behave as if under harsh sunlight.",
-        "isChampions": true
+        "isChampions": false
       }
     ],
     "moves": [
@@ -27466,7 +27466,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
           {
             "name": "Mega Sol",
             "description": "All moves used by this Pokémon behave as if under harsh sunlight.",
-            "isChampions": true
+            "isChampions": false
           }
         ],
         "isMega": true
@@ -28786,7 +28786,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       {
         "name": "Dragonize",
         "description": "Normal-type moves become Dragon-type and gain 20% power.",
-        "isChampions": true
+        "isChampions": false
       }
     ],
     "moves": [
@@ -29858,7 +29858,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
           {
             "name": "Dragonize",
             "description": "Normal-type moves become Dragon-type and gain 20% power.",
-            "isChampions": true
+            "isChampions": false
           }
         ],
         "isMega": true

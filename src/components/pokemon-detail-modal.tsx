@@ -573,7 +573,7 @@ export function PokemonDetailModal({ pokemon, onClose }: PokemonDetailModalProps
                         className={cn(
                           "p-4 rounded-2xl border transition-colors",
                           ability.isChampions
-                            ? "bg-gradient-to-br from-violet-50/80 to-pink-50/50 border-violet-200/80"
+                            ? "bg-gradient-to-br from-amber-50/80 to-orange-50/50 border-amber-200/80"
                             : ability.isHidden
                               ? "bg-gradient-to-br from-amber-50/80 to-orange-50/50 border-amber-200/80"
                               : "bg-gradient-to-br from-gray-50 to-gray-100/30 border-gray-200/80"
@@ -582,17 +582,17 @@ export function PokemonDetailModal({ pokemon, onClose }: PokemonDetailModalProps
                         <div className="flex items-center gap-2 mb-2">
                           <div className={cn(
                             "w-7 h-7 rounded-lg flex items-center justify-center",
-                            ability.isChampions ? "bg-violet-100" : ability.isHidden ? "bg-amber-100" : "bg-gray-100"
+                            ability.isChampions ? "bg-amber-100" : ability.isHidden ? "bg-amber-100" : "bg-gray-100"
                           )}>
                             <Sparkles className={cn(
                               "w-3.5 h-3.5",
-                              ability.isChampions ? "text-violet-600" : ability.isHidden ? "text-amber-600" : "text-gray-500"
+                              ability.isChampions ? "text-amber-600" : ability.isHidden ? "text-amber-600" : "text-gray-500"
                             )} />
                           </div>
                           <span className="text-sm font-bold tracking-tight text-gray-900">{ability.name}</span>
                           {ability.isChampions && (
-                            <span className="px-2 py-0.5 text-[9px] font-bold bg-gradient-to-r from-violet-100 to-pink-100 text-violet-700 rounded-lg border border-violet-200">
-                              EXCLUSIVE
+                            <span className="px-2 py-0.5 text-[9px] font-bold bg-gradient-to-r from-amber-50 to-orange-50 text-amber-700 rounded-lg border border-amber-300" title="This ability has not been officially revealed yet — it is a speculative guess for Champions Lab.">
+                              SPECULATIVE
                             </span>
                           )}
                           {ability.isHidden && (

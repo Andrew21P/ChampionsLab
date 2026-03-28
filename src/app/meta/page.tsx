@@ -1297,7 +1297,7 @@ export default function MetaPage() {
                       <h4 className="text-sm font-bold uppercase text-muted-foreground">Abilities</h4>
                       {pokemon.abilities.map(a => (
                         <div key={a.name} className="p-2.5 bg-gray-50 rounded-xl">
-                          <div className="flex items-center gap-2"><span className="text-xs font-bold">{a.name}</span>{a.isHidden && <span className="text-[9px] px-1.5 py-0.5 bg-violet-100 text-violet-700 rounded font-medium">Hidden</span>}</div>
+                          <div className="flex items-center gap-2"><span className="text-xs font-bold">{a.name}</span>{a.isHidden && <span className="text-[9px] px-1.5 py-0.5 bg-violet-100 text-violet-700 rounded font-medium">Hidden</span>}{(a as any).isChampions && <span className="text-[9px] px-1.5 py-0.5 bg-amber-100 text-amber-700 rounded font-medium" title="Not officially confirmed — speculative ability">Speculative</span>}</div>
                           <p className="text-[10px] text-muted-foreground mt-0.5">{a.description}</p>
                         </div>
                       ))}
