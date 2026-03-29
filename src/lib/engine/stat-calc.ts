@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHAMPIONS LAB — STAT CALCULATOR
+// CHAMPIONS LAB - STAT CALCULATOR
 // Level 50 stat calculation with SP system and natures
 // ═══════════════════════════════════════════════════════════════════════════════
 

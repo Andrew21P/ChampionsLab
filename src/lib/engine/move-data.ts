@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHAMPIONS LAB — COMPREHENSIVE VGC MOVE DATABASE
+// CHAMPIONS LAB - COMPREHENSIVE VGC MOVE DATABASE
 // Every competitive move with priority, targeting, flags, and effects
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -64,7 +64,7 @@ export interface EngineMove {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// MOVE DATABASE — Comprehensive VGC move data
+// MOVE DATABASE - Comprehensive VGC move data
 // ═══════════════════════════════════════════════════════════════════════════════
 export const MOVE_DATA: Record<string, EngineMove> = {
   // ── NORMAL ─────────────────────────────────────────────────────────────────

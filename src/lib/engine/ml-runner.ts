@@ -1,7 +1,7 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHAMPIONS LAB — ML SIMULATION RUNNER
+// CHAMPIONS LAB - ML SIMULATION RUNNER
 // Continuous battle simulation with ELO rankings, data collection,
-// and machine learning inspired analysis — runs like a trading bot
+// and machine learning inspired analysis - runs like a trading bot
 // ═══════════════════════════════════════════════════════════════════════════════
 
 import type { ChampionsPokemon, CommonSet } from "@/lib/types";
@@ -333,7 +333,7 @@ function buildTeamPool(): TeamEntry[] {
       const sliced = pokemon.slice(0, sets.length);
       pool.push({
         id: tt.id,
-        name: `${tt.tournament} ${tt.year} — ${tt.player}`,
+        name: `${tt.tournament} ${tt.year} - ${tt.player}`,
         archetype: tt.archetype,
         pokemon: sliced,
         sets,
@@ -361,7 +361,7 @@ function buildTeamPool(): TeamEntry[] {
     }
   }
 
-  // 4. Generate MEGA VARIANT teams — for every mega-capable Pokémon, 
+  // 4. Generate MEGA VARIANT teams - for every mega-capable Pokémon, 
   //    create teams per mega form (X, Y, Z variants get separate teams)
   const megaPokemon = POKEMON_SEED.filter(p => p.hasMega && p.forms?.some(f => f.isMega));
   for (const mp of megaPokemon) {
@@ -463,7 +463,7 @@ function buildTeamPool(): TeamEntry[] {
     }
   }
 
-  // 5. Generate ROSTER COVERAGE teams — build a team around every Pokémon
+  // 5. Generate ROSTER COVERAGE teams - build a team around every Pokémon
   //    with usage data that doesn't appear enough in the pool yet
   const pokemonAppearances = new Map<number, number>();
   for (const entry of pool) {
@@ -957,7 +957,7 @@ export async function runQuickSimulation(durationMs: number = 30000): Promise<Fi
 export function formatReport(report: FinalReport): string {
   const lines: string[] = [
     "═══════════════════════════════════════════════════════════════",
-    "                CHAMPIONS LAB — SIMULATION REPORT              ",
+    "                CHAMPIONS LAB - SIMULATION REPORT              ",
     "═══════════════════════════════════════════════════════════════",
     "",
     `Total Battles: ${report.totalBattles}`,
@@ -966,27 +966,27 @@ export function formatReport(report: FinalReport): string {
     "",
     "── TOP TEAMS BY ELO ──",
     ...report.teamRankings.slice(0, 15).map((t, i) =>
-      `  ${i + 1}. ${t.id} — ELO: ${t.elo} | WR: ${t.winRate}% | ${t.totalGames} games`
+      `  ${i + 1}. ${t.id} - ELO: ${t.elo} | WR: ${t.winRate}% | ${t.totalGames} games`
     ),
     "",
     "── TOP POKEMON BY ELO ──",
     ...report.pokemonRankings.slice(0, 15).map((p, i) =>
-      `  ${i + 1}. ${p.name} — ELO: ${p.elo} | WR: ${p.winRate}% | ${p.appearances} games`
+      `  ${i + 1}. ${p.name} - ELO: ${p.elo} | WR: ${p.winRate}% | ${p.appearances} games`
     ),
     "",
     "── TOP MOVES BY WIN RATE ──",
     ...report.moveRankings.slice(0, 10).map((m, i) =>
-      `  ${i + 1}. ${m.name} — WR: ${m.winRate}% | ${m.appearances} uses`
+      `  ${i + 1}. ${m.name} - WR: ${m.winRate}% | ${m.appearances} uses`
     ),
     "",
     "── ARCHETYPE RANKINGS ──",
     ...report.archetypeRankings.slice(0, 10).map((a, i) =>
-      `  ${i + 1}. ${a.name} — ELO: ${a.elo} | WR: ${a.winRate}%`
+      `  ${i + 1}. ${a.name} - ELO: ${a.elo} | WR: ${a.winRate}%`
     ),
     "",
     "── BEST CORES ──",
     ...report.bestPairs.slice(0, 10).map((p, i) =>
-      `  ${i + 1}. ${p.pokemon1} + ${p.pokemon2} — WR: ${p.winRate}% (${p.games} games)`
+      `  ${i + 1}. ${p.pokemon1} + ${p.pokemon2} - WR: ${p.winRate}% (${p.games} games)`
     ),
     "",
     "── META SNAPSHOT ──",

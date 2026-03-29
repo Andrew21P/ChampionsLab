@@ -64,7 +64,7 @@ const RULES_CONFIG: Record<string, RuleConfig> = {
     color: "text-red-600",
     bg: "bg-red-50",
     ring: "ring-red-100",
-    description: "All battles are played in Double Battle format — 2v2 on the field at all times. The standard competitive Pokémon format used in official VGC tournaments worldwide.",
+    description: "All battles are played in Double Battle format - 2v2 on the field at all times. The standard competitive Pokémon format used in official VGC tournaments worldwide.",
   },
   "Bring 6, Pick 4": {
     icon: ListChecks,
@@ -104,7 +104,7 @@ const RULES_CONFIG: Record<string, RuleConfig> = {
     color: "text-emerald-600",
     bg: "bg-emerald-50",
     ring: "ring-emerald-100",
-    description: "Each Pokémon species can only appear once on your team. Known as the Species Clause — a core rule in all official competitive formats.",
+    description: "Each Pokémon species can only appear once on your team. Known as the Species Clause - a core rule in all official competitive formats.",
   },
   "No duplicate held items": {
     icon: Ban,
@@ -112,7 +112,7 @@ const RULES_CONFIG: Record<string, RuleConfig> = {
     color: "text-cyan-600",
     bg: "bg-cyan-50",
     ring: "ring-cyan-100",
-    description: "Each held item can only be used once per team. Known as the Item Clause — forces diverse item choices and prevents stacking powerful items like Leftovers or Choice Scarf.",
+    description: "Each held item can only be used once per team. Known as the Item Clause - forces diverse item choices and prevents stacking powerful items like Leftovers or Choice Scarf.",
   },
   "20-minute game timer": {
     icon: Timer,
@@ -202,7 +202,7 @@ export function SeasonInfo({ seasonId }: { seasonId: number }) {
         )}
       </div>
 
-      <p className="text-xs text-gray-400 uppercase tracking-wider font-medium mb-3">Rules — hover for details</p>
+      <p className="text-xs text-gray-400 uppercase tracking-wider font-medium mb-3">Rules - hover for details</p>
 
       <div className="flex flex-wrap gap-2">
         {season.rules.map((rule) => (

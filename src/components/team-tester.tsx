@@ -415,7 +415,7 @@ export default function TeamTester() {
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span className="text-[10px] font-bold text-white drop-shadow-sm">
-                    {result.winRate}% — {(100 - result.winRate).toFixed(1)}%
+                    {result.winRate}% - {(100 - result.winRate).toFixed(1)}%
                   </span>
                 </div>
               </div>
@@ -430,7 +430,7 @@ export default function TeamTester() {
                 {result.winRate > 60 ? "Team 1 dominates this matchup!" :
                  result.winRate > 55 ? "Team 1 has a clear advantage" :
                  result.winRate > 52 ? "Team 1 has a slight edge" :
-                 result.winRate > 48 ? "Very even matchup — could go either way" :
+                 result.winRate > 48 ? "Very even matchup - could go either way" :
                  result.winRate > 45 ? "Team 2 has a slight edge" :
                  result.winRate > 40 ? "Team 2 has a clear advantage" :
                  "Team 2 dominates this matchup!"}
@@ -739,7 +739,7 @@ export default function TeamTester() {
 }
 
 // ══════════════════════════════════════════════════════════════════════════
-// TEAM PANEL — One side of the matchup
+// TEAM PANEL - One side of the matchup
 // ══════════════════════════════════════════════════════════════════════════
 
 function TeamPanel({

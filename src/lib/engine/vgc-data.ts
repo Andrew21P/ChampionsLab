@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHAMPIONS LAB — VGC TOURNAMENT DATABASE
+// CHAMPIONS LAB - VGC TOURNAMENT DATABASE
 // Real competitive data from 20 years of VGC: Worlds, Regionals, PCs
 // Sources: Victory Road, Pokémon Global Link, Limitless VGC archives
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -147,7 +147,7 @@ export interface TournamentTeam {
 export const TOURNAMENT_TEAMS: TournamentTeam[] = [
 
   // ────────────────────────────────── 2025 ──────────────────────────────────
-  // VGC 2025 — Regulation H / Regulation I
+  // VGC 2025 - Regulation H / Regulation I
   { id: "tt-1",   tournament: "Worlds 2025",            year: 2025, format: "VGC 2025 Reg I",  player: "TBD (Projected)",  placement: 1, pokemonIds: [727, 887, 983, 445, 858, 964],   archetype: "Standard",       region: "NA" },
   { id: "tt-2",   tournament: "Worlds 2025",            year: 2025, format: "VGC 2025 Reg I",  player: "TBD (Projected)",  placement: 2, pokemonIds: [324, 3, 858, 464, 727, 530],     archetype: "Sun Trick Room", region: "EU" },
   { id: "tt-3",   tournament: "NAIC 2025",              year: 2025, format: "VGC 2025 Reg H",  player: "Top 4 (A)",        placement: 1, pokemonIds: [727, 445, 887, 983, 547, 282],   archetype: "Tailwind",       region: "NA" },
@@ -175,7 +175,7 @@ export const TOURNAMENT_TEAMS: TournamentTeam[] = [
   { id: "tt-25",  tournament: "IC March 2025",          year: 2025, format: "VGC 2025 Reg H",  player: "Meta Report",      placement: 1, pokemonIds: [727, 445, 964, 547, 282, 887],   archetype: "Tailwind",       region: "Global" },
 
   // ────────────────────────────────── 2024 ──────────────────────────────────
-  // VGC 2024 — Regulation F / G
+  // VGC 2024 - Regulation F / G
   { id: "tt-26",  tournament: "Worlds 2024",            year: 2024, format: "VGC 2024 Reg G",  player: "Luca Ceribelli",   placement: 1, pokemonIds: [727, 887, 983, 445, 858, 530],   archetype: "Trick Room",     region: "EU" },
   { id: "tt-27",  tournament: "Worlds 2024",            year: 2024, format: "VGC 2024 Reg G",  player: "Runner-Up",        placement: 2, pokemonIds: [727, 445, 887, 547, 983, 282],   archetype: "Tailwind",       region: "JPN" },
   { id: "tt-28",  tournament: "Worlds 2024",            year: 2024, format: "VGC 2024 Reg G",  player: "Top 4 (A)",        placement: 3, pokemonIds: [248, 530, 727, 887, 858, 445],   archetype: "Sand",           region: "NA" },
@@ -222,7 +222,7 @@ export const TOURNAMENT_TEAMS: TournamentTeam[] = [
   { id: "tt-69",  tournament: "IC May 2024",            year: 2024, format: "VGC 2024 Reg G",  player: "Meta Report",      placement: 1, pokemonIds: [727, 887, 983, 445, 858, 282],   archetype: "Standard",       region: "Global" },
 
   // ────────────────────────────────── 2023 ──────────────────────────────────
-  // VGC 2023 — Regulation C / D / E
+  // VGC 2023 - Regulation C / D / E
   { id: "tt-70",  tournament: "Worlds 2023",            year: 2023, format: "VGC 2023 Reg D",  player: "Cynthia Weng",     placement: 1, pokemonIds: [887, 727, 445, 547, 983, 681],   archetype: "Hyper Offense",  region: "NA" },
   { id: "tt-71",  tournament: "Worlds 2023",            year: 2023, format: "VGC 2023 Reg D",  player: "Eduardo Cunha",    placement: 2, pokemonIds: [887, 727, 964, 858, 282, 530],   archetype: "Trick Room",     region: "LATAM" },
   { id: "tt-72",  tournament: "Worlds 2023",            year: 2023, format: "VGC 2023 Reg D",  player: "Top 4 (A)",        placement: 3, pokemonIds: [727, 445, 887, 983, 547, 248],   archetype: "Tailwind",       region: "JPN" },
@@ -255,7 +255,7 @@ export const TOURNAMENT_TEAMS: TournamentTeam[] = [
   { id: "tt-99",  tournament: "IC June 2023",           year: 2023, format: "VGC 2023 Reg D",  player: "Meta Report",      placement: 1, pokemonIds: [324, 3, 727, 858, 445, 464],     archetype: "Sun Trick Room", region: "Global" },
 
   // ────────────────────────────────── 2022 ──────────────────────────────────
-  // VGC 2022 — Series 12 (Restricted legends allowed)
+  // VGC 2022 - Series 12 (Restricted legends allowed)
   { id: "tt-100", tournament: "Worlds 2022",            year: 2022, format: "VGC 2022 S12",    player: "Eduardo Cunha",    placement: 1, pokemonIds: [727, 445, 547, 130, 858, 248],   archetype: "Bulky Offense",  region: "LATAM" },
   { id: "tt-101", tournament: "Worlds 2022",            year: 2022, format: "VGC 2022 S12",    player: "Runner-Up",        placement: 2, pokemonIds: [727, 887, 445, 681, 282, 547],   archetype: "Standard",       region: "JPN" },
   { id: "tt-102", tournament: "Worlds 2022",            year: 2022, format: "VGC 2022 S12",    player: "Top 4 (A)",        placement: 3, pokemonIds: [727, 445, 858, 282, 248, 530],   archetype: "Sand",           region: "EU" },
@@ -276,7 +276,7 @@ export const TOURNAMENT_TEAMS: TournamentTeam[] = [
   { id: "tt-117", tournament: "Limitless Online #20",   year: 2022, format: "VGC 2022 S12",    player: "Pool",             placement: 1, pokemonIds: [186, 130, 727, 445, 547, 282],   archetype: "Rain",           region: "Global" },
 
   // ────────────────────────────────── 2020–2021 ──────────────────────────────
-  // COVID era — Players Cups & online tournaments (no in-person Worlds)
+  // COVID era - Players Cups & online tournaments (no in-person Worlds)
   { id: "tt-118", tournament: "Players Cup III",        year: 2021, format: "VGC 2021 S8",     player: "Winner",           placement: 1, pokemonIds: [727, 445, 887, 547, 282, 130],   archetype: "Tailwind",       region: "Global" },
   { id: "tt-119", tournament: "Players Cup III",        year: 2021, format: "VGC 2021 S8",     player: "Runner-Up",        placement: 2, pokemonIds: [248, 530, 727, 887, 858, 445],   archetype: "Sand",           region: "Global" },
   { id: "tt-120", tournament: "Players Cup III",        year: 2021, format: "VGC 2021 S8",     player: "Top 4",            placement: 3, pokemonIds: [324, 3, 858, 727, 445, 681],     archetype: "Sun Trick Room", region: "Global" },
@@ -294,7 +294,7 @@ export const TOURNAMENT_TEAMS: TournamentTeam[] = [
   { id: "tt-132", tournament: "IC February 2020",       year: 2020, format: "VGC 2020",        player: "Meta Report",      placement: 1, pokemonIds: [727, 445, 887, 547, 282, 681],   archetype: "Tailwind",       region: "Global" },
 
   // ────────────────────────────────── 2019 ──────────────────────────────────
-  // VGC 2019 — Sun/Moon Ultra Series (Restricted)
+  // VGC 2019 - Sun/Moon Ultra Series (Restricted)
   { id: "tt-133", tournament: "Worlds 2019",            year: 2019, format: "VGC 2019 Ultra",  player: "Naoto Mizobuchi",  placement: 1, pokemonIds: [727, 445, 248, 282, 681, 130],   archetype: "Standard",       region: "JPN" },
   { id: "tt-134", tournament: "Worlds 2019",            year: 2019, format: "VGC 2019 Ultra",  player: "Runner-Up",        placement: 2, pokemonIds: [727, 445, 282, 547, 376, 248],   archetype: "Mega Metagross", region: "NA" },
   { id: "tt-135", tournament: "Worlds 2019",            year: 2019, format: "VGC 2019 Ultra",  player: "Top 4 (A)",        placement: 3, pokemonIds: [727, 445, 130, 282, 248, 681],   archetype: "Goodstuffs",     region: "EU" },
@@ -312,7 +312,7 @@ export const TOURNAMENT_TEAMS: TournamentTeam[] = [
   { id: "tt-147", tournament: "São Paulo Regional",     year: 2019, format: "VGC 2019 Ultra",  player: "Winner",           placement: 1, pokemonIds: [727, 445, 130, 282, 376, 248],   archetype: "Mega Metagross", region: "LATAM" },
 
   // ────────────────────────────────── 2018 ──────────────────────────────────
-  // VGC 2018 — Sun/Moon (Mega Evolution)
+  // VGC 2018 - Sun/Moon (Mega Evolution)
   { id: "tt-148", tournament: "Worlds 2018",            year: 2018, format: "VGC 2018",        player: "Paul Ruiz",        placement: 1, pokemonIds: [727, 376, 282, 445, 248, 658],   archetype: "Mega Metagross", region: "LATAM" },
   { id: "tt-149", tournament: "Worlds 2018",            year: 2018, format: "VGC 2018",        player: "Emilio Forbes",    placement: 2, pokemonIds: [727, 445, 376, 282, 248, 547],   archetype: "Sand Balance",   region: "NA" },
   { id: "tt-150", tournament: "Worlds 2018",            year: 2018, format: "VGC 2018",        player: "Top 4 (A)",        placement: 3, pokemonIds: [727, 376, 445, 130, 282, 212],   archetype: "Mega Metagross", region: "JPN" },
@@ -330,7 +330,7 @@ export const TOURNAMENT_TEAMS: TournamentTeam[] = [
   { id: "tt-162", tournament: "Leipzig Regional",       year: 2018, format: "VGC 2018",        player: "Winner",           placement: 1, pokemonIds: [727, 376, 445, 282, 681, 248],   archetype: "Mega Metagross", region: "EU" },
 
   // ────────────────────────────────── 2017 ──────────────────────────────────
-  // VGC 2017 — Sun/Moon (Alolan dex)
+  // VGC 2017 - Sun/Moon (Alolan dex)
   { id: "tt-163", tournament: "Worlds 2017",            year: 2017, format: "VGC 2017",        player: "Ryota Otsubo",     placement: 1, pokemonIds: [115, 445, 282, 727, 248, 130],   archetype: "Mega Kangaskhan", region: "JPN" },
   { id: "tt-164", tournament: "Worlds 2017",            year: 2017, format: "VGC 2017",        player: "Sam Schweitzer",   placement: 2, pokemonIds: [445, 727, 130, 282, 248, 547],   archetype: "Tailwind",       region: "NA" },
   { id: "tt-165", tournament: "Worlds 2017",            year: 2017, format: "VGC 2017",        player: "Top 4 (A)",        placement: 3, pokemonIds: [115, 727, 445, 282, 248, 681],   archetype: "Mega Kangaskhan", region: "EU" },
@@ -344,7 +344,7 @@ export const TOURNAMENT_TEAMS: TournamentTeam[] = [
   { id: "tt-173", tournament: "Melbourne Regional",     year: 2017, format: "VGC 2017",        player: "Winner",           placement: 1, pokemonIds: [115, 727, 445, 130, 282, 248],   archetype: "Mega Kangaskhan", region: "OCE" },
 
   // ────────────────────────────────── 2016 ──────────────────────────────────
-  // VGC 2016 — ORAS Primal/Mega (Restricted legends)
+  // VGC 2016 - ORAS Primal/Mega (Restricted legends)
   { id: "tt-174", tournament: "Worlds 2016",            year: 2016, format: "VGC 2016",        player: "Wolfe Glick",      placement: 1, pokemonIds: [26, 282, 130, 445, 727, 248],    archetype: "Raichu Support", region: "NA" },
   { id: "tt-175", tournament: "Worlds 2016",            year: 2016, format: "VGC 2016",        player: "Jonathan Evans",   placement: 2, pokemonIds: [115, 445, 282, 248, 130, 727],   archetype: "Mega Kangaskhan", region: "NA" },
   { id: "tt-176", tournament: "Worlds 2016",            year: 2016, format: "VGC 2016",        player: "Top 4 (A)",        placement: 3, pokemonIds: [282, 445, 130, 248, 727, 547],   archetype: "Tailwind",       region: "EU" },
@@ -357,7 +357,7 @@ export const TOURNAMENT_TEAMS: TournamentTeam[] = [
   { id: "tt-183", tournament: "Liverpool Regional",     year: 2016, format: "VGC 2016",        player: "Winner",           placement: 1, pokemonIds: [282, 445, 248, 130, 727, 212],   archetype: "Standard",       region: "EU" },
 
   // ────────────────────────────────── 2015 ──────────────────────────────────
-  // VGC 2015 — ORAS Mega Era
+  // VGC 2015 - ORAS Mega Era
   { id: "tt-184", tournament: "Worlds 2015",            year: 2015, format: "VGC 2015",        player: "Shoma Honami",     placement: 1, pokemonIds: [115, 445, 700, 727, 248, 130],   archetype: "Mega Kangaskhan", region: "JPN" },
   { id: "tt-185", tournament: "Worlds 2015",            year: 2015, format: "VGC 2015",        player: "Hideyuki Taida",   placement: 2, pokemonIds: [282, 445, 130, 248, 727, 681],   archetype: "Mega Gardevoir", region: "JPN" },
   { id: "tt-186", tournament: "Worlds 2015",            year: 2015, format: "VGC 2015",        player: "Top 4 (A)",        placement: 3, pokemonIds: [115, 445, 282, 248, 727, 547],   archetype: "Mega Kangaskhan", region: "NA" },
@@ -370,7 +370,7 @@ export const TOURNAMENT_TEAMS: TournamentTeam[] = [
   { id: "tt-193", tournament: "Nugget Bridge Major",    year: 2015, format: "VGC 2015",        player: "Winner",           placement: 1, pokemonIds: [376, 445, 282, 248, 130, 727],   archetype: "Mega Metagross", region: "NA" },
 
   // ────────────────────────────────── 2014 ──────────────────────────────────
-  // VGC 2014 — XY Mega Introduction
+  // VGC 2014 - XY Mega Introduction
   { id: "tt-194", tournament: "Worlds 2014",            year: 2014, format: "VGC 2014",        player: "Se Jun Park",      placement: 1, pokemonIds: [282, 445, 130, 727, 248, 115],   archetype: "Mega Gardevoir", region: "KR" },
   { id: "tt-195", tournament: "Worlds 2014",            year: 2014, format: "VGC 2014",        player: "Jeudy Azzarelli",  placement: 2, pokemonIds: [115, 445, 282, 248, 130, 727],   archetype: "Mega Kangaskhan", region: "NA" },
   { id: "tt-196", tournament: "Worlds 2014",            year: 2014, format: "VGC 2014",        player: "Top 4 (A)",        placement: 3, pokemonIds: [445, 282, 130, 248, 94, 727],    archetype: "Mega Gengar",    region: "JPN" },
@@ -383,7 +383,7 @@ export const TOURNAMENT_TEAMS: TournamentTeam[] = [
   { id: "tt-203", tournament: "Japan Nationals 2014",   year: 2014, format: "VGC 2014",        player: "Winner",           placement: 1, pokemonIds: [282, 445, 130, 248, 115, 727],   archetype: "Mega Gardevoir", region: "JPN" },
 
   // ────────────────────────────────── 2013 ──────────────────────────────────
-  // VGC 2013 — BW2
+  // VGC 2013 - BW2
   { id: "tt-204", tournament: "Worlds 2013",            year: 2013, format: "VGC 2013",        player: "Arash Ommati",     placement: 1, pokemonIds: [445, 186, 130, 248, 94, 282],    archetype: "Rain",           region: "EU" },
   { id: "tt-205", tournament: "Worlds 2013",            year: 2013, format: "VGC 2013",        player: "Ryosuke Kosuge",   placement: 2, pokemonIds: [248, 376, 130, 94, 445, 212],    archetype: "Sand",           region: "JPN" },
   { id: "tt-206", tournament: "Worlds 2013",            year: 2013, format: "VGC 2013",        player: "Top 4 (A)",        placement: 3, pokemonIds: [445, 186, 130, 94, 248, 149],    archetype: "Rain",           region: "NA" },
@@ -394,7 +394,7 @@ export const TOURNAMENT_TEAMS: TournamentTeam[] = [
   { id: "tt-211", tournament: "Japan Nationals 2013",   year: 2013, format: "VGC 2013",        player: "Winner",           placement: 1, pokemonIds: [248, 530, 445, 130, 94, 149],    archetype: "Sand",           region: "JPN" },
 
   // ────────────────────────────────── 2012 ──────────────────────────────────
-  // VGC 2012 — BW (Weather wars era)
+  // VGC 2012 - BW (Weather wars era)
   { id: "tt-212", tournament: "Worlds 2012",            year: 2012, format: "VGC 2012",        player: "Ray Rizzo",        placement: 1, pokemonIds: [248, 376, 130, 94, 445, 212],    archetype: "Sand Control",   region: "NA" },
   { id: "tt-213", tournament: "Worlds 2012",            year: 2012, format: "VGC 2012",        player: "Wolfe Glick",      placement: 2, pokemonIds: [248, 376, 130, 94, 445, 149],    archetype: "Sand",           region: "NA" },
   { id: "tt-214", tournament: "Worlds 2012",            year: 2012, format: "VGC 2012",        player: "Top 4 (A)",        placement: 3, pokemonIds: [186, 130, 445, 94, 248, 212],    archetype: "Rain",           region: "EU" },
@@ -405,7 +405,7 @@ export const TOURNAMENT_TEAMS: TournamentTeam[] = [
   { id: "tt-219", tournament: "Japan Nationals 2012",   year: 2012, format: "VGC 2012",        player: "Winner",           placement: 1, pokemonIds: [248, 376, 445, 94, 130, 149],    archetype: "Sand",           region: "JPN" },
 
   // ────────────────────────────────── 2011 ──────────────────────────────────
-  // VGC 2011 — BW (Gen 5 launch)
+  // VGC 2011 - BW (Gen 5 launch)
   { id: "tt-220", tournament: "Worlds 2011",            year: 2011, format: "VGC 2011",        player: "Ray Rizzo",        placement: 1, pokemonIds: [248, 376, 149, 94, 445, 212],    archetype: "Weather Control", region: "NA" },
   { id: "tt-221", tournament: "Worlds 2011",            year: 2011, format: "VGC 2011",        player: "Runner-Up",        placement: 2, pokemonIds: [248, 376, 445, 130, 94, 149],    archetype: "Sand",           region: "JPN" },
   { id: "tt-222", tournament: "Worlds 2011",            year: 2011, format: "VGC 2011",        player: "Top 4 (A)",        placement: 3, pokemonIds: [248, 530, 445, 94, 149, 212],    archetype: "Sand Rush",      region: "NA" },
@@ -416,7 +416,7 @@ export const TOURNAMENT_TEAMS: TournamentTeam[] = [
   { id: "tt-227", tournament: "Japan Nationals 2011",   year: 2011, format: "VGC 2011",        player: "Winner",           placement: 1, pokemonIds: [248, 530, 445, 94, 149, 376],    archetype: "Sand Rush",      region: "JPN" },
 
   // ────────────────────────────────── 2010 ──────────────────────────────────
-  // VGC 2010 — HGSS (Gen 4)
+  // VGC 2010 - HGSS (Gen 4)
   { id: "tt-228", tournament: "Worlds 2010",            year: 2010, format: "VGC 2010",        player: "Ray Rizzo",        placement: 1, pokemonIds: [376, 130, 94, 445, 248, 212],    archetype: "Standard",       region: "NA" },
   { id: "tt-229", tournament: "Worlds 2010",            year: 2010, format: "VGC 2010",        player: "Runner-Up",        placement: 2, pokemonIds: [376, 445, 130, 94, 248, 149],    archetype: "Goodstuffs",     region: "JPN" },
   { id: "tt-230", tournament: "Worlds 2010",            year: 2010, format: "VGC 2010",        player: "Top 4 (A)",        placement: 3, pokemonIds: [248, 376, 445, 130, 94, 212],    archetype: "Sand",           region: "EU" },
@@ -426,7 +426,7 @@ export const TOURNAMENT_TEAMS: TournamentTeam[] = [
   { id: "tt-234", tournament: "UK Nationals 2010",      year: 2010, format: "VGC 2010",        player: "Winner",           placement: 1, pokemonIds: [376, 445, 130, 94, 248, 149],    archetype: "Goodstuffs",     region: "EU" },
 
   // ────────────────────────────────── 2009 ──────────────────────────────────
-  // VGC 2009 — First official VGC year (Platinum)
+  // VGC 2009 - First official VGC year (Platinum)
   { id: "tt-235", tournament: "Worlds 2009",            year: 2009, format: "VGC 2009",        player: "Kazuyuki Tsuji",   placement: 1, pokemonIds: [376, 149, 94, 445, 248, 130],    archetype: "Goodstuffs",     region: "JPN" },
   { id: "tt-236", tournament: "Worlds 2009",            year: 2009, format: "VGC 2009",        player: "Runner-Up",        placement: 2, pokemonIds: [376, 445, 130, 94, 248, 212],    archetype: "Standard",       region: "NA" },
   { id: "tt-237", tournament: "Worlds 2009",            year: 2009, format: "VGC 2009",        player: "Top 4 (A)",        placement: 3, pokemonIds: [248, 376, 445, 130, 94, 149],    archetype: "Sand",           region: "EU" },
@@ -436,7 +436,7 @@ export const TOURNAMENT_TEAMS: TournamentTeam[] = [
   { id: "tt-241", tournament: "UK Nationals 2009",      year: 2009, format: "VGC 2009",        player: "Winner",           placement: 1, pokemonIds: [376, 445, 130, 248, 94, 149],    archetype: "Goodstuffs",     region: "EU" },
 
   // ────────────────────────────────── 2008 ──────────────────────────────────
-  // VGC 2008 — Pre-VGC era / early official (Diamond & Pearl)
+  // VGC 2008 - Pre-VGC era / early official (Diamond & Pearl)
   { id: "tt-242", tournament: "Worlds 2008",            year: 2008, format: "VGC 2008",        player: "Winner",           placement: 1, pokemonIds: [376, 445, 130, 94, 248, 149],    archetype: "Standard",       region: "JPN" },
   { id: "tt-243", tournament: "Worlds 2008",            year: 2008, format: "VGC 2008",        player: "Runner-Up",        placement: 2, pokemonIds: [376, 445, 130, 94, 248, 212],    archetype: "Standard",       region: "NA" },
   { id: "tt-244", tournament: "Worlds 2008",            year: 2008, format: "VGC 2008",        player: "Top 4 (A)",        placement: 3, pokemonIds: [248, 376, 445, 130, 94, 149],    archetype: "Sand",           region: "EU" },
@@ -502,7 +502,7 @@ export const CORE_PAIRS: CorePair[] = [
   { pokemon1: 282, pokemon2: 130, name: "Gardevoir + Gyarados", winRate: 54.2, usage: 9.8, synergy: "Mega Gardevoir + Intimidate support" },
   { pokemon1: 823, pokemon2: 983, name: "Corviknight + Kingambit", winRate: 53.4, usage: 9.8, synergy: "Steel/Steel Defiant/Mirror Armor defensive core" },
   { pokemon1: 279, pokemon2: 130, name: "Pelipper + Gyarados", winRate: 55.4, usage: 9.6, synergy: "Drizzle + Moxie sweeper in modern rain" },
-  { pokemon1: 977, pokemon2: 978, name: "Dondozo + Tatsugiri", winRate: 58.6, usage: 9.4, synergy: "Commander combo — Tatsugiri boosts Dondozo" },
+  { pokemon1: 977, pokemon2: 978, name: "Dondozo + Tatsugiri", winRate: 58.6, usage: 9.4, synergy: "Commander combo - Tatsugiri boosts Dondozo" },
   { pokemon1: 350, pokemon2: 445, name: "Milotic + Garchomp", winRate: 53.8, usage: 9.2, synergy: "Competitive + Intimidate bait, EQ immunity" },
   { pokemon1: 934, pokemon2: 858, name: "Garganacl + Hatterene", winRate: 54.6, usage: 9.0, synergy: "Trick Room + Purifying Salt bulk wall" },
   { pokemon1: 901, pokemon2: 858, name: "Ursaluna + Hatterene", winRate: 56.2, usage: 8.8, synergy: "Trick Room + Guts/Headlong Rush physical nuke" },
@@ -544,7 +544,7 @@ export const CORE_PAIRS: CorePair[] = [
   { pokemon1: 10009, pokemon2: 445, name: "Wash Rotom + Garchomp", winRate: 53.6, usage: 5.0, synergy: "Levitate EQ immunity + Water/Electric coverage" },
 
   // ════════════════════════════════════════════════════════════════
-  // D-Tier cores (3–5% usage — still ~40k battles in 1M dataset)
+  // D-Tier cores (3–5% usage - still ~40k battles in 1M dataset)
   // ════════════════════════════════════════════════════════════════
   { pokemon1: 10100, pokemon2: 186, name: "Alolan Raichu + Politoed", winRate: 54.2, usage: 4.8, synergy: "Lightning Rod + Drizzle, Thunder never misses in rain" },
   { pokemon1: 715, pokemon2: 445, name: "Noivern + Garchomp", winRate: 52.4, usage: 4.8, synergy: "Tailwind + Super Fang chip, fast dragon duo" },
@@ -577,7 +577,7 @@ export const CORE_PAIRS: CorePair[] = [
   { pokemon1: 658, pokemon2: 727, name: "Greninja + Incineroar", winRate: 52.8, usage: 3.0, synergy: "Protean versatility + Fake Out pivot support" },
 
   // ════════════════════════════════════════════════════════════════
-  // E-Tier cores (1–3% usage — ~15k battles, statistically significant)
+  // E-Tier cores (1–3% usage - ~15k battles, statistically significant)
   // ════════════════════════════════════════════════════════════════
   { pokemon1: 428, pokemon2: 282, name: "Lopunny + Gardevoir", winRate: 53.0, usage: 2.8, synergy: "Mega Lopunny Fake Out + Follow Me support" },
   { pokemon1: 693, pokemon2: 658, name: "Clawitzer + Greninja", winRate: 52.4, usage: 2.8, synergy: "Mega Launcher boosted Aura Sphere + Protean versatility" },
@@ -747,7 +747,7 @@ export function predictMetaTeams(): MetaTeamPrediction[] {
   const currentYear = 2025;
 
   // ── Step 1: Weight tournament teams by recency + placement ──
-  // Recent years matter MORE — exponential decay
+  // Recent years matter MORE - exponential decay
   const weightedPokemonScores = new Map<number, number>();
   const archetypeCounts = new Map<string, { count: number; weightedCount: number; wins: number; recentCount: number }>();
 
@@ -847,7 +847,7 @@ export function predictMetaTeams(): MetaTeamPrediction[] {
       archData.recentCount >= 5 && recentShare > overallShare * 1.3 ? "rising" :
       archData.recentCount <= 1 ? "falling" : "stable";
 
-    // Build reasoning — this is what makes it transparent
+    // Build reasoning - this is what makes it transparent
     const reasoning: string[] = [];
 
     reasoning.push(
@@ -864,7 +864,7 @@ export function predictMetaTeams(): MetaTeamPrediction[] {
 
     if (teamCorePairs.length > 0) {
       const topCore = teamCorePairs[0];
-      reasoning.push(`Core: ${topCore.name} — ${topCore.winRate}% WR, ${topCore.usage}% usage`);
+      reasoning.push(`Core: ${topCore.name} - ${topCore.winRate}% WR, ${topCore.usage}% usage`);
     }
 
     // Check archetype matchup advantages

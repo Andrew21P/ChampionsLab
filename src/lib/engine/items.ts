@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHAMPIONS LAB — COMPETITIVE ITEMS ENGINE
+// CHAMPIONS LAB - COMPETITIVE ITEMS ENGINE
 // VGC-relevant held items with battle effects
 // ═══════════════════════════════════════════════════════════════════════════════
 

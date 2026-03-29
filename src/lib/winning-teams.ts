@@ -603,14 +603,14 @@ export const WINNING_TEAMS: WinningTeam[] = [
   },
 
   // ════════════════════════════════════════════════════════════════
-  // Engine-Generated Teams — sourced from 1M+ battle simulation data
+  // Engine-Generated Teams - sourced from 1M+ battle simulation data
   // ════════════════════════════════════════════════════════════════
   {
     id: "e1",
     name: "Mega Beedrill HO",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 15, name: "Beedrill" , isMega: true},
       { pokemonId: 727, name: "Incineroar" },
@@ -625,7 +625,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Toucannon Tailwind",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 733, name: "Toucannon" },
       { pokemonId: 983, name: "Kingambit" },
@@ -640,7 +640,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Pikachu Light Screen",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — Niche Pick",
+    event: "1M Battle Simulation - Niche Pick",
     pokemon: [
       { pokemonId: 25, name: "Pikachu" },
       { pokemonId: 302, name: "Sableye" },
@@ -655,7 +655,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Ninetales Sun",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 38, name: "Ninetales" },
       { pokemonId: 3, name: "Venusaur" },
@@ -670,7 +670,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Arcanine Intimidate Balance",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 59, name: "Arcanine" },
       { pokemonId: 547, name: "Whimsicott" },
@@ -685,7 +685,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Mega Alakazam Offense",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 65, name: "Alakazam" , isMega: true},
       { pokemonId: 59, name: "Arcanine" },
@@ -700,7 +700,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Slowbro Trick Room",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 80, name: "Slowbro" },
       { pokemonId: 858, name: "Hatterene" },
@@ -715,7 +715,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Starmie Speed Control",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 121, name: "Starmie" },
       { pokemonId: 5059, name: "Arcanine-Hisui" },
@@ -730,7 +730,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Mega Pinsir HO",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 127, name: "Pinsir" , isMega: true},
       { pokemonId: 547, name: "Whimsicott" },
@@ -745,7 +745,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Ditto Transform Cheese",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — Niche Pick",
+    event: "1M Battle Simulation - Niche Pick",
     pokemon: [
       { pokemonId: 132, name: "Ditto" },
       { pokemonId: 866, name: "Mr. Rime" },
@@ -760,7 +760,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Flareon Sun Attacker",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — Niche Pick",
+    event: "1M Battle Simulation - Niche Pick",
     pokemon: [
       { pokemonId: 136, name: "Flareon" },
       { pokemonId: 324, name: "Torkoal" },
@@ -775,7 +775,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Snorlax Trick Room",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 143, name: "Snorlax" },
       { pokemonId: 858, name: "Hatterene" },
@@ -790,7 +790,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Meganium Support",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — Niche Pick",
+    event: "1M Battle Simulation - Niche Pick",
     pokemon: [
       { pokemonId: 154, name: "Meganium" },
       { pokemonId: 866, name: "Mr. Rime" },
@@ -805,7 +805,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Feraligatr Rain Sweep",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 160, name: "Feraligatr" },
       { pokemonId: 279, name: "Pelipper" },
@@ -820,7 +820,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Mega Ampharos TR",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 181, name: "Ampharos" , isMega: true},
       { pokemonId: 858, name: "Hatterene" },
@@ -835,7 +835,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Azumarill Belly Drum",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 184, name: "Azumarill" },
       { pokemonId: 302, name: "Sableye" },
@@ -850,7 +850,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Espeon Magic Bounce",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 196, name: "Espeon" },
       { pokemonId: 855, name: "Polteageist" },
@@ -865,7 +865,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Umbreon Stall Balance",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 197, name: "Umbreon" },
       { pokemonId: 569, name: "Garbodor" },
@@ -880,7 +880,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Skarmory Iron Defense",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 227, name: "Skarmory" },
       { pokemonId: 199, name: "Slowking" },
@@ -895,7 +895,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Pelipper Rain Core",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 279, name: "Pelipper" },
       { pokemonId: 160, name: "Feraligatr" },
@@ -910,7 +910,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Mega Aggron Tank",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 306, name: "Aggron" , isMega: true},
       { pokemonId: 858, name: "Hatterene" },
@@ -925,7 +925,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Gallade Fighting Core",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 475, name: "Gallade" },
       { pokemonId: 855, name: "Polteageist" },
@@ -940,7 +940,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Jolteon Volt Offense",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 135, name: "Jolteon" },
       { pokemonId: 877, name: "Morpeko" },
@@ -955,7 +955,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Vaporeon Bulky Water",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 134, name: "Vaporeon" },
       { pokemonId: 547, name: "Whimsicott" },
@@ -970,7 +970,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Torkoal Sun TR",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 324, name: "Torkoal" },
       { pokemonId: 858, name: "Hatterene" },
@@ -985,7 +985,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Spiritomb Dark Support",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — Niche Pick",
+    event: "1M Battle Simulation - Niche Pick",
     pokemon: [
       { pokemonId: 442, name: "Spiritomb" },
       { pokemonId: 983, name: "Kingambit" },
@@ -1000,7 +1000,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Froslass Ice Offense",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — Niche Pick",
+    event: "1M Battle Simulation - Niche Pick",
     pokemon: [
       { pokemonId: 478, name: "Froslass" },
       { pokemonId: 752, name: "Araquanid" },
@@ -1015,7 +1015,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Empoleon Competitive",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 395, name: "Empoleon" },
       { pokemonId: 5157, name: "Typhlosion-Hisui" },
@@ -1030,7 +1030,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Mega Lopunny HO",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 428, name: "Lopunny" , isMega: true},
       { pokemonId: 302, name: "Sableye" },
@@ -1045,7 +1045,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Spiritomb Trick Room",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 442, name: "Spiritomb" },
       { pokemonId: 858, name: "Hatterene" },
@@ -1060,7 +1060,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Hippowdon Sand",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 450, name: "Hippowdon" },
       { pokemonId: 530, name: "Excadrill" },
@@ -1075,7 +1075,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Mega Abomasnow Hail",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 460, name: "Abomasnow" , isMega: true},
       { pokemonId: 478, name: "Froslass" },
@@ -1090,7 +1090,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Leafeon Sun Sweep",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — Niche Pick",
+    event: "1M Battle Simulation - Niche Pick",
     pokemon: [
       { pokemonId: 470, name: "Leafeon" },
       { pokemonId: 324, name: "Torkoal" },
@@ -1105,7 +1105,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Glaceon Trick Room",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — Niche Pick",
+    event: "1M Battle Simulation - Niche Pick",
     pokemon: [
       { pokemonId: 471, name: "Glaceon" },
       { pokemonId: 858, name: "Hatterene" },
@@ -1120,7 +1120,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Mamoswine Lead Offense",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 461, name: "Weavile" },
       { pokemonId: 547, name: "Whimsicott" },
@@ -1135,7 +1135,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Mega Gallade Offense",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 475, name: "Gallade" , isMega: true},
       { pokemonId: 157, name: "Typhlosion" },
@@ -1150,7 +1150,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Rotom-Base Versatile",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — Niche Pick",
+    event: "1M Battle Simulation - Niche Pick",
     pokemon: [
       { pokemonId: 479, name: "Rotom" },
       { pokemonId: 5059, name: "Arcanine-Hisui" },
@@ -1165,7 +1165,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Serperior Contrary",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 497, name: "Serperior" },
       { pokemonId: 392, name: "Infernape" },
@@ -1180,7 +1180,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Emboar Trick Room",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 500, name: "Emboar" },
       { pokemonId: 858, name: "Hatterene" },
@@ -1195,7 +1195,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Samurott Rain Attacker",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 503, name: "Samurott" },
       { pokemonId: 279, name: "Pelipper" },
@@ -1210,7 +1210,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Krookodile Intimidate",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 553, name: "Krookodile" },
       { pokemonId: 914, name: "Quaquaval" },
@@ -1225,7 +1225,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Zoroark Illusion Mindgames",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 571, name: "Zoroark" },
       { pokemonId: 983, name: "Kingambit" },
@@ -1240,7 +1240,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Emolga Support",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — Niche Pick",
+    event: "1M Battle Simulation - Niche Pick",
     pokemon: [
       { pokemonId: 587, name: "Emolga" },
       { pokemonId: 445, name: "Garchomp" },
@@ -1255,7 +1255,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Golurk Trick Room",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 623, name: "Golurk" },
       { pokemonId: 858, name: "Hatterene" },
@@ -1270,7 +1270,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Hydreigon Special Offense",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 635, name: "Hydreigon" },
       { pokemonId: 618, name: "Stunfisk" },
@@ -1285,7 +1285,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Chesnaught Tank",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — Niche Pick",
+    event: "1M Battle Simulation - Niche Pick",
     pokemon: [
       { pokemonId: 652, name: "Chesnaught" },
       { pokemonId: 389, name: "Torterra" },
@@ -1300,7 +1300,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Delphox Trick Room",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 655, name: "Delphox" },
       { pokemonId: 858, name: "Hatterene" },
@@ -1315,7 +1315,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Diggersby Band",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 660, name: "Diggersby" },
       { pokemonId: 547, name: "Whimsicott" },
@@ -1330,7 +1330,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Talonflame Tailwind HO",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 663, name: "Talonflame" },
       { pokemonId: 5059, name: "Arcanine-Hisui" },
@@ -1345,7 +1345,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Floette Support",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — Niche Pick",
+    event: "1M Battle Simulation - Niche Pick",
     pokemon: [
       { pokemonId: 700, name: "Sylveon" },
       { pokemonId: 199, name: "Slowking" },
@@ -1360,7 +1360,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Furfrou Fur Coat",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — Niche Pick",
+    event: "1M Battle Simulation - Niche Pick",
     pokemon: [
       { pokemonId: 676, name: "Furfrou" },
       { pokemonId: 727, name: "Incineroar" },
@@ -1375,7 +1375,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Meowstic Prankster",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 678, name: "Meowstic" },
       { pokemonId: 869, name: "Alcremie" },
@@ -1390,7 +1390,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Clawitzer Mega Launcher",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — Niche Pick",
+    event: "1M Battle Simulation - Niche Pick",
     pokemon: [
       { pokemonId: 693, name: "Clawitzer" },
       { pokemonId: 279, name: "Pelipper" },
@@ -1405,7 +1405,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Sylveon Hyper Voice",
     player: "Engine Analysis",
     placement: "1st Place",
-    event: "1M Battle Simulation — Top Performer",
+    event: "1M Battle Simulation - Top Performer",
     pokemon: [
       { pokemonId: 700, name: "Sylveon" },
       { pokemonId: 727, name: "Incineroar" },
@@ -1420,7 +1420,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Hawlucha Unburden",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 701, name: "Hawlucha" },
       { pokemonId: 547, name: "Whimsicott" },
@@ -1435,7 +1435,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Goodra Assault Vest",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 635, name: "Hydreigon" },
       { pokemonId: 844, name: "Sandaconda" },
@@ -1450,7 +1450,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Trevenant Trick Room",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 711, name: "Gourgeist" },
       { pokemonId: 858, name: "Hatterene" },
@@ -1465,7 +1465,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Avalugg Trick Room Tank",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — Niche Pick",
+    event: "1M Battle Simulation - Niche Pick",
     pokemon: [
       { pokemonId: 584, name: "Vanilluxe" },
       { pokemonId: 858, name: "Hatterene" },
@@ -1480,7 +1480,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Noivern Tailwind",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 715, name: "Noivern" },
       { pokemonId: 983, name: "Kingambit" },
@@ -1495,7 +1495,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Decidueye Ghost Offense",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 724, name: "Decidueye" },
       { pokemonId: 727, name: "Incineroar" },
@@ -1510,7 +1510,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Lycanroc Sand Rush",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 745, name: "Lycanroc" },
       { pokemonId: 248, name: "Tyranitar" },
@@ -1525,7 +1525,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Mudsdale Trick Room",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 750, name: "Mudsdale" },
       { pokemonId: 858, name: "Hatterene" },
@@ -1540,7 +1540,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Tsareena Queenly Majesty",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 763, name: "Tsareena" },
       { pokemonId: 727, name: "Incineroar" },
@@ -1555,7 +1555,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Mimikyu Disguise Offense",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 778, name: "Mimikyu" },
       { pokemonId: 6618, name: "Stunfisk-Galar" },
@@ -1570,7 +1570,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Kommo-o Clangorous Soul",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 784, name: "Kommo-o" },
       { pokemonId: 302, name: "Sableye" },
@@ -1585,7 +1585,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Corviknight Bulk Up",
     player: "Engine Analysis",
     placement: "1st Place",
-    event: "1M Battle Simulation — Top Performer",
+    event: "1M Battle Simulation - Top Performer",
     pokemon: [
       { pokemonId: 823, name: "Corviknight" },
       { pokemonId: 727, name: "Incineroar" },
@@ -1600,7 +1600,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Grimmsnarl Screens",
     player: "Engine Analysis",
     placement: "1st Place",
-    event: "1M Battle Simulation — Top Performer",
+    event: "1M Battle Simulation - Top Performer",
     pokemon: [
       { pokemonId: 302, name: "Sableye" },
       { pokemonId: 983, name: "Kingambit" },
@@ -1615,7 +1615,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Runerigus Trick Room",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 867, name: "Runerigus" },
       { pokemonId: 858, name: "Hatterene" },
@@ -1630,7 +1630,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Kleavor Lead Offense",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 900, name: "Kleavor" },
       { pokemonId: 547, name: "Whimsicott" },
@@ -1645,7 +1645,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Ursaluna Trick Room Beatdown",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 901, name: "Ursaluna" },
       { pokemonId: 858, name: "Hatterene" },
@@ -1660,7 +1660,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Basculegion Rain Attacker",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 902, name: "Basculegion" },
       { pokemonId: 279, name: "Pelipper" },
@@ -1675,7 +1675,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Sneasler Poison Touch",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 903, name: "Sneasler" },
       { pokemonId: 547, name: "Whimsicott" },
@@ -1690,7 +1690,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Pawmot Volt Absorb",
     player: "Engine Analysis",
     placement: "Top 8",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 923, name: "Pawmot" },
       { pokemonId: 302, name: "Sableye" },
@@ -1705,7 +1705,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Maushold Population Bomb",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 925, name: "Maushold" },
       { pokemonId: 302, name: "Sableye" },
@@ -1720,7 +1720,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Garganacl Salt Cure Stall",
     player: "Engine Analysis",
     placement: "1st Place",
-    event: "1M Battle Simulation — Top Performer",
+    event: "1M Battle Simulation - Top Performer",
     pokemon: [
       { pokemonId: 934, name: "Garganacl" },
       { pokemonId: 727, name: "Incineroar" },
@@ -1735,7 +1735,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Armarouge Trick Room",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 936, name: "Armarouge" },
       { pokemonId: 858, name: "Hatterene" },
@@ -1750,7 +1750,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Tinkaton Mold Breaker",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 959, name: "Tinkaton" },
       { pokemonId: 6080, name: "Slowbro-Galar" },
@@ -1765,7 +1765,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Palafin Zero to Hero",
     player: "Engine Analysis",
     placement: "1st Place",
-    event: "1M Battle Simulation — Top Performer",
+    event: "1M Battle Simulation - Top Performer",
     pokemon: [
       { pokemonId: 964, name: "Palafin" },
       { pokemonId: 302, name: "Sableye" },
@@ -1780,7 +1780,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Tatsugiri Dondozo Core",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 978, name: "Tatsugiri" },
       { pokemonId: 977, name: "Dondozo" },
@@ -1795,7 +1795,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Farigiraf Armor Tail",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 981, name: "Farigiraf" },
       { pokemonId: 858, name: "Hatterene" },
@@ -1810,7 +1810,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Sinistcha Hospitality",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 1013, name: "Sinistcha" },
       { pokemonId: 983, name: "Kingambit" },
@@ -1825,7 +1825,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Archaludon Steel Offense",
     player: "Engine Analysis",
     placement: "1st Place",
-    event: "1M Battle Simulation — Top Performer",
+    event: "1M Battle Simulation - Top Performer",
     pokemon: [
       { pokemonId: 1018, name: "Archaludon" },
       { pokemonId: 727, name: "Incineroar" },
@@ -1840,7 +1840,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Hydrapple Trick Room",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 1019, name: "Hydrapple" },
       { pokemonId: 858, name: "Hatterene" },
@@ -1855,7 +1855,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Volcarona Sun",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 637, name: "Volcarona" },
       { pokemonId: 324, name: "Torkoal" },
@@ -1870,7 +1870,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Aerodactyl HO",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 142, name: "Aerodactyl" },
       { pokemonId: 392, name: "Infernape" },
@@ -1885,7 +1885,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Primarina Trick Room",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 730, name: "Primarina" },
       { pokemonId: 858, name: "Hatterene" },
@@ -1900,7 +1900,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Ceruledge Offense",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 937, name: "Ceruledge" },
       { pokemonId: 914, name: "Quaquaval" },
@@ -1915,7 +1915,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Hisuian Typhlosion Ghost",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 5157, name: "Typhlosion-Hisui" },
       { pokemonId: 157, name: "Typhlosion" },
@@ -1930,7 +1930,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Hisuian Arcanine Balance",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 5059, name: "Arcanine-Hisui" },
       { pokemonId: 869, name: "Alcremie" },
@@ -1945,7 +1945,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Aurorus Hail",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 699, name: "Aurorus" },
       { pokemonId: 460, name: "Abomasnow" },
@@ -1960,7 +1960,7 @@ export const WINNING_TEAMS: WinningTeam[] = [
     name: "Vivillon Compound Eyes",
     player: "Engine Analysis",
     placement: "Top Cut",
-    event: "1M Battle Simulation — High ELO",
+    event: "1M Battle Simulation - High ELO",
     pokemon: [
       { pokemonId: 666, name: "Vivillon" },
       { pokemonId: 6618, name: "Stunfisk-Galar" },

@@ -394,21 +394,21 @@ export function PokemonDetailModal({ pokemon, onClose }: PokemonDetailModalProps
                           <Trophy className="w-3.5 h-3.5 text-amber-500" />
                           <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest">Tier</span>
                         </div>
-                        <p className="text-2xl font-bold tracking-tight" style={{ color: primaryColor }}>{pokemon.tier ?? "—"}</p>
+                        <p className="text-2xl font-bold tracking-tight" style={{ color: primaryColor }}>{pokemon.tier ?? "-"}</p>
                       </div>
                       <div className="p-3.5 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100/50 border border-gray-200/80">
                         <div className="flex items-center gap-2 mb-1">
                           <Coins className="w-3.5 h-3.5 text-amber-500" />
                           <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest">Recruit</span>
                         </div>
-                        <p className="text-2xl font-bold tracking-tight text-gray-800">{pokemon.recruitmentCost != null ? pokemon.recruitmentCost : "—"} <span className="text-xs font-medium text-gray-400">VP</span></p>
+                        <p className="text-2xl font-bold tracking-tight text-gray-800">{pokemon.recruitmentCost != null ? pokemon.recruitmentCost : "-"} <span className="text-xs font-medium text-gray-400">VP</span></p>
                       </div>
                       <div className="p-3.5 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100/50 border border-gray-200/80">
                         <div className="flex items-center gap-2 mb-1">
                           <TrendingUp className="w-3.5 h-3.5 text-emerald-500" />
                           <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest">Usage</span>
                         </div>
-                        <p className="text-2xl font-bold tracking-tight text-gray-800">{pokemon.usageRate != null ? pokemon.usageRate : "—"} <span className="text-xs font-medium text-gray-400">%</span></p>
+                        <p className="text-2xl font-bold tracking-tight text-gray-800">{pokemon.usageRate != null ? pokemon.usageRate : "-"} <span className="text-xs font-medium text-gray-400">%</span></p>
                       </div>
                     </div>
 
@@ -452,7 +452,7 @@ export function PokemonDetailModal({ pokemon, onClose }: PokemonDetailModalProps
                         up to <span className="font-bold text-violet-700">32 per stat</span>. 
                         Each point adds ~1 stat at Level 50.
                       </p>
-                      <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-2">Suggested Builds — hover for details</p>
+                      <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-2">Suggested Builds - hover for details</p>
                       <div className="flex flex-wrap gap-1.5">
                         {(USAGE_DATA[pokemon.id] || []).map((set, i) => (
                           <PresetPill key={set.name} set={set} index={i} />
@@ -497,7 +497,7 @@ export function PokemonDetailModal({ pokemon, onClose }: PokemonDetailModalProps
                           </div>
                         </div>
                       ) : (
-                        <p className="text-[13px] text-amber-600 font-semibold">Champions exclusive — not importable</p>
+                        <p className="text-[13px] text-amber-600 font-semibold">Champions exclusive - not importable</p>
                       )}
                     </div>
                   </motion.div>
@@ -547,10 +547,10 @@ export function PokemonDetailModal({ pokemon, onClose }: PokemonDetailModalProps
                         </div>
                         <div className="text-right flex-shrink-0 space-y-0.5">
                           <div className="text-xs tabular-nums font-semibold text-gray-700">
-                            {move.power ?? "—"} <span className="text-gray-400 font-medium">PWR</span>
+                            {move.power ?? "-"} <span className="text-gray-400 font-medium">PWR</span>
                           </div>
                           <div className="text-[10px] text-gray-400 tabular-nums font-medium">
-                            {move.accuracy ?? "—"}% · {move.pp}PP
+                            {move.accuracy ?? "-"}% · {move.pp}PP
                           </div>
                         </div>
                       </div>
@@ -591,7 +591,7 @@ export function PokemonDetailModal({ pokemon, onClose }: PokemonDetailModalProps
                           </div>
                           <span className="text-sm font-bold tracking-tight text-gray-900">{ability.name}</span>
                           {ability.isChampions && (
-                            <span className="px-2 py-0.5 text-[9px] font-bold bg-gradient-to-r from-amber-50 to-orange-50 text-amber-700 rounded-lg border border-amber-300" title="This ability has not been officially revealed yet — it is a speculative guess for Champions Lab.">
+                            <span className="px-2 py-0.5 text-[9px] font-bold bg-gradient-to-r from-amber-50 to-orange-50 text-amber-700 rounded-lg border border-amber-300" title="This ability has not been officially revealed yet - it is a speculative guess for Champions Lab.">
                               SPECULATIVE
                             </span>
                           )}

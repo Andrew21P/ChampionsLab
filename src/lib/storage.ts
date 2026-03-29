@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHAMPIONS LAB — LOCAL STORAGE PERSISTENCE
-// Save/load teams, simulation results, and settings — no accounts needed
+// CHAMPIONS LAB - LOCAL STORAGE PERSISTENCE
+// Save/load teams, simulation results, and settings - no accounts needed
 // ═══════════════════════════════════════════════════════════════════════════════
 
 import type { TeamSlot, StatPoints, PokemonType } from "@/lib/types";
@@ -73,7 +73,7 @@ function writeJSON(key: string, value: unknown): void {
   try {
     localStorage.setItem(key, JSON.stringify(value));
   } catch {
-    // Storage full — silently fail
+    // Storage full - silently fail
   }
 }
 

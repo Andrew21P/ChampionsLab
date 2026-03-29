@@ -15,14 +15,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Champions Lab — Pokémon Champions 2026",
+  title: "Champions Lab - Pokémon Champions 2026",
   description:
-    "The ultimate competitive companion for Pokémon Champions. Season tracking, team builder, battle simulator, and deep Pokémon data — all in one immersive hub.",
+    "The ultimate competitive companion for Pokémon Champions. Season tracking, team builder, battle simulator, and deep Pokémon data - all in one immersive hub.",
   keywords: ["Pokemon Champions", "VGC", "team builder", "battle simulator", "competitive Pokemon", "Pokemon Champions 2026", "VGC team builder", "Pokemon meta"],
   metadataBase: new URL("https://championslab.xyz"),
   openGraph: {
-    title: "Champions Lab — Pokémon Champions 2026",
-    description: "The ultimate competitive companion for Pokémon Champions. Team builder, battle simulator, META analysis, and VGC learning — all in one hub.",
+    title: "Champions Lab - Pokémon Champions 2026",
+    description: "The ultimate competitive companion for Pokémon Champions. Team builder, battle simulator, META analysis, and VGC learning - all in one hub.",
     url: "https://championslab.xyz",
     siteName: "Champions Lab",
     type: "website",
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Champions Lab — Pokémon Champions 2026",
+        alt: "Champions Lab - Pokémon Champions 2026",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Champions Lab — Pokémon Champions 2026",
+    title: "Champions Lab - Pokémon Champions 2026",
     description: "The ultimate competitive companion for Pokémon Champions. Team builder, battle simulator, META analysis & more.",
     images: ["/opengraph-image"],
   },

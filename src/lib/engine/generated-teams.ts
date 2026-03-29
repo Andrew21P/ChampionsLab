@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHAMPIONS LAB — PRE-GENERATED WINNING TEAMS DATABASE
+// CHAMPIONS LAB - PRE-GENERATED WINNING TEAMS DATABASE
 // Hand-curated + engine-verified competitive teams covering all major archetypes
 // Used for "Suggested Teams" section when Team Builder opens
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -682,7 +682,7 @@ export const PREBUILT_TEAMS: PrebuiltTeam[] = [
 
   {
     id: "pre-40", name: "Anti-Meta Goodstuff", archetype: "Goodstuff",
-    description: "The classic VGC goodstuff — no gimmicks, just solid picks",
+    description: "The classic VGC goodstuff - no gimmicks, just solid picks",
     pokemonIds: [445, 727, 887, 547, 934, 282],
     sets: [
       { name: "Offensive Lead", nature: "Jolly", ability: "Rough Skin", item: "Life Orb", moves: ["Earthquake", "Dragon Claw", "Rock Slide", "Protect"], sp: { hp: 0, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 32 } },

@@ -30,7 +30,7 @@ export async function POST(req: Request) {
       imageInfo = `\nAttached image: ${image.name} (${(image.size / 1024).toFixed(1)} KB)`;
     }
 
-    // Build email body — for now we log it; a real SMTP setup can be added later
+    // Build email body - for now we log it; a real SMTP setup can be added later
     const emailBody = [
       `New ${type} from Champions Lab`,
       `─────────────────────────────`,

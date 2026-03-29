@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHAMPIONS LAB — VGC SYNERGY & ARCHETYPE ANALYSIS ENGINE
+// CHAMPIONS LAB - VGC SYNERGY & ARCHETYPE ANALYSIS ENGINE
 // Team composition intelligence: synergy scoring, archetype detection,
 // role classification, speed tier analysis, threat coverage
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -462,7 +462,7 @@ export function analyzeTeamSynergy(pokemon: ChampionsPokemon[]): TeamSynergy {
   if (weaknessProfile.length > 0 && weaknessProfile[0].count >= 3) {
     weaknesses.push(`${weaknessProfile[0].count} Pokémon weak to ${weaknessProfile[0].type}`);
   }
-  if (!hasSpeedControl) weaknesses.push("No speed control — vulnerable to faster teams");
+  if (!hasSpeedControl) weaknesses.push("No speed control - vulnerable to faster teams");
   if (!hasFastMon && !hasSpeedControl) weaknesses.push("Lacks fast options to pressure opponents");
   if (uncoveredTypes.length >= 4) {
     weaknesses.push(`Can't hit ${uncoveredTypes.slice(0, 3).join("/")} types super effectively`);
@@ -478,7 +478,7 @@ export function analyzeTeamSynergy(pokemon: ChampionsPokemon[]): TeamSynergy {
   }
   if (!hasPriority) suggestions.push("Add a priority move user for endgame situations");
   if (weaknessProfile.length > 0 && weaknessProfile[0].count >= 3) {
-    suggestions.push(`Reduce ${weaknessProfile[0].type} weakness — consider a resist or immunity`);
+    suggestions.push(`Reduce ${weaknessProfile[0].type} weakness - consider a resist or immunity`);
   }
   if (pokemon.length < 6) suggestions.push(`Team needs ${6 - pokemon.length} more Pokémon`);
 

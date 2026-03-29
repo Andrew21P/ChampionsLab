@@ -40,7 +40,7 @@ import {
 // ── HYBRID TIER CALCULATION (ML + Tournament Data) ────────────────────────
 // Thresholds from ML data only (keeps percentiles stable). Individual Pokemon
 // get a composite score blending ML + tournament, which is compared against
-// these ML-only cutoffs — so tournament data acts as a pure positive adjustment.
+// these ML-only cutoffs - so tournament data acts as a pure positive adjustment.
 const _tournamentMap = new Map(TOURNAMENT_USAGE.map(u => [u.pokemonId, u]));
 function _getCompositeWR(simEntry: (typeof SIM_POKEMON)[keyof typeof SIM_POKEMON]): number {
   const t = _tournamentMap.get(simEntry.id);
@@ -85,7 +85,7 @@ function getMLTier(compositeWR: number, games: number, pokemonId?: number): "S" 
   return baseTier;
 }
 
-// ── ML SIMULATION RESULTS — derived from simulation-data.ts + tournament ──
+// ── ML SIMULATION RESULTS - derived from simulation-data.ts + tournament ──
 const ML_POKEMON_RANKINGS = Object.values(SIM_POKEMON)
   .sort((a, b) => b.elo - a.elo)
   .map(p => {
@@ -218,7 +218,7 @@ export default function MetaPage() {
           <LastUpdated page="meta" />
         </div>
         <p className="text-muted-foreground mt-2 text-sm max-w-2xl">
-          Deep competitive analysis powered by the <span className="font-semibold bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">Champions Lab Advanced VGC Battle Engine</span> — <span className="font-semibold text-foreground">{SIM_TOTAL_BATTLES > 0 ? SIM_TOTAL_BATTLES.toLocaleString() : "2,000,000+"}  simulated battles</span> with full damage calc, ELO rankings,
+          Deep competitive analysis powered by the <span className="font-semibold bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">Champions Lab Advanced VGC Battle Engine</span> - <span className="font-semibold text-foreground">{SIM_TOTAL_BATTLES > 0 ? SIM_TOTAL_BATTLES.toLocaleString() : "2,000,000+"}  simulated battles</span> with full damage calc, ELO rankings,
           win-rate matrices across {TOURNAMENT_TEAMS.length} tournament teams, {TOURNAMENT_USAGE.length} usage entries, and {CORE_PAIRS.length} core pair combinations.
         </p>
         <div className="flex items-center gap-4 mt-3">
@@ -417,7 +417,7 @@ export default function MetaPage() {
             </div>
           </div>
 
-          {/* ═══ 4. META THREATS — Top 10 Pokémon extended ═══ */}
+          {/* ═══ 4. META THREATS - Top 10 Pokémon extended ═══ */}
           <div className="glass rounded-2xl p-6 border border-gray-200/60">
             <h2 className="text-lg font-bold mb-1 flex items-center gap-2">
               <Shield className="w-5 h-5 text-red-500" /> Top 10 Meta Threats
@@ -473,7 +473,7 @@ export default function MetaPage() {
             </div>
           </div>
 
-          {/* ═══ 5. META TRENDS — Rising & Falling ═══ */}
+          {/* ═══ 5. META TRENDS - Rising & Falling ═══ */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="glass rounded-2xl p-5 border border-emerald-200/60">
               <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-1 flex items-center gap-2">
@@ -525,7 +525,7 @@ export default function MetaPage() {
             </div>
           </div>
 
-          {/* ═══ 6. TOP MOVES — Win rates from 2M battles ═══ */}
+          {/* ═══ 6. TOP MOVES - Win rates from 2M battles ═══ */}
           <div className="glass rounded-2xl p-6 border border-gray-200/60">
             <h2 className="text-lg font-bold mb-1 flex items-center gap-2">
               <Zap className="w-5 h-5 text-amber-500" /> Highest Win-Rate Moves
@@ -548,7 +548,7 @@ export default function MetaPage() {
             </div>
           </div>
 
-          {/* ═══ 7. COUNTER MATCHUPS — What beats what ═══ */}
+          {/* ═══ 7. COUNTER MATCHUPS - What beats what ═══ */}
           <div className="glass rounded-2xl p-6 border border-gray-200/60">
             <h2 className="text-lg font-bold mb-1 flex items-center gap-2">
               <Target className="w-5 h-5 text-red-500" /> Key Counter Matchups
@@ -657,7 +657,7 @@ export default function MetaPage() {
               <Flame className="w-5 h-5 text-orange-500" /> Tournament Usage Heatmap
             </h2>
             <p className="text-sm text-muted-foreground mb-4">
-              Top 20 most-used Pokémon across all VGC events. Color intensity reflects usage rate — the darker the bar, the more dominant the Pokémon.
+              Top 20 most-used Pokémon across all VGC events. Color intensity reflects usage rate - the darker the bar, the more dominant the Pokémon.
             </p>
             <div className="space-y-1.5">
               {topUsage.slice(0, 20).map((p, i) => {
@@ -684,7 +684,7 @@ export default function MetaPage() {
             </button>
           </div>
 
-          {/* ═══ 10. TYPE DISTRIBUTION — What types dominate ═══ */}
+          {/* ═══ 10. TYPE DISTRIBUTION - What types dominate ═══ */}
           <div className="glass rounded-2xl p-6 border border-gray-200/60">
             <h2 className="text-lg font-bold mb-1 flex items-center gap-2">
               <Star className="w-5 h-5 text-violet-500" /> Meta Type Distribution
@@ -1255,7 +1255,7 @@ export default function MetaPage() {
               const corePairs = getCorePairsForPokemon(pokemon.id);
               const teamAppearances = getTournamentTeamsWithPokemon(pokemon.id);
               const prebuiltTeams = getPrebuiltTeamsWithPokemon(pokemon.id);
-              const tier = mlData ? mlData.tier : usageData ? (usageData.usageRate >= 30 ? "S" : usageData.usageRate >= 15 ? "A" : "B") : "—";
+              const tier = mlData ? mlData.tier : usageData ? (usageData.usageRate >= 30 ? "S" : usageData.usageRate >= 15 ? "A" : "B") : "-";
               // For mega forms, try to get mega stats from the form data
               // Match the exact form name suffix (X/Y) so Mega Charizard Y doesn't show X's stats
               const megaForms = pokemon.forms?.filter(f => f.isMega) ?? [];
@@ -1272,7 +1272,7 @@ export default function MetaPage() {
                       <h2 className="text-2xl font-extrabold">{displayName}</h2>
                       <div className="flex gap-1.5 mt-1">{(megaTypes ?? pokemon.types).map(t => <span key={t} className="px-2.5 py-1 text-[10px] font-bold uppercase rounded-lg text-white" style={{ backgroundColor: TYPE_COLORS[t as PokemonType] }}>{t}</span>)}</div>
                       <div className="flex items-center gap-3 mt-2">
-                        {tier !== "—" && <span className={cn("px-2.5 py-1 text-xs font-bold rounded-lg", tier === "S" ? "bg-amber-100 text-amber-700" : tier === "A" ? "bg-blue-100 text-blue-700" : tier === "B" ? "bg-gray-100 text-gray-700" : tier === "C" ? "bg-gray-50 text-gray-500" : "bg-red-50 text-red-400")}>{tier}-Tier</span>}
+                        {tier !== "-" && <span className={cn("px-2.5 py-1 text-xs font-bold rounded-lg", tier === "S" ? "bg-amber-100 text-amber-700" : tier === "A" ? "bg-blue-100 text-blue-700" : tier === "B" ? "bg-gray-100 text-gray-700" : tier === "C" ? "bg-gray-50 text-gray-500" : "bg-red-50 text-red-400")}>{tier}-Tier</span>}
                         {mlData && <span className="text-sm text-muted-foreground">ML #{ML_POKEMON_RANKINGS.indexOf(mlData) + 1} · ELO {mlData.elo.toLocaleString()}</span>}
                       </div>
                     </div>
@@ -1335,7 +1335,7 @@ export default function MetaPage() {
                       <h4 className="text-sm font-bold uppercase text-muted-foreground">Abilities</h4>
                       {pokemon.abilities.map(a => (
                         <div key={a.name} className="p-2.5 bg-gray-50 rounded-xl">
-                          <div className="flex items-center gap-2"><span className="text-xs font-bold">{a.name}</span>{a.isHidden && <span className="text-[9px] px-1.5 py-0.5 bg-violet-100 text-violet-700 rounded font-medium">Hidden</span>}{(a as any).isChampions && <span className="text-[9px] px-1.5 py-0.5 bg-amber-100 text-amber-700 rounded font-medium" title="Not officially confirmed — speculative ability">Speculative</span>}</div>
+                          <div className="flex items-center gap-2"><span className="text-xs font-bold">{a.name}</span>{a.isHidden && <span className="text-[9px] px-1.5 py-0.5 bg-violet-100 text-violet-700 rounded font-medium">Hidden</span>}{(a as any).isChampions && <span className="text-[9px] px-1.5 py-0.5 bg-amber-100 text-amber-700 rounded font-medium" title="Not officially confirmed - speculative ability">Speculative</span>}</div>
                           <p className="text-[10px] text-muted-foreground mt-0.5">{a.description}</p>
                         </div>
                       ))}
@@ -1347,7 +1347,7 @@ export default function MetaPage() {
                               <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: TYPE_COLORS[m.type as PokemonType] }} />
                               <span className="text-[10px] font-semibold truncate">{m.name}</span>
                             </div>
-                            <p className="text-[9px] text-muted-foreground">{m.power || "—"} BP · {m.category}</p>
+                            <p className="text-[9px] text-muted-foreground">{m.power || "-"} BP · {m.category}</p>
                           </div>
                         ))}
                       </div>

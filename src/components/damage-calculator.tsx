@@ -91,7 +91,7 @@ function emptySlot(): PokemonSlot {
 
 function getKOChanceText(result: DamageResult): string {
   if (result.isOHKO && result.percentHP[0] >= 100) return "Guaranteed OHKO";
-  if (result.isOHKO) return "OHKO (87.5% — 100%)";
+  if (result.isOHKO) return "OHKO (87.5% - 100%)";
   if (result.is2HKO && result.percentHP[0] >= 50) return "Guaranteed 2HKO";
   if (result.is2HKO) return "2HKO possible";
   const hitsNeeded = Math.ceil(100 / ((result.percentHP[0] + result.percentHP[1]) / 2));
@@ -436,7 +436,7 @@ export default function DamageCalculator() {
                       {move && (
                         <>
                           <span className="text-[9px] text-muted-foreground uppercase">{move.category}</span>
-                          <span className="text-[9px] text-muted-foreground">BP {move.basePower || "—"}</span>
+                          <span className="text-[9px] text-muted-foreground">BP {move.basePower || "-"}</span>
                         </>
                       )}
                     </div>
@@ -574,7 +574,7 @@ export default function DamageCalculator() {
 }
 
 // ══════════════════════════════════════════════════════════════════════════
-// POKEMON PANEL — Attacker or Defender side
+// POKEMON PANEL - Attacker or Defender side
 // ══════════════════════════════════════════════════════════════════════════
 
 function PokemonPanel({

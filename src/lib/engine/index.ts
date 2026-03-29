@@ -1,6 +1,6 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHAMPIONS LAB — VGC BATTLE ENGINE
-// Public API — import everything from "@/lib/engine"
+// CHAMPIONS LAB - VGC BATTLE ENGINE
+// Public API - import everything from "@/lib/engine"
 // ═══════════════════════════════════════════════════════════════════════════════
 
 // Type Chart

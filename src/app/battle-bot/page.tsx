@@ -297,32 +297,32 @@ function runFullSimulation(
   if (worstMatchups[0]?.winRate < 40) commonWeaknesses.push(`Hard counter: ${worstMatchups[0].opponent} (${worstMatchups[0].winRate}%)`);
   if (worstMatchups[1]?.winRate < 45) commonWeaknesses.push(`Struggles vs ${worstMatchups[1].opponent} (${worstMatchups[1].winRate}%)`);
   const hasSpeedControl = team.some(p => p.moves.some(m => ["Tailwind", "Trick Room", "Icy Wind", "Electroweb"].includes(m.name)));
-  if (!hasSpeedControl) commonWeaknesses.push("No speed control — consider Tailwind or Trick Room");
+  if (!hasSpeedControl) commonWeaknesses.push("No speed control - consider Tailwind or Trick Room");
   const hasFakeOut = team.some(p => p.moves.some(m => m.name === "Fake Out"));
   if (!hasFakeOut) commonWeaknesses.push("No Fake Out pressure");
   const hasProtect = team.filter(p => p.moves.some(m => m.name === "Protect")).length;
-  if (hasProtect < 3) commonWeaknesses.push(`Only ${hasProtect}/6 have Protect — risky in doubles`);
+  if (hasProtect < 3) commonWeaknesses.push(`Only ${hasProtect}/6 have Protect - risky in doubles`);
   const topThreat = threats[0];
   if (topThreat && topThreat.threatScore > 65) commonWeaknesses.push(`${topThreat.name} is a severe threat (${topThreat.threatScore}% loss rate when faced)`);
 
   // Tips
   const tips: string[] = [];
   if (hasFakeOut) tips.push("Lead with Fake Out + attacker for turn 1 pressure and free damage");
-  if (hasSpeedControl) tips.push("Set speed control early — your team benefits heavily from Tailwind/TR");
-  tips.push("Use Protect to scout and stall — predict the opponent's targeting");
+  if (hasSpeedControl) tips.push("Set speed control early - your team benefits heavily from Tailwind/TR");
+  tips.push("Use Protect to scout and stall - predict the opponent's targeting");
   if (overallWinRate < 45) {
     tips.push("Consider swapping your worst matchup slot for a hard counter");
     tips.push("Your team may need a different speed mode (add Trick Room or Tailwind)");
   }
   if (overallWinRate > 55) {
     tips.push("Strong team! Focus on preserving your win condition in best-of-3");
-    tips.push("Your top leads give the best matchup spread — stick to them");
+    tips.push("Your top leads give the best matchup spread - stick to them");
   }
   if (leadCombos.length > 0) tips.push(`Best lead: ${leadCombos[0].lead1} + ${leadCombos[0].lead2} (${leadCombos[0].winRate}% WR)`);
   const bestArch = archetypeBreakdown[0];
   const worstArch = archetypeBreakdown[archetypeBreakdown.length - 1];
   if (bestArch) tips.push(`Strongest vs ${bestArch.archetype} (${bestArch.winRate}%)`);
-  if (worstArch && worstArch.winRate < 50) tips.push(`Weakest vs ${worstArch.archetype} (${worstArch.winRate}%) — tech against it`);
+  if (worstArch && worstArch.winRate < 50) tips.push(`Weakest vs ${worstArch.archetype} (${worstArch.winRate}%) - tech against it`);
 
   // Tier
   let tier = "C";
@@ -515,7 +515,7 @@ export default function BattleBotPage() {
           <LastUpdated page="battle-engine" />
         </div>
         <p className="text-sm text-muted-foreground mt-3 max-w-2xl mx-auto">
-          The most advanced VGC battle simulator available — fed with <span className="font-semibold text-amber-700">2,000,000+ simulated battles</span>, full
+          The most advanced VGC battle simulator available - fed with <span className="font-semibold text-amber-700">2,000,000+ simulated battles</span>, full
           damage calculation engine, intelligent AI decision-making, abilities, items, weather, terrain, Trick Room,
           Tailwind, status conditions, and real-time battle replay. Test your team against {PREBUILT_TEAMS.length}+ meta teams
           and hundreds of randomized opponents.
@@ -739,7 +739,7 @@ export default function BattleBotPage() {
                   <option value="a-tier">S + A Tier ({PREBUILT_TEAMS.filter(t => t.tier === "S" || t.tier === "A").length} teams)</option>
                   <option value="prebuilt">All Meta Teams ({PREBUILT_TEAMS.length} teams)</option>
                   <option value="random-100">Meta + 100 Random ({PREBUILT_TEAMS.length + 100})</option>
-                  <option value="gauntlet">GAUNTLET — Meta + 200 Random ({PREBUILT_TEAMS.length + 200})</option>
+                  <option value="gauntlet">GAUNTLET - Meta + 200 Random ({PREBUILT_TEAMS.length + 200})</option>
                 </select>
               </div>
 
@@ -832,7 +832,7 @@ export default function BattleBotPage() {
                       transition={{ duration: 0.3 }}
                     />
                   </div>
-                  <p className="text-[10px] text-muted-foreground mt-1">{progress}% — Full damage/speed/item/ability calculations</p>
+                  <p className="text-[10px] text-muted-foreground mt-1">{progress}% - Full damage/speed/item/ability calculations</p>
                 </div>
               </div>
             </motion.div>
@@ -1061,7 +1061,7 @@ export default function BattleBotPage() {
                   <div className="glass rounded-2xl p-5 border border-gray-200/60">
                     <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4 flex items-center gap-2">
                       <Skull className="w-4 h-4" />
-                      Top Threats — Pokémon that beat you most
+                      Top Threats - Pokémon that beat you most
                     </h3>
                     <div className="space-y-3">
                       {result.threats.map((t, i) => {

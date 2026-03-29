@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHAMPIONS LAB — VGC TEAM GENERATOR ENGINE
+// CHAMPIONS LAB - VGC TEAM GENERATOR ENGINE
 // Generates competitive teams using synergy analysis, usage data, and archetype templates
 // ═══════════════════════════════════════════════════════════════════════════════
 

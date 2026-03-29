@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHAMPIONS LAB — ABILITY EFFECTS ENGINE
+// CHAMPIONS LAB - ABILITY EFFECTS ENGINE
 // Battle-relevant ability effects for simulation and team building
 // ═══════════════════════════════════════════════════════════════════════════════
 

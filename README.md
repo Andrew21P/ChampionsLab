@@ -5,7 +5,7 @@
 <h1 align="center">Champions Lab</h1>
 
 <p align="center">
-  <strong>A free competitive companion for Pokémon Champions 2026 — built with love by fans, for fans</strong>
+  <strong>A free competitive companion for Pokémon Champions 2026 - built with love by fans, for fans</strong>
 </p>
 
 <p align="center">
@@ -28,15 +28,15 @@
 
 ## ❤️ Why Champions Lab?
 
-This project started the way the best things do — late at night, talking about Pokémon.
+This project started the way the best things do - late at night, talking about Pokémon.
 
-We're just fans. We grew up trading cards on the playground, losing to our friends' legendary teams, and eventually falling in love with competitive VGC. When Pokémon Champions 2026 was announced, we knew we wanted to build something for the community — not for profit, not for clout, just because we genuinely love this game and the people who play it.
+We're just fans. We grew up trading cards on the playground, losing to our friends' legendary teams, and eventually falling in love with competitive VGC. When Pokémon Champions 2026 was announced, we knew we wanted to build something for the community - not for profit, not for clout, just because we genuinely love this game and the people who play it.
 
-**Champions Lab is and will always be 100% free.** There are zero ads on the website. No paywalls. No premium tiers. No tracking. No "sign up to unlock." Nothing. Every single feature — the Pokédex, the Team Builder, the 2,000,000-battle simulation engine, the Meta dashboard, PokéSchool — is completely open to everyone.
+**Champions Lab is and will always be 100% free.** There are zero ads on the website. No paywalls. No premium tiers. No tracking. No "sign up to unlock." Nothing. Every single feature - the Pokédex, the Team Builder, the 2,000,000-battle simulation engine, the Meta dashboard, PokéSchool - is completely open to everyone.
 
-The code is fully open source. You can read every line, fork it, improve it, break it, fix it, learn from it. If you're a developer, a designer, a data nerd, or just someone who spotted a typo — **come build with us on [GitHub](https://github.com/Andrew21P/ChampionsLab)**. Every contribution matters, and we'll never forget the people who helped make this real.
+The code is fully open source. You can read every line, fork it, improve it, break it, fix it, learn from it. If you're a developer, a designer, a data nerd, or just someone who spotted a typo - **come build with us on [GitHub](https://github.com/Andrew21P/ChampionsLab)**. Every contribution matters, and we'll never forget the people who helped make this real.
 
-If you want to support the project financially, you can donate through the website — but honestly, just using Champions Lab, sharing it with a friend, or telling someone "hey, check this out before your next tournament" means the world to us.
+If you want to support the project financially, you can donate through the website - but honestly, just using Champions Lab, sharing it with a friend, or telling someone "hey, check this out before your next tournament" means the world to us.
 
 Thank you for being here. Thank you for caring about competitive Pokémon. Let's make something great together.
 
@@ -51,10 +51,10 @@ Browse **147 competition-legal Pokémon** (136 base + 11 regional forms) with fu
 
 ### 🧩 Team Builder
 Interactive team creation for up to 6 Pokémon with:
-- **SP System** — 66 Stat Points per Pokémon (max 32 per stat)
+- **SP System** - 66 Stat Points per Pokémon (max 32 per stat)
 - Move, ability, nature, item, and Tera Type selection
 - AI-powered teammate suggestions and set recommendations
-- Synergy analysis — role coverage, type overlaps, core pair detection
+- Synergy analysis - role coverage, type overlaps, core pair detection
 - Save, load, share (compressed URLs), and Showdown import/export
 
 ### ⚔️ Battle Engine
@@ -75,7 +75,7 @@ Data-driven competitive dashboard:
 ### 🎓 PokéSchool
 Educational hub covering:
 - VGC ruleset (Doubles, Bring 6 Pick 4, Team Preview)
-- Role guides — sweeper, wall, pivot, support
+- Role guides - sweeper, wall, pivot, support
 - Strategy fundamentals for the Champions format
 
 ---
@@ -151,9 +151,9 @@ champions-lab/
 
 ## Contributing
 
-We'd love to have you. Seriously — Champions Lab is a community project and every bit of help makes it better for everyone.
+We'd love to have you. Seriously - Champions Lab is a community project and every bit of help makes it better for everyone.
 
-Whether you're a developer who wants to add a feature, a competitive player who has data to share, a designer with ideas, or someone who just found a bug — **you're welcome here**. No contribution is too small.
+Whether you're a developer who wants to add a feature, a competitive player who has data to share, a designer with ideas, or someone who just found a bug - **you're welcome here**. No contribution is too small.
 
 1. Fork the [repository](https://github.com/Andrew21P/ChampionsLab)
 2. Create your branch (`git checkout -b feature/my-feature`)

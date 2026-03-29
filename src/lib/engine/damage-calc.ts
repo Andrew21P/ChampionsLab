@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHAMPIONS LAB — VGC DAMAGE CALCULATOR
+// CHAMPIONS LAB - VGC DAMAGE CALCULATOR
 // Full Gen 9 damage formula adapted for Champions SP system
 // Supports abilities, items, weather, terrain, crits, spread reduction
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -336,5 +336,5 @@ export function formatDamageResult(result: DamageResult): string {
   if (result.effectiveness === 0) return "Immune";
   const pct = `${result.percentHP[0]}% - ${result.percentHP[1]}%`;
   const hits = result.isOHKO ? "OHKO" : result.is2HKO ? "2HKO" : `${result.numHits}HKO`;
-  return `${result.damage[0]}-${result.damage[1]} (${pct}) — ${hits}`;
+  return `${result.damage[0]}-${result.damage[1]} (${pct}) - ${hits}`;
 }

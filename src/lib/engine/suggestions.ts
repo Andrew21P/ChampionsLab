@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHAMPIONS LAB — REAL-TIME SUGGESTION ENGINE
+// CHAMPIONS LAB - REAL-TIME SUGGESTION ENGINE
 // Provides contextual suggestions for team building:
 //   - Recommended teammates
 //   - Best moves, ability, nature, SP distribution for each slot
@@ -515,16 +515,16 @@ export function analyzePartialTeam(
   // Threat analysis
   const threatAnalysis: string[] = [];
   if (criticalWeaknesses.length > 0) {
-    threatAnalysis.push(`Critical weakness to ${criticalWeaknesses.join(", ")} — consider adding resistances`);
+    threatAnalysis.push(`Critical weakness to ${criticalWeaknesses.join(", ")} - consider adding resistances`);
   }
   if (!existingRoles.has("speed-control")) {
-    threatAnalysis.push("No speed control — add Tailwind or Trick Room user");
+    threatAnalysis.push("No speed control - add Tailwind or Trick Room user");
   }
   if (!existingRoles.has("intimidate-user") && teamPokemon.length >= 3) {
-    threatAnalysis.push("No Intimidate — consider adding an Intimidate user");
+    threatAnalysis.push("No Intimidate - consider adding an Intimidate user");
   }
   if (synergy.uncoveredTypes.length > 3) {
-    threatAnalysis.push(`Poor coverage — no super effective hits vs ${synergy.uncoveredTypes.slice(0, 3).join(", ")}`);
+    threatAnalysis.push(`Poor coverage - no super effective hits vs ${synergy.uncoveredTypes.slice(0, 3).join(", ")}`);
   }
   
   // Overall rating

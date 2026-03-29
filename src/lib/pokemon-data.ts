@@ -1,14 +1,14 @@
 import { ChampionsPokemon, Season } from "./types";
 
 // ============================================================
-// Auto-generated from PokeAPI — updated 2026-03-26
+// Auto-generated from PokeAPI - updated 2026-03-26
 // 136 Pokémon + 11 regional forms in the Champions Season 1 roster (official Bulbapedia list)
 // ============================================================
 
 export const SEASONS: Season[] = [
   {
     id: 1,
-    name: "Season 1 — Launch",
+    name: "Season 1 - Launch",
     startDate: "2026-04-08",
     rosterAdditions: [],
     rules: [

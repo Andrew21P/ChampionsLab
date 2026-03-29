@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHAMPIONS LAB — AUTO-GENERATED SIMULATION DATA
+// CHAMPIONS LAB - AUTO-GENERATED SIMULATION DATA
 // Generated from 2,000,000 mega-aware battle simulations
 // Date: 2026-03-28T00:01:53.032Z
 // ═══════════════════════════════════════════════════════════════════════════════

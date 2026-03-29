@@ -155,7 +155,7 @@ export default function TeamBuilderPage() {
     setShuffledTeams(shuffled);
   }, []);
 
-  // Build shareable URL — store team on server, return short link
+  // Build shareable URL - store team on server, return short link
   const buildShareUrl = useCallback(async () => {
     const filled = slots.filter(s => s.pokemon);
     if (filled.length === 0) return "";
@@ -308,7 +308,7 @@ export default function TeamBuilderPage() {
     for (let x = 0; x < W; x += 40) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
     for (let y = 0; y < H; y += 40) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
 
-    // Header LEFT — Team name + subtitle
+    // Header LEFT - Team name + subtitle
     ctx.fillStyle = "#ffffff";
     ctx.font = "bold 38px Inter, system-ui, sans-serif";
     ctx.fillText(teamName, 40, 55);
@@ -324,7 +324,7 @@ export default function TeamBuilderPage() {
     ctx.fillStyle = accentGrad;
     ctx.fillRect(40, 100, 460, 3);
 
-    // Header RIGHT — Logo + brand + URL (right-aligned)
+    // Header RIGHT - Logo + brand + URL (right-aligned)
     const logo = await new Promise<HTMLImageElement | null>((resolve) => {
       const img = new window.Image();
       img.crossOrigin = "anonymous";
@@ -1323,7 +1323,7 @@ export default function TeamBuilderPage() {
 
                   {/* Auto-Fill + Quick Apply Sets */}
                   <div className="mb-4">
-                    <p className="text-[10px] text-muted-foreground uppercase font-medium mb-2">Quick Apply — Competitive Sets</p>
+                    <p className="text-[10px] text-muted-foreground uppercase font-medium mb-2">Quick Apply - Competitive Sets</p>
                     <div className="flex flex-wrap gap-2">
                       {(() => {
                         const sets = USAGE_DATA[editPkm.id] ?? [];
@@ -1371,7 +1371,7 @@ export default function TeamBuilderPage() {
                           const moveData = editPkm.moves.find(m => m.name === currentMove);
                           const suggestedNames = slotSuggestion?.suggestedMoves.map(m => m.name) ?? [];
                           const moveOptions: SearchSelectOption[] = [
-                            { value: "", label: "— Empty Slot —" },
+                            { value: "", label: "- Empty Slot -" },
                             ...sortedMoves.map((m) => ({
                               value: m.name,
                               label: m.name,
@@ -1387,7 +1387,7 @@ export default function TeamBuilderPage() {
                               value={currentMove}
                               options={moveOptions}
                               onChange={(v) => updateMove(selectedSlotIndex, moveIdx, v)}
-                              placeholder="— Empty Slot —"
+                              placeholder="- Empty Slot -"
                               triggerBadge={moveData ? { text: moveData.type.slice(0, 3), color: `${TYPE_COLORS[moveData.type]}AA` } : null}
                             />
                           );
@@ -1468,14 +1468,14 @@ export default function TeamBuilderPage() {
                           onChange={(v) => updateSlot(selectedSlotIndex, { nature: v })}
                           placeholder="Select nature…"
                         />
-                        {slotSuggestion && <button onClick={() => updateSlot(selectedSlotIndex, { nature: slotSuggestion.suggestedNature.nature })} className="mt-1 text-[9px] text-violet-600 hover:text-violet-800 transition-colors">★ Suggested: {slotSuggestion.suggestedNature.nature} — {slotSuggestion.suggestedNature.reason}</button>}
+                        {slotSuggestion && <button onClick={() => updateSlot(selectedSlotIndex, { nature: slotSuggestion.suggestedNature.nature })} className="mt-1 text-[9px] text-violet-600 hover:text-violet-800 transition-colors">★ Suggested: {slotSuggestion.suggestedNature.nature} - {slotSuggestion.suggestedNature.reason}</button>}
                       </div>
                       <div>
                         <p className="text-[10px] text-muted-foreground uppercase font-medium mb-1">Held Item</p>
                         <SearchSelect
                           value={editSlotData.item || ""}
                           options={[
-                            { value: "", label: "— No Item —" },
+                            { value: "", label: "- No Item -" },
                             ...allItemNames.map((name) => ({
                               value: name,
                               label: name,
@@ -1483,10 +1483,10 @@ export default function TeamBuilderPage() {
                             })),
                           ]}
                           onChange={(v) => updateSlot(selectedSlotIndex, { item: v || undefined })}
-                          placeholder="— No Item —"
+                          placeholder="- No Item -"
                           disabled={editSlotData.isMega}
                         />
-                        {editSlotData.isMega && <p className="text-[9px] text-amber-600 mt-1">Mega stone is required — item locked</p>}
+                        {editSlotData.isMega && <p className="text-[9px] text-amber-600 mt-1">Mega stone is required - item locked</p>}
                         {!editSlotData.isMega && editSlotData.item && ITEMS[editSlotData.item!] && <p className="text-[9px] text-muted-foreground mt-1">{ITEMS[editSlotData.item!].description}</p>}
                       </div>
                     </div>

@@ -11,7 +11,7 @@ interface ChangelogEntry {
 
 const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[] }> = {
   pokedex: {
-    description: "Thanks for the support — we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
+    description: "Thanks for the support - we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
     entries: [
       {
         date: "29/03/2026",
@@ -26,7 +26,7 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
     ],
   },
   meta: {
-    description: "Thanks for the support — we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
+    description: "Thanks for the support - we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
     entries: [
       {
         date: "29/03/2026",
@@ -43,7 +43,7 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
     ],
   },
   "battle-engine": {
-    description: "Thanks for the support — we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
+    description: "Thanks for the support - we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
     entries: [
       {
         date: "29/03/2026",
@@ -60,7 +60,7 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
     ],
   },
   "team-builder": {
-    description: "Thanks for the support — we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
+    description: "Thanks for the support - we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
     entries: [
       {
         date: "29/03/2026",
@@ -76,7 +76,7 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
     ],
   },
   learn: {
-    description: "Thanks for the support — we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
+    description: "Thanks for the support - we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
     entries: [
       {
         date: "29/03/2026",

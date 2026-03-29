@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHAMPIONS LAB — VGC TYPE EFFECTIVENESS ENGINE
+// CHAMPIONS LAB - VGC TYPE EFFECTIVENESS ENGINE
 // Complete 18×18 type chart with dual-type calculations
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -12,7 +12,7 @@ const TYPE_INDEX: PokemonType[] = [
   "rock","ghost","dragon","dark","steel","fairy"
 ];
 
-// 18×18 effectiveness matrix — rows = attacking type, cols = defending type
+// 18×18 effectiveness matrix - rows = attacking type, cols = defending type
 // 0 = immune, 0.5 = not very effective, 1 = neutral, 2 = super effective
 const CHART: number[][] = [
 // NOR FIR WAT ELE GRA ICE FIG POI GRO FLY PSY BUG ROC GHO DRA DAR STE FAI

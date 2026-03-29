@@ -112,7 +112,7 @@ export default function AboutPage() {
               We&apos;re a small team of passionate Pokémon fans who have been playing VGC for years, and we wanted to create the ultimate companion for Pokémon Champions 2026.
             </p>
             <p>
-              Every feature you see — the Pokédex, the Team Builder, the 2,000,000+ battle simulation engine, the Meta analysis, PokéSchool — was built with love during our free time.
+              Every feature you see - the Pokédex, the Team Builder, the 2,000,000+ battle simulation engine, the Meta analysis, PokéSchool - was built with love during our free time.
               <span className="font-semibold text-foreground"> We don&apos;t charge anything. No ads, no paywalls, no premium tiers.</span> This project is and will always be 100% free.
             </p>
             <p>
@@ -149,7 +149,7 @@ export default function AboutPage() {
           </div>
           <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
             <p>
-              <span className="font-semibold text-foreground">Champions Lab Team</span> — Design, development, battle engine, data curation, and everything in between.
+              <span className="font-semibold text-foreground">Champions Lab Team</span> - Design, development, battle engine, data curation, and everything in between.
               We&apos;re a small but dedicated team that pours hours into making this the best competitive Pokémon tool out there.
             </p>
             <p>
@@ -176,7 +176,7 @@ export default function AboutPage() {
           <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
             <p>
               Champions Lab is open source and we welcome contributions! Whether you&apos;re a developer, a designer,
-              a competitive player with data to share, or just someone who spotted a bug — <span className="font-semibold text-foreground">we&apos;d love your help</span>.
+              a competitive player with data to share, or just someone who spotted a bug - <span className="font-semibold text-foreground">we&apos;d love your help</span>.
             </p>
             <p>
               You can report bugs, suggest features, or contribute code. Use the contact form below to get in touch,

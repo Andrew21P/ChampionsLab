@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════════
-// CHAMPIONS LAB — VGC BATTLE SIMULATOR
+// CHAMPIONS LAB - VGC BATTLE SIMULATOR
 // Monte Carlo doubles battle simulation engine
 // Simulates turn-by-turn VGC matches with AI decision-making
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -125,7 +125,7 @@ function createBattlePokemon(pokemon: ChampionsPokemon, set: CommonSet): BattleP
   };
 }
 
-/** Apply Zero to Hero transformation — recalculate stats with Hero Form base stats */
+/** Apply Zero to Hero transformation - recalculate stats with Hero Form base stats */
 function applyHeroTransform(mon: BattlePokemon): void {
   if (mon.hasTransformed) return;
   mon.hasTransformed = true;
@@ -312,7 +312,7 @@ function evaluateMoveOption(
     if (threat > maxIncomingThreat) maxIncomingThreat = threat;
   }
   
-  // Fake Out — intelligent targeting (physical move, must be checked BEFORE status block)
+  // Fake Out - intelligent targeting (physical move, must be checked BEFORE status block)
   if (moveName === "Fake Out" && user.canFakeOut) {
     let score = 0;
     for (let i = 0; i < targets.length; i++) {
@@ -332,7 +332,7 @@ function evaluateMoveOption(
       
       // Fake Out to PROTECT our ally setter (Fake Out their fastest threat)
       if (ally && ally.set.moves.some(m => ["Trick Room", "Tailwind"].includes(m))) {
-        score += 25; // Huge bonus — protect the setter
+        score += 25; // Huge bonus - protect the setter
         // Prefer flinching the fastest opponent (biggest threat to slow setter)
         if (t.stats.speed >= 80) score += 10;
       }
@@ -355,7 +355,7 @@ function evaluateMoveOption(
   if (move.category === "status") {
     let score = 0;
     
-    // Protect: essential VGC move — used 15-20% of turns by top players
+    // Protect: essential VGC move - used 15-20% of turns by top players
     if (move.flags.protect) {
       // Consecutive Protect penalty (only punish double-protecting)
       const protectPenalty = user.protectCount * 60;
@@ -392,7 +392,7 @@ function evaluateMoveOption(
       const oppSideRef = userSide === 1 ? field.side2 : field.side1;
       if (oppSideRef.tailwind > 0) score += 6;
       
-      // Penalty when we can OHKO something — attacking is usually better
+      // Penalty when we can OHKO something - attacking is usually better
       let canKO = false;
       for (const opp of targets) {
         if (!opp || opp.isFainted) continue;
@@ -428,7 +428,7 @@ function evaluateMoveOption(
       return choices;
     }
     
-    // Trick Room — crucial VGC speed control
+    // Trick Room - crucial VGC speed control
     if (moveName === "Trick Room") {
       const myActive = userSide === 1 ? state.active1 : state.active2;
       const allySpeeds = myActive.filter(Boolean).map(m => m!.stats.speed);
@@ -437,12 +437,12 @@ function evaluateMoveOption(
       const avgOppSpeed = oppSpeeds.reduce((a, b) => a + b, 0) / Math.max(oppSpeeds.length, 1);
       
       if (!field.trickRoom) {
-        // Set TR if our side is slower — this is top priority for TR teams
+        // Set TR if our side is slower - this is top priority for TR teams
         if (avgMySpeed < avgOppSpeed) {
-          score = 120; // TR setup is the #1 priority — the entire team depends on it
-          // Even higher on turn 1 — must set TR before getting overwhelmed
+          score = 120; // TR setup is the #1 priority - the entire team depends on it
+          // Even higher on turn 1 - must set TR before getting overwhelmed
           if (state.turn <= 1) score += 15;
-          // Ally has Fake Out support — perfect TR setup turn
+          // Ally has Fake Out support - perfect TR setup turn
           const ally = allies.find(a => a && !a.isFainted);
           if (ally && ally.set.moves.includes("Fake Out") && ally.canFakeOut) score += 20;
         } else {
@@ -464,7 +464,7 @@ function evaluateMoveOption(
       return choices;
     }
     
-    // Tailwind — premier speed control
+    // Tailwind - premier speed control
     if (moveName === "Tailwind") {
       const side = userSide === 1 ? field.side1 : field.side2;
       if (side.tailwind > 0) {
@@ -482,7 +482,7 @@ function evaluateMoveOption(
       return choices;
     }
     
-    // Follow Me / Rage Powder — redirect support
+    // Follow Me / Rage Powder - redirect support
     if (moveName === "Follow Me" || moveName === "Rage Powder") {
       const ally = allies.find(a => a && !a.isFainted);
       if (ally) {
@@ -499,7 +499,7 @@ function evaluateMoveOption(
       return choices;
     }
     
-    // Helping Hand — boost ally's attack
+    // Helping Hand - boost ally's attack
     if (moveName === "Helping Hand") {
       const ally = allies.find(a => a && !a.isFainted);
       if (ally) {
@@ -527,7 +527,7 @@ function evaluateMoveOption(
             };
             const res = calculateDamage(atk, def, allyMove, options);
             const percentVsCurrentHP = (res.damage[0] / opp.currentHP) * 100;
-            // Helping Hand is 1.5x — if base damage is 60-99% of remaining HP, it secures the KO
+            // Helping Hand is 1.5x - if base damage is 60-99% of remaining HP, it secures the KO
             if (percentVsCurrentHP >= 55 && percentVsCurrentHP < 100) {
               score += 35;
               break;
@@ -541,7 +541,7 @@ function evaluateMoveOption(
       return choices;
     }
     
-    // Will-O-Wisp — weaken physical attackers
+    // Will-O-Wisp - weaken physical attackers
     if (moveName === "Will-O-Wisp" || moveName === "Thunder Wave" || moveName === "Nuzzle") {
       for (let i = 0; i < targets.length; i++) {
         const t = targets[i];
@@ -590,7 +590,7 @@ function evaluateMoveOption(
       return choices;
     }
     
-    // Encore — lock opponent into a move
+    // Encore - lock opponent into a move
     if (moveName === "Encore") {
       score = 30;
       choices.push({ moveIndex: 0, moveName, targetSlot: 0, score });
@@ -724,7 +724,7 @@ function evaluateMoveOption(
     // Coordinate with ally: if ally can KO this target, prefer the other target
     const ally = allies.find(a => a && !a.isFainted);
     if (ally && allyCanKO(ally, target, field, userSide) && !result.isOHKO) {
-      // Ally handles this one — look at the other target (small penalty)
+      // Ally handles this one - look at the other target (small penalty)
       score -= 10;
     }
     
@@ -797,7 +797,7 @@ function aiChooseAction(
     // Palafin Zero to Hero: MUST switch out to activate Hero Form
     if (mon.ability === "Zero to Hero" && !mon.hasSwitchedOut && !mon.hasTransformed) {
       // Palafin in Zero Form is USELESS (70 Atk). Switch out immediately.
-      switchScore = 150; // Higher than any move score — this is mandatory VGC play
+      switchScore = 150; // Higher than any move score - this is mandatory VGC play
     }
     
     // Tactical switching: evaluate matchup quality
@@ -846,7 +846,7 @@ function aiChooseAction(
     }
   }
   
-  // Occasional suboptimal play (5% chance to pick 2nd-best option — humans misread sometimes)
+  // Occasional suboptimal play (5% chance to pick 2nd-best option - humans misread sometimes)
   if (allChoices.length >= 2 && Math.random() < 0.05) {
     if (allChoices[0].score - allChoices[1].score < 20) {
       return { moveName: allChoices[1].moveName, targetSlot: allChoices[1].targetSlot };
@@ -1177,7 +1177,7 @@ function executeMove(
   } else if (target && !target.isFainted) {
     targets.push(target);
   } else {
-    // Retarget: original target fainted mid-turn — redirect to remaining opponent (VGC rule)
+    // Retarget: original target fainted mid-turn - redirect to remaining opponent (VGC rule)
     for (const opp of opponents) {
       if (opp && !opp.isFainted && opp !== target) {
         targets.push(opp);
@@ -1190,7 +1190,7 @@ function executeMove(
     // Protected targets block all damage (except Drill Force pierce)
     if (t.isProtected) {
       if (user.ability === "Drill Force" && (move.type === "ground" || move.type === "steel")) {
-        // Drill Force pierces Protect for 25% damage — continue but reduce damage later
+        // Drill Force pierces Protect for 25% damage - continue but reduce damage later
       } else {
         continue;
       }
@@ -1204,7 +1204,7 @@ function executeMove(
         t.currentHP = Math.min(t.maxHP, t.currentHP + Math.floor(t.maxHP * 0.25));
       }
       if (t.ability === "Flash Fire") {
-        // Flash Fire activated — boost tracked via flag (simplified: +50% fire damage boost)
+        // Flash Fire activated - boost tracked via flag (simplified: +50% fire damage boost)
       }
       // Motor Drive: speed boost
       if (t.ability === "Motor Drive") {
@@ -1327,7 +1327,7 @@ function executeMove(
       t.itemConsumed = true;
     }
     
-    // Life Orb recoil — applied once per attack, NOT per target
+    // Life Orb recoil - applied once per attack, NOT per target
     // (moved below after targets loop)
     
     // Recoil
@@ -1415,7 +1415,7 @@ function executeMove(
     }
   }
   
-  // Life Orb recoil — once per attack (after all targets processed)
+  // Life Orb recoil - once per attack (after all targets processed)
   if (user.item === "Life Orb" && user.ability !== "Sheer Force" && targets.length > 0) {
     user.currentHP -= Math.floor(user.maxHP / 10);
   }
@@ -1509,7 +1509,7 @@ export function simulateBattle(
   team2Pokemon: ChampionsPokemon[],
   team2Sets: CommonSet[]
 ): { winner: 1 | 2; turnsPlayed: number; team1Remaining: number; team2Remaining: number } {
-  // Smart pick 4 from 6 (VGC team preview — intelligent selection)
+  // Smart pick 4 from 6 (VGC team preview - intelligent selection)
   const idx1 = smartPick4(team1Pokemon, team1Sets, team2Pokemon);
   const idx2 = smartPick4(team2Pokemon, team2Sets, team1Pokemon);
   const bt1 = idx1.map(i => createBattlePokemon(team1Pokemon[i], team1Sets[i]));
@@ -1525,7 +1525,7 @@ export function simulateBattle(
     winner: null,
   };
   
-  // Apply entry abilities — slower weather setter wins (triggers last, like real VGC)
+  // Apply entry abilities - slower weather setter wins (triggers last, like real VGC)
   const entryMons = [...state.active1, ...state.active2].filter(Boolean) as BattlePokemon[];
   const weatherSetters = entryMons
     .filter(m => { const e = getAbilityEffect(m.ability); return e?.setsWeather; })
@@ -1602,7 +1602,7 @@ export function simulateBattle(
       const choice = aiChooseAction(mon, sideIndex, opponents, allies, state.field, state);
       
       if (choice.switchOut) {
-        // Switches happen at max priority (like in VGC — switches go before moves)
+        // Switches happen at max priority (like in VGC - switches go before moves)
         actions.push({
           mon, moveName: "", targetSlot: -1,
           priority: 100, speed: getActualSpeed(mon, state.field, sideIndex),
@@ -1774,7 +1774,7 @@ export function simulateBattleWithLog(
   const log: BattleLogEntry[] = [];
   const entryEvents: string[] = [];
 
-  // Entry abilities — slower weather setter wins (triggers last)
+  // Entry abilities - slower weather setter wins (triggers last)
   const logEntryMons = [...state.active1, ...state.active2].filter(Boolean) as BattlePokemon[];
   const logWeatherSetters = logEntryMons
     .filter(m => { const e = getAbilityEffect(m.ability); return e?.setsWeather; })
@@ -1924,11 +1924,11 @@ export function simulateBattleWithLog(
           const wasProtected = protectedBefore.get(mon);
           if (wasProtected && dmg <= 0 && opponents.includes(mon)) {
             if (mon === target || (move && isSpreadMove(move))) {
-              turnEvents.push(`${action.mon.pokemon.name} used ${action.moveName} on ${mon.pokemon.name} — blocked by Protect!`);
+              turnEvents.push(`${action.mon.pokemon.name} used ${action.moveName} on ${mon.pokemon.name} - blocked by Protect!`);
               hitAnything = true;
             }
           } else if (mon.isFainted && dmg > 0) {
-            turnEvents.push(`${action.mon.pokemon.name} used ${action.moveName} on ${mon.pokemon.name} — KO!`);
+            turnEvents.push(`${action.mon.pokemon.name} used ${action.moveName} on ${mon.pokemon.name} - KO!`);
             hitAnything = true;
           } else if (dmg > 0) {
             turnEvents.push(`${action.mon.pokemon.name} used ${action.moveName} on ${mon.pokemon.name} (${Math.round((dmg / mon.maxHP) * 100)}% damage)`);
@@ -1946,7 +1946,7 @@ export function simulateBattleWithLog(
           turnEvents.push(`${action.mon.pokemon.name} took ${Math.round((selfDmg / action.mon.maxHP) * 100)}% ${label}!`);
         }
         if (!hitAnything && selfDmg <= 0) {
-          turnEvents.push(`${action.mon.pokemon.name} used ${action.moveName} — no target`);
+          turnEvents.push(`${action.mon.pokemon.name} used ${action.moveName} - no target`);
         }
       }
     }
