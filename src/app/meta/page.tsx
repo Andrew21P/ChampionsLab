@@ -13,6 +13,7 @@ import { POKEMON_SEED } from "@/lib/pokemon-data";
 import { TYPE_COLORS, type PokemonType } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { getMegaIdFromArchetype, getMegaSprite, getMegaName } from "@/lib/mega-utils";
+import { LastUpdated } from "@/components/last-updated";
 import { USAGE_DATA } from "@/lib/usage-data";
 import {
   predictMetaTeams,
@@ -208,11 +209,14 @@ export default function MetaPage() {
     <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Header */}
       <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
-        <h1 className="text-4xl font-bold">
-          <span className="bg-gradient-to-r from-emerald-600 via-cyan-600 to-violet-600 bg-clip-text text-transparent">
-            Meta Analysis
-          </span>
-        </h1>
+        <div className="flex items-center gap-3">
+          <h1 className="text-4xl font-bold">
+            <span className="bg-gradient-to-r from-emerald-600 via-cyan-600 to-violet-600 bg-clip-text text-transparent">
+              Meta Analysis
+            </span>
+          </h1>
+          <LastUpdated page="meta" />
+        </div>
         <p className="text-muted-foreground mt-2 text-sm max-w-2xl">
           Deep competitive analysis powered by the <span className="font-semibold bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">Champions Lab Advanced VGC Battle Engine</span> — <span className="font-semibold text-foreground">{SIM_TOTAL_BATTLES > 0 ? SIM_TOTAL_BATTLES.toLocaleString() : "2,000,000+"}  simulated battles</span> with full damage calc, ELO rankings,
           win-rate matrices across {TOURNAMENT_TEAMS.length} tournament teams, {TOURNAMENT_USAGE.length} usage entries, and {CORE_PAIRS.length} core pair combinations.

@@ -8,6 +8,7 @@ import {
   Award, Sparkles, Flame, Droplets, Wind, Star,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { LastUpdated } from "@/components/last-updated";
 import { AlertTriangle, Lightbulb, Trophy, Info } from "lucide-react";
 
 /* ─────────────── Rich text helpers ─────────────── */
@@ -452,6 +453,9 @@ export default function LearnPage() {
             <p className="text-sm text-muted-foreground">
               Your complete guide from beginner to VGC Champion
             </p>
+            <div className="mt-1.5">
+              <LastUpdated page="learn" />
+            </div>
           </div>
         </div>
 
@@ -647,7 +651,7 @@ export default function LearnPage() {
           </div>
           <div className="text-left">
             <p className="text-xs font-bold text-amber-700">Champions Lab Advanced VGC Battle Engine</p>
-            <p className="text-[10px] text-muted-foreground">1,000,000+ battles simulated · Full AI · ELO Rankings · Live Replay</p>
+            <p className="text-[10px] text-muted-foreground">2,000,000+ battles simulated · Full AI · ELO Rankings · Live Replay</p>
           </div>
         </div>
 

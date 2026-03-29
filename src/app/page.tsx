@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { LastUpdated } from "@/components/last-updated";
 import { Search, SlidersHorizontal, Sparkles } from "lucide-react";
 import { getPokemonBySeason } from "@/lib/pokemon-data";
 import { PokemonType, ChampionsPokemon } from "@/lib/types";
@@ -127,6 +128,9 @@ export default function HomePage() {
             Pokédex
           </span>
         </motion.h1>
+        <div className="flex justify-center mt-2">
+          <LastUpdated page="pokedex" />
+        </div>
         <motion.p
           className="text-gray-400 max-w-lg mx-auto text-sm leading-relaxed"
           initial={{ opacity: 0 }}
@@ -149,7 +153,7 @@ export default function HomePage() {
           </span>
           <div className="text-left">
             <p className="text-xs font-bold text-amber-700 uppercase tracking-wider">Advanced VGC Battle Engine</p>
-            <p className="text-[10px] text-muted-foreground">1,000,000+ battles simulated · Full AI · Live Replay · Try it now →</p>
+            <p className="text-[10px] text-muted-foreground">2,000,000+ battles simulated · Full AI · Live Replay · Try it now →</p>
           </div>
         </motion.a>
       </motion.div>

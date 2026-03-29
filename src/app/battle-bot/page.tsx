@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { LastUpdated } from "@/components/last-updated";
 import {
   Swords, Play, BarChart3, Target, AlertTriangle,
   Zap, Loader2, Trophy, Shield, ChevronRight, Save, FolderOpen, Trash2,
@@ -510,15 +511,18 @@ export default function BattleBotPage() {
         <p className="text-xs font-bold uppercase tracking-widest text-amber-600/70 mt-1">
           Champions Lab Powered · Gold Tier
         </p>
+        <div className="flex justify-center mt-2">
+          <LastUpdated page="battle-engine" />
+        </div>
         <p className="text-sm text-muted-foreground mt-3 max-w-2xl mx-auto">
-          The most advanced VGC battle simulator available — fed with <span className="font-semibold text-amber-700">1,000,000+ simulated battles</span>, full
+          The most advanced VGC battle simulator available — fed with <span className="font-semibold text-amber-700">2,000,000+ simulated battles</span>, full
           damage calculation engine, intelligent AI decision-making, abilities, items, weather, terrain, Trick Room,
           Tailwind, status conditions, and real-time battle replay. Test your team against {PREBUILT_TEAMS.length}+ meta teams
           and hundreds of randomized opponents.
         </p>
         <div className="flex items-center justify-center gap-2 mt-5 flex-wrap">
           {[
-            { label: "⚡ 1M+ BATTLES", color: "gold" },
+            { label: "⚡ 2M+ BATTLES", color: "gold" },
             { label: "FULL DAMAGE CALC", color: "gold" },
             { label: "VGC DOUBLES", color: "gold" },
             { label: "INTELLIGENT AI", color: "gold" },
@@ -530,7 +534,7 @@ export default function BattleBotPage() {
         </div>
         <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500/10 to-yellow-500/10 border border-amber-300/40">
           <span className="relative flex h-2 w-2"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span></span>
-          <span className="text-[11px] font-medium text-amber-700">Engine continuously trained on 1M+ battle outcomes · ELO rankings · Win-rate matrices · Archetype matchups</span>
+          <span className="text-[11px] font-medium text-amber-700">Engine continuously trained on 2M+ battle outcomes · ELO rankings · Win-rate matrices · Archetype matchups</span>
         </div>
       </motion.div>
 
@@ -1359,7 +1363,7 @@ export default function BattleBotPage() {
                   <p className="text-[9px] text-muted-foreground">Pokémon</p>
                 </div>
                 <div className="p-3 rounded-xl bg-gray-50">
-                  <p className="text-lg font-bold text-foreground">1M+</p>
+                  <p className="text-lg font-bold text-foreground">2M+</p>
                   <p className="text-[9px] text-muted-foreground">Battle Data</p>
                 </div>
               </div>

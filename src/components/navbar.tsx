@@ -23,6 +23,7 @@ const NAV_ITEMS = [
   { href: "/meta", label: "Meta", icon: TrendingUp },
   { href: "/battle-bot", label: "Battle Bot", icon: Swords },
   { href: "/learn", label: "PokéSchool", icon: GraduationCap },
+  { href: "/about", label: "About", icon: Heart },
 ];
 
 export function Navbar() {
@@ -90,17 +91,6 @@ export function Navbar() {
                   </Link>
                 );
               })}
-
-              {/* Buy Me a Coffee */}
-              <a
-                href="https://buymeacoffee.com/championslab"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ml-2 px-4 py-2 rounded-lg text-sm font-semibold bg-gradient-to-r from-yellow-400 to-orange-500 text-white hover:from-yellow-500 hover:to-orange-600 shadow-sm shadow-orange-500/20 flex items-center gap-2 transition-all hover:scale-105"
-              >
-                <Heart className="w-4 h-4 fill-white" />
-                <span>Support Us</span>
-              </a>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -146,16 +136,6 @@ export function Navbar() {
                 </Link>
               );
             })}
-            <a
-              href="https://buymeacoffee.com/championslab"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold bg-gradient-to-r from-yellow-400 to-orange-500 text-white"
-            >
-              <Heart className="w-5 h-5 fill-white" />
-              Support Us
-            </a>
           </nav>
         </motion.div>
       </header>

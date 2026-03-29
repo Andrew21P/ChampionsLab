@@ -3,6 +3,7 @@
 import { useState, useCallback, useMemo, useEffect } from "react";
 import { motion, AnimatePresence, Reorder } from "framer-motion";
 import Image from "next/image";
+import { LastUpdated } from "@/components/last-updated";
 import {
   Plus, X, Download, Upload, Copy, Trash2, Shield, Zap,
   ChevronDown, Check, AlertTriangle, Sparkles, Star,
@@ -941,8 +942,9 @@ export default function TeamBuilderPage() {
               <div className="flex items-center gap-2 mt-1.5">
                 <a href="/battle-bot" className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[9px] font-bold uppercase tracking-wider bg-gradient-to-r from-amber-400/15 to-yellow-500/15 border border-amber-400/30 text-amber-700 hover:border-amber-400/50 transition-all">
                   <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                  Powered by 1M+ Battle Engine
+                  Powered by 2M+ Battle Engine
                 </a>
+                <LastUpdated page="team-builder" />
               </div>
             </div>
             <input
@@ -1613,7 +1615,7 @@ export default function TeamBuilderPage() {
               <span className="bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">Engine Predicted Meta</span>
               <span className="px-1.5 py-0.5 text-[8px] font-bold rounded bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-700 border border-amber-200">⚡ LIVE</span>
             </h3>
-            <p className="text-[10px] text-muted-foreground mb-3">{TOURNAMENT_TEAMS.length} tournaments · {TOURNAMENT_USAGE.length} usage entries · {CORE_PAIRS.length} core pairs · 1M+ battle engine</p>
+            <p className="text-[10px] text-muted-foreground mb-3">{TOURNAMENT_TEAMS.length} tournaments · {TOURNAMENT_USAGE.length} usage entries · {CORE_PAIRS.length} core pairs · 2M+ battle engine</p>
             <div className="space-y-3">
               {metaTeams.map((meta) => (
                 <button key={meta.id} onClick={() => loadMetaTeam(meta)} className="w-full text-left p-3 rounded-xl glass border border-gray-200/40 hover:border-emerald-300 hover:bg-emerald-50/30 transition-all">
