@@ -32,18 +32,18 @@ export function PokemonCard({ pokemon, onClick, index }: PokemonCardProps) {
       />
 
       {/* Card */}
-      <div className="relative bg-white rounded-2xl overflow-hidden border border-gray-100 group-hover:border-gray-200/80 group-hover:shadow-xl group-hover:shadow-black/[0.06] transition-all duration-500">
+      <div className="relative bg-white dark:bg-[#111a2e] rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-200/10 group-hover:border-gray-200/80 dark:group-hover:border-gray-200/20 group-hover:shadow-xl group-hover:shadow-black/[0.06] dark:group-hover:shadow-black/40 transition-all duration-500">
         {/* Tier badge */}
         {pokemon.tier && (
           <div className="absolute top-2.5 right-2.5 z-20">
             <span
               className={cn(
                 "px-2 py-0.5 text-[10px] font-bold rounded-md backdrop-blur-sm",
-                pokemon.tier === "S" && "bg-amber-50/90 text-amber-600 ring-1 ring-amber-200",
-                pokemon.tier === "A" && "bg-violet-50/90 text-violet-600 ring-1 ring-violet-200",
-                pokemon.tier === "B" && "bg-blue-50/90 text-blue-600 ring-1 ring-blue-200",
-                pokemon.tier === "C" && "bg-emerald-50/90 text-emerald-600 ring-1 ring-emerald-200",
-                pokemon.tier === "D" && "bg-gray-50/90 text-gray-500 ring-1 ring-gray-200"
+                pokemon.tier === "S" && "bg-amber-50/90 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 ring-1 ring-amber-200 dark:ring-amber-500/30",
+                pokemon.tier === "A" && "bg-violet-50/90 dark:bg-violet-500/20 text-violet-600 dark:text-violet-400 ring-1 ring-violet-200 dark:ring-violet-500/30",
+                pokemon.tier === "B" && "bg-blue-50/90 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 ring-1 ring-blue-200 dark:ring-blue-500/30",
+                pokemon.tier === "C" && "bg-emerald-50/90 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-200 dark:ring-emerald-500/30",
+                pokemon.tier === "D" && "bg-gray-50/90 dark:bg-gray-500/20 text-gray-500 dark:text-gray-400 ring-1 ring-gray-200 dark:ring-gray-500/30"
               )}
             >
               {pokemon.tier}
@@ -54,7 +54,7 @@ export function PokemonCard({ pokemon, onClick, index }: PokemonCardProps) {
         {/* Mega badge */}
         {pokemon.hasMega && (
           <div className="absolute top-2.5 left-2.5 z-20">
-            <span className="flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold rounded-md bg-gradient-to-r from-pink-50 to-violet-50 text-pink-600 ring-1 ring-pink-200 backdrop-blur-sm">
+            <span className="flex items-center gap-1 px-2 py-0.5 text-[10px] font-bold rounded-md bg-gradient-to-r from-pink-50 to-violet-50 dark:from-pink-500/20 dark:to-violet-500/20 text-pink-600 dark:text-pink-400 ring-1 ring-pink-200 dark:ring-pink-500/30 backdrop-blur-sm">
               <Sparkles className="w-3 h-3" />
               MEGA
             </span>
@@ -92,7 +92,7 @@ export function PokemonCard({ pokemon, onClick, index }: PokemonCardProps) {
         <div className="px-4 pb-4 pt-2 space-y-2">
           {/* Name & Dex number */}
           <div className="flex items-center justify-between">
-            <h3 className="font-semibold text-[13px] tracking-tight text-gray-900">{pokemon.name}</h3>
+            <h3 className="font-semibold text-[13px] tracking-tight text-gray-900 dark:text-gray-100">{pokemon.name}</h3>
             <span className="text-[10px] text-gray-400 tabular-nums">
               #{pokemon.dexNumber.toString().padStart(3, "0")}
             </span>

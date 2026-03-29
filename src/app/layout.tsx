@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { PokeballParticles } from "@/components/pokeball-particles";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -67,6 +68,11 @@ export default function RootLayout({
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(localStorage.getItem('championslab-theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}`,
+          }}
+        />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-NVYVM8YJZN"
           strategy="afterInteractive"
@@ -84,6 +90,7 @@ export default function RootLayout({
         <PokeballParticles />
         <Navbar />
         <main className="flex-1 relative z-10">{children}</main>
+        <ThemeToggle />
       </body>
     </html>
   );

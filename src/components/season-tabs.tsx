@@ -61,65 +61,65 @@ const RULES_CONFIG: Record<string, RuleConfig> = {
   "Doubles format": {
     icon: Swords,
     label: "Doubles",
-    color: "text-red-600",
-    bg: "bg-red-50",
-    ring: "ring-red-100",
+    color: "text-red-600 dark:text-red-400",
+    bg: "bg-red-50 dark:bg-red-500/15",
+    ring: "ring-red-100 dark:ring-red-500/25",
     description: "All battles are played in Double Battle format - 2v2 on the field at all times. The standard competitive Pokémon format used in official VGC tournaments worldwide.",
   },
   "Bring 6, Pick 4": {
     icon: ListChecks,
     label: "Bring 6, Pick 4",
-    color: "text-blue-600",
-    bg: "bg-blue-50",
-    ring: "ring-blue-100",
+    color: "text-blue-600 dark:text-blue-400",
+    bg: "bg-blue-50 dark:bg-blue-500/15",
+    ring: "ring-blue-100 dark:ring-blue-500/25",
     description: "Build a team of 6 Pokémon, then select 4 to bring into each battle after seeing your opponent's team during Team Preview. Strategy starts before the first move.",
   },
   "Level 50 auto-level": {
     icon: Gauge,
     label: "Level 50",
-    color: "text-amber-600",
-    bg: "bg-amber-50",
-    ring: "ring-amber-100",
+    color: "text-amber-600 dark:text-amber-400",
+    bg: "bg-amber-50 dark:bg-amber-500/15",
+    ring: "ring-amber-100 dark:ring-amber-500/25",
     description: "All Pokémon are automatically set to Level 50 for battles, ensuring a fair playing field regardless of your Pokémon's actual level.",
   },
   "Stat Points (no IVs/EVs)": {
     icon: Sparkles,
     label: "Stat Points",
-    color: "text-violet-600",
-    bg: "bg-violet-50",
-    ring: "ring-violet-100",
+    color: "text-violet-600 dark:text-violet-400",
+    bg: "bg-violet-50 dark:bg-violet-500/15",
+    ring: "ring-violet-100 dark:ring-violet-500/25",
     description: "Champions replaces IVs and EVs with a streamlined Stat Point system. You get 64 total points to distribute (max 32 per stat). Each point adds ~1 stat at Level 50. No RNG, pure strategy.",
   },
   "Mega Evolution": {
     icon: Sparkles,
     label: "Mega Evolution",
-    color: "text-pink-600",
-    bg: "bg-pink-50",
-    ring: "ring-pink-100",
+    color: "text-pink-600 dark:text-pink-400",
+    bg: "bg-pink-50 dark:bg-pink-500/15",
+    ring: "ring-pink-100 dark:ring-pink-500/25",
     description: "Mega Evolution returns! One Pokémon per team can Mega Evolve during battle, gaining boosted stats and sometimes a new typing or ability. A game-changing mechanic from Gen 6 & 7.",
   },
   "No duplicate Pokémon": {
     icon: Ban,
     label: "No duplicate Pokémon",
-    color: "text-emerald-600",
-    bg: "bg-emerald-50",
-    ring: "ring-emerald-100",
+    color: "text-emerald-600 dark:text-emerald-400",
+    bg: "bg-emerald-50 dark:bg-emerald-500/15",
+    ring: "ring-emerald-100 dark:ring-emerald-500/25",
     description: "Each Pokémon species can only appear once on your team. Known as the Species Clause - a core rule in all official competitive formats.",
   },
   "No duplicate held items": {
     icon: Ban,
     label: "No duplicate items",
-    color: "text-cyan-600",
-    bg: "bg-cyan-50",
-    ring: "ring-cyan-100",
+    color: "text-cyan-600 dark:text-cyan-400",
+    bg: "bg-cyan-50 dark:bg-cyan-500/15",
+    ring: "ring-cyan-100 dark:ring-cyan-500/25",
     description: "Each held item can only be used once per team. Known as the Item Clause - forces diverse item choices and prevents stacking powerful items like Leftovers or Choice Scarf.",
   },
   "20-minute game timer": {
     icon: Timer,
     label: "20-min timer",
-    color: "text-orange-600",
-    bg: "bg-orange-50",
-    ring: "ring-orange-100",
+    color: "text-orange-600 dark:text-orange-400",
+    bg: "bg-orange-50 dark:bg-orange-500/15",
+    ring: "ring-orange-100 dark:ring-orange-500/25",
     description: "Each game has a 20-minute time limit. If time runs out, the player with more remaining Pokémon wins. Prevents stalling and keeps games fast-paced.",
   },
 };
@@ -157,15 +157,15 @@ function RuleCard({ rule }: { rule: string }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 4, scale: 0.98 }}
             transition={{ duration: 0.15 }}
-            className="absolute z-50 left-0 top-full mt-2 w-72 p-4 bg-white rounded-xl shadow-xl shadow-black/10 border border-gray-100"
+            className="absolute z-50 left-0 top-full mt-2 w-72 p-4 bg-white dark:bg-[#131c2e] rounded-xl shadow-xl shadow-black/10 dark:shadow-black/40 border border-gray-100 dark:border-gray-200/10"
           >
             <div className="flex items-center gap-2 mb-2">
               <div className={cn("w-6 h-6 rounded-lg flex items-center justify-center", config.bg)}>
                 <Icon className={cn("w-3.5 h-3.5", config.color)} />
               </div>
-              <span className="text-sm font-semibold text-gray-900">{config.label}</span>
+              <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">{config.label}</span>
             </div>
-            <p className="text-xs text-gray-500 leading-relaxed">{config.description}</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{config.description}</p>
           </motion.div>
         )}
       </AnimatePresence>

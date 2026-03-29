@@ -972,6 +972,14 @@ export default function TeamBuilderPage() {
 
           <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1 -mx-4 px-4 sm:mx-0 sm:px-0 sm:overflow-visible sm:flex-wrap">
             <button
+              onClick={generateShareImage}
+              disabled={filledSlots.length === 0}
+              className="px-5 py-2 text-sm rounded-xl font-semibold flex items-center gap-2 bg-gradient-to-r from-violet-600 to-cyan-600 text-white shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:scale-105 transition-all disabled:opacity-40 disabled:hover:scale-100 shrink-0"
+            >
+              <Share2 className="w-4 h-4" />
+              Share
+            </button>
+            <button
               onClick={handleSaveTeam}
               disabled={filledSlots.length === 0}
               className={cn(
@@ -1004,14 +1012,6 @@ export default function TeamBuilderPage() {
             >
               <Download className="w-4 h-4" />
               Export
-            </button>
-            <button
-              onClick={generateShareImage}
-              disabled={filledSlots.length === 0}
-              className="px-5 py-2 text-sm rounded-xl font-semibold flex items-center gap-2 bg-gradient-to-r from-violet-600 to-cyan-600 text-white shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:scale-105 transition-all disabled:opacity-40 disabled:hover:scale-100 shrink-0"
-            >
-              <Share2 className="w-4 h-4" />
-              Share
             </button>
             <button
               onClick={() => { trackEvent("clear_team", "team_builder"); setSlots(Array.from({ length: 6 }, createEmptySlot)); setCurrentTeamId(undefined); setSelectedSlotIndex(null); setTeamName("My Team"); }}
@@ -1234,11 +1234,11 @@ export default function TeamBuilderPage() {
                   <>
                     <button
                       onClick={(e) => { e.stopPropagation(); removeSlot(i); }}
-                      className="absolute top-2 right-2 z-20 p-1 rounded-lg bg-white/80 hover:bg-red-100 transition-colors"
+                      className="absolute top-2 right-2 z-20 p-1 rounded-lg bg-white/80 dark:bg-gray-800/80 hover:bg-red-100 dark:hover:bg-red-500/20 text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-colors"
                     >
                       <X className="w-3.5 h-3.5" />
                     </button>
-                    <div className="absolute top-2 left-2 z-20 w-6 h-6 rounded-lg bg-gray-100 flex items-center justify-center">
+                    <div className="absolute top-2 left-2 z-20 w-6 h-6 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
                       <span className="text-[10px] font-bold text-muted-foreground">{i + 1}</span>
                     </div>
                     {slot.isMega && (() => {

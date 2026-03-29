@@ -202,7 +202,7 @@ export default function AboutPage() {
         </div>
 
         {/* Contact Form */}
-        <div className="glass rounded-2xl p-6 border border-amber-200/60 bg-gradient-to-br from-amber-50/40 to-orange-50/40">
+        <div className="glass rounded-2xl p-6 border border-amber-200/60 dark:border-amber-500/20 bg-gradient-to-br from-amber-50/40 to-orange-50/40 dark:from-amber-500/5 dark:to-orange-500/5">
           <div className="flex items-center gap-3 mb-5">
             <Mail className="w-5 h-5 text-amber-600" />
             <h2 className="text-lg font-bold">Contact Us</h2>
@@ -221,7 +221,7 @@ export default function AboutPage() {
                   maxLength={100}
                   value={form.name}
                   onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-                  className="w-full px-3 py-2 rounded-xl border border-gray-200 bg-white/80 text-sm focus:outline-none focus:border-amber-400 transition-colors"
+                  className="w-full px-3 py-2 rounded-xl border border-gray-200 dark:border-gray-200/10 bg-white/80 dark:bg-gray-200/5 text-sm dark:text-gray-100 focus:outline-none focus:border-amber-400 dark:focus:border-amber-500/50 transition-colors dark:placeholder:text-gray-500"
                   placeholder="Your name"
                 />
               </div>
@@ -233,7 +233,7 @@ export default function AboutPage() {
                   maxLength={200}
                   value={form.email}
                   onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-                  className="w-full px-3 py-2 rounded-xl border border-gray-200 bg-white/80 text-sm focus:outline-none focus:border-amber-400 transition-colors"
+                  className="w-full px-3 py-2 rounded-xl border border-gray-200 dark:border-gray-200/10 bg-white/80 dark:bg-gray-200/5 text-sm dark:text-gray-100 focus:outline-none focus:border-amber-400 dark:focus:border-amber-500/50 transition-colors dark:placeholder:text-gray-500"
                   placeholder="you@example.com"
                 />
               </div>
@@ -244,12 +244,12 @@ export default function AboutPage() {
               <select
                 value={form.type}
                 onChange={e => setForm(f => ({ ...f, type: e.target.value }))}
-                className="w-full px-3 py-2 rounded-xl border border-gray-200 bg-white/80 text-sm focus:outline-none focus:border-amber-400 transition-colors"
+                className="w-full px-3 py-2 rounded-xl border border-gray-200 dark:border-gray-200/10 bg-white/80 dark:bg-gray-200/5 text-sm dark:text-gray-100 focus:outline-none focus:border-amber-400 dark:focus:border-amber-500/50 transition-colors"
               >
-                <option value="feedback">Feedback / Suggestion</option>
-                <option value="bug">Bug Report</option>
-                <option value="feature">Feature Request</option>
-                <option value="other">Other</option>
+                <option value="feedback" className="dark:bg-[#111a2e]">Feedback / Suggestion</option>
+                <option value="bug" className="dark:bg-[#111a2e]">Bug Report</option>
+                <option value="feature" className="dark:bg-[#111a2e]">Feature Request</option>
+                <option value="other" className="dark:bg-[#111a2e]">Other</option>
               </select>
             </div>
 
@@ -261,7 +261,7 @@ export default function AboutPage() {
                 rows={5}
                 value={form.message}
                 onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                className="w-full px-3 py-2 rounded-xl border border-gray-200 bg-white/80 text-sm focus:outline-none focus:border-amber-400 transition-colors resize-none"
+                className="w-full px-3 py-2 rounded-xl border border-gray-200 dark:border-gray-200/10 bg-white/80 dark:bg-gray-200/5 text-sm dark:text-gray-100 focus:outline-none focus:border-amber-400 dark:focus:border-amber-500/50 transition-colors resize-none dark:placeholder:text-gray-500"
                 placeholder="Tell us what's on your mind..."
               />
             </div>
@@ -271,7 +271,7 @@ export default function AboutPage() {
               <label className="block text-xs font-semibold text-muted-foreground mb-1">Screenshot (optional)</label>
               {imagePreview ? (
                 <div className="relative inline-block">
-                  <Image src={imagePreview} alt="Preview" width={200} height={150} className="rounded-xl border border-gray-200 object-cover" unoptimized />
+                  <Image src={imagePreview} alt="Preview" width={200} height={150} className="rounded-xl border border-gray-200 dark:border-gray-200/10 object-cover" unoptimized />
                   <button
                     type="button"
                     onClick={removeImage}
@@ -284,7 +284,7 @@ export default function AboutPage() {
                 <button
                   type="button"
                   onClick={() => fileRef.current?.click()}
-                  className="flex items-center gap-2 px-4 py-3 rounded-xl border-2 border-dashed border-gray-300 bg-white/50 text-sm text-muted-foreground hover:border-amber-400 hover:text-amber-700 transition-colors"
+                  className="flex items-center gap-2 px-4 py-3 rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-200/15 bg-white/50 dark:bg-gray-200/5 text-sm text-muted-foreground hover:border-amber-400 dark:hover:border-amber-500/40 hover:text-amber-700 dark:hover:text-amber-400 transition-colors"
                 >
                   <ImagePlus className="w-4 h-4" />
                   Add a screenshot (max 5MB)
@@ -301,7 +301,7 @@ export default function AboutPage() {
 
             {/* Result Message */}
             {result && (
-              <div className={cn("flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium", result.ok ? "bg-emerald-50 text-emerald-700 border border-emerald-200" : "bg-red-50 text-red-700 border border-red-200")}>
+              <div className={cn("flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium", result.ok ? "bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20" : "bg-red-50 dark:bg-red-500/10 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-500/20")}>
                 {result.ok ? <CheckCircle2 className="w-4 h-4" /> : <AlertCircle className="w-4 h-4" />}
                 {result.msg}
               </div>

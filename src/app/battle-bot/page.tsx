@@ -545,7 +545,7 @@ export default function BattleBotPage() {
       </motion.div>
 
       {/* ── MAIN TAB NAVIGATION ──────────────────────────────────────── */}
-      <div className="flex gap-1 p-1 bg-gray-100 rounded-xl mb-8">
+      <div className="flex gap-1 p-1 bg-gray-100 dark:bg-gray-200/5 rounded-xl mb-8">
         {([
           { id: "battle-engine" as MainTab, icon: Swords, label: "Battle Engine" },
           { id: "damage-calc" as MainTab, icon: Calculator, label: "Damage Calculator" },
@@ -557,7 +557,7 @@ export default function BattleBotPage() {
             className={cn(
               "flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg text-sm font-semibold transition-all",
               mainTab === tab.id
-                ? "bg-white shadow-sm text-foreground"
+                ? "bg-white dark:bg-gray-200/10 shadow-sm dark:shadow-none text-foreground dark:ring-1 dark:ring-gray-200/10"
                 : "text-muted-foreground hover:text-foreground"
             )}
           >
@@ -587,7 +587,7 @@ export default function BattleBotPage() {
         >
           {/* Load from saved */}
           {(savedTeams.length > 0 || PREBUILT_TEAMS.length > 0) && (
-            <div className="glass rounded-2xl p-4 border border-gray-200/60">
+            <div className="glass rounded-2xl p-4 border border-gray-200/60 dark:border-gray-200/10">
               <button
                 onClick={() => setShowSavedTeams(!showSavedTeams)}
                 className="w-full flex items-center justify-between text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
@@ -634,9 +634,9 @@ export default function BattleBotPage() {
                         >
                           <span className={cn(
                             "px-1.5 py-0.5 text-[9px] font-bold rounded flex-shrink-0",
-                            t.tier === "S" ? "bg-amber-100 text-amber-700" :
-                            t.tier === "A" ? "bg-blue-100 text-blue-700" :
-                            "bg-gray-100 text-gray-600"
+                            t.tier === "S" ? "bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-400" :
+                            t.tier === "A" ? "bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-400" :
+                            "bg-gray-100 dark:bg-gray-200/10 text-gray-600 dark:text-gray-400"
                           )}>{t.tier}</span>
                           <div className="min-w-0">
                             <p className="text-xs font-medium truncate">{t.name}</p>
@@ -652,7 +652,7 @@ export default function BattleBotPage() {
           )}
 
           {/* Selected Team */}
-          <div className="glass rounded-2xl p-5 border border-gray-200/60">
+          <div className="glass rounded-2xl p-5 border border-gray-200/60 dark:border-gray-200/10">
             <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4 flex items-center gap-2">
               <Swords className="w-4 h-4" />
               Your Team ({selectedPokemon.length}/6)
@@ -666,7 +666,7 @@ export default function BattleBotPage() {
                     layout
                     className={cn(
                       "rounded-xl p-2.5 aspect-square flex flex-col items-center justify-center transition-all",
-                      mon ? "glass border border-gray-200" : "border border-dashed border-gray-300 cursor-pointer hover:border-violet-400"
+                      mon ? "glass border border-gray-200 dark:border-gray-200/10" : "border border-dashed border-gray-300 dark:border-gray-200/10 cursor-pointer hover:border-violet-400"
                     )}
                     onClick={() => !mon && setPickerOpen(true)}
                   >
@@ -674,7 +674,7 @@ export default function BattleBotPage() {
                       <>
                         <button
                           onClick={(e) => { e.stopPropagation(); removePokemon(mon.id); }}
-                          className="self-end -mt-1 -mr-1 p-0.5 rounded hover:bg-red-100"
+                          className="self-end -mt-1 -mr-1 p-0.5 rounded hover:bg-red-100 dark:hover:bg-red-500/20"
                         >
                           <span className="text-xs text-muted-foreground hover:text-red-600">✕</span>
                         </button>
@@ -709,7 +709,7 @@ export default function BattleBotPage() {
           </div>
 
           {/* Simulation Settings */}
-          <div className="glass rounded-2xl p-5 border border-gray-200/60">
+          <div className="glass rounded-2xl p-5 border border-gray-200/60 dark:border-gray-200/10">
             <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4 flex items-center gap-2">
               <BarChart3 className="w-4 h-4" />
               Simulation Config
@@ -739,7 +739,7 @@ export default function BattleBotPage() {
                 <select
                   value={opponentPool}
                   onChange={(e) => setOpponentPool(e.target.value)}
-                  className="w-full px-3 py-2.5 rounded-xl glass border border-gray-200 text-sm bg-transparent focus:outline-none focus:border-violet-500/50"
+                  className="w-full px-3 py-2.5 rounded-xl glass border border-gray-200 dark:border-gray-200/10 text-sm bg-transparent focus:outline-none focus:border-violet-500/50"
                 >
                   <option value="s-tier">S-Tier Only ({PREBUILT_TEAMS.filter(t => t.tier === "S").length} teams)</option>
                   <option value="a-tier">S + A Tier ({PREBUILT_TEAMS.filter(t => t.tier === "S" || t.tier === "A").length} teams)</option>
@@ -749,7 +749,7 @@ export default function BattleBotPage() {
                 </select>
               </div>
 
-              <div className="p-3 rounded-xl bg-gray-50 text-center">
+              <div className="p-3 rounded-xl bg-gray-50 dark:bg-gray-200/5 text-center">
                 <p className="text-[11px] text-muted-foreground">
                   Total: ~<span className="font-bold text-foreground">{totalBattleEstimate.toLocaleString()}</span> simulated battles
                 </p>
@@ -763,7 +763,7 @@ export default function BattleBotPage() {
                 "w-full mt-5 py-3.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-all",
                 selectedPokemon.length >= 4 && !isSimulating
                   ? "bg-gradient-to-r from-red-500 via-orange-500 to-amber-500 text-white hover:from-red-600 hover:via-orange-600 hover:to-amber-600 shadow-lg shadow-red-500/20"
-                  : "bg-gray-100 text-muted-foreground cursor-not-allowed"
+                  : "bg-gray-100 dark:bg-gray-200/10 text-muted-foreground cursor-not-allowed"
               )}
             >
               {isSimulating ? (
@@ -780,14 +780,14 @@ export default function BattleBotPage() {
 
           {/* Sim History */}
           {simHistory.length > 0 && (
-            <div className="glass rounded-2xl p-5 border border-gray-200/60">
+            <div className="glass rounded-2xl p-5 border border-gray-200/60 dark:border-gray-200/10">
               <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3 flex items-center gap-2">
                 <Clock className="w-4 h-4" />
                 History
               </h3>
               <div className="space-y-2 max-h-40 overflow-y-auto">
                 {simHistory.slice(-5).reverse().map(s => (
-                  <div key={s.id} className="p-2.5 rounded-xl bg-gray-50 flex items-center justify-between">
+                  <div key={s.id} className="p-2.5 rounded-xl bg-gray-50 dark:bg-gray-200/5 flex items-center justify-between">
                     <div className="min-w-0 flex-1">
                       <p className="text-[11px] font-medium truncate">{s.teamName}</p>
                       <p className="text-[9px] text-muted-foreground">{s.totalGames} games</p>
@@ -812,7 +812,7 @@ export default function BattleBotPage() {
         >
           {/* Progress */}
           {isSimulating && (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-2xl p-6 border border-gray-200/60">
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-2xl p-6 border border-gray-200/60 dark:border-gray-200/10">
               <div className="flex items-center gap-4 mb-4">
                 <div className="relative w-14 h-14 flex-shrink-0">
                   <motion.div
@@ -831,7 +831,7 @@ export default function BattleBotPage() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium truncate">{progressLabel}</p>
-                  <div className="h-2 bg-gray-100 rounded-full mt-2 overflow-hidden">
+                  <div className="h-2 bg-gray-100 dark:bg-gray-200/10 rounded-full mt-2 overflow-hidden">
                     <motion.div
                       className="h-full bg-gradient-to-r from-red-500 to-orange-500 rounded-full"
                       style={{ width: `${progress}%` }}
@@ -853,7 +853,7 @@ export default function BattleBotPage() {
                 className="space-y-5"
               >
                 {/* Hero Stats */}
-                <div className="glass rounded-2xl p-6 border border-gray-200/60">
+                <div className="glass rounded-2xl p-6 border border-gray-200/60 dark:border-gray-200/10">
                   <div className="flex items-center gap-6">
                     {/* Win Rate */}
                     <div className="text-center flex-shrink-0">
@@ -910,7 +910,7 @@ export default function BattleBotPage() {
                   </div>
 
                   {/* Win bar */}
-                  <div className="mt-4 h-3 bg-gray-100 rounded-full overflow-hidden">
+                  <div className="mt-4 h-3 bg-gray-100 dark:bg-gray-200/10 rounded-full overflow-hidden">
                     <motion.div
                       className={cn(
                         "h-full rounded-full",
@@ -924,7 +924,7 @@ export default function BattleBotPage() {
                 </div>
 
                 {/* Tab Navigation */}
-                <div className="flex gap-1 p-1 bg-gray-100 rounded-xl overflow-x-auto">
+                <div className="flex gap-1 p-1 bg-gray-100 dark:bg-gray-200/10 rounded-xl overflow-x-auto">
                   {([
                     { id: "overview" as ResultTab, icon: Eye, label: "Overview" },
                     { id: "matchups" as ResultTab, icon: Target, label: "Matchups" },
@@ -938,7 +938,7 @@ export default function BattleBotPage() {
                       className={cn(
                         "flex-1 min-w-0 flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg text-xs font-medium transition-all whitespace-nowrap",
                         resultTab === tab.id
-                          ? "bg-white shadow-sm text-foreground"
+                          ? "bg-white dark:bg-gray-200/10 shadow-sm dark:shadow-none text-foreground dark:ring-1 dark:ring-gray-200/10"
                           : "text-muted-foreground hover:text-foreground"
                       )}
                     >
@@ -952,7 +952,7 @@ export default function BattleBotPage() {
                 {resultTab === "overview" && (
                   <div className="space-y-5">
                     {result.archetypeBreakdown.length > 0 && (
-                      <div className="glass rounded-2xl p-5 border border-gray-200/60">
+                      <div className="glass rounded-2xl p-5 border border-gray-200/60 dark:border-gray-200/10">
                         <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4 flex items-center gap-2">
                           <Flame className="w-4 h-4" />
                           Win Rate by Archetype
@@ -961,7 +961,7 @@ export default function BattleBotPage() {
                           {result.archetypeBreakdown.map((a, i) => (
                             <div key={a.archetype} className="flex items-center gap-3">
                               <span className="text-xs text-muted-foreground w-28 truncate">{a.archetype}</span>
-                              <div className="flex-1 h-2.5 bg-gray-100 rounded-full overflow-hidden">
+                              <div className="flex-1 h-2.5 bg-gray-100 dark:bg-gray-200/10 rounded-full overflow-hidden">
                                 <motion.div
                                   className={cn("h-full rounded-full", a.winRate >= 50 ? "bg-green-500" : "bg-red-500")}
                                   initial={{ width: 0 }}
@@ -981,7 +981,7 @@ export default function BattleBotPage() {
 
                     <div className="grid sm:grid-cols-2 gap-4">
                       {result.commonWeaknesses.length > 0 && (
-                        <div className="glass rounded-2xl p-5 border border-gray-200/60">
+                        <div className="glass rounded-2xl p-5 border border-gray-200/60 dark:border-gray-200/10">
                           <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3 flex items-center gap-2">
                             <AlertTriangle className="w-4 h-4 text-amber-500" />
                             Weaknesses
@@ -997,7 +997,7 @@ export default function BattleBotPage() {
                       )}
 
                       {result.strategyTips.length > 0 && (
-                        <div className="glass rounded-2xl p-5 border border-gray-200/60">
+                        <div className="glass rounded-2xl p-5 border border-gray-200/60 dark:border-gray-200/10">
                           <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3 flex items-center gap-2">
                             <Zap className="w-4 h-4 text-cyan-600" />
                             Strategy Tips
@@ -1017,7 +1017,7 @@ export default function BattleBotPage() {
 
                 {/* ── MATCHUPS TAB ────────────────────────────────────── */}
                 {resultTab === "matchups" && (
-                  <div className="glass rounded-2xl p-5 border border-gray-200/60">
+                  <div className="glass rounded-2xl p-5 border border-gray-200/60 dark:border-gray-200/10">
                     <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4 flex items-center gap-2">
                       <Target className="w-4 h-4" />
                       All Matchups ({result.matchupBreakdown.length})
@@ -1029,7 +1029,7 @@ export default function BattleBotPage() {
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: Math.min(i * 0.03, 1) }}
-                          className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors"
+                          className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-200/5 transition-colors"
                         >
                           <span className={cn(
                             "w-6 h-6 rounded-md flex items-center justify-center text-[9px] font-bold text-white flex-shrink-0",
@@ -1045,7 +1045,7 @@ export default function BattleBotPage() {
                               <span className="text-xs font-medium truncate">{m.opponent}</span>
                               <span className="text-[9px] text-muted-foreground">({m.archetype})</span>
                             </div>
-                            <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden mt-1">
+                            <div className="h-1.5 bg-gray-100 dark:bg-gray-200/10 rounded-full overflow-hidden mt-1">
                               <div
                                 className={cn("h-full rounded-full transition-all", m.winRate >= 50 ? "bg-green-500" : "bg-red-500")}
                                 style={{ width: `${m.winRate}%` }}
@@ -1064,7 +1064,7 @@ export default function BattleBotPage() {
 
                 {/* ── THREATS TAB ─────────────────────────────────────── */}
                 {resultTab === "threats" && (
-                  <div className="glass rounded-2xl p-5 border border-gray-200/60">
+                  <div className="glass rounded-2xl p-5 border border-gray-200/60 dark:border-gray-200/10">
                     <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4 flex items-center gap-2">
                       <Skull className="w-4 h-4" />
                       Top Threats - Pokémon that beat you most
@@ -1078,7 +1078,7 @@ export default function BattleBotPage() {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.05 }}
-                            className="flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 transition-colors"
+                            className="flex items-center gap-3 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-200/5 transition-colors"
                           >
                             <span className="text-[10px] font-bold text-muted-foreground w-5">#{i + 1}</span>
                             {mon && (
@@ -1103,7 +1103,7 @@ export default function BattleBotPage() {
                               </p>
                               <p className="text-[9px] text-muted-foreground">loss rate</p>
                             </div>
-                            <div className="w-20 h-2 bg-gray-100 rounded-full overflow-hidden flex-shrink-0">
+                            <div className="w-20 h-2 bg-gray-100 dark:bg-gray-200/10 rounded-full overflow-hidden flex-shrink-0">
                               <div
                                 className={cn(
                                   "h-full rounded-full",
@@ -1123,7 +1123,7 @@ export default function BattleBotPage() {
 
                 {/* ── LEADS TAB ──────────────────────────────────────── */}
                 {resultTab === "leads" && (
-                  <div className="glass rounded-2xl p-5 border border-gray-200/60">
+                  <div className="glass rounded-2xl p-5 border border-gray-200/60 dark:border-gray-200/10">
                     <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4 flex items-center gap-2">
                       <Award className="w-4 h-4" />
                       Best Lead Combinations
@@ -1140,7 +1140,7 @@ export default function BattleBotPage() {
                             transition={{ delay: i * 0.08 }}
                             className={cn(
                               "flex items-center gap-3 p-3 rounded-xl transition-colors",
-                              i === 0 ? "bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200" : "bg-gray-50"
+                              i === 0 ? "bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-500/10 dark:to-yellow-500/10 border border-amber-200 dark:border-amber-500/20" : "bg-gray-50 dark:bg-gray-200/5"
                             )}
                           >
                             <span className={cn(
@@ -1176,7 +1176,7 @@ export default function BattleBotPage() {
 
                 {/* ── REPLAY TAB ─────────────────────────────────────── */}
                 {resultTab === "replay" && result.sampleBattle && (
-                  <div className="glass rounded-2xl p-5 border border-gray-200/60">
+                  <div className="glass rounded-2xl p-5 border border-gray-200/60 dark:border-gray-200/10">
                     <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4 flex items-center gap-2">
                       <Play className="w-4 h-4" />
                       Sample Battle Replay
@@ -1254,7 +1254,7 @@ export default function BattleBotPage() {
                             return (
                               <div key={name} className="flex items-center gap-2">
                                 <span className="text-[10px] w-20 truncate text-right">{name}</span>
-                                <div className="flex-1 h-2.5 bg-gray-100 rounded-full overflow-hidden">
+                                <div className="flex-1 h-2.5 bg-gray-100 dark:bg-gray-200/10 rounded-full overflow-hidden">
                                   <motion.div
                                     className={cn(
                                       "h-full rounded-full transition-all duration-500",
@@ -1274,7 +1274,7 @@ export default function BattleBotPage() {
                             return (
                               <div key={name} className="flex items-center gap-2">
                                 <span className="text-[10px] w-20 truncate text-right">{name}</span>
-                                <div className="flex-1 h-2.5 bg-gray-100 rounded-full overflow-hidden">
+                                <div className="flex-1 h-2.5 bg-gray-100 dark:bg-gray-200/10 rounded-full overflow-hidden">
                                   <motion.div
                                     className={cn(
                                       "h-full rounded-full transition-all duration-500",
@@ -1320,7 +1320,7 @@ export default function BattleBotPage() {
                     {/* Turn events */}
                     <div className="space-y-1 max-h-72 overflow-y-auto">
                       {result.sampleBattle.log.slice(0, replayTurn + 1).reverse().map((entry) => (
-                        <div key={entry.turn} className={cn("p-2 rounded-lg", entry.turn === result.sampleBattle!.log[replayTurn]?.turn ? "bg-orange-50 border border-orange-200" : "bg-gray-50")}>
+                        <div key={entry.turn} className={cn("p-2 rounded-lg", entry.turn === result.sampleBattle!.log[replayTurn]?.turn ? "bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20" : "bg-gray-50 dark:bg-gray-200/5")}>
                           <p className="text-[10px] font-bold text-muted-foreground mb-1">
                             {entry.turn === 0 ? "Battle Start" : `Turn ${entry.turn}`}
                           </p>
@@ -1350,7 +1350,7 @@ export default function BattleBotPage() {
           {/* Empty state */}
           {!result && !isSimulating && (
             <div className="glass rounded-2xl p-12 border border-gray-200/60 text-center">
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center mx-auto mb-4">
+              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-200/5 dark:to-gray-200/10 flex items-center justify-center mx-auto mb-4">
                 <Swords className="w-10 h-10 text-muted-foreground/20" />
               </div>
               <p className="text-muted-foreground text-sm mb-1 font-medium">Ready to Simulate</p>
@@ -1360,15 +1360,15 @@ export default function BattleBotPage() {
                 item/ability interactions, weather, and speed control.
               </p>
               <div className="grid grid-cols-3 gap-3 mt-6 max-w-xs mx-auto">
-                <div className="p-3 rounded-xl bg-gray-50">
+                <div className="p-3 rounded-xl bg-gray-50 dark:bg-gray-200/5">
                   <p className="text-lg font-bold text-foreground">{PREBUILT_TEAMS.length}</p>
                   <p className="text-[9px] text-muted-foreground">Meta Teams</p>
                 </div>
-                <div className="p-3 rounded-xl bg-gray-50">
+                <div className="p-3 rounded-xl bg-gray-50 dark:bg-gray-200/5">
                   <p className="text-lg font-bold text-foreground">137</p>
                   <p className="text-[9px] text-muted-foreground">Pokémon</p>
                 </div>
-                <div className="p-3 rounded-xl bg-gray-50">
+                <div className="p-3 rounded-xl bg-gray-50 dark:bg-gray-200/5">
                   <p className="text-lg font-bold text-foreground">2M+</p>
                   <p className="text-[9px] text-muted-foreground">Battle Data</p>
                 </div>
@@ -1403,7 +1403,7 @@ export default function BattleBotPage() {
                   placeholder="Search Pokémon..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl glass border border-gray-200 focus:border-violet-500/50 focus:outline-none text-sm"
+                  className="w-full px-4 py-2.5 rounded-xl glass border border-gray-200 dark:border-gray-200/10 focus:border-violet-500/50 focus:outline-none text-sm"
                   autoFocus
                 />
               </div>
