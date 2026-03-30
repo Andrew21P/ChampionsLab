@@ -70,6 +70,12 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
         date: "30/03/2026",
         items: [
           "Mega Evolution now happens at start of turn, before any attacks",
+          "Mirror Armor reflects Intimidate stat drops back at the user",
+          "Imposter (Ditto) now triggers Intimidate after transforming",
+          "Choice Scarf/Band/Specs now lock into the first move used",
+          "Ability immunities (Levitate, Water Absorb, etc.) no longer deal minimum 1 damage",
+          "Battle logs show 'no effect!' for immune targets instead of 'no target'",
+          "AI spreads Fake Out targets across opponents instead of double-targeting",
           "Inner Focus, Shield Dust, and Own Tempo now block Fake Out flinch",
           "Battle logs correctly show 'missed!' instead of 'no target' on accuracy fails",
           "Corrected stat calculation formula: SP points applied before nature modifier (thanks jth1011!)",
@@ -116,7 +122,8 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
         items: [
           "Corrected stat calculation formula: SP points applied before nature modifier (thanks jth1011!)",
           "Damage Calculator: Mega form stats, types, and abilities now resolve automatically",
-          "Battle replays show Mega Evolution, Stance Change, Disguise, and Illusion events",
+          "Battle replays now show Mirror Armor, Intimidate, immunity, and Imposter interactions",
+          "Choice item move locking reflected in battle replays",
           "Improved battle accuracy with 28/28 QA tests passing",
           "Fixed Clefable sets: uses Magic Guard instead of Friend Guard (Clefairy-only)",
         ],
