@@ -20,10 +20,12 @@ export interface CalculatedStats {
 
 /** Calculate a single non-HP stat at Level 50 */
 function calcStat(base: number, sp: number, nature: NatureName, stat: StatKey): number {
-  // Standard formula: floor(((2*Base + IV + floor(EV/4)) * Level/100 + 5) * NatureMod)
-  // In Champions, SP replaces floor(EV/4), so each SP = 1 stat point at L50 equivalent
-  const raw = Math.floor(((2 * base + IV) * LEVEL / 100 + 5) * getNatureModifier(nature, stat)) + sp;
-  return raw;
+  // Champions formula: floor((floor(((2*Base + IV) * Level) / 100) + 5 + SP) * NatureMod)
+  // Correct order: floor the base calculation first, add 5+SP, then apply nature multiplier, then floor again
+  // Formula reference: https://www.pokeos.com/p/champions/stats
+  const baseValue = Math.floor(((2 * base + IV) * LEVEL) / 100) + 5 + sp;
+  const withNature = Math.floor(baseValue * getNatureModifier(nature, stat));
+  return withNature;
 }
 
 /** Calculate HP stat at Level 50 */
