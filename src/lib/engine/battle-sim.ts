@@ -109,8 +109,12 @@ interface BattlePokemon {
   originalBaseStats?: BaseStats;
   // Protean/Libero type change (once per switch-in)
   hasChangedType: boolean;
+  // Choice item move lock
+  choiceLockedMove: string | null;
   // Tracking for log: last move missed
   lastMoveMissed: boolean;
+  // Tracking for log: last move was immune
+  lastMoveImmune: boolean;
 }
 
 interface FieldState {
@@ -192,8 +196,11 @@ function createBattlePokemon(pokemon: ChampionsPokemon, set: CommonSet, teamForI
     isTransformed: false,
     // Protean/Libero
     hasChangedType: false,
+    // Choice item lock
+    choiceLockedMove: null,
     // Log tracking
     lastMoveMissed: false,
+    lastMoveImmune: false,
   };
 }
 
@@ -917,6 +924,8 @@ function aiChooseAction(
   for (const moveName of mon.set.moves) {
     // Can't use Fake Out after turn 1
     if (moveName === "Fake Out" && !mon.canFakeOut) continue;
+    // Choice lock: can only use the locked move
+    if (mon.choiceLockedMove && moveName !== mon.choiceLockedMove) continue;
     
     const moveChoices = evaluateMoveOption(mon, sideIndex, opponents, allies, moveName, field, state);
     allChoices.push(...moveChoices);
@@ -1100,6 +1109,8 @@ function applySwitch(state: BattleState, sideIndex: 1 | 2, slot: 0 | 1): void {
     next.canFakeOut = true;
     next.protectCount = 0;
     next.boosts = { attack: 0, defense: 0, spAtk: 0, spDef: 0, speed: 0 };
+    // Reset Choice lock on switch-in
+    next.choiceLockedMove = null;
     // Reset Protean/Libero type change on switch-in
     next.hasChangedType = false;
     // Reset Stance Change to shield form on switch-in
@@ -1133,7 +1144,10 @@ function applySwitch(state: BattleState, sideIndex: 1 | 2, slot: 0 | 1): void {
     if (next.ability === "Intimidate") {
       for (const opp of opponents) {
         if (opp && opp.isAlive) {
-          if (!isIntimidateBlocked(opp)) {
+          if (opp.ability === "Mirror Armor") {
+            // Mirror Armor bounces the Attack drop back to the Intimidator
+            next.boosts.attack = Math.max(-6, next.boosts.attack - 1);
+          } else if (!isIntimidateBlocked(opp)) {
             opp.boosts.attack = Math.max(-6, opp.boosts.attack - 1);
             // Competitive/Defiant trigger on ANY stat drop
             if (opp.ability === "Competitive") {
@@ -1172,7 +1186,7 @@ function applySwitch(state: BattleState, sideIndex: 1 | 2, slot: 0 | 1): void {
 }
 
 function isIntimidateBlocked(mon: BattlePokemon): boolean {
-  return ["Inner Focus", "Clear Body", "Oblivious", "Own Tempo", "Scrappy"].includes(mon.ability);
+  return ["Inner Focus", "Clear Body", "Oblivious", "Own Tempo", "Scrappy", "Mirror Armor"].includes(mon.ability);
 }
 
 function applyEndOfTurn(state: BattleState): void {
@@ -1257,6 +1271,13 @@ function executeMove(
   
   const move = getMove(moveName);
   if (!move) return;
+
+  // ── CHOICE LOCK: lock into first move used with Choice item ────────────
+  if (!user.itemConsumed && (user.item === "Choice Scarf" || user.item === "Choice Band" || user.item === "Choice Specs")) {
+    if (!user.choiceLockedMove) {
+      user.choiceLockedMove = moveName;
+    }
+  }
   
   // ── MEGA EVOLUTION: triggers before first attacking move ────────────────
   // (Moved to start-of-turn in simulateBattle/simulateBattleWithLog)
@@ -1378,6 +1399,7 @@ function executeMove(
   }
   
   user.lastMoveMissed = false;
+  user.lastMoveImmune = false;
   for (const t of targets) {
     // Protected targets block all damage (except Drill Force pierce)
     if (t.isProtected) {
@@ -1394,12 +1416,14 @@ function executeMove(
     
     // Bulletproof: immune to bullet/bomb moves
     if (t.ability === "Bulletproof" && move.flags?.bullet && user.ability !== "Mold Breaker") {
+      user.lastMoveImmune = true;
       continue;
     }
 
     // Wind Rider: immune to wind moves, boosts Attack
     if (t.ability === "Wind Rider" && move.flags?.wind && user.ability !== "Mold Breaker") {
       t.boosts.attack = Math.min(6, t.boosts.attack + 1);
+      user.lastMoveImmune = true;
       continue;
     }
 
@@ -1425,6 +1449,7 @@ function executeMove(
       if (t.ability === "Sap Sipper") {
         t.boosts.attack = Math.min(6, t.boosts.attack + 1);
       }
+      user.lastMoveImmune = true;
       continue; // Move is fully absorbed
     }
     
@@ -1481,6 +1506,12 @@ function executeMove(
     };
     
     const result = calculateDamage(attacker, defender, moveName, options);
+
+    // Type/ability immunity: skip this target entirely (0 damage)
+    if (result.effectiveness === 0) {
+      user.lastMoveImmune = true;
+      continue;
+    }
     
     // Apply damage with random roll between min and max
     let damage = result.damage[0] + Math.floor(Math.random() * (result.damage[1] - result.damage[0] + 1));
@@ -1796,6 +1827,17 @@ export function simulateBattle(
       state.field.terrainTurns = 5;
     }
   }
+  // Imposter on entry (must happen BEFORE Intimidate so copied Intimidate can trigger)
+  for (let s = 0; s < 2; s++) {
+    const active = s === 0 ? state.active1 : state.active2;
+    const opponents = s === 0 ? state.active2 : state.active1;
+    for (const mon of active) {
+      if (mon?.ability === "Imposter") {
+        const oppTarget = opponents.find(o => o && !o.isFainted);
+        if (oppTarget) applyImposterTransform(mon, oppTarget);
+      }
+    }
+  }
   // Intimidate on entry
   for (let s = 0; s < 2; s++) {
     const active = s === 0 ? state.active1 : state.active2;
@@ -1803,7 +1845,10 @@ export function simulateBattle(
     for (const mon of active) {
       if (mon?.ability === "Intimidate") {
         for (const opp of opponents) {
-          if (opp && !isIntimidateBlocked(opp)) {
+          if (!opp) continue;
+          if (opp.ability === "Mirror Armor") {
+            mon.boosts.attack = Math.max(-6, mon.boosts.attack - 1);
+          } else if (!isIntimidateBlocked(opp)) {
             opp.boosts.attack = Math.max(-6, opp.boosts.attack - 1);
             if (opp.ability === "Competitive") opp.boosts.spAtk = Math.min(6, opp.boosts.spAtk + 2);
             if (opp.ability === "Defiant") opp.boosts.attack = Math.min(6, opp.boosts.attack + 2);
@@ -1817,11 +1862,6 @@ export function simulateBattle(
       // Razor Plating: +1 Defense on entry
       if (mon?.ability === "Razor Plating") {
         mon.boosts.defense = Math.min(6, mon.boosts.defense + 1);
-      }
-      // Imposter (Ditto): transform into opponent on entry
-      if (mon?.ability === "Imposter") {
-        const oppTarget = opponents.find(o => o && !o.isFainted);
-        if (oppTarget) applyImposterTransform(mon, oppTarget);
       }
     }
   }
@@ -1885,6 +1925,18 @@ export function simulateBattle(
         speed: getActualSpeed(mon, state.field, sideIndex),
         sideIndex,
       });
+    }
+
+    // ── FAKE OUT DEDUPLICATION: prevent allies from double-targeting ──────
+    for (const side of [1, 2] as const) {
+      const sideActions = actions.filter(a => a.sideIndex === side && a.moveName === "Fake Out");
+      if (sideActions.length === 2 && sideActions[0].targetSlot === sideActions[1].targetSlot) {
+        const opps = side === 1 ? state.active2 : state.active1;
+        const otherSlot = sideActions[1].targetSlot === 0 ? 1 : 0;
+        if (opps[otherSlot] && !opps[otherSlot]!.isFainted) {
+          sideActions[1].targetSlot = otherSlot;
+        }
+      }
     }
     
     // Sort by priority (desc), then speed (desc, or asc in Trick Room)
@@ -2099,13 +2151,31 @@ export function simulateBattleWithLog(
       entryEvents.push(`${mon.pokemon.name}'s ${mon.ability} set ${abilityEffect.setsTerrain} terrain!`);
     }
   }
+  // Imposter on entry (must happen BEFORE Intimidate so copied Intimidate can trigger)
+  for (let s = 0; s < 2; s++) {
+    const active = s === 0 ? state.active1 : state.active2;
+    const opponents = s === 0 ? state.active2 : state.active1;
+    for (const mon of active) {
+      if (mon?.ability === "Imposter") {
+        const oppTarget = opponents.find(o => o && !o.isFainted);
+        if (oppTarget) {
+          applyImposterTransform(mon, oppTarget);
+          entryEvents.push(`${mon.pokemon.name} transformed into ${oppTarget.pokemon.name} using Imposter!`);
+        }
+      }
+    }
+  }
+  // Intimidate on entry (after Imposter, so Ditto can Intimidate with copied ability)
   for (let s = 0; s < 2; s++) {
     const active = s === 0 ? state.active1 : state.active2;
     const opponents = s === 0 ? state.active2 : state.active1;
     for (const mon of active) {
       if (mon?.ability === "Intimidate") {
         for (const opp of opponents) {
-          if (opp && !isIntimidateBlocked(opp)) {
+          if (opp && opp.ability === "Mirror Armor") {
+            mon.boosts.attack = Math.max(-6, mon.boosts.attack - 1);
+            entryEvents.push(`${opp.pokemon.name}'s Mirror Armor reflected ${mon.pokemon.name}'s Intimidate!`);
+          } else if (opp && !isIntimidateBlocked(opp)) {
             opp.boosts.attack = Math.max(-6, opp.boosts.attack - 1);
             entryEvents.push(`${mon.pokemon.name}'s Intimidate lowered ${opp.pokemon.name}'s Attack!`);
             if (opp.ability === "Competitive") {
@@ -2126,14 +2196,6 @@ export function simulateBattleWithLog(
       if (mon?.ability === "Razor Plating") {
         mon.boosts.defense = Math.min(6, mon.boosts.defense + 1);
         entryEvents.push(`${mon.pokemon.name}'s Razor Plating raised its Defense!`);
-      }
-      // Imposter (Ditto): transform into opponent on entry
-      if (mon?.ability === "Imposter") {
-        const oppTarget = opponents.find(o => o && !o.isFainted);
-        if (oppTarget) {
-          applyImposterTransform(mon, oppTarget);
-          entryEvents.push(`${mon.pokemon.name} transformed into ${oppTarget.pokemon.name} using Imposter!`);
-        }
       }
     }
   }
@@ -2171,6 +2233,18 @@ export function simulateBattleWithLog(
       if (mon.ability === "Prankster" && move?.category === "status") effectivePriority += 1;
       if (mon.ability === "Gale Wings" && move?.type === "flying" && mon.currentHP === mon.maxHP) effectivePriority += 1;
       actions.push({ mon, moveName: choice.moveName, targetSlot: choice.targetSlot, priority: effectivePriority, speed: getActualSpeed(mon, state.field, sideIndex), sideIndex });
+    }
+
+    // ── FAKE OUT DEDUPLICATION: prevent allies from double-targeting ──────
+    for (const side of [1, 2] as const) {
+      const sideActions = actions.filter(a => a.sideIndex === side && a.moveName === "Fake Out");
+      if (sideActions.length === 2 && sideActions[0].targetSlot === sideActions[1].targetSlot) {
+        const opps = side === 1 ? state.active2 : state.active1;
+        const otherSlot = sideActions[1].targetSlot === 0 ? 1 : 0;
+        if (opps[otherSlot] && !opps[otherSlot]!.isFainted) {
+          sideActions[1].targetSlot = otherSlot;
+        }
+      }
     }
 
     actions.sort((a, b) => {
@@ -2315,6 +2389,9 @@ export function simulateBattleWithLog(
         if (!hitAnything && selfDmg <= 0) {
           if (action.mon.lastMoveMissed) {
             turnEvents.push(`${action.mon.pokemon.name} used ${action.moveName} - missed!`);
+          } else if (action.mon.lastMoveImmune) {
+            const immuneTarget = target ?? opponents.find(o => o && !o.isFainted);
+            turnEvents.push(`${action.mon.pokemon.name} used ${action.moveName} on ${immuneTarget?.pokemon.name ?? "target"} - no effect!`);
           } else {
             turnEvents.push(`${action.mon.pokemon.name} used ${action.moveName} - no target`);
           }
@@ -2326,9 +2403,38 @@ export function simulateBattleWithLog(
       for (let slot = 0; slot < 2; slot++) {
         if (!active[slot] || active[slot]!.isFainted) {
           const prev = active[slot];
+          const opponents = sideIndex === 1 ? state.active2 : state.active1;
+          // Capture opponent attack boosts before switch (to detect Intimidate effect)
+          const oppBoostsBefore = opponents.map(o => o ? o.boosts.attack : 0);
           applySwitch(state, sideIndex, slot as 0 | 1);
-          if (active[slot] && active[slot] !== prev) {
-            turnEvents.push(`${sideIndex === 1 ? "Your" : "Opponent's"} ${active[slot]!.pokemon.name} was sent in!`);
+          const switched = active[slot];
+          if (switched && switched !== prev) {
+            turnEvents.push(`${sideIndex === 1 ? "Your" : "Opponent's"} ${switched.pokemon.name} was sent in!`);
+            // Log Intimidate effects from the new mon
+            if (switched.ability === "Intimidate") {
+              for (let oi = 0; oi < opponents.length; oi++) {
+                const opp = opponents[oi];
+                if (!opp || opp.isFainted) continue;
+                if (opp.ability === "Mirror Armor") {
+                  turnEvents.push(`${opp.pokemon.name}'s Mirror Armor reflected ${switched.pokemon.name}'s Intimidate!`);
+                } else if (!isIntimidateBlocked(opp) && opp.boosts.attack < oppBoostsBefore[oi]) {
+                  turnEvents.push(`${switched.pokemon.name}'s Intimidate lowered ${opp.pokemon.name}'s Attack!`);
+                  if (opp.ability === "Competitive") {
+                    turnEvents.push(`${opp.pokemon.name}'s Competitive raised its Sp.Atk!`);
+                  }
+                  if (opp.ability === "Defiant") {
+                    turnEvents.push(`${opp.pokemon.name}'s Defiant raised its Attack!`);
+                  }
+                }
+              }
+            }
+            // Log Imposter transform from switch-in
+            if (switched.isTransformed && switched.originalAbility === "Imposter") {
+              const transformedInto = opponents.find(o => o && !o.isFainted);
+              if (transformedInto) {
+                turnEvents.push(`${switched.pokemon.name} transformed into ${transformedInto.pokemon.name} using Imposter!`);
+              }
+            }
           }
         }
       }
