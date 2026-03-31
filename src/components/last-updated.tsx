@@ -19,6 +19,7 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
           "Added 8 missing Pokémon: Mamoswine, Chandelure, Floette, Goodra, Trevenant, Appletun, Grimmsnarl, Skeledirge",
           "Mega Chandelure with Soul Furnace ability (Ghost/Fire 30% boost)",
           "Mega Floette with Eternal Bloom ability (Fairy 30% boost + regen)",
+          "Fixed Mega Chandelure and Mega Floette sprites from PokeAPI",
           "Full movesets, competitive sets, and simulation data for all 8",
           "Roster expanded to 155+ Pokémon",
         ],
@@ -54,10 +55,11 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
       {
         date: "31/03/2026",
         items: [
-          "8 new Pokémon added to tier rankings and simulation data",
-          "Mega Chandelure (S-tier) and Mega Floette (A-tier) join the meta",
-          "Grimmsnarl Prankster screens support enters A-tier",
-          "5 new prebuilt teams featuring the new roster additions",
+          "8 new Pokémon added to tier rankings from 2M battle simulation",
+          "Mega Chandelure (A-tier) and Mega Floette (B-tier) join the meta",
+          "Trevenant rises to A-tier as Ghost/Grass pivot",
+          "10 new engine-generated winning teams featuring new Pokémon",
+          "56 tier updates synced from fresh simulation results",
         ],
       },
       {
@@ -91,6 +93,7 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
           "Soul Furnace ability: Ghost/Fire 30% boost + Sp.Def drop on entry",
           "Eternal Bloom ability: Fairy 30% boost + 1/16 HP regen per turn",
           "Chandelure and Floette Mega Evolutions fully integrated in engine",
+          "Full 2M battle simulation re-run with all 8 new Pokémon",
           "15/15 QA tests passing with new Pokémon",
         ],
       },
@@ -151,7 +154,7 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
           "Competitive sets added for all 8 new Pokémon",
           "Mega Chandelure and Mega Floette sets with mega stones",
           "Grimmsnarl screens, Skeledirge Unaware, Mamoswine Thick Fat builds",
-          "5 new prebuilt teams: Hail, Mega Chandelure TR, Fairy Core, Screens HO, Dragon Balance",
+          "10 new engine-generated winning teams from 2M simulation",
         ],
       },
       {

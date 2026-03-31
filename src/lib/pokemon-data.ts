@@ -126257,7 +126257,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "forms": [
       {
         "name": "Mega Chandelure",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/609.png",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10291.png",
         "types": [
           "ghost",
           "fire"
@@ -126506,7 +126506,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "forms": [
       {
         "name": "Mega Floette",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/670.png",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10296.png",
         "types": [
           "fairy"
         ],
