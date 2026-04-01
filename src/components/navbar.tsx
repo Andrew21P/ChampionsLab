@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
 import {
   Swords,
   Grid3X3,
@@ -38,10 +37,7 @@ export function Navbar() {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <div className="transition-transform duration-150 group-hover:scale-105 group-active:scale-95">
                 <Image
                   src="/logo.png"
                   alt="Champions Lab"
@@ -50,7 +46,7 @@ export function Navbar() {
                   className="-my-3"
                   unoptimized
                 />
-              </motion.div>
+              </div>
               <div>
                 <span className="text-lg font-bold tracking-tight bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent">
                   Champions Lab
@@ -73,23 +69,12 @@ export function Navbar() {
                     className={cn(
                       "relative px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2",
                       isActive
-                        ? "text-foreground"
+                        ? "text-foreground bg-gray-900/[0.05] border border-gray-900/[0.08]"
                         : "text-muted-foreground hover:text-foreground"
                     )}
                   >
-                    {isActive && (
-                      <motion.div
-                        layoutId="navbar-active"
-                        className="absolute inset-0 rounded-lg bg-gray-900/[0.05] border border-gray-900/[0.08]"
-                        transition={{
-                          type: "spring",
-                          stiffness: 380,
-                          damping: 30,
-                        }}
-                      />
-                    )}
-                    <item.icon className="w-4 h-4 relative z-10" />
-                    <span className="relative z-10">{item.label}</span>
+                    <item.icon className="w-4 h-4" />
+                    <span>{item.label}</span>
                   </Link>
                 );
               })}
