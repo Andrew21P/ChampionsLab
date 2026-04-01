@@ -1736,7 +1736,7 @@ export default function BattleBotPage() {
                               } else if (megaAb) {
                                 updateSetField(editingSlotIndex, { ability: megaAb.name, item: getMegaStone() ?? editSet.item });
                               }
-                            }} className={cn("px-3 py-1.5 rounded-lg text-[11px] font-medium border transition-all flex items-center gap-1.5", isActive ? "bg-amber-100 dark:bg-amber-500/20 border-amber-300 dark:border-amber-500/40 text-amber-800 dark:text-amber-200" : "bg-gray-50 dark:bg-gray-200/5 border-gray-200 dark:border-gray-200/10 hover:bg-amber-50 dark:hover:bg-amber-500/10 hover:border-amber-200 dark:hover:border-amber-500/20")}>
+                            }} className={cn("px-3 py-1.5 rounded-lg text-[11px] font-medium border transition-all flex items-center gap-1.5", isActive ? "bg-amber-100 dark:bg-amber-500/30 border-amber-300 dark:border-amber-400/50 text-amber-800 dark:text-white" : "bg-gray-50 dark:bg-gray-200/5 border-gray-200 dark:border-gray-200/10 hover:bg-amber-50 dark:hover:bg-amber-500/10 hover:border-amber-200 dark:hover:border-amber-500/20")}>
                               <Sparkles className="w-3.5 h-3.5" />{isActive ? "Mega Active" : form.name.replace(editPkm.name, "").replace("Mega ", "").trim() || "Enable Mega"}
                             </button>
                           );
