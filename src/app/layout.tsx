@@ -82,7 +82,7 @@ export default function RootLayout({
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: `document.addEventListener('click',function(e){var b=e.target.closest('#nav-hamburger');if(b){document.documentElement.classList.toggle('nav-open');return}if(e.target.closest('#mobile-nav a'))document.documentElement.classList.remove('nav-open')})`,
+            __html: `document.addEventListener('click',function(e){if(e.target.closest('#mobile-nav a')){var c=document.getElementById('nav-toggle');if(c)c.checked=false}})`,
           }}
         />
         <Script

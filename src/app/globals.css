@@ -123,12 +123,13 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-/* Mobile hamburger — instant toggle via <html> class, zero React dependency */
+/* Mobile hamburger — pure HTML checkbox+label, works even when JS main thread is blocked */
+#nav-toggle { position: absolute; left: -9999px; }
 #mobile-nav { display: none; }
-html.nav-open #mobile-nav { display: block; }
+html:has(#nav-toggle:checked) #mobile-nav { display: block; }
 #nav-hamburger .icon-x { display: none; }
-html.nav-open #nav-hamburger .icon-x { display: block; }
-html.nav-open #nav-hamburger .icon-menu { display: none; }
+html:has(#nav-toggle:checked) #nav-hamburger .icon-x { display: block; }
+html:has(#nav-toggle:checked) #nav-hamburger .icon-menu { display: none; }
 
 /* Soft shadow effects for cards */
 .glow-red { box-shadow: 0 4px 16px rgba(239, 68, 68, 0.12), 0 1px 3px rgba(0,0,0,0.04); }

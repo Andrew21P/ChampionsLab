@@ -13,7 +13,7 @@ import {
   GraduationCap,
   Heart,
 } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
 
@@ -28,10 +28,11 @@ const NAV_ITEMS = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const checkboxRef = useRef<HTMLInputElement>(null);
 
   // Close mobile nav on route change
   useEffect(() => {
-    document.documentElement.classList.remove('nav-open');
+    if (checkboxRef.current) checkboxRef.current.checked = false;
   }, [pathname]);
 
   return (
@@ -94,15 +95,18 @@ export function Navbar() {
               </a>
             </nav>
 
-            {/* Mobile hamburger — handled by inline <script> in <head>, works before React */}
-            <button
+            {/* Mobile hamburger — native checkbox+label, works even when JS main thread is blocked */}
+            <input type="checkbox" id="nav-toggle" ref={checkboxRef} aria-hidden="true" tabIndex={-1} />
+            <label
+              htmlFor="nav-toggle"
               id="nav-hamburger"
-              className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg touch-manipulation"
+              className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg touch-manipulation cursor-pointer"
               aria-label="Toggle navigation menu"
+              role="button"
             >
               <Menu className="w-6 h-6 icon-menu" />
               <X className="w-6 h-6 icon-x" />
-            </button>
+            </label>
           </div>
         </div>
 
