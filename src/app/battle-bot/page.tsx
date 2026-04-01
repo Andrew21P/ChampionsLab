@@ -562,7 +562,7 @@ export default function BattleBotPage() {
   // ── RENDER ──────────────────────────────────────────────────────────────
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 overflow-x-hidden">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
@@ -604,9 +604,9 @@ export default function BattleBotPage() {
             <span key={badge.label} className="px-3 py-1 text-[10px] font-bold rounded-lg border bg-gradient-to-r from-amber-50 to-yellow-50 text-amber-700 border-amber-300 shadow-sm shadow-amber-200/50">{badge.label}</span>
           ))}
         </div>
-        <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500/10 to-yellow-500/10 border border-amber-300/40">
-          <span className="relative flex h-2 w-2"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span></span>
-          <span className="text-[11px] font-medium text-amber-700">Engine continuously trained on 2M+ battle outcomes · ELO rankings · Win-rate matrices · Archetype matchups</span>
+        <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500/10 to-yellow-500/10 border border-amber-300/40 max-w-full">
+          <span className="relative flex h-2 w-2 flex-shrink-0"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span></span>
+          <span className="text-[11px] font-medium text-amber-700 text-left">Engine continuously trained on 2M+ battle outcomes · ELO rankings · Win-rate matrices · Archetype matchups</span>
         </div>
       </motion.div>
 
@@ -621,14 +621,14 @@ export default function BattleBotPage() {
             key={tab.id}
             onClick={() => { trackEvent("tab_switch", "battle_bot", tab.label); setMainTab(tab.id); }}
             className={cn(
-              "flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg text-sm font-semibold transition-all",
+              "flex-1 flex items-center justify-center gap-1.5 py-3 px-2 sm:px-4 rounded-lg text-xs sm:text-sm font-semibold transition-all min-w-0",
               mainTab === tab.id
                 ? "bg-white dark:bg-gray-200/10 shadow-sm dark:shadow-none text-foreground dark:ring-1 dark:ring-gray-200/10"
                 : "text-muted-foreground hover:text-foreground"
             )}
           >
-            <tab.icon className="w-4 h-4" />
-            {tab.label}
+            <tab.icon className="w-4 h-4 flex-shrink-0" />
+            <span className="truncate">{tab.label}</span>
           </button>
         ))}
       </div>
