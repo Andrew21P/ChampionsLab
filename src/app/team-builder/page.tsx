@@ -1357,7 +1357,13 @@ export default function TeamBuilderPage() {
                     const newIdx = selectedSlotIndex === i ? null : i;
                     setSelectedSlotIndex(newIdx);
                     if (newIdx !== null && window.innerWidth < 768) {
-                      setTimeout(() => editPanelRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+                      setTimeout(() => {
+                        const el = editPanelRef.current;
+                        if (el) {
+                          const y = el.getBoundingClientRect().top + window.scrollY - 80;
+                          window.scrollTo({ top: y, behavior: "smooth" });
+                        }
+                      }, 100);
                     }
                   }
                 }}
