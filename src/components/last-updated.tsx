@@ -14,6 +14,13 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
     description: "Thanks for the support - we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
     entries: [
       {
+        date: "01/04/2026",
+        items: [
+          "Fixed 46 missing moves across Pokémon movepools",
+          "Added Shed Tail to Orthworm",
+        ],
+      },
+      {
         date: "31/03/2026",
         items: [
           "Added 8 missing Pokémon: Mamoswine, Chandelure, Floette, Goodra, Trevenant, Appletun, Grimmsnarl, Skeledirge",
@@ -88,6 +95,12 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
     description: "Thanks for the support - we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
     entries: [
       {
+        date: "01/04/2026",
+        items: [
+          "Added Shed Tail move to battle engine (creates substitute + switches out)",
+        ],
+      },
+      {
         date: "31/03/2026",
         items: [
           "Soul Furnace ability: Ghost/Fire 30% boost + Sp.Def drop on entry",
@@ -148,6 +161,14 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
   "team-builder": {
     description: "Thanks for the support - we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
     entries: [
+      {
+        date: "01/04/2026",
+        items: [
+          "Fixed 46 missing moves across Pokémon movepools (Sucker Punch, Fake Out, Iron Head, King's Shield, and more)",
+          "Added Shed Tail to Orthworm's movepool and battle engine",
+          "All competitive set moves now correctly available in team builder",
+        ],
+      },
       {
         date: "31/03/2026",
         items: [
