@@ -1539,7 +1539,7 @@ export default function BattleBotPage() {
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                className="fixed inset-4 sm:inset-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 z-50 sm:w-full sm:max-w-2xl sm:max-h-[85vh] glass rounded-2xl border border-gray-200/60 dark:border-gray-200/10 flex flex-col overflow-hidden"
+                className="fixed left-3 right-3 top-[72px] bottom-3 sm:inset-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 z-50 sm:w-full sm:max-w-2xl max-h-[calc(100dvh-84px)] sm:max-h-[85vh] glass rounded-2xl border border-gray-200/60 dark:border-gray-200/10 flex flex-col overflow-hidden"
               >
                 {/* Header */}
                 <div className="p-4 border-b border-gray-200/60 dark:border-gray-200/10 flex items-center justify-between">
