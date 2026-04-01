@@ -97,6 +97,8 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
       {
         date: "01/04/2026",
         items: [
+          "Fixed spread move logging: misses/immunities on individual targets now shown in battle log",
+          "Mega Pokémon base ability now active before Mega Evolution triggers",
           "Added Shed Tail move to battle engine (creates substitute + switches out)",
           "Added 19 competitive moves to engine: Breaking Swipe, Torch Song, Spirit Break, Icicle Crash, and more",
           "Dragonize, Aerilate, Pixilate, Refrigerate, Galvanize now work in damage calculator",
@@ -169,6 +171,13 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
       {
         date: "01/04/2026",
         items: [
+          "Type Coverage now uses your 4 selected moves instead of the full learnset — coverage is accurate",
+          "Critical Weakness detection accounts for team resistances and immunities",
+          "Redesigned Type Coverage section with MasterDex-style offensive grid",
+          "New Defensive Weaknesses panel: color-coded severity (red/amber/green), sorted by danger",
+          "New Blind Spots section: types your team can't hit super-effectively",
+          "Resistances & Immunities split into clean grid layout",
+          "Fixed spread move battle log: misses on individual targets are now shown",
           "Fixed 46 missing moves across Pokémon movepools (Sucker Punch, Fake Out, Iron Head, King's Shield, and more)",
           "Added Shed Tail to Orthworm's movepool and battle engine",
           "All competitive set moves now correctly available in team builder",

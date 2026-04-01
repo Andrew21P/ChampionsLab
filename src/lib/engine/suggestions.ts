@@ -507,9 +507,14 @@ export function analyzePartialTeam(
   const existingRoleStrings = new Set([...existingRoles].map(String));
   const missingRoles = criticalRoles.filter(r => !existingRoleStrings.has(r));
   
-  // Critical weaknesses (3+ team members weak to same type)
+  // Critical weaknesses (3+ team members weak to same type, accounting for resists/immunities)
+  const resistMap = new Map(synergy.resistanceProfile.map(r => [r.type, r.count]));
   const criticalWeaknesses = synergy.weaknessProfile
-    .filter(w => w.count >= 3)
+    .filter(w => {
+      const resists = resistMap.get(w.type) ?? 0;
+      // Only critical if net weakness (weak count minus resist count) is 3+
+      return (w.count - resists) >= 3;
+    })
     .map(w => w.type);
   
   // Threat analysis

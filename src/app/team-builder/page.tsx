@@ -745,16 +745,42 @@ export default function TeamBuilderPage() {
 
   // Coverage calculation
   const teamTypes = filledSlots.flatMap((s) => s.pokemon!.types);
+
+  // Offensive coverage: check selected moves (slot.moves), not full movepool
   const offensiveCoverage: Record<string, number> = {};
   ALL_TYPES.forEach((defType) => {
-    let best = 1;
+    let count = 0;
     filledSlots.forEach((s) => {
-      s.pokemon!.moves.forEach((move) => {
-        const eff = TYPE_CHART[move.type]?.[defType] ?? 1;
-        if (eff > best) best = eff;
+      // Check if any of this slot's selected moves are SE vs defType
+      const hasHit = s.moves.some((moveName) => {
+        // Look up move type from the pokemon's move data first
+        const moveData = s.pokemon!.moves.find((m) => m.name === moveName);
+        if (!moveData) return false;
+        const eff = TYPE_CHART[moveData.type as PokemonType]?.[defType] ?? 1;
+        return eff >= 2;
       });
+      if (hasHit) count++;
     });
-    offensiveCoverage[defType] = best;
+    offensiveCoverage[defType] = count;
+  });
+
+  // Defensive profile: count weaknesses, resistances, and immunities per type
+  const defensiveWeaknesses: Record<string, number> = {};
+  const defensiveResists: Record<string, number> = {};
+  ALL_TYPES.forEach((atkType) => {
+    let weakCount = 0;
+    let resistCount = 0;
+    filledSlots.forEach((s) => {
+      const types = s.pokemon!.types;
+      let mult = 1;
+      for (const t of types) {
+        mult *= TYPE_CHART[atkType]?.[t] ?? 1;
+      }
+      if (mult >= 2) weakCount++;
+      else if (mult < 1) resistCount++; // includes immunities (0) and resists (0.5, 0.25)
+    });
+    defensiveWeaknesses[atkType] = weakCount;
+    defensiveResists[atkType] = resistCount;
   });
 
   // Import from Pokepaste format
@@ -1163,19 +1189,91 @@ export default function TeamBuilderPage() {
               </h3>
               <div className="grid grid-cols-6 gap-1.5">
                 {ALL_TYPES.map((type) => {
-                  const coverage = offensiveCoverage[type] ?? 1;
+                  const se = offensiveCoverage[type] ?? 0;
+                  const weak = defensiveWeaknesses[type] ?? 0;
+                  const resist = defensiveResists[type] ?? 0;
                   return (
                     <div key={type} className="text-center space-y-0.5">
                       <span className="block w-full py-0.5 text-[7px] font-bold uppercase rounded text-white/90" style={{ backgroundColor: `${TYPE_COLORS[type]}AA` }}>{type.slice(0, 3)}</span>
-                      <span className={cn("block text-[10px] font-bold", coverage >= 2 && "text-green-600", coverage === 1 && "text-muted-foreground", coverage < 1 && coverage > 0 && "text-amber-600", coverage === 0 && "text-red-600")}>{coverage === 0 ? "✕" : `${coverage}×`}</span>
+                      <span className={cn("block text-[10px] font-bold", se > 0 ? "text-green-600" : "text-muted-foreground/40")}>{se > 0 ? `${se}×` : "—"}</span>
                     </div>
                   );
                 })}
               </div>
-              <div className="mt-3 pt-2 border-t border-gray-200">
-                <div className="flex flex-wrap gap-1">
-                  {[...new Set(teamTypes)].map((type) => <span key={type} className="px-1.5 py-0.5 text-[9px] font-bold uppercase rounded text-white/90" style={{ backgroundColor: `${TYPE_COLORS[type]}AA` }}>{type}</span>)}
-                </div>
+              {/* Defensive breakdown */}
+              <div className="mt-3 pt-2 border-t border-gray-200 dark:border-gray-700 space-y-2">
+                {/* Defensive Weaknesses */}
+                {(() => {
+                  const weakTypes = ALL_TYPES
+                    .filter(t => (defensiveWeaknesses[t] ?? 0) > 0)
+                    .map(t => ({ type: t, weak: defensiveWeaknesses[t] ?? 0, resist: defensiveResists[t] ?? 0 }))
+                    .sort((a, b) => (b.weak - b.resist) - (a.weak - a.resist));
+                  if (weakTypes.length === 0) return null;
+                  return (
+                    <div>
+                      <p className="text-[9px] text-muted-foreground uppercase mb-1.5 flex items-center gap-1">
+                        <AlertTriangle className="w-3 h-3" /> Defensive Weaknesses
+                      </p>
+                      <div className="grid grid-cols-3 gap-1">
+                        {weakTypes.map(({ type, weak, resist }) => {
+                          const net = weak - resist;
+                          const bg = net >= 3 ? "bg-red-100 dark:bg-red-950/40 border-red-300 dark:border-red-800" : net >= 1 ? "bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-800" : "bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-800";
+                          return (
+                            <div key={type} className={cn("flex items-center gap-1 px-1.5 py-1 rounded-lg border", bg)}>
+                              <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: TYPE_COLORS[type] }} />
+                              <span className="text-[9px] font-semibold uppercase flex-1 truncate">{type}</span>
+                              <span className="text-[9px] font-bold text-red-600 dark:text-red-400">{weak}↓</span>
+                              {resist > 0 && <span className="text-[9px] font-bold text-green-600 dark:text-green-400">{resist}↑</span>}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                })()}
+                {/* Resistances & Immunities */}
+                {(() => {
+                  const resistTypes = ALL_TYPES
+                    .filter(t => (defensiveResists[t] ?? 0) > 0 && (defensiveWeaknesses[t] ?? 0) === 0)
+                    .sort((a, b) => (defensiveResists[b] ?? 0) - (defensiveResists[a] ?? 0));
+                  if (resistTypes.length === 0) return null;
+                  return (
+                    <div>
+                      <p className="text-[9px] text-muted-foreground uppercase mb-1.5 flex items-center gap-1">
+                        <Shield className="w-3 h-3" /> Resistances &amp; Immunities
+                      </p>
+                      <div className="grid grid-cols-3 gap-1">
+                        {resistTypes.map(type => (
+                          <div key={type} className="flex items-center gap-1 px-1.5 py-1 rounded-lg border bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800">
+                            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: TYPE_COLORS[type] }} />
+                            <span className="text-[9px] font-semibold uppercase flex-1 truncate">{type}</span>
+                            <span className="text-[9px] font-bold text-blue-600 dark:text-blue-400">{defensiveResists[type]}↑</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })()}
+                {/* Blind Spots - types the team can't hit super-effectively */}
+                {(() => {
+                  const uncovered = ALL_TYPES.filter(t => (offensiveCoverage[t] ?? 0) === 0);
+                  if (uncovered.length === 0) return null;
+                  return (
+                    <div>
+                      <p className="text-[9px] text-muted-foreground uppercase mb-1.5 flex items-center gap-1">
+                        <Target className="w-3 h-3" /> Blind Spots
+                      </p>
+                      <div className="grid grid-cols-3 gap-1">
+                        {uncovered.map(type => (
+                          <div key={type} className="flex items-center gap-1 px-1.5 py-1 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
+                            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: TYPE_COLORS[type] }} />
+                            <span className="text-[9px] font-semibold uppercase text-muted-foreground truncate">{type}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })()}
               </div>
             </motion.div>
           )}
