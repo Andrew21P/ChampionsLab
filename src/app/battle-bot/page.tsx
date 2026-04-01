@@ -647,8 +647,8 @@ export default function BattleBotPage() {
         {/* LEFT: TEAM INPUT + SETTINGS                                    */}
         {/* ═══════════════════════════════════════════════════════════════ */}
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
           className="space-y-5"
         >
           {/* Load from saved */}
@@ -883,8 +883,8 @@ export default function BattleBotPage() {
         {/* RIGHT: RESULTS                                                 */}
         {/* ═══════════════════════════════════════════════════════════════ */}
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
           className="space-y-5"
         >
           {/* Progress */}
