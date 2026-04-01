@@ -98,6 +98,8 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
         date: "01/04/2026",
         items: [
           "Added Shed Tail move to battle engine (creates substitute + switches out)",
+          "Added 19 competitive moves to engine: Breaking Swipe, Torch Song, Spirit Break, Icicle Crash, and more",
+          "Dragonize, Aerilate, Pixilate, Refrigerate, Galvanize now work in damage calculator",
         ],
       },
       {
@@ -167,6 +169,7 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
           "Fixed 46 missing moves across Pokémon movepools (Sucker Punch, Fake Out, Iron Head, King's Shield, and more)",
           "Added Shed Tail to Orthworm's movepool and battle engine",
           "All competitive set moves now correctly available in team builder",
+          "Damage calculator dropdowns upgraded with search/filter (moves, items, abilities)",
         ],
       },
       {

@@ -83,8 +83,18 @@ export function calculateDamage(
     ? { ...move, type: "ice" as PokemonType }
     : move;
 
+  // -ate abilities: Normal-type moves become the specified type and gain 20% power
+  const ATE_ABILITIES: Record<string, PokemonType> = {
+    Aerilate: "flying", Pixilate: "fairy", Refrigerate: "ice",
+    Galvanize: "electric", Dragonize: "dragon",
+  };
+  const ateType = ATE_ABILITIES[attacker.ability];
+  const moveCalc = ateType && moveEffective.type === "normal" && moveEffective.category !== "status"
+    ? { ...moveEffective, type: ateType }
+    : moveEffective;
+  const ateBpBoost = ateType && moveEffective.type === "normal" && moveEffective.category !== "status";
+
   // Use the type-overridden move for all subsequent calculations
-  const moveCalc = moveEffective;
 
   const atkStats = calculateStats(attacker.baseStats, attacker.sp, attacker.nature);
   const defStats = calculateStats(defender.baseStats, defender.sp, defender.nature);
@@ -161,6 +171,11 @@ export function calculateDamage(
   if (moveCalc.name === "Eruption" || moveCalc.name === "Water Spout") {
     const hpPct = (attacker.currentHPPercent ?? 100) / 100;
     bp = Math.max(1, Math.floor(150 * hpPct));
+  }
+
+  // -ate ability BP boost (1.2x for Normal->type conversion)
+  if (ateBpBoost) {
+    bp = Math.floor(bp * 1.2);
   }
 
   // Knock Off boost

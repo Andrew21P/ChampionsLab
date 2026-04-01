@@ -25,6 +25,7 @@ import {
   NATURES,
 } from "@/lib/engine";
 import { USAGE_DATA } from "@/lib/usage-data";
+import { SearchSelect, type SearchSelectOption } from "@/components/search-select";
 
 // ── Types ────────────────────────────────────────────────────────────────
 
@@ -723,34 +724,28 @@ function PokemonPanel({
             </div>
             <div>
               <label className="text-[10px] font-semibold uppercase text-muted-foreground block mb-1">Ability</label>
-              <select
+              <SearchSelect
                 value={set.ability}
-                onChange={(e) => onSetUpdate({ ability: e.target.value })}
-                className="w-full px-2 py-1.5 rounded-lg glass border border-gray-200 text-[11px] bg-transparent focus:outline-none"
-              >
-                {p.abilities.map(a => (
-                  <option key={a.name} value={a.name}>{a.name}</option>
-                ))}
-              </select>
+                onChange={(v) => onSetUpdate({ ability: v })}
+                placeholder="Ability…"
+                options={p.abilities.map(a => ({ value: a.name, label: a.name, sub: a.description }))}
+              />
             </div>
             <div>
               <label className="text-[10px] font-semibold uppercase text-muted-foreground block mb-1">Item</label>
-              <select
+              <SearchSelect
                 value={set.item}
-                onChange={(e) => onSetUpdate({ item: e.target.value })}
-                className="w-full px-2 py-1.5 rounded-lg glass border border-gray-200 text-[11px] bg-transparent focus:outline-none"
-              >
-                {[
+                onChange={(v) => onSetUpdate({ item: v })}
+                placeholder="Item…"
+                options={[
                   set.item,
                   "Life Orb","Choice Band","Choice Specs","Choice Scarf","Focus Sash",
                   "Assault Vest","Sitrus Berry","Leftovers","Rocky Helmet","Eviolite",
                   "Clear Amulet","Covert Cloak","Safety Goggles","Lum Berry","Wide Lens",
                   "Expert Belt","Muscle Band","Wise Glasses","Scope Lens","Weakness Policy",
                   "Booster Energy","Loaded Dice","Protective Pads",
-                ].filter((v, i, a) => a.indexOf(v) === i).map(item => (
-                  <option key={item} value={item}>{item}</option>
-                ))}
-              </select>
+                ].filter((v, i, a) => a.indexOf(v) === i).map(item => ({ value: item, label: item }))}
+              />
             </div>
           </div>
 
@@ -761,27 +756,24 @@ function PokemonPanel({
               {set.moves.map((moveName, idx) => {
                 const move = getMove(moveName);
                 return (
-                  <div key={idx} className="relative">
-                    <select
-                      value={moveName}
-                      onChange={(e) => {
-                        const newMoves = [...set.moves];
-                        newMoves[idx] = e.target.value;
-                        onSetUpdate({ moves: newMoves });
-                      }}
-                      className="w-full pl-4 pr-2 py-1.5 rounded-lg glass border border-gray-200 text-[11px] bg-transparent focus:outline-none appearance-none"
-                    >
-                      {p.moves.map(m => (
-                        <option key={m.name} value={m.name}>{m.name}</option>
-                      ))}
-                    </select>
-                    {move && (
-                      <span
-                        className="absolute left-1.5 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full"
-                        style={{ backgroundColor: TYPE_COLORS[move.type] }}
-                      />
-                    )}
-                  </div>
+                  <SearchSelect
+                    key={idx}
+                    value={moveName}
+                    onChange={(v) => {
+                      const newMoves = [...set.moves];
+                      newMoves[idx] = v;
+                      onSetUpdate({ moves: newMoves });
+                    }}
+                    placeholder="Move…"
+                    triggerBadge={move ? { text: move.type.slice(0, 3).toUpperCase(), color: TYPE_COLORS[move.type] } : null}
+                    options={p.moves.map(m => ({
+                      value: m.name,
+                      label: m.name,
+                      sub: m.category !== "status" ? `${m.type} · ${m.category} · ${m.power} BP` : `${m.type} · status`,
+                      badge: m.type.slice(0, 3).toUpperCase(),
+                      badgeColor: TYPE_COLORS[m.type as PokemonType],
+                    }))}
+                  />
                 );
               })}
             </div>
