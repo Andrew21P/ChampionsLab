@@ -1015,10 +1015,10 @@ export default function TeamBuilderPage() {
             </button>
             <button
               onClick={() => { trackEvent("new_team", "team_builder"); setSlots(Array.from({ length: 6 }, createEmptySlot)); setCurrentTeamId(undefined); setSelectedSlotIndex(null); setTeamName("My Team"); }}
-              className="px-4 py-2 text-sm rounded-xl glass glass-hover flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors shrink-0"
+              className="px-4 py-2 text-sm rounded-xl glass glass-hover flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors shrink-0"
             >
-              <Plus className="w-4 h-4" />
-              New Team
+              <Trash2 className="w-4 h-4" />
+              New / Clear
             </button>
           </div>
         </div>
