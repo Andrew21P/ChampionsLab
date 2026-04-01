@@ -13,7 +13,7 @@ import {
   GraduationCap,
   Heart,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
 
@@ -28,7 +28,11 @@ const NAV_ITEMS = [
 
 export function Navbar() {
   const pathname = usePathname();
-  const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Close mobile nav on route change
+  useEffect(() => {
+    document.documentElement.classList.remove('nav-open');
+  }, [pathname]);
 
   return (
     <>
@@ -36,7 +40,7 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group" onClick={() => setMobileOpen(false)}>
+            <Link href="/" className="flex items-center gap-3 group">
               <div className="transition-transform duration-150 group-hover:scale-105 group-active:scale-95">
                 <Image
                   src="/logo.png"
@@ -90,53 +94,52 @@ export function Navbar() {
               </a>
             </nav>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile hamburger — handled by inline <script> in <head>, works before React */}
             <button
+              id="nav-hamburger"
               className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg touch-manipulation"
-              onClick={() => setMobileOpen(v => !v)}
               aria-label="Toggle navigation menu"
             >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              <Menu className="w-6 h-6 icon-menu" />
+              <X className="w-6 h-6 icon-x" />
             </button>
           </div>
         </div>
 
-        {/* Mobile Nav */}
-        {mobileOpen && (
-          <div className="md:hidden border-t border-gray-200/60">
-            <nav className="px-4 py-3 space-y-1">
-              {NAV_ITEMS.map((item) => {
-                const isActive = pathname === item.href;
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => { trackEvent("nav_click", "navigation", `mobile_${item.label}`); setMobileOpen(false); }}
-                    className={cn(
-                      "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors",
-                      isActive
-                        ? "bg-gray-900/[0.05] text-foreground"
-                        : "text-muted-foreground hover:text-foreground hover:bg-gray-900/[0.03]"
-                    )}
-                  >
-                    <item.icon className="w-5 h-5" />
-                    {item.label}
-                  </Link>
-                );
-              })}
-              <a
-                href="https://buymeacoffee.com/championslab"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => { trackEvent("support_click", "engagement", "mobile"); setMobileOpen(false); }}
-                className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold bg-gradient-to-r from-yellow-400 to-orange-500 text-white"
-              >
-                <Heart className="w-5 h-5 fill-white" />
-                Support Us
-              </a>
-            </nav>
-          </div>
-        )}
+        {/* Mobile Nav — always rendered, visibility controlled by CSS html.nav-open */}
+        <div id="mobile-nav" className="md:hidden border-t border-gray-200/60">
+          <nav className="px-4 py-3 space-y-1">
+            {NAV_ITEMS.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => trackEvent("nav_click", "navigation", `mobile_${item.label}`)}
+                  className={cn(
+                    "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors",
+                    isActive
+                      ? "bg-gray-900/[0.05] text-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-gray-900/[0.03]"
+                  )}
+                >
+                  <item.icon className="w-5 h-5" />
+                  {item.label}
+                </Link>
+              );
+            })}
+            <a
+              href="https://buymeacoffee.com/championslab"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent("support_click", "engagement", "mobile")}
+              className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold bg-gradient-to-r from-yellow-400 to-orange-500 text-white"
+            >
+              <Heart className="w-5 h-5 fill-white" />
+              Support Us
+            </a>
+          </nav>
+        </div>
       </header>
 
       {/* Spacer for fixed navbar */}

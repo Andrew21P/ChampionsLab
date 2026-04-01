@@ -80,6 +80,11 @@ export default function RootLayout({
             __html: `try{if(localStorage.getItem('championslab-theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}`,
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.addEventListener('click',function(e){var b=e.target.closest('#nav-hamburger');if(b){document.documentElement.classList.toggle('nav-open');return}if(e.target.closest('#mobile-nav a'))document.documentElement.classList.remove('nav-open')})`,
+          }}
+        />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-NVYVM8YJZN"
           strategy="afterInteractive"
