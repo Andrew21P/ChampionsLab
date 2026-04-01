@@ -1289,9 +1289,9 @@ export default function TeamBuilderPage() {
                       </p>
                       <div className="grid grid-cols-3 gap-1">
                         {uncovered.map(type => (
-                          <div key={type} className="flex items-center gap-1 px-1.5 py-1 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
+                          <div key={type} className="flex items-center gap-1 px-1.5 py-1 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700/50">
                             <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: TYPE_COLORS[type] }} />
-                            <span className="text-[9px] font-semibold uppercase text-muted-foreground truncate">{type}</span>
+                            <span className="text-[9px] font-semibold uppercase text-gray-500 dark:text-gray-300 truncate">{type}</span>
                           </div>
                         ))}
                       </div>
