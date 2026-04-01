@@ -51,15 +51,24 @@ function resolveMegaForm(pokemon: ChampionsPokemon, set: CommonSet): {
   if (!megaForm) {
     return { baseStats: pokemon.baseStats, types: [...pokemon.types], ability: set.ability, isMega: false };
   }
+  // The team builder stores the mega ability in set.ability (e.g. "Mold Breaker"
+  // for Mega Gyarados). Before Mega Evolution, the base form ability should be
+  // active (e.g. "Intimidate").  Detect whether set.ability is actually a mega
+  // ability and fall back to the base Pokémon's first ability.
+  const megaAbilityName = megaForm.abilities[0]?.name;
+  const isMegaAbility = megaForm.abilities.some(a => a.name === set.ability);
+  const baseAbility = isMegaAbility
+    ? (pokemon.abilities[0]?.name ?? set.ability)
+    : set.ability;
   // Return base form stats but store mega data for in-battle evolution
   return {
     baseStats: pokemon.baseStats,
     types: [...pokemon.types] as PokemonType[],
-    ability: set.ability,
+    ability: baseAbility,
     isMega: false, // Start in base form
     megaBaseStats: megaForm.baseStats,
     megaTypes: [...megaForm.types] as PokemonType[],
-    megaAbility: megaForm.abilities[0]?.name ?? set.ability,
+    megaAbility: megaAbilityName ?? set.ability,
   };
 }
 
