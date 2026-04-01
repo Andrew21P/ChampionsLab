@@ -123,12 +123,11 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-/* Mobile hamburger — instant toggle via <html> class, zero React dependency */
-#mobile-nav { display: none; }
-html.nav-open #mobile-nav { display: block; }
-#nav-hamburger .icon-x { display: none; }
-html.nav-open #nav-hamburger .icon-x { display: block; }
-html.nav-open #nav-hamburger .icon-menu { display: none; }
+/* Mobile hamburger — native <details><summary> widget, browser handles toggle */
+.nav-summary { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.nav-icon-close { display: none; }
+#mobile-nav-details[open] .nav-icon-close { display: block; }
+#mobile-nav-details[open] .nav-icon-open { display: none; }
 
 /* Soft shadow effects for cards */
 .glow-red { box-shadow: 0 4px 16px rgba(239, 68, 68, 0.12), 0 1px 3px rgba(0,0,0,0.04); }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -82,7 +83,7 @@ export default function RootLayout({
         />
         <script
           dangerouslySetInnerHTML={{
-            __html: `document.addEventListener('click',function(e){var b=e.target.closest('#nav-hamburger');if(b){document.documentElement.classList.toggle('nav-open');return}if(e.target.closest('#mobile-nav a'))document.documentElement.classList.remove('nav-open')})`,
+            __html: `document.addEventListener('click',function(e){var d=document.getElementById('mobile-nav-details');if(d&&d.open&&e.target.closest('#mobile-nav-details nav a'))d.removeAttribute('open')})`,
           }}
         />
         <Script
@@ -101,7 +102,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <LazyParticles />
         <Navbar />
-        <main className="flex-1 relative z-10">{children}</main>
+        <Suspense>
+          <main className="flex-1 relative z-10">{children}</main>
+        </Suspense>
         <ThemeToggle />
       </body>
     </html>

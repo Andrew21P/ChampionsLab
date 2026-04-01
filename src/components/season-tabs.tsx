@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "@/lib/motion";
 import { SEASONS } from "@/lib/pokemon-data";
 import { cn } from "@/lib/utils";
 import { Shield, Swords, Users, Timer, Sparkles, Ban, Gauge, ListChecks } from "lucide-react";

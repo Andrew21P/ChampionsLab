@@ -7,13 +7,11 @@ import {
   Swords,
   Grid3X3,
   Users,
-  Menu,
-  X,
   TrendingUp,
   GraduationCap,
   Heart,
 } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
 
@@ -28,10 +26,11 @@ const NAV_ITEMS = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const detailsRef = useRef<HTMLDetailsElement>(null);
 
   // Close mobile nav on route change
   useEffect(() => {
-    document.documentElement.classList.remove('nav-open');
+    if (detailsRef.current) detailsRef.current.removeAttribute("open");
   }, [pathname]);
 
   return (
@@ -93,22 +92,20 @@ export function Navbar() {
                 <span>Support Us</span>
               </a>
             </nav>
-
-            {/* Mobile hamburger — handled by inline <script> in <head>, works before React */}
-            <button
-              id="nav-hamburger"
-              className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg touch-manipulation"
-              aria-label="Toggle navigation menu"
-            >
-              <Menu className="w-6 h-6 icon-menu" />
-              <X className="w-6 h-6 icon-x" />
-            </button>
           </div>
         </div>
 
-        {/* Mobile Nav — always rendered, visibility controlled by CSS html.nav-open */}
-        <div id="mobile-nav" className="md:hidden border-t border-gray-200/60">
-          <nav className="px-4 py-3 space-y-1">
+        {/* Mobile nav — <details> is a native browser disclosure widget */}
+        <details ref={detailsRef} id="mobile-nav-details" className="md:hidden">
+          <summary className="nav-summary list-none absolute top-3 right-4 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg cursor-pointer touch-manipulation [&::-webkit-details-marker]:hidden">
+            <svg className="nav-icon-open w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg className="nav-icon-close w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </summary>
+          <nav className="border-t border-gray-200/60 px-4 py-3 space-y-1">
             {NAV_ITEMS.map((item) => {
               const isActive = pathname === item.href;
               return (
@@ -139,7 +136,7 @@ export function Navbar() {
               Support Us
             </a>
           </nav>
-        </div>
+        </details>
       </header>
 
       {/* Spacer for fixed navbar */}

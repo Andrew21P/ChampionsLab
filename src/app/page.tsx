@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import Image from "next/image";
 import { LastUpdated } from "@/components/last-updated";
 import { Search, SlidersHorizontal, Sparkles } from "lucide-react";

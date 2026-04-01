@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "@/lib/motion";
 import Image from "next/image";
 import { LastUpdated } from "@/components/last-updated";
 import {
@@ -642,18 +642,18 @@ export default function BattleBotPage() {
       {/* ── BATTLE ENGINE TAB ────────────────────────────────────────── */}
       {mainTab === "battle-engine" && (
       <>
-      <div className="grid lg:grid-cols-[380px_1fr] gap-8">
+      <div className="grid lg:grid-cols-[380px_1fr] gap-8 min-w-0">
         {/* ═══════════════════════════════════════════════════════════════ */}
         {/* LEFT: TEAM INPUT + SETTINGS                                    */}
         {/* ═══════════════════════════════════════════════════════════════ */}
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="space-y-5"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="space-y-5 min-w-0"
         >
           {/* Load from saved */}
           {(savedTeams.length > 0 || PREBUILT_TEAMS.length > 0) && (
-            <div className="glass rounded-2xl p-4 border border-gray-200/60 dark:border-gray-200/10">
+            <div className="glass rounded-2xl p-3 sm:p-4 border border-gray-200/60 dark:border-gray-200/10">
               <button
                 onClick={() => setShowSavedTeams(!showSavedTeams)}
                 className="w-full flex items-center justify-between text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
@@ -718,12 +718,12 @@ export default function BattleBotPage() {
           )}
 
           {/* Selected Team */}
-          <div className="glass rounded-2xl p-5 border border-gray-200/60 dark:border-gray-200/10">
+          <div className="glass rounded-2xl p-3 sm:p-5 border border-gray-200/60 dark:border-gray-200/10">
             <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4 flex items-center gap-2">
               <Swords className="w-4 h-4" />
               Your Team ({selectedPokemon.length}/6)
             </h3>
-            <div className="grid grid-cols-3 gap-2.5 mb-4">
+            <div className="grid grid-cols-3 gap-2 sm:gap-2.5 mb-4">
               {Array.from({ length: 6 }, (_, i) => {
                 const mon = selectedPokemon[i];
                 return (
@@ -786,7 +786,7 @@ export default function BattleBotPage() {
           </div>
 
           {/* Simulation Settings */}
-          <div className="glass rounded-2xl p-5 border border-gray-200/60 dark:border-gray-200/10">
+          <div className="glass rounded-2xl p-3 sm:p-5 border border-gray-200/60 dark:border-gray-200/10">
             <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4 flex items-center gap-2">
               <BarChart3 className="w-4 h-4" />
               Simulation Config
@@ -883,9 +883,9 @@ export default function BattleBotPage() {
         {/* RIGHT: RESULTS                                                 */}
         {/* ═══════════════════════════════════════════════════════════════ */}
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="space-y-5"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="space-y-5 min-w-0"
         >
           {/* Progress */}
           {isSimulating && (

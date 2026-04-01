@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 import Image from "next/image";
 import {
   Heart, Code, Users, Mail, Send, ImagePlus, X, CheckCircle2,
