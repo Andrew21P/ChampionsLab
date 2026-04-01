@@ -610,7 +610,7 @@ export default function BattleBotPage() {
                       {savedTeams.length > 0 && (
                         <>
                           <p className="text-[10px] text-muted-foreground uppercase font-medium">Your Saved Teams</p>
-                          {savedTeams.map(t => (
+                          {[...savedTeams].sort((a, b) => b.updatedAt - a.updatedAt).map(t => (
                             <button
                               key={t.id}
                               onClick={() => loadSavedTeam(t)}
@@ -619,7 +619,7 @@ export default function BattleBotPage() {
                               <Save className="w-4 h-4 text-violet-500 flex-shrink-0" />
                               <div className="min-w-0">
                                 <p className="text-xs font-medium truncate">{t.name}</p>
-                                <p className="text-[10px] text-muted-foreground">{t.slots.length} Pokémon</p>
+                                <p className="text-[10px] text-muted-foreground">{t.slots.length} Pokémon · {new Date(t.updatedAt).toLocaleDateString()} {new Date(t.updatedAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</p>
                               </div>
                             </button>
                           ))}

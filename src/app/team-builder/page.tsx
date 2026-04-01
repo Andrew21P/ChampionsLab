@@ -1014,11 +1014,11 @@ export default function TeamBuilderPage() {
               Export
             </button>
             <button
-              onClick={() => { trackEvent("clear_team", "team_builder"); setSlots(Array.from({ length: 6 }, createEmptySlot)); setCurrentTeamId(undefined); setSelectedSlotIndex(null); setTeamName("My Team"); }}
-              className="px-4 py-2 text-sm rounded-xl glass glass-hover flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors shrink-0"
+              onClick={() => { trackEvent("new_team", "team_builder"); setSlots(Array.from({ length: 6 }, createEmptySlot)); setCurrentTeamId(undefined); setSelectedSlotIndex(null); setTeamName("My Team"); }}
+              className="px-4 py-2 text-sm rounded-xl glass glass-hover flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors shrink-0"
             >
-              <Trash2 className="w-4 h-4" />
-              Clear
+              <Plus className="w-4 h-4" />
+              New Team
             </button>
           </div>
         </div>
@@ -1039,14 +1039,14 @@ export default function TeamBuilderPage() {
                 Saved Teams
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2">
-                {savedTeams.map(t => (
+                {[...savedTeams].sort((a, b) => b.updatedAt - a.updatedAt).map(t => (
                   <div key={t.id} className="flex items-center gap-2 p-3 rounded-xl glass glass-hover">
                     <button
                       onClick={() => handleLoadSavedTeam(t)}
                       className="flex-1 text-left min-w-0"
                     >
                       <p className="text-xs font-medium truncate">{t.name}</p>
-                      <p className="text-[10px] text-muted-foreground">{t.slots.length} Pokémon · {new Date(t.updatedAt).toLocaleDateString()}</p>
+                      <p className="text-[10px] text-muted-foreground">{t.slots.length} Pokémon · {new Date(t.updatedAt).toLocaleDateString()} {new Date(t.updatedAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</p>
                     </button>
                     <button
                       onClick={() => handleDeleteSavedTeam(t.id)}
@@ -1246,8 +1246,8 @@ export default function TeamBuilderPage() {
                       const activeMega = megaForms[slot.megaFormIndex ?? 0];
                       const label = megaForms.length > 1 && activeMega ? activeMega.name.replace(slot.pokemon.name, "").replace("Mega ", "").trim() : "MEGA";
                       return (
-                        <div className="absolute top-2 left-10 z-20 px-1 py-px rounded bg-amber-400/90 shadow-sm">
-                          <span className="text-[7px] font-extrabold text-white leading-none">{label || "MEGA"}</span>
+                        <div className="absolute top-2 left-10 z-20 px-1.5 py-0.5 rounded bg-amber-100 dark:bg-amber-500/20 border border-amber-300 dark:border-amber-500/40 leading-none">
+                          <span className="text-[7px] font-bold text-amber-700 dark:text-amber-400 leading-none">{label || "MEGA"}</span>
                         </div>
                       );
                     })()}
