@@ -1019,7 +1019,7 @@ export default function TeamBuilderPage() {
               className="px-4 py-2 text-sm rounded-xl glass glass-hover flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors shrink-0"
             >
               <Trash2 className="w-4 h-4" />
-              New / Clear
+              New Team / Clear
             </button>
           </div>
         </div>
