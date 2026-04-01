@@ -21,6 +21,7 @@ export interface DamageCalcPokemon {
   item: string;
   atkStages?: number;
   spAtkStages?: number;
+  hasStatus?: boolean;
   isBurned?: boolean;
   currentHPPercent?: number; // 0-100
 }
@@ -237,7 +238,7 @@ export function calculateDamage(
       atkStat = Math.floor(atkStat * 1.5);
     }
     // Guts when statused
-    if (attacker.ability === "Guts" && attacker.isBurned) {
+    if (attacker.ability === "Guts" && (attacker.hasStatus ?? !!attacker.isBurned)) {
       atkStat = Math.floor(atkStat * 1.5);
     }
     // Blaze/Overgrow/Torrent/Swarm: 50% boost at ≤1/3 HP

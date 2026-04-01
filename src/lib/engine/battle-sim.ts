@@ -379,6 +379,7 @@ function estimateThreatLevel(
       nature: attacker.set.nature as NatureName, types: attacker.types,
       ability: attacker.ability, item: attacker.item,
       atkStages: attacker.boosts.attack, spAtkStages: attacker.boosts.spAtk,
+      hasStatus: !!attacker.status,
       isBurned: attacker.status === "burn",
       currentHPPercent: (attacker.currentHP / attacker.maxHP) * 100,
     };
@@ -416,6 +417,7 @@ function allyCanKO(
       nature: ally.set.nature as NatureName, types: ally.types,
       ability: ally.ability, item: ally.item,
       atkStages: ally.boosts.attack, spAtkStages: ally.boosts.spAtk,
+      hasStatus: !!ally.status,
       isBurned: ally.status === "burn",
       currentHPPercent: (ally.currentHP / ally.maxHP) * 100,
     };
@@ -579,6 +581,7 @@ function evaluateMoveOption(
               nature: user.set.nature as NatureName, types: user.types,
               ability: user.ability, item: user.item,
               atkStages: user.boosts.attack, spAtkStages: user.boosts.spAtk,
+              hasStatus: !!user.status,
               isBurned: user.status === "burn",
               currentHPPercent: (user.currentHP / user.maxHP) * 100,
             };
@@ -691,6 +694,7 @@ function evaluateMoveOption(
               nature: ally.set.nature as NatureName, types: ally.types,
               ability: ally.ability, item: ally.item,
               atkStages: ally.boosts.attack, spAtkStages: ally.boosts.spAtk,
+              hasStatus: !!ally.status,
               isBurned: ally.status === "burn",
               currentHPPercent: (ally.currentHP / ally.maxHP) * 100,
             };
@@ -804,6 +808,7 @@ function evaluateMoveOption(
       item: user.item,
       atkStages: user.boosts.attack,
       spAtkStages: user.boosts.spAtk,
+      hasStatus: !!user.status,
       isBurned: user.status === "burn",
       currentHPPercent: (user.currentHP / user.maxHP) * 100,
     };
@@ -1485,6 +1490,9 @@ function executeMove(
     const hadFocusSash = t.item === "Focus Sash" && !t.itemConsumed && t.currentHP === t.maxHP;
     // Sturdy precheck (works like Focus Sash at full HP)
     const hadSturdy = t.ability === "Sturdy" && t.currentHP === t.maxHP;
+    // Critical hit precheck
+    const critBlockedByArmor =
+      (t.ability === "Shell Armor" || t.ability === "Battle Armor") && user.ability !== "Mold Breaker";
     
     // Calculate damage
     const options: DamageCalcOptions = {
@@ -1492,7 +1500,7 @@ function executeMove(
       isDoubles: true,
       reflect: (userSide === 1 ? state.field.side2 : state.field.side1).reflect > 0,
       lightScreen: (userSide === 1 ? state.field.side2 : state.field.side1).lightScreen > 0,
-      isCrit: Math.random() < 0.0625,
+      isCrit: !critBlockedByArmor && Math.random() < 0.0625,
     };
     
     // Unaware: ignore opponent's stat boosts
@@ -1510,6 +1518,7 @@ function executeMove(
       item: user.item,
       atkStages,
       spAtkStages,
+      hasStatus: !!user.status,
       isBurned: user.status === "burn",
       currentHPPercent: (user.currentHP / user.maxHP) * 100,
     };
@@ -1581,12 +1590,7 @@ function executeMove(
       const secondHit = Math.max(1, Math.floor(damage * 0.25));
       damage += secondHit;
     }
-    
-    // Guts: 1.5x damage when user has status (applied as post-multiplier)
-    if (user.ability === "Guts" && user.status && move.category === "physical") {
-      damage = Math.floor(damage * 1.5);
-    }
-    
+
     t.currentHP -= damage;
     
     // Focus Sash
