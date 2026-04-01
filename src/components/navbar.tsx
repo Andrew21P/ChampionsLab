@@ -42,7 +42,7 @@ export function Navbar() {
           ref={toggleRef}
           type="checkbox"
           id="nav-toggle"
-          className="sr-only peer"
+          className="sr-only"
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -117,8 +117,8 @@ export function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Nav — toggled by CSS peer-checked, no JS needed */}
-        <div className="md:hidden overflow-hidden border-t border-gray-200/60 transition-all duration-200 ease-out max-h-0 opacity-0 peer-checked:max-h-[500px] peer-checked:opacity-100">
+        {/* Mobile Nav — toggled by pure CSS #nav-toggle:checked sibling selector */}
+        <div className="mobile-nav md:hidden overflow-hidden border-t border-gray-200/60">
           <nav className="px-4 py-3 space-y-1">
             {NAV_ITEMS.map((item) => {
               const isActive = pathname === item.href;

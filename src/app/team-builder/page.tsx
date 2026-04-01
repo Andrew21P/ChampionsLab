@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useMemo, useEffect } from "react";
+import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import { motion, AnimatePresence, Reorder } from "framer-motion";
 import Image from "next/image";
 import { LastUpdated } from "@/components/last-updated";
@@ -140,6 +140,7 @@ export default function TeamBuilderPage() {
   const [importError, setImportError] = useState("");
   const [selectedPokemonDetail, setSelectedPokemonDetail] = useState<ChampionsPokemon | null>(null);
   const [selectedSlotIndex, setSelectedSlotIndex] = useState<number | null>(null);
+  const editPanelRef = useRef<HTMLDivElement>(null);
   const [savedTeams, setSavedTeams] = useState<SavedTeam[]>([]);
   const [currentTeamId, setCurrentTeamId] = useState<string | undefined>();
   const [showSavedTeams, setShowSavedTeams] = useState(false);
@@ -1344,15 +1345,20 @@ export default function TeamBuilderPage() {
                   "relative rounded-2xl overflow-hidden border transition-all duration-300 min-h-[200px]",
                   slot.pokemon
                     ? selectedSlotIndex === i
-                      ? "glass border-blue-500 ring-2 ring-blue-300 dark:border-blue-400 dark:ring-blue-500/40"
+                      ? "glass cursor-pointer"
                       : "glass border-gray-200 hover:border-gray-300 cursor-pointer"
                     : "border-dashed border-gray-300 hover:border-violet-400 cursor-pointer"
                 )}
+                style={selectedSlotIndex === i && slot.pokemon ? { outline: "3px solid #3b82f6", outlineOffset: "-1px" } : undefined}
                 onClick={() => {
                   if (!slot.pokemon) {
                     openPicker(i);
                   } else {
-                    setSelectedSlotIndex(selectedSlotIndex === i ? null : i);
+                    const newIdx = selectedSlotIndex === i ? null : i;
+                    setSelectedSlotIndex(newIdx);
+                    if (newIdx !== null && window.innerWidth < 768) {
+                      setTimeout(() => editPanelRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+                    }
                   }
                 }}
               >
@@ -1430,6 +1436,7 @@ export default function TeamBuilderPage() {
               return (
                 <motion.div
                   key={selectedSlotIndex}
+                  ref={editPanelRef}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
