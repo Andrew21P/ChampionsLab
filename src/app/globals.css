@@ -123,12 +123,11 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-/* Mobile hamburger — :target approach, handled by browser navigation layer, zero JS */
-.mobile-nav-panel { display: none; }
-.mobile-nav-panel:target { display: block; }
-/* Hide hamburger icon when nav is open */
-#mobile-nav-open:target ~ .max-w-7xl #nav-hamburger,
-.mobile-nav-panel:target ~ div #nav-hamburger { visibility: hidden; }
+/* Mobile hamburger — native <details><summary> widget, browser handles toggle */
+.nav-summary { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.nav-icon-close { display: none; }
+#mobile-nav-details[open] .nav-icon-close { display: block; }
+#mobile-nav-details[open] .nav-icon-open { display: none; }
 
 /* Soft shadow effects for cards */
 .glow-red { box-shadow: 0 4px 16px rgba(239, 68, 68, 0.12), 0 1px 3px rgba(0,0,0,0.04); }
