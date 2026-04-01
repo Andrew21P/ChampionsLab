@@ -13,7 +13,7 @@ import {
   GraduationCap,
   Heart,
 } from "lucide-react";
-import { useState } from "react";
+import { useRef } from "react";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
 
@@ -28,15 +28,27 @@ const NAV_ITEMS = [
 
 export function Navbar() {
   const pathname = usePathname();
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const toggleRef = useRef<HTMLInputElement>(null);
+
+  const closeMobile = () => {
+    if (toggleRef.current) toggleRef.current.checked = false;
+  };
 
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-gray-200/60">
+        {/* Hidden checkbox — CSS-only toggle, works BEFORE React hydrates */}
+        <input
+          ref={toggleRef}
+          type="checkbox"
+          id="nav-toggle"
+          className="sr-only peer"
+        />
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
+            <Link href="/" className="flex items-center gap-3 group" onClick={closeMobile}>
               <div className="transition-transform duration-150 group-hover:scale-105 group-active:scale-95">
                 <Image
                   src="/logo.png"
@@ -91,27 +103,22 @@ export function Navbar() {
               </a>
             </nav>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden p-2 rounded-lg glass-hover"
-              onClick={() => { trackEvent("mobile_menu_toggle", "navigation", mobileOpen ? "close" : "open"); setMobileOpen(!mobileOpen); }}
+            {/* Mobile Menu Button — <label> triggers checkbox instantly, no JS needed */}
+            <label
+              htmlFor="nav-toggle"
+              className="md:hidden min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg cursor-pointer select-none touch-manipulation"
+              role="button"
+              tabIndex={0}
+              aria-label="Toggle navigation menu"
             >
-              {mobileOpen ? (
-                <X className="w-5 h-5" />
-              ) : (
-                <Menu className="w-5 h-5" />
-              )}
-            </button>
+              <Menu className="w-6 h-6 nav-icon-open" />
+              <X className="w-6 h-6 nav-icon-close" />
+            </label>
           </div>
         </div>
 
-        {/* Mobile Nav */}
-        <div
-          className={cn(
-            "md:hidden overflow-hidden border-t border-gray-200/60 transition-all duration-200 ease-out",
-            mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-          )}
-        >
+        {/* Mobile Nav — toggled by CSS peer-checked, no JS needed */}
+        <div className="md:hidden overflow-hidden border-t border-gray-200/60 transition-all duration-200 ease-out max-h-0 opacity-0 peer-checked:max-h-[500px] peer-checked:opacity-100">
           <nav className="px-4 py-3 space-y-1">
             {NAV_ITEMS.map((item) => {
               const isActive = pathname === item.href;
@@ -119,7 +126,7 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  onClick={() => { trackEvent("nav_click", "navigation", `mobile_${item.label}`); setMobileOpen(false); }}
+                  onClick={() => { trackEvent("nav_click", "navigation", `mobile_${item.label}`); closeMobile(); }}
                   className={cn(
                     "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors",
                     isActive
@@ -136,7 +143,7 @@ export function Navbar() {
               href="https://buymeacoffee.com/championslab"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => { trackEvent("support_click", "engagement", "mobile"); setMobileOpen(false); }}
+              onClick={() => { trackEvent("support_click", "engagement", "mobile"); closeMobile(); }}
               className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold bg-gradient-to-r from-yellow-400 to-orange-500 text-white"
             >
               <Heart className="w-5 h-5 fill-white" />

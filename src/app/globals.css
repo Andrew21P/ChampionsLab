@@ -123,6 +123,11 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
+/* Mobile nav icon toggle — pure CSS, works before JS hydration */
+.nav-icon-close { display: none; }
+#nav-toggle:checked ~ div .nav-icon-open { display: none; }
+#nav-toggle:checked ~ div .nav-icon-close { display: block; }
+
 /* Soft shadow effects for cards */
 .glow-red { box-shadow: 0 4px 16px rgba(239, 68, 68, 0.12), 0 1px 3px rgba(0,0,0,0.04); }
 .glow-blue { box-shadow: 0 4px 16px rgba(59, 130, 246, 0.12), 0 1px 3px rgba(0,0,0,0.04); }
