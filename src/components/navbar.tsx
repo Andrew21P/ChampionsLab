@@ -121,13 +121,11 @@ export function Navbar() {
         </div>
 
         {/* Mobile Nav */}
-        <motion.div
-          initial={false}
-          animate={{
-            height: mobileOpen ? "auto" : 0,
-            opacity: mobileOpen ? 1 : 0,
-          }}
-          className="md:hidden overflow-hidden border-t border-gray-200/60"
+        <div
+          className={cn(
+            "md:hidden overflow-hidden border-t border-gray-200/60 transition-all duration-200 ease-out",
+            mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          )}
         >
           <nav className="px-4 py-3 space-y-1">
             {NAV_ITEMS.map((item) => {
@@ -160,7 +158,7 @@ export function Navbar() {
               Support Us
             </a>
           </nav>
-        </motion.div>
+        </div>
       </header>
 
       {/* Spacer for fixed navbar */}

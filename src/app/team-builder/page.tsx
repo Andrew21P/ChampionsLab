@@ -1344,7 +1344,7 @@ export default function TeamBuilderPage() {
                   "relative rounded-2xl overflow-hidden border transition-all duration-300 min-h-[200px]",
                   slot.pokemon
                     ? selectedSlotIndex === i
-                      ? "glass border-violet-400 ring-2 ring-violet-200"
+                      ? "glass border-blue-500 ring-2 ring-blue-300 dark:border-blue-400 dark:ring-blue-500/40"
                       : "glass border-gray-200 hover:border-gray-300 cursor-pointer"
                     : "border-dashed border-gray-300 hover:border-violet-400 cursor-pointer"
                 )}
