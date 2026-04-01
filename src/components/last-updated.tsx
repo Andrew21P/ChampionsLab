@@ -171,6 +171,9 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
       {
         date: "01/04/2026",
         items: [
+          "Ability-aware Type Coverage: Levitate, Water Absorb, Volt Absorb, Flash Fire, Thick Fat, and more now factor into weakness/resistance display",
+          "Pokémon with immunities from abilities (e.g., Wash Rotom + Levitate) no longer show false weaknesses",
+          "Edit Pokémon directly in Battle Bot: click any team member to change moves, ability, nature, item, and SP",
           "Type Coverage now uses your 4 selected moves instead of the full learnset — coverage is accurate",
           "Critical Weakness detection accounts for team resistances and immunities",
           "Redesigned Type Coverage section with MasterDex-style offensive grid",

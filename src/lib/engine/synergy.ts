@@ -10,7 +10,7 @@ import {
   defensiveSynergy, offensiveCoverage, getMatchup, getAllTypes,
 } from "./type-chart";
 import { getBST, classifyStatProfile, calculateStats, getEffectiveSpeed } from "./stat-calc";
-import { getAbilityEffect, isWeatherSetter, isIntimidateImmune } from "./ability-data";
+import { getAbilityEffect, isWeatherSetter, isIntimidateImmune, getTypeImmunity } from "./ability-data";
 import { MOVE_DATA, getMoveRole } from "./move-data";
 import type { NatureName } from "./natures";
 
@@ -334,20 +334,58 @@ export function analyzeTeamSynergy(pokemon: ChampionsPokemon[]): TeamSynergy {
     };
   }
 
-  // ── Type Analysis ──────────────────────────────────────────────────────
+  // ── Type Analysis (ability-aware) ────────────────────────────────────
+  const ABILITY_RESISTS: Record<string, string[]> = {
+    "Thick Fat": ["fire", "ice"],
+    "Heatproof": ["fire"],
+    "Water Bubble": ["fire"],
+    "Purifying Salt": ["ghost"],
+  };
+  const ABILITY_EXTRA_WEAK: Record<string, string[]> = {
+    "Dry Skin": ["fire"],
+    "Fluffy": ["fire"],
+  };
   const weaknessCount: Record<string, number> = {};
   const resistCount: Record<string, number> = {};
   const allTypes = getAllTypes();
 
   for (const mon of pokemon) {
+    const ability = mon.abilities[0]?.name || "";
+    const abilityImmune = getTypeImmunity(ability);
+
     for (const w of getWeaknesses(mon.types)) {
+      // Skip weakness if ability gives immunity to this type
+      if (abilityImmune === w) continue;
+      // Skip weakness if ability gives resistance that cancels it
+      if (ABILITY_RESISTS[ability]?.includes(w)) continue;
       weaknessCount[w] = (weaknessCount[w] || 0) + 1;
+    }
+    // Add extra weaknesses from abilities (Dry Skin → Fire, Fluffy → Fire)
+    if (ABILITY_EXTRA_WEAK[ability]) {
+      for (const t of ABILITY_EXTRA_WEAK[ability]) {
+        // Only add if not already counted as a type weakness
+        if (!getWeaknesses(mon.types).includes(t as PokemonType)) {
+          weaknessCount[t] = (weaknessCount[t] || 0) + 1;
+        }
+      }
     }
     for (const r of getResistances(mon.types)) {
       resistCount[r] = (resistCount[r] || 0) + 1;
     }
     for (const i of getImmunities(mon.types)) {
       resistCount[i] = (resistCount[i] || 0) + 2; // Immunities count extra
+    }
+    // Add ability-based immunities to resistance profile
+    if (abilityImmune && !getImmunities(mon.types).includes(abilityImmune)) {
+      resistCount[abilityImmune] = (resistCount[abilityImmune] || 0) + 2;
+    }
+    // Add ability-based resistances
+    if (ABILITY_RESISTS[ability]) {
+      for (const t of ABILITY_RESISTS[ability]) {
+        if (!getResistances(mon.types).includes(t as PokemonType) && !getImmunities(mon.types).includes(t as PokemonType)) {
+          resistCount[t] = (resistCount[t] || 0) + 1;
+        }
+      }
     }
   }
 

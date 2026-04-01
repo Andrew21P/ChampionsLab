@@ -39,6 +39,7 @@ import {
   type TeamAnalysis,
   type SlotSuggestion,
   type MetaTeamPrediction,
+  getTypeImmunity,
 } from "@/lib/engine";
 import {
   getSavedTeams, saveTeam, deleteTeam, deserializeTeam, saveLastTeam, getLastTeam,
@@ -765,6 +766,17 @@ export default function TeamBuilderPage() {
   });
 
   // Defensive profile: count weaknesses, resistances, and immunities per type
+  // Now accounts for ability-based immunities and resistances
+  const ABILITY_RESISTS: Record<string, string[]> = {
+    "Thick Fat": ["fire", "ice"],
+    "Heatproof": ["fire"],
+    "Water Bubble": ["fire"],
+    "Purifying Salt": ["ghost"],
+  };
+  const ABILITY_EXTRA_WEAK: Record<string, string[]> = {
+    "Dry Skin": ["fire"],
+    "Fluffy": ["fire"],
+  };
   const defensiveWeaknesses: Record<string, number> = {};
   const defensiveResists: Record<string, number> = {};
   ALL_TYPES.forEach((atkType) => {
@@ -775,6 +787,18 @@ export default function TeamBuilderPage() {
       let mult = 1;
       for (const t of types) {
         mult *= TYPE_CHART[atkType]?.[t] ?? 1;
+      }
+      // Apply ability-based type modifiers
+      const ability = s.ability || s.pokemon!.abilities[0]?.name || "";
+      const immuneType = getTypeImmunity(ability);
+      if (immuneType === atkType) {
+        mult = 0; // Full immunity from ability (Levitate, Water Absorb, etc.)
+      }
+      if (ABILITY_RESISTS[ability]?.includes(atkType)) {
+        mult *= 0.5; // Thick Fat halves Fire/Ice, etc.
+      }
+      if (ABILITY_EXTRA_WEAK[ability]?.includes(atkType)) {
+        mult *= 2; // Dry Skin/Fluffy doubles Fire damage
       }
       if (mult >= 2) weakCount++;
       else if (mult < 1) resistCount++; // includes immunities (0) and resists (0.5, 0.25)
