@@ -998,7 +998,7 @@ export default function TeamBuilderPage() {
               className="px-4 py-2 text-sm rounded-xl glass glass-hover flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors shrink-0"
             >
               <FolderOpen className="w-4 h-4" />
-              Load
+              My Teams / Load
             </button>
             <button
               onClick={() => { setShowImport(true); setImportText(""); setImportError(""); }}
