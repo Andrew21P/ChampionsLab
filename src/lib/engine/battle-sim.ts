@@ -6,7 +6,13 @@
 
 import type { ChampionsPokemon, CommonSet, BaseStats, StatPoints, PokemonType } from "@/lib/types";
 import { calculateStats, getEffectiveSpeed, applyStatStage } from "./stat-calc";
-import { calculateDamage, type DamageCalcPokemon, type DamageCalcTarget, type DamageCalcOptions } from "./damage-calc";
+import {
+  calculateDamage,
+  applyDamageRollModifiers,
+  type DamageCalcPokemon,
+  type DamageCalcTarget,
+  type DamageCalcOptions,
+} from "./damage-calc";
 import { getMatchup } from "./type-chart";
 import { getMove, isSpreadMove, type EngineMove, MOVE_DATA } from "./move-data";
 import { getAbilityEffect, isWeatherSetter, getTypeImmunity } from "./ability-data";
@@ -148,6 +154,7 @@ interface BattleState {
   field: FieldState;
   turn: number;
   winner: 1 | 2 | null;
+  rng: () => number;
 }
 
 // ── BATTLE POKEMON FACTORY ───────────────────────────────────────────────────
@@ -912,7 +919,7 @@ function aiChooseAction(
   
   // Human-like variance: ±12 for score randomness (humans aren't perfect calculators)
   for (const c of allChoices) {
-    c.score += (Math.random() - 0.5) * 24;
+    c.score += (state.rng() - 0.5) * 24;
   }
   
   allChoices.sort((a, b) => b.score - a.score);
@@ -984,7 +991,7 @@ function aiChooseAction(
   }
   
   // Occasional suboptimal play (5% chance to pick 2nd-best option - humans misread sometimes)
-  if (allChoices.length >= 2 && Math.random() < 0.05) {
+  if (allChoices.length >= 2 && state.rng() < 0.05) {
     if (allChoices[0].score - allChoices[1].score < 20) {
       return { moveName: allChoices[1].moveName, targetSlot: allChoices[1].targetSlot };
     }
@@ -1272,11 +1279,11 @@ function executeMove(
   }
 
   // Paralysis check
-  if (user.status === "paralysis" && Math.random() < 0.25) return;
+  if (user.status === "paralysis" && state.rng() < 0.25) return;
   
   // Sleep check
   if (user.status === "sleep") {
-    if (Math.random() < 0.33) {
+    if (state.rng() < 0.33) {
       user.status = null; // Wake up
     }
     return;
@@ -1285,7 +1292,7 @@ function executeMove(
   // Protect check (King's Shield: also lowers Attack of contact attackers)
   if (move.flags.protect) {
     const successRate = Math.pow(1 / 3, user.protectCount);
-    if (Math.random() < successRate) {
+    if (state.rng() < successRate) {
       user.protectCount++;
       user.isProtected = true;
       user.protectMoveName = moveName;
@@ -1332,7 +1339,7 @@ function executeMove(
     // Status application
     if (move.secondary?.status && target && !target.isFainted && !target.status) {
       // Check accuracy
-      if (move.accuracy > 0 && Math.random() * 100 > move.accuracy) return;
+      if (move.accuracy > 0 && state.rng() * 100 > move.accuracy) return;
       target.status = move.secondary.status;
       return;
     }
@@ -1435,7 +1442,7 @@ function executeMove(
     // Accuracy check (weather bypass: Blizzard in snow, Thunder/Hurricane in rain)
     const weatherBypass = (move.name === "Blizzard" && state.field.weather === "snow")
       || ((move.name === "Thunder" || move.name === "Hurricane") && state.field.weather === "rain");
-    if (!weatherBypass && move.accuracy > 0 && Math.random() * 100 > move.accuracy) {
+    if (!weatherBypass && move.accuracy > 0 && state.rng() * 100 > move.accuracy) {
       user.lastMoveMissed = true;
       user.spreadMissed.push(t.pokemon.name);
       continue;
@@ -1553,7 +1560,7 @@ function executeMove(
     }
 
     // Secondary effects
-    if (move.secondary && Math.random() * 100 < move.secondary.chance) {
+    if (move.secondary && state.rng() * 100 < move.secondary.chance) {
       if (move.secondary.status && !t.status && t.currentHP > 0) {
         t.status = move.secondary.status;
       }
@@ -1725,7 +1732,8 @@ export function simulateBattle(
   team1Pokemon: ChampionsPokemon[],
   team1Sets: CommonSet[],
   team2Pokemon: ChampionsPokemon[],
-  team2Sets: CommonSet[]
+  team2Sets: CommonSet[],
+  rng: () => number = Math.random
 ): { winner: 1 | 2; turnsPlayed: number; team1Remaining: number; team2Remaining: number } {
   // Smart pick 4 from 6 (VGC team preview - intelligent selection)
   const idx1 = smartPick4(team1Pokemon, team1Sets, team2Pokemon);
@@ -1743,6 +1751,7 @@ export function simulateBattle(
     field: createInitialField(),
     turn: 0,
     winner: null,
+    rng,
   };
   
   // Apply entry abilities - slower weather setter wins (triggers last, like real VGC)
@@ -1986,7 +1995,7 @@ export function simulateBattle(
     const team2Alive = state.team2.filter(p => p.isAlive).length;
     
     if (team1Alive === 0 && team2Alive === 0) {
-      state.winner = Math.random() < 0.5 ? 1 : 2; // True coin flip on mutual KO
+      state.winner = state.rng() < 0.5 ? 1 : 2; // True coin flip on mutual KO
     } else if (team1Alive === 0) {
       state.winner = 2;
     } else if (team2Alive === 0) {
@@ -2047,7 +2056,8 @@ export function simulateBattleWithLog(
   team1Pokemon: ChampionsPokemon[],
   team1Sets: CommonSet[],
   team2Pokemon: ChampionsPokemon[],
-  team2Sets: CommonSet[]
+  team2Sets: CommonSet[],
+  rng: () => number = Math.random
 ): DetailedBattleResult {
   const idx1 = smartPick4(team1Pokemon, team1Sets, team2Pokemon);
   const idx2 = smartPick4(team2Pokemon, team2Sets, team1Pokemon);
@@ -2061,7 +2071,7 @@ export function simulateBattleWithLog(
     active1: [bt1[0] || null, bt1[1] || null],
     active2: [bt2[0] || null, bt2[1] || null],
     field: createInitialField(),
-    turn: 0, winner: null,
+    turn: 0, winner: null, rng,
   };
 
   const log: BattleLogEntry[] = [];
@@ -2408,7 +2418,7 @@ export function simulateBattleWithLog(
 
     const team1Alive = state.team1.filter(p => p.isAlive).length;
     const team2Alive = state.team2.filter(p => p.isAlive).length;
-    if (team1Alive === 0 && team2Alive === 0) state.winner = Math.random() < 0.5 ? 1 : 2;
+    if (team1Alive === 0 && team2Alive === 0) state.winner = state.rng() < 0.5 ? 1 : 2;
     else if (team1Alive === 0) state.winner = 2;
     else if (team2Alive === 0) state.winner = 1;
 
@@ -2444,7 +2454,8 @@ export function runSimulation(
   team1Sets: CommonSet[],
   team2Pokemon: ChampionsPokemon[],
   team2Sets: CommonSet[],
-  iterations: number = 100
+  iterations: number = 100,
+  rng: () => number = Math.random
 ): {
   wins: number;
   losses: number;
@@ -2457,7 +2468,7 @@ export function runSimulation(
   let totalRemaining = 0;
   
   for (let i = 0; i < iterations; i++) {
-    const result = simulateBattle(team1Pokemon, team1Sets, team2Pokemon, team2Sets);
+    const result = simulateBattle(team1Pokemon, team1Sets, team2Pokemon, team2Sets, rng);
     if (result.winner === 1) {
       wins++;
       totalRemaining += result.team1Remaining;
