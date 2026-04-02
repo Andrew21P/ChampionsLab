@@ -19,6 +19,7 @@ interface GauntletState {
   removeCredits: (amount: number) => void;
   addPokemonToRoster: (pokemon: ChampionsPokemon, set: CommonSet) => void;
   updateRosterPokemon: (index: number, data: Partial<GauntletRosterPokemon>) => void;
+  updateRosterPokemonBatch: (updates: {index: number, data: Partial<GauntletRosterPokemon>}[]) => void;
   healRoster: () => void; // Restores all HP (maybe purchased from shop)
   advanceWave: () => void;
   resetGauntlet: () => void;
@@ -45,6 +46,16 @@ export const useGauntletStore = create<GauntletState>()(
       updateRosterPokemon: (index, data) => set((state) => {
         const newRoster = [...state.roster];
         newRoster[index] = { ...newRoster[index], ...data };
+        return { roster: newRoster };
+      }),
+
+      updateRosterPokemonBatch: (updates) => set((state) => {
+        const newRoster = [...state.roster];
+        for (const update of updates) {
+          if (newRoster[update.index]) {
+            newRoster[update.index] = { ...newRoster[update.index], ...update.data };
+          }
+        }
         return { roster: newRoster };
       }),
 
