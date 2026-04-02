@@ -218,11 +218,7 @@ export default function HomePage() {
         </div>
 
         {/* Expandable filters */}
-        <motion.div
-          initial={false}
-          animate={{ height: showFilters ? "auto" : 0, opacity: showFilters ? 1 : 0 }}
-          className="overflow-hidden"
-        >
+        {showFilters && (
           <div className="glass rounded-2xl p-5 border border-gray-200/60 space-y-4">
             {/* Type filters */}
             <div>
@@ -287,7 +283,7 @@ export default function HomePage() {
               </button>
             </div>
           </div>
-        </motion.div>
+        )}
       </motion.div>
 
       {/* Results count */}
