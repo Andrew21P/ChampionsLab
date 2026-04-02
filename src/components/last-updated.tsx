@@ -14,8 +14,20 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
     description: "Thanks for the support - we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
     entries: [
       {
+        date: "02/04/2026",
+        items: [
+          "Mega Excadrill ability updated: Piercing Drill — contact moves pierce Protect for 1/4 damage",
+          "Mega Scovillain ability updated: Spicy Spray — burns the attacker when hit",
+          "Fixed stat bar display (bars were filling 100% due to motion replacement)",
+        ],
+      },
+      {
         date: "01/04/2026",
         items: [
+          "Performance: removed framer-motion from critical bundle — ~100KB less JavaScript on page load",
+          "Instant hamburger menu: native browser toggle, zero JS delay on mobile",
+          "Mobile navigation responds immediately — no more 3-4 second wait",
+          "Lazy-loaded background particle animations — won't block page interaction",
           "Fixed 46 missing moves across Pokémon movepools",
           "Added Shed Tail to Orthworm",
         ],
@@ -60,6 +72,14 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
     description: "Thanks for the support - we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
     entries: [
       {
+        date: "01/04/2026",
+        items: [
+          "Performance: removed framer-motion from initial bundle — ~100KB smaller page loads",
+          "Instant mobile navigation: hamburger menu works immediately on load",
+          "Fixed mobile layout overflow and viewport sizing",
+        ],
+      },
+      {
         date: "31/03/2026",
         items: [
           "8 new Pokémon added to tier rankings from 2M battle simulation",
@@ -95,6 +115,15 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
     description: "Thanks for the support - we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
     entries: [
       {
+        date: "02/04/2026",
+        items: [
+          "Mega Excadrill: Piercing Drill ability — contact moves pierce Protect for 1/4 damage (replaces Drill Force)",
+          "Mega Scovillain: Spicy Spray ability — burns the attacker when the Pokémon takes damage (replaces Spice Rush)",
+          "Piercing Drill works on ALL contact moves, not just Ground/Steel (broader than old Drill Force)",
+          "Spicy Spray triggers on any damaging move, not just contact (100% burn rate)",
+        ],
+      },
+      {
         date: "01/04/2026",
         items: [
           "Fixed spread move logging: misses/immunities on individual targets now shown in battle log",
@@ -105,6 +134,11 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
           "Fixed dropdown scroll bug: scrolling inside dropdown no longer closes it",
           "Damage calc dropdowns open upward by default, downward when results section is visible",
           "Mega stones now appear in item dropdown for all Mega-capable Pokémon",
+          "Battle Bot edit modal: mobile-optimized (below navbar, scrollable, tap outside to close)",
+          "Battle Bot mobile layout: fixed card overflow, reduced padding for small screens",
+          "Removed x-axis animations that caused mobile viewport zoom/overflow",
+          "Performance: ~100KB less JS on page load (framer-motion removed from critical bundle)",
+          "Instant hamburger menu on mobile — no more 3-4 second delay",
         ],
       },
       {
@@ -169,6 +203,14 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
     description: "Thanks for the support - we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
     entries: [
       {
+        date: "02/04/2026",
+        items: [
+          "Mega Excadrill competitive set updated: Piercing Drill ability",
+          "Mega Scovillain competitive set updated: Spicy Spray bulky build (HP/Def investment)",
+          "Fixed stat bar display in Pokémon detail modal",
+        ],
+      },
+      {
         date: "01/04/2026",
         items: [
           "Ability-aware Type Coverage: Levitate, Water Absorb, Volt Absorb, Flash Fire, Thick Fat, and more now factor into weakness/resistance display",
@@ -184,6 +226,13 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
           "Fixed 46 missing moves across Pokémon movepools (Sucker Punch, Fake Out, Iron Head, King's Shield, and more)",
           "Added Shed Tail to Orthworm's movepool and battle engine",
           "All competitive set moves now correctly available in team builder",
+          "MEGA badge redesigned: compact, translucent styling",
+          "Buttons renamed for clarity: \"New Team / Clear\" and \"My Teams / Load\"",
+          "Save now updates existing team instead of creating duplicates",
+          "Blue highlight on selected team slot",
+          "Loading prebuilt/meta/imported team creates a new save instead of overwriting",
+          "Performance: ~100KB less JS on page load (framer-motion removed from bundle)",
+          "Instant mobile hamburger menu — no more 3-4 second delay",
           "Damage calculator dropdowns upgraded with search/filter (moves, items, abilities)",
           "Fixed dropdown scroll bug: scrolling inside options no longer closes it",
           "Dropdowns open upward by default, switch to downward when results section appears",
@@ -229,6 +278,13 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
   learn: {
     description: "Thanks for the support - we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
     entries: [
+      {
+        date: "01/04/2026",
+        items: [
+          "Performance: instant mobile navigation — ~100KB less JavaScript",
+          "Hamburger menu responds immediately on page load",
+        ],
+      },
       {
         date: "29/03/2026",
         items: [

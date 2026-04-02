@@ -434,13 +434,13 @@ export const ABILITY_DATA: Record<string, AbilityEffect> = {
   },
   "Dragonize": {
     name: "Dragonize", category: "champions",
-    description: "Normal-type moves become Dragon-type and gain 20% power.",
+    description: "The Pokémon's Normal-type moves become Dragon-type moves and their power is boosted by 20%.",
     vgcRelevance: 8,
   },
-  "Drill Force": {
-    name: "Drill Force", category: "champions",
-    description: "Ground and Steel moves pierce through Protect for 25% damage.",
-    vgcRelevance: 8,
+  "Piercing Drill": {
+    name: "Piercing Drill", category: "champions",
+    description: "When the Pokémon uses contact moves, it can hit even targets that are protecting themselves, dealing 1/4 of the damage that the move would otherwise deal. Everything aside from the target's protective effects is still triggered.",
+    vgcRelevance: 9,
   },
   "Earth Sovereign": {
     name: "Earth Sovereign", category: "champions",
@@ -507,10 +507,10 @@ export const ABILITY_DATA: Record<string, AbilityEffect> = {
     description: "Ghost moves bypass immunities and have 20% chance to disable the target's move.",
     damageMultiplier: 1.2, vgcRelevance: 9,
   },
-  "Spice Rush": {
-    name: "Spice Rush", category: "champions",
-    description: "Speed doubles in sun. Fire moves gain 20% power.",
-    weatherSpeed: "sun", vgcRelevance: 8,
+  "Spicy Spray": {
+    name: "Spicy Spray", category: "champions",
+    description: "When the Pokémon takes damage from a move, it burns the attacker.",
+    vgcRelevance: 9,
   },
   "Supreme Commander": {
     name: "Supreme Commander", category: "champions",
@@ -519,7 +519,7 @@ export const ABILITY_DATA: Record<string, AbilityEffect> = {
   },
   "Mega Sol": {
     name: "Mega Sol", category: "champions",
-    description: "All moves used by this Pokémon behave as if under harsh sunlight.",
+    description: "Even when the sunlight has not turned harsh, the Pokémon can use its moves as if the weather were harsh sunlight.",
     personalWeather: "sun",
     vgcRelevance: 9,
   },

@@ -427,12 +427,9 @@ export function PokemonDetailModal({ pokemon, onClose }: PokemonDetailModalProps
                             <span className="text-[11px] text-gray-400 w-14 text-right font-semibold tracking-tight">{STAT_NAMES[i]}</span>
                             <span className="text-sm w-8 text-right text-gray-800 font-bold tabular-nums">{displayStats[key]}</span>
                             <div className="flex-1 h-2 bg-gray-100 dark:bg-gray-200/10 rounded-full overflow-hidden">
-                              <motion.div
-                                className="h-full rounded-full"
-                                style={{ backgroundColor: STAT_COLORS[i] }}
-                                initial={{ width: 0 }}
-                                animate={{ width: `${(displayStats[key] / MAX_STAT) * 100}%` }}
-                                transition={{ delay: i * 0.08, duration: 0.6, ease: "easeOut" }}
+                              <div
+                                className="h-full rounded-full transition-all duration-500 ease-out"
+                                style={{ backgroundColor: STAT_COLORS[i], width: `${(displayStats[key] / MAX_STAT) * 100}%` }}
                               />
                             </div>
                           </div>

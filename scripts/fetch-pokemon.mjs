@@ -136,8 +136,8 @@ const MEGA_DATA = {
   115: { name: "Mega Kangaskhan", formId: 10039, types: ["normal"], ability: "Parental Bond", stats: { hp: 105, attack: 125, defense: 100, spAtk: 60, spDef: 100, speed: 100 } },
   127: { name: "Mega Pinsir", formId: 10040, types: ["bug", "flying"], ability: "Aerilate", stats: { hp: 65, attack: 155, defense: 120, spAtk: 65, spDef: 90, speed: 105 } },
   130: { name: "Mega Gyarados", formId: 10041, types: ["water", "dark"], ability: "Mold Breaker", stats: { hp: 95, attack: 155, defense: 109, spAtk: 70, spDef: 130, speed: 81 } },
-  154: { name: "Mega Meganium", types: ["grass", "fairy"], ability: "Mega Sol", stats: { hp: 80, attack: 92, defense: 115, spAtk: 143, spDef: 115, speed: 80 }, isChampions: true },
-  160: { name: "Mega Feraligatr", types: ["water", "dragon"], ability: "Dragonize", stats: { hp: 85, attack: 160, defense: 125, spAtk: 89, spDef: 93, speed: 78 }, isChampions: true },
+  154: { name: "Mega Meganium", types: ["grass", "fairy"], ability: "Mega Sol", stats: { hp: 80, attack: 92, defense: 115, spAtk: 143, spDef: 115, speed: 80 }, isChampions: false },
+  160: { name: "Mega Feraligatr", types: ["water", "dragon"], ability: "Dragonize", stats: { hp: 85, attack: 160, defense: 125, spAtk: 89, spDef: 93, speed: 78 }, isChampions: false },
   181: { name: "Mega Ampharos", formId: 10045, types: ["electric", "dragon"], ability: "Mold Breaker", stats: { hp: 90, attack: 95, defense: 105, spAtk: 165, spDef: 110, speed: 45 } },
   212: { name: "Mega Scizor", formId: 10046, types: ["bug", "steel"], ability: "Technician", stats: { hp: 70, attack: 150, defense: 140, spAtk: 65, spDef: 100, speed: 75 } },
   214: { name: "Mega Heracross", formId: 10047, types: ["bug", "fighting"], ability: "Skill Link", stats: { hp: 80, attack: 185, defense: 115, spAtk: 40, spDef: 105, speed: 75 } },
@@ -154,8 +154,8 @@ const MEGA_DATA = {
 
 // Champions-specific ability overrides
 const CHAMPIONS_ABILITIES = {
-  154: [{ name: "Mega Sol", description: "All moves used by this Pokémon behave as if under harsh sunlight.", isChampions: true }],
-  160: [{ name: "Dragonize", description: "Normal-type moves become Dragon-type and gain 20% power.", isChampions: true }],
+  154: [{ name: "Mega Sol", description: "Even when the sunlight has not turned harsh, the Pokémon can use its moves as if the weather were harsh sunlight.", isChampions: false }],
+  160: [{ name: "Dragonize", description: "The Pokémon's Normal-type moves become Dragon-type moves and their power is boosted by 20%.", isChampions: false }],
 };
 
 // Tier assignments based on competitive viability (Serebii Champions roster)
