@@ -437,10 +437,10 @@ export const ABILITY_DATA: Record<string, AbilityEffect> = {
     description: "Normal-type moves become Dragon-type and gain 20% power.",
     vgcRelevance: 8,
   },
-  "Drill Force": {
-    name: "Drill Force", category: "champions",
-    description: "Ground and Steel moves pierce through Protect for 25% damage.",
-    vgcRelevance: 8,
+  "Piercing Drill": {
+    name: "Piercing Drill", category: "champions",
+    description: "Contact moves pierce through Protect, dealing 1/4 of the damage. All other effects from the target's protective moves still trigger.",
+    vgcRelevance: 9,
   },
   "Earth Sovereign": {
     name: "Earth Sovereign", category: "champions",
@@ -507,10 +507,10 @@ export const ABILITY_DATA: Record<string, AbilityEffect> = {
     description: "Ghost moves bypass immunities and have 20% chance to disable the target's move.",
     damageMultiplier: 1.2, vgcRelevance: 9,
   },
-  "Spice Rush": {
-    name: "Spice Rush", category: "champions",
-    description: "Speed doubles in sun. Fire moves gain 20% power.",
-    weatherSpeed: "sun", vgcRelevance: 8,
+  "Spicy Spray": {
+    name: "Spicy Spray", category: "champions",
+    description: "When the Pokémon takes damage from a move, it burns the attacker.",
+    vgcRelevance: 9,
   },
   "Supreme Commander": {
     name: "Supreme Commander", category: "champions",

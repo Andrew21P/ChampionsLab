@@ -14,6 +14,14 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
     description: "Thanks for the support - we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
     entries: [
       {
+        date: "02/04/2026",
+        items: [
+          "Mega Excadrill ability updated: Piercing Drill — contact moves pierce Protect for 1/4 damage",
+          "Mega Scovillain ability updated: Spicy Spray — burns the attacker when hit",
+          "Fixed stat bar display (bars were filling 100% due to motion replacement)",
+        ],
+      },
+      {
         date: "01/04/2026",
         items: [
           "Performance: removed framer-motion from critical bundle — ~100KB less JavaScript on page load",
@@ -107,6 +115,15 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
     description: "Thanks for the support - we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
     entries: [
       {
+        date: "02/04/2026",
+        items: [
+          "Mega Excadrill: Piercing Drill ability — contact moves pierce Protect for 1/4 damage (replaces Drill Force)",
+          "Mega Scovillain: Spicy Spray ability — burns the attacker when the Pokémon takes damage (replaces Spice Rush)",
+          "Piercing Drill works on ALL contact moves, not just Ground/Steel (broader than old Drill Force)",
+          "Spicy Spray triggers on any damaging move, not just contact (100% burn rate)",
+        ],
+      },
+      {
         date: "01/04/2026",
         items: [
           "Fixed spread move logging: misses/immunities on individual targets now shown in battle log",
@@ -185,6 +202,14 @@ const CHANGELOGS: Record<string, { description: string; entries: ChangelogEntry[
   "team-builder": {
     description: "Thanks for the support - we're updating the website as fast as possible to adapt to everything new from Pokémon Champions!",
     entries: [
+      {
+        date: "02/04/2026",
+        items: [
+          "Mega Excadrill competitive set updated: Piercing Drill ability",
+          "Mega Scovillain competitive set updated: Spicy Spray bulky build (HP/Def investment)",
+          "Fixed stat bar display in Pokémon detail modal",
+        ],
+      },
       {
         date: "01/04/2026",
         items: [

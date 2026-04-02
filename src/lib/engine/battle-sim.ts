@@ -1417,14 +1417,14 @@ function executeMove(
   user.spreadMissed = [];
   user.spreadImmune = [];
   for (const t of targets) {
-    // Protected targets block all damage (except Drill Force pierce)
+    // Protected targets block all damage (except Piercing Drill pierce)
     if (t.isProtected) {
       // King's Shield: lower attacker's Attack by 1 on contact
       if (t.protectMoveName === "King's Shield" && move.flags.contact) {
         user.boosts.attack = Math.max(-6, user.boosts.attack - 1);
       }
-      if (user.ability === "Drill Force" && (move.type === "ground" || move.type === "steel")) {
-        // Drill Force pierces Protect for 25% damage - continue but reduce damage later
+      if (user.ability === "Piercing Drill" && move.flags.contact) {
+        // Piercing Drill pierces Protect for 25% damage on contact moves - continue but reduce damage later
       } else {
         continue;
       }
@@ -1571,8 +1571,8 @@ function executeMove(
       damage = Math.floor(damage * 0.5);
     }
     
-    // Drill Force through Protect: only 25% damage
-    if (t.isProtected && user.ability === "Drill Force") {
+    // Piercing Drill through Protect: only 25% damage
+    if (t.isProtected && user.ability === "Piercing Drill") {
       damage = Math.floor(damage * 0.25);
     }
     
@@ -1672,6 +1672,11 @@ function executeMove(
     // Rough Skin / Iron Barbs
     if (move.flags.contact && (t.ability === "Rough Skin" || t.ability === "Iron Barbs") && t.currentHP > 0) {
       user.currentHP -= Math.floor(user.maxHP / 8);
+    }
+    
+    // Spicy Spray: burn the attacker when hit
+    if (t.ability === "Spicy Spray" && t.currentHP > 0 && !user.status && damage > 0) {
+      user.status = "burn";
     }
     
     // Rocky Helmet

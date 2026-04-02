@@ -74112,8 +74112,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         },
         "abilities": [
           {
-            "name": "Drill Force",
-            "description": "Ground and Steel-type moves gain 30% power. Ignores the target's defensive stat changes.",
+            "name": "Piercing Drill",
+            "description": "When the Pokémon uses contact moves, it can hit even targets that are protecting themselves, dealing 1/4 of the damage. All other effects from the target's protective moves still trigger.",
             "isChampions": true
           }
         ],
@@ -120406,8 +120406,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         },
         "abilities": [
           {
-            "name": "Spice Rush",
-            "description": "Grass and Fire-type moves gain 30% power. Sun is set up on Mega Evolution.",
+            "name": "Spicy Spray",
+            "description": "When the Pokémon takes damage from a move, it burns the attacker.",
             "isChampions": true
           }
         ],

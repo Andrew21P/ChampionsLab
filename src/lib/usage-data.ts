@@ -386,7 +386,7 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
   530: [
     { name: "Sand Rush", nature: "Jolly", ability: "Sand Rush", item: "Life Orb", moves: ["Earthquake", "Iron Head", "Rock Slide", "Protect"], sp: { hp: 0, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 32 } },
     { name: "Mold Breaker", nature: "Jolly", ability: "Mold Breaker", item: "Focus Sash", moves: ["Earthquake", "Iron Head", "Rock Slide", "Protect"], sp: { hp: 0, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 32 } },
-    { name: "Mega Drill Force", nature: "Jolly", ability: "Drill Force", item: "Excadrite", moves: ["Earthquake", "Iron Head", "Rock Slide", "Protect"], sp: { hp: 0, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 32 } },
+    { name: "Mega Piercing", nature: "Jolly", ability: "Piercing Drill", item: "Excadrite", moves: ["Earthquake", "Iron Head", "Rock Slide", "Protect"], sp: { hp: 0, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 32 } },
     { name: "Choice Scarf", nature: "Jolly", ability: "Mold Breaker", item: "Choice Scarf", moves: ["Earthquake", "Iron Head", "Rock Slide", "Rapid Spin"], sp: { hp: 0, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 32 } },
     { name: "Assault Vest", nature: "Adamant", ability: "Sand Rush", item: "Assault Vest", moves: ["Earthquake", "Iron Head", "Rock Slide", "Rapid Spin"], sp: { hp: 20, attack: 32, defense: 2, spAtk: 0, spDef: 12, speed: 0 } },
   ],
@@ -690,7 +690,7 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
     { name: "Choice Specs", nature: "Modest", ability: "Chlorophyll", item: "Choice Specs", moves: ["Overheat", "Energy Ball", "Fire Blast", "Solar Beam"], sp: { hp: 4, attack: 0, defense: 0, spAtk: 32, spDef: 0, speed: 30 } },
     { name: "Physical Attacker", nature: "Jolly", ability: "Chlorophyll", item: "Life Orb", moves: ["Flare Blitz", "Power Whip", "Crunch", "Protect"], sp: { hp: 0, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 32 } },
     { name: "Focus Sash", nature: "Timid", ability: "Moody", item: "Focus Sash", moves: ["Flamethrower", "Energy Ball", "Destiny Bond", "Protect"], sp: { hp: 0, attack: 0, defense: 2, spAtk: 32, spDef: 0, speed: 32 } },
-    { name: "Mega Spice", nature: "Timid", ability: "Spice Rush", item: "Scovillainite", moves: ["Flamethrower", "Energy Ball", "Overheat", "Protect"], sp: { hp: 0, attack: 0, defense: 2, spAtk: 32, spDef: 0, speed: 32 } },
+    { name: "Mega Spicy", nature: "Bold", ability: "Spicy Spray", item: "Scovillainite", moves: ["Flamethrower", "Energy Ball", "Leech Seed", "Protect"], sp: { hp: 32, attack: 0, defense: 32, spAtk: 2, spDef: 0, speed: 0 } },
   ],
 
   // Tinkaton (id: 959)
