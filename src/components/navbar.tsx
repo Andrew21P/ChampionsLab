@@ -20,6 +20,7 @@ const NAV_ITEMS = [
   { href: "/team-builder", label: "Team Builder", icon: Users },
   { href: "/meta", label: "Meta", icon: TrendingUp },
   { href: "/battle-bot", label: "Battle Bot", icon: Swords },
+  { href: "/gauntlet", label: "RPG Gauntlet", icon: Swords },
   { href: "/learn", label: "PokéSchool", icon: GraduationCap },
   { href: "/about", label: "About", icon: Heart },
 ];

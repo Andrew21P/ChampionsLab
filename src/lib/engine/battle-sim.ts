@@ -74,7 +74,7 @@ function resolveMegaForm(pokemon: ChampionsPokemon, set: CommonSet): {
 
 // ── BATTLE STATE ─────────────────────────────────────────────────────────────
 
-interface BattlePokemon {
+export interface BattlePokemon {
   pokemon: ChampionsPokemon;
   set: CommonSet;
   currentHP: number;
@@ -129,7 +129,7 @@ interface BattlePokemon {
   spreadImmune: string[];
 }
 
-interface FieldState {
+export interface FieldState {
   weather: string | null;
   weatherTurns: number;
   terrain: string | null;
@@ -140,7 +140,7 @@ interface FieldState {
   side2: { tailwind: number; reflect: number; lightScreen: number; auroraVeil: number };
 }
 
-interface BattleState {
+export interface BattleState {
   team1: BattlePokemon[];           // Full team of 6 (or 4 selected)
   team2: BattlePokemon[];
   active1: [BattlePokemon | null, BattlePokemon | null]; // Doubles: 2 active slots
@@ -152,7 +152,7 @@ interface BattleState {
 
 // ── BATTLE POKEMON FACTORY ───────────────────────────────────────────────────
 
-function createBattlePokemon(pokemon: ChampionsPokemon, set: CommonSet, teamForIllusion?: { pokemon: ChampionsPokemon; set: CommonSet }[]): BattlePokemon {
+export function createBattlePokemon(pokemon: ChampionsPokemon, set: CommonSet, teamForIllusion?: { pokemon: ChampionsPokemon; set: CommonSet }[]): BattlePokemon {
   const mega = resolveMegaForm(pokemon, set);
   const stats = calculateStats(mega.baseStats, set.sp, set.nature as NatureName);
   
@@ -1035,7 +1035,7 @@ function aiChooseAction(
 
 // ── BATTLE SIMULATION ────────────────────────────────────────────────────────
 
-function createInitialField(): FieldState {
+export function createInitialField(): FieldState {
   return {
     weather: null, weatherTurns: 0,
     terrain: null, terrainTurns: 0,
@@ -1045,7 +1045,7 @@ function createInitialField(): FieldState {
   };
 }
 
-function applySwitch(state: BattleState, sideIndex: 1 | 2, slot: 0 | 1): void {
+export function applySwitch(state: BattleState, sideIndex: 1 | 2, slot: 0 | 1, chosenNext?: BattlePokemon): void {
   const team = sideIndex === 1 ? state.team1 : state.team2;
   const active = sideIndex === 1 ? state.active1 : state.active2;
   const opponents = sideIndex === 1 ? state.active2 : state.active1;
@@ -1068,11 +1068,14 @@ function applySwitch(state: BattleState, sideIndex: 1 | 2, slot: 0 | 1): void {
   );
   
   if (bench.length > 0) {
-    // Intelligent bench selection: score each option
-    let bestMon = bench[0];
-    let bestScore = -Infinity;
-    
-    for (const candidate of bench) {
+    let next: BattlePokemon | undefined = chosenNext;
+
+    if (!next) {
+      // Intelligent bench selection: score each option
+      let bestMon = bench[0];
+      let bestScore = -Infinity;
+
+      for (const candidate of bench) {
       let score = 0;
       
       // Type advantage over current opponents
@@ -1112,13 +1115,14 @@ function applySwitch(state: BattleState, sideIndex: 1 | 2, slot: 0 | 1): void {
         score += 50; // Top priority: bring back the Hero nuke
       }
       
-      if (score > bestScore) {
-        bestScore = score;
-        bestMon = candidate;
+        if (score > bestScore) {
+          bestScore = score;
+          bestMon = candidate;
+        }
       }
+      next = bestMon;
     }
     
-    const next = bestMon;
     active[slot] = next;
     next.canFakeOut = true;
     next.protectCount = 0;
@@ -1199,11 +1203,11 @@ function applySwitch(state: BattleState, sideIndex: 1 | 2, slot: 0 | 1): void {
   }
 }
 
-function isIntimidateBlocked(mon: BattlePokemon): boolean {
+export function isIntimidateBlocked(mon: BattlePokemon): boolean {
   return ["Inner Focus", "Clear Body", "Oblivious", "Own Tempo", "Scrappy", "Mirror Armor"].includes(mon.ability);
 }
 
-function applyEndOfTurn(state: BattleState): void {
+export function applyEndOfTurn(state: BattleState): void {
   // Decrement field effects
   if (state.field.weatherTurns > 0) {
     state.field.weatherTurns--;
@@ -1272,7 +1276,7 @@ function applyEndOfTurn(state: BattleState): void {
   }
 }
 
-function executeMove(
+export function executeMove(
   user: BattlePokemon,
   moveName: string,
   target: BattlePokemon | null,
@@ -1727,6 +1731,32 @@ function executeMove(
   
   // Fake Out can only be used once
   if (moveName === "Fake Out") user.canFakeOut = false;
+}
+
+export interface TurnAction {
+  mon: BattlePokemon;
+  moveName: string;
+  targetSlot: number;
+  priority: number;
+  speed: number;
+  sideIndex: 1 | 2;
+  switchOut?: boolean;
+}
+
+export function getActualSpeedExported(mon: BattlePokemon, field: FieldState, sideIndex: 1 | 2): number {
+  return getActualSpeed(mon, field, sideIndex);
+}
+
+export function aiChooseActionExported(mon: BattlePokemon, sideIndex: 1 | 2, opponents: (BattlePokemon | null)[], allies: (BattlePokemon | null)[], field: FieldState, state: BattleState): { moveName: string; targetSlot: number; switchOut?: boolean } {
+  return aiChooseAction(mon, sideIndex, opponents, allies, field, state);
+}
+
+export function applyMegaEvolutionExported(mon: BattlePokemon): void {
+  applyMegaEvolution(mon);
+}
+
+export function applyImposterTransformExported(mon: BattlePokemon, target: BattlePokemon): void {
+  applyImposterTransform(mon, target);
 }
 
 /** Randomly pick 4 indices from a team of up to 6 */
