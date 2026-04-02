@@ -48,6 +48,7 @@ export default function GauntletPage() {
   const [mounted, setMounted] = useState(false);
   const store = useGauntletStore();
   const [selectedForBattle, setSelectedForBattle] = useState<number[]>([]);
+  const [tick, setTick] = useState(0);
 
   // Battle state
   const [engine, setEngine] = useState<InteractiveBattleEngine | null>(null);
@@ -138,7 +139,7 @@ export default function GauntletPage() {
           mon,
           moveName: act.moveName,
           targetSlot: act.targetSlot ?? 0,
-          priority: getMove(act.moveName)?.priority ?? 0,
+          priority: act.switchOut ? 100 : (getMove(act.moveName)?.priority ?? 0),
           speed: engine.state.active1[slot]?.stats.speed ?? 0,
           sideIndex: 1,
           switchOut: act.switchOut
@@ -149,6 +150,7 @@ export default function GauntletPage() {
     const logEntry = engine.submitTurn(actions);
     setBattleLogs([...engine.log]);
     setTurnActions({});
+    setTick(t => t + 1);
 
     if (engine.state.winner) {
       // Update roster HP
@@ -157,7 +159,8 @@ export default function GauntletPage() {
         const rosterIdx = selectedForBattle[i];
         updatedRoster[rosterIdx].currentHP = bp.isFainted ? 0 : Math.round((bp.currentHP / bp.maxHP) * 100);
       });
-      updatedRoster.forEach((r, i) => { store.updateRosterPokemon(i, { currentHP: r.currentHP }); });
+      const updates = updatedRoster.map((r, i) => ({ index: i, data: { currentHP: r.currentHP } }));
+      store.updateRosterPokemonBatch(updates);
 
       if (engine.state.winner === 1) {
         // Win

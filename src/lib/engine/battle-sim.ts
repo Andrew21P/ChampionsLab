@@ -1068,61 +1068,59 @@ export function applySwitch(state: BattleState, sideIndex: 1 | 2, slot: 0 | 1, c
   );
   
   if (bench.length > 0) {
-    let next: BattlePokemon | undefined = chosenNext;
+    // Intelligent bench selection: score each option
+    let bestMon = bench[0];
+    let bestScore = -Infinity;
 
-    if (!next) {
-      // Intelligent bench selection: score each option
-      let bestMon = bench[0];
-      let bestScore = -Infinity;
+    for (const candidate of bench) {
+    let score = 0;
 
-      for (const candidate of bench) {
-      let score = 0;
-      
-      // Type advantage over current opponents
-      for (const opp of opponents) {
-        if (!opp || opp.isFainted) continue;
-        for (const type of candidate.types) {
-          const eff = getMatchup(type, opp.types);
-          if (eff > 1) score += 15;
-          if (eff < 1) score -= 5;
-        }
-        for (const oppType of opp.types) {
-          const eff = getMatchup(oppType, candidate.types);
-          if (eff < 1) score += 10;
-          if (eff > 1) score -= 8;
-        }
+    // Type advantage over current opponents
+    for (const opp of opponents) {
+      if (!opp || opp.isFainted) continue;
+      for (const type of candidate.types) {
+        const eff = getMatchup(type, opp.types);
+        if (eff > 1) score += 15;
+        if (eff < 1) score -= 5;
       }
-      
-      // Intimidate is very valuable on switch-in
-      if (candidate.ability === "Intimidate") score += 20;
-      
-      // Fake Out available = immediate pressure
-      if (candidate.set.moves.includes("Fake Out")) score += 12;
-      
-      // Weather setter synergy
-      const abilityEffect = getAbilityEffect(candidate.ability);
-      if (abilityEffect?.setsWeather) score += 8;
-      
-      // Prefer mons with more HP remaining
-      score += (candidate.currentHP / candidate.maxHP) * 15;
-      
-      // Prefer mons that match current speed control
-      if (state.field.trickRoom && candidate.stats.speed < 70) score += 10;
-      if (!state.field.trickRoom && candidate.stats.speed > 100) score += 5;
-      
-      // HUGE bonus for Palafin that has switched out and can now come back as Hero
-      if (candidate.ability === "Zero to Hero" && candidate.hasSwitchedOut && !candidate.hasTransformed) {
-        score += 50; // Top priority: bring back the Hero nuke
+      for (const oppType of opp.types) {
+        const eff = getMatchup(oppType, candidate.types);
+        if (eff < 1) score += 10;
+        if (eff > 1) score -= 8;
       }
-      
-        if (score > bestScore) {
-          bestScore = score;
-          bestMon = candidate;
-        }
+    }
+
+    // Intimidate is very valuable on switch-in
+    if (candidate.ability === "Intimidate") score += 20;
+
+    // Fake Out available = immediate pressure
+    if (candidate.set.moves.includes("Fake Out")) score += 12;
+
+    // Weather setter synergy
+    const abilityEffect = getAbilityEffect(candidate.ability);
+    if (abilityEffect?.setsWeather) score += 8;
+
+    // Prefer mons with more HP remaining
+    score += (candidate.currentHP / candidate.maxHP) * 15;
+
+    // Prefer mons that match current speed control
+    if (state.field.trickRoom && candidate.stats.speed < 70) score += 10;
+    if (!state.field.trickRoom && candidate.stats.speed > 100) score += 5;
+
+    // HUGE bonus for Palafin that has switched out and can now come back as Hero
+    if (candidate.ability === "Zero to Hero" && candidate.hasSwitchedOut && !candidate.hasTransformed) {
+      score += 50; // Top priority: bring back the Hero nuke
+    }
+
+      if (score > bestScore) {
+        bestScore = score;
+        bestMon = candidate;
       }
-      next = bestMon;
     }
     
+    // ถ้ามี chosenNext ที่ผู้เล่นเลือกมา ให้ใช้ตัวนั้น ถ้าไม่มีให้ AI เลือก (bestMon)
+    const next = chosenNext ? chosenNext : bestMon;
+
     active[slot] = next;
     next.canFakeOut = true;
     next.protectCount = 0;
