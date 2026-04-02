@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
-import { motion, AnimatePresence } from "@/lib/motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { LastUpdated } from "@/components/last-updated";
 import {

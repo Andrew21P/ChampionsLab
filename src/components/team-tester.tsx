@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useMemo, useRef, useEffect } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "@/lib/motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Swords, Play, Search, X, Trophy, BarChart3, Loader2,
   SkipForward, Pause, RotateCcw, ChevronRight, Trash2,

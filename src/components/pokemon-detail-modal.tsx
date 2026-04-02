@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "@/lib/motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ChampionsPokemon, TYPE_COLORS, CommonSet, WinningTeam, WinningTeamMember } from "@/lib/types";

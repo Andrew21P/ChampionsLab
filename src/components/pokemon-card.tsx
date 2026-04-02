@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "@/lib/motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { ChampionsPokemon, TYPE_COLORS } from "@/lib/types";
 import { cn } from "@/lib/utils";
