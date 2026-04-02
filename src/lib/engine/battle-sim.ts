@@ -1449,45 +1449,30 @@ function executeMove(
     const critBlockedByArmor =
       (t.ability === "Shell Armor" || t.ability === "Battle Armor") && user.ability !== "Mold Breaker";
     
+    const defenderSide = state.active1.includes(t) ? state.active1 : state.active2;
+    const hasFriendGuard = defenderSide.some(
+      (ally) => ally && ally !== t && !ally.isFainted && ally.ability === "Friend Guard"
+    );
+    const resolvedHitCount = move.multiHit
+      ? move.multiHit[0] + Math.floor(state.rng() * (move.multiHit[1] - move.multiHit[0] + 1))
+      : 1;
+
     // Calculate damage
     const options: DamageCalcOptions = {
       weather: state.field.weather as DamageCalcOptions["weather"],
       isDoubles: true,
       reflect: (userSide === 1 ? state.field.side2 : state.field.side1).reflect > 0,
       lightScreen: (userSide === 1 ? state.field.side2 : state.field.side1).lightScreen > 0,
-      isCrit: !critBlockedByArmor && Math.random() < 0.0625,
+      ignoreAttackerStatStages: t.ability === "Unaware",
+      ignoreDefenderStatStages: user.ability === "Unaware",
+      multiHitCount: resolvedHitCount,
+      friendGuard: hasFriendGuard,
+      isCrit: !critBlockedByArmor && state.rng() < 0.0625,
     };
-    
-    // Unaware: ignore opponent's stat boosts
-    const atkStages = t.ability === "Unaware" ? 0 : user.boosts.attack;
-    const spAtkStages = t.ability === "Unaware" ? 0 : user.boosts.spAtk;
-    const defStages = user.ability === "Unaware" ? 0 : t.boosts.defense;
-    const spDefStages = user.ability === "Unaware" ? 0 : t.boosts.spDef;
 
-    const attacker: DamageCalcPokemon = {
-      baseStats: user.effectiveBaseStats,
-      sp: user.set.sp,
-      nature: user.set.nature as NatureName,
-      types: user.types,
-      ability: user.ability,
-      item: user.item,
-      atkStages,
-      spAtkStages,
-      hasStatus: !!user.status,
-      isBurned: user.status === "burn",
-      currentHPPercent: (user.currentHP / user.maxHP) * 100,
-    };
-    
-    const defender: DamageCalcTarget = {
-      baseStats: t.effectiveBaseStats,
-      sp: t.set.sp,
-      nature: t.set.nature as NatureName,
-      types: t.types,
-      ability: t.ability,
-      item: t.item,
-      defStages,
-      spDefStages,
-    };
+    const attacker = buildDamageAttacker(user);
+
+    const defender = buildDamageDefender(t);
     
     const result = calculateDamage(attacker, defender, moveName, options);
 
@@ -1499,7 +1484,7 @@ function executeMove(
     }
     
     // Apply damage with random roll between min and max
-    let damage = result.damage[0] + Math.floor(Math.random() * (result.damage[1] - result.damage[0] + 1));
+    let damage = result.damage[0] + Math.floor(state.rng() * (result.damage[1] - result.damage[0] + 1));
     damage = Math.max(1, damage);
     
     // ── DISGUISE (Mimikyu): block first hit, take 1/8 max HP chip ──
@@ -1513,38 +1498,14 @@ function executeMove(
       breakIllusion(t);
     }
     
-    // Friend Guard: reduce damage by 25% if ally has Friend Guard
-    const defenderSide = state.active1.includes(t) ? state.active1 : state.active2;
-    const friendGuardAlly = defenderSide.find(a => a && a !== t && !a.isFainted && a.ability === "Friend Guard");
-    if (friendGuardAlly) {
-      damage = Math.floor(damage * 0.75);
-    }
-    
-    // Thick Fat: halve Fire/Ice damage
-    if (t.ability === "Thick Fat" && (move.type === "fire" || move.type === "ice")) {
-      damage = Math.floor(damage * 0.5);
-    }
-    
-    // Prism Armor: reduce super-effective damage by 25%
-    if (t.ability === "Prism Armor" && result.effectiveness >= 2) {
-      damage = Math.floor(damage * 0.75);
-    }
-    
-    // Multiscale / Shadow Shield: halve damage at full HP
-    if ((t.ability === "Multiscale" || t.ability === "Shadow Shield") && t.currentHP === t.maxHP) {
-      damage = Math.floor(damage * 0.5);
-    }
-    
-    // Drill Force through Protect: only 25% damage
-    if (t.isProtected && user.ability === "Drill Force") {
-      damage = Math.floor(damage * 0.25);
-    }
-    
-    // Parental Bond: hit twice (second hit at 25% power)
-    if (user.ability === "Parental Bond" && !isSpreadMove(move)) {
-      const secondHit = Math.max(1, Math.floor(damage * 0.25));
-      damage += secondHit;
-    }
+    damage = applyDamageRollModifiers(damage, {
+      attackerAbility: user.ability,
+      defenderAbility: t.ability,
+      effectiveness: result.effectiveness,
+      defenderAtFullHP: t.currentHP === t.maxHP,
+      isSpreadMove: isSpreadMove(move),
+      piercedProtect: t.isProtected && user.ability === "Drill Force",
+    });
 
     t.currentHP -= damage;
     
