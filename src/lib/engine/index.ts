@@ -101,6 +101,7 @@ export {
 // Battle Simulator
 export {
   simulateBattle,
+  simulateBattleWithLog,
   runSimulation,
 } from "./battle-sim";
 

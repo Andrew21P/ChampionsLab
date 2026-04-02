@@ -346,6 +346,44 @@ function getActualSpeed(mon: BattlePokemon, field: FieldState, sideIndex: 1 | 2)
   return Math.floor(speed);
 }
 
+function buildDamageAttacker(
+  mon: BattlePokemon,
+  atkStages?: number,
+  spAtkStages?: number
+): DamageCalcPokemon {
+  return {
+    baseStats: mon.effectiveBaseStats,
+    sp: mon.set.sp,
+    nature: mon.set.nature as NatureName,
+    types: mon.types,
+    ability: mon.ability,
+    item: mon.item,
+    atkStages: atkStages ?? mon.boosts.attack,
+    spAtkStages: spAtkStages ?? mon.boosts.spAtk,
+    hasStatus: !!mon.status,
+    isBurned: mon.status === "burn",
+    currentHPPercent: (mon.currentHP / mon.maxHP) * 100,
+  };
+}
+
+function buildDamageDefender(
+  mon: BattlePokemon,
+  defStages?: number,
+  spDefStages?: number
+): DamageCalcTarget {
+  return {
+    baseStats: mon.effectiveBaseStats,
+    sp: mon.set.sp,
+    nature: mon.set.nature as NatureName,
+    types: mon.types,
+    ability: mon.ability,
+    item: mon.item,
+    defStages: defStages ?? mon.boosts.defense,
+    spDefStages: spDefStages ?? mon.boosts.spDef,
+    currentHPPercent: (mon.currentHP / mon.maxHP) * 100,
+  };
+}
+
 // ── AI DECISION ENGINE (VGC WORLD-CLASS) ─────────────────────────────────────
 // Human-like AI that models top VGC play: threat assessment, focus fire,
 // protect reads, position awareness, endgame logic, intelligent switching
@@ -374,21 +412,8 @@ function estimateThreatLevel(
   for (const moveName of attacker.set.moves) {
     const move = getMove(moveName);
     if (!move || move.category === "status") continue;
-    const atk: DamageCalcPokemon = {
-      baseStats: attacker.effectiveBaseStats, sp: attacker.set.sp,
-      nature: attacker.set.nature as NatureName, types: attacker.types,
-      ability: attacker.ability, item: attacker.item,
-      atkStages: attacker.boosts.attack, spAtkStages: attacker.boosts.spAtk,
-      hasStatus: !!attacker.status,
-      isBurned: attacker.status === "burn",
-      currentHPPercent: (attacker.currentHP / attacker.maxHP) * 100,
-    };
-    const def: DamageCalcTarget = {
-      baseStats: defender.effectiveBaseStats, sp: defender.set.sp,
-      nature: defender.set.nature as NatureName, types: defender.types,
-      ability: defender.ability, item: defender.item,
-      defStages: defender.boosts.defense, spDefStages: defender.boosts.spDef,
-    };
+    const atk = buildDamageAttacker(attacker);
+    const def = buildDamageDefender(defender);
     const result = calculateDamage(atk, def, moveName, options);
     if (result.percentHP[0] > maxPercent) maxPercent = result.percentHP[0];
   }
@@ -412,21 +437,8 @@ function allyCanKO(
   for (const moveName of ally.set.moves) {
     const move = getMove(moveName);
     if (!move || move.category === "status") continue;
-    const atk: DamageCalcPokemon = {
-      baseStats: ally.effectiveBaseStats, sp: ally.set.sp,
-      nature: ally.set.nature as NatureName, types: ally.types,
-      ability: ally.ability, item: ally.item,
-      atkStages: ally.boosts.attack, spAtkStages: ally.boosts.spAtk,
-      hasStatus: !!ally.status,
-      isBurned: ally.status === "burn",
-      currentHPPercent: (ally.currentHP / ally.maxHP) * 100,
-    };
-    const def: DamageCalcTarget = {
-      baseStats: target.effectiveBaseStats, sp: target.set.sp,
-      nature: target.set.nature as NatureName, types: target.types,
-      ability: target.ability, item: target.item,
-      defStages: target.boosts.defense, spDefStages: target.boosts.spDef,
-    };
+    const atk = buildDamageAttacker(ally);
+    const def = buildDamageDefender(target);
     const result = calculateDamage(atk, def, moveName, options);
     if (result.isOHKO) return true;
   }
@@ -576,21 +588,8 @@ function evaluateMoveOption(
         for (const m of user.set.moves) {
           const mv = getMove(m);
           if (mv && mv.category !== "status") {
-            const atk: DamageCalcPokemon = {
-              baseStats: user.effectiveBaseStats, sp: user.set.sp,
-              nature: user.set.nature as NatureName, types: user.types,
-              ability: user.ability, item: user.item,
-              atkStages: user.boosts.attack, spAtkStages: user.boosts.spAtk,
-              hasStatus: !!user.status,
-              isBurned: user.status === "burn",
-              currentHPPercent: (user.currentHP / user.maxHP) * 100,
-            };
-            const def: DamageCalcTarget = {
-              baseStats: opp.effectiveBaseStats, sp: opp.set.sp,
-              nature: opp.set.nature as NatureName, types: opp.types,
-              ability: opp.ability, item: opp.item,
-              defStages: opp.boosts.defense, spDefStages: opp.boosts.spDef,
-            };
+            const atk = buildDamageAttacker(user);
+            const def = buildDamageDefender(opp);
             const res = calculateDamage(atk, def, m, { weather: field.weather as DamageCalcOptions["weather"], isDoubles: true });
             if (res.isOHKO || (res.damage[0] / opp.currentHP) >= 1.0) {
               canKO = true;
@@ -689,21 +688,8 @@ function evaluateMoveOption(
           for (const allyMove of ally.set.moves) {
             const am = getMove(allyMove);
             if (!am || am.category === "status") continue;
-            const atk: DamageCalcPokemon = {
-              baseStats: ally.effectiveBaseStats, sp: ally.set.sp,
-              nature: ally.set.nature as NatureName, types: ally.types,
-              ability: ally.ability, item: ally.item,
-              atkStages: ally.boosts.attack, spAtkStages: ally.boosts.spAtk,
-              hasStatus: !!ally.status,
-              isBurned: ally.status === "burn",
-              currentHPPercent: (ally.currentHP / ally.maxHP) * 100,
-            };
-            const def: DamageCalcTarget = {
-              baseStats: opp.effectiveBaseStats, sp: opp.set.sp,
-              nature: opp.set.nature as NatureName, types: opp.types,
-              ability: opp.ability, item: opp.item,
-              defStages: opp.boosts.defense, spDefStages: opp.boosts.spDef,
-            };
+            const atk = buildDamageAttacker(ally);
+            const def = buildDamageDefender(opp);
             const res = calculateDamage(atk, def, allyMove, options);
             const percentVsCurrentHP = (res.damage[0] / opp.currentHP) * 100;
             // Helping Hand is 1.5x - if base damage is 60-99% of remaining HP, it secures the KO
@@ -799,30 +785,9 @@ function evaluateMoveOption(
     const target = targets[i];
     if (!target || target.isFainted) continue;
     
-    const attacker: DamageCalcPokemon = {
-      baseStats: user.effectiveBaseStats,
-      sp: user.set.sp,
-      nature: user.set.nature as NatureName,
-      types: user.types,
-      ability: user.ability,
-      item: user.item,
-      atkStages: user.boosts.attack,
-      spAtkStages: user.boosts.spAtk,
-      hasStatus: !!user.status,
-      isBurned: user.status === "burn",
-      currentHPPercent: (user.currentHP / user.maxHP) * 100,
-    };
+    const attacker = buildDamageAttacker(user);
     
-    const defender: DamageCalcTarget = {
-      baseStats: target.effectiveBaseStats,
-      sp: target.set.sp,
-      nature: target.set.nature as NatureName,
-      types: target.types,
-      ability: target.ability,
-      item: target.item,
-      defStages: target.boosts.defense,
-      spDefStages: target.boosts.spDef,
-    };
+    const defender = buildDamageDefender(target);
     
     const result = calculateDamage(attacker, defender, moveName, options);
     
@@ -852,12 +817,7 @@ function evaluateMoveOption(
       const otherTarget = targets[1 - i];
       if (otherTarget && !otherTarget.isFainted) {
         // Estimate combined damage value
-        const otherDef: DamageCalcTarget = {
-          baseStats: otherTarget.effectiveBaseStats, sp: otherTarget.set.sp,
-          nature: otherTarget.set.nature as NatureName, types: otherTarget.types,
-          ability: otherTarget.ability, item: otherTarget.item,
-          defStages: otherTarget.boosts.defense, spDefStages: otherTarget.boosts.spDef,
-        };
+        const otherDef = buildDamageDefender(otherTarget);
         const otherResult = calculateDamage(attacker, otherDef, moveName, options);
         score += otherResult.percentHP[0] * 0.35; // Add value from hitting second target
       }
@@ -867,12 +827,7 @@ function evaluateMoveOption(
       if (move.target === "allAdjacent") {
         const allyMon = allies.find(a => a && !a.isFainted);
         if (allyMon) {
-          const allyDef: DamageCalcTarget = {
-            baseStats: allyMon.effectiveBaseStats, sp: allyMon.set.sp,
-            nature: allyMon.set.nature as NatureName, types: allyMon.types,
-            ability: allyMon.ability, item: allyMon.item,
-            defStages: allyMon.boosts.defense, spDefStages: allyMon.boosts.spDef,
-          };
+          const allyDef = buildDamageDefender(allyMon);
           const allyDmg = calculateDamage(attacker, allyDef, moveName, options);
           const allyDmgPercent = allyDmg.percentHP[0];
           // Heavy penalty if it would KO the ally
