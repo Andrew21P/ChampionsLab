@@ -911,13 +911,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A seed that causes worry is planted on the target. It prevents sleep by making the target's Ability Insomnia."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/3.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/3.png",
+    "sprite": "/sprites/3.png",
+    "officialArt": "/sprites/3.png",
     "generation": 1,
     "forms": [
       {
         "name": "Mega Venusaur",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10033.png",
+        "sprite": "/sprites/10033.png",
         "types": [
           "grass",
           "poison"
@@ -2155,13 +2155,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/6.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/6.png",
+    "sprite": "/sprites/6.png",
+    "officialArt": "/sprites/6.png",
     "generation": 1,
     "forms": [
       {
         "name": "Mega Charizard X",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10034.png",
+        "sprite": "/sprites/10034.png",
         "types": [
           "fire",
           "dragon"
@@ -2185,7 +2185,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Mega Charizard Y",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10035.png",
+        "sprite": "/sprites/10035.png",
         "types": [
           "fire",
           "flying"
@@ -3332,13 +3332,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user draws attention to itself, making all targets take aim only at the user."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/9.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/9.png",
+    "sprite": "/sprites/9.png",
+    "officialArt": "/sprites/9.png",
     "generation": 1,
     "forms": [
       {
         "name": "Mega Blastoise",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10036.png",
+        "sprite": "/sprites/10036.png",
         "types": [
           "water"
         ],
@@ -4152,13 +4152,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user lays a trap of poison spikes at the feet of the opposing team. The spikes will poison opposing Pokémon that switch into battle."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/15.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/15.png",
+    "sprite": "/sprites/15.png",
+    "officialArt": "/sprites/15.png",
     "generation": 1,
     "forms": [
       {
         "name": "Mega Beedrill",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10090.png",
+        "sprite": "/sprites/10090.png",
         "types": [
           "bug",
           "poison"
@@ -5169,8 +5169,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move that hits first and makes the target flinch. Only works on the first turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/25.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/25.png",
+    "sprite": "/sprites/25.png",
+    "officialArt": "/sprites/25.png",
     "generation": 1,
     "forms": [],
     "hasMega": false,
@@ -6217,13 +6217,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "The user fights the target up close without guarding itself. It also cuts the user's Defense and Sp. Def."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/26.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/26.png",
+    "sprite": "/sprites/26.png",
+    "officialArt": "/sprites/26.png",
     "generation": 1,
     "forms": [
       {
         "name": "Mega Raichu X",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10304.png",
+        "sprite": "/sprites/oa-10304.png",
         "types": [
           "electric"
         ],
@@ -6246,7 +6246,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Mega Raichu Y",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10305.png",
+        "sprite": "/sprites/oa-10305.png",
         "types": [
           "electric"
         ],
@@ -7209,8 +7209,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A move that leaves the target badly poisoned. Its poison damage worsens every turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10100.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10100.png",
+    "sprite": "/sprites/10100.png",
+    "officialArt": "/sprites/10100.png",
     "generation": 7,
     "forms": [],
     "hasMega": false,
@@ -8728,13 +8728,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "The user creates a bizarre area in which slower Pokémon get to move first for five turns."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/36.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/36.png",
+    "sprite": "/sprites/36.png",
+    "officialArt": "/sprites/36.png",
     "generation": 1,
     "forms": [
       {
         "name": "Mega Clefable",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10278.png",
+        "sprite": "/sprites/oa-10278.png",
         "types": [
           "fairy",
           "flying"
@@ -9684,8 +9684,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "Has a good chance of lowering SP. DEF."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/38.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/38.png",
+    "sprite": "/sprites/38.png",
+    "officialArt": "/sprites/38.png",
     "generation": 1,
     "forms": [],
     "hasMega": false,
@@ -10517,8 +10517,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A move that leaves the target badly poisoned. Its poison damage worsens every turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10104.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10104.png",
+    "sprite": "/sprites/10104.png",
+    "officialArt": "/sprites/10104.png",
     "generation": 7,
     "forms": [],
     "hasMega": false,
@@ -11379,8 +11379,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move called Morning Sun."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/59.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/59.png",
+    "sprite": "/sprites/59.png",
+    "officialArt": "/sprites/59.png",
     "generation": 1,
     "forms": [],
     "hasMega": false,
@@ -11992,8 +11992,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "The user attacks with a hazardous, full-power headbutt. The user also takes terrible damage."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10230.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10230.png",
+    "sprite": "/sprites/10230.png",
+    "officialArt": "/sprites/10230.png",
     "generation": 1,
     "forms": [],
     "hasMega": false,
@@ -13042,13 +13042,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user creates a bizarre area in which Pokémon's Defense and Sp. Def stats are swapped for five turns."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/65.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/65.png",
+    "sprite": "/sprites/65.png",
+    "officialArt": "/sprites/65.png",
     "generation": 1,
     "forms": [
       {
         "name": "Mega Alakazam",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10037.png",
+        "sprite": "/sprites/10037.png",
         "types": [
           "psychic"
         ],
@@ -13908,13 +13908,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A seed that causes worry is planted on the target. It prevents sleep by making the target's Ability Insomnia."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/71.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/71.png",
+    "sprite": "/sprites/71.png",
+    "officialArt": "/sprites/71.png",
     "generation": 1,
     "forms": [
       {
         "name": "Mega Victreebel",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10279.png",
+        "sprite": "/sprites/oa-10279.png",
         "types": [
           "grass",
           "poison"
@@ -15192,13 +15192,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user lets loose a huge yawn that lulls the target into falling asleep on the next turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/80.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/80.png",
+    "sprite": "/sprites/80.png",
+    "officialArt": "/sprites/80.png",
     "generation": 1,
     "forms": [
       {
         "name": "Mega Slowbro",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10071.png",
+        "sprite": "/sprites/10071.png",
         "types": [
           "water",
           "psychic"
@@ -16117,8 +16117,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user summons a snowstorm lasting five turns. This boosts the Defense stats of Ice types."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10165.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10165.png",
+    "sprite": "/sprites/10165.png",
+    "officialArt": "/sprites/10165.png",
     "generation": 1,
     "forms": [],
     "hasMega": false,
@@ -17266,13 +17266,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user creates a bizarre area in which Pokémon's Defense and Sp. Def stats are swapped for five turns."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/94.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/94.png",
+    "sprite": "/sprites/94.png",
+    "officialArt": "/sprites/94.png",
     "generation": 1,
     "forms": [
       {
         "name": "Mega Gengar",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10038.png",
+        "sprite": "/sprites/10038.png",
         "types": [
           "ghost",
           "poison"
@@ -18443,13 +18443,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/115.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/115.png",
+    "sprite": "/sprites/115.png",
+    "officialArt": "/sprites/115.png",
     "generation": 1,
     "forms": [
       {
         "name": "Mega Kangaskhan",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10039.png",
+        "sprite": "/sprites/10039.png",
         "types": [
           "normal"
         ],
@@ -19358,13 +19358,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user creates a bizarre area in which Pokémon's Defense and Sp. Def stats are swapped for five turns."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/121.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/121.png",
+    "sprite": "/sprites/121.png",
+    "officialArt": "/sprites/121.png",
     "generation": 1,
     "forms": [
       {
         "name": "Mega Starmie",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10280.png",
+        "sprite": "/sprites/oa-10280.png",
         "types": [
           "water",
           "psychic"
@@ -20201,13 +20201,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A move that leaves the target badly poisoned. Its poison damage worsens every turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/127.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/127.png",
+    "sprite": "/sprites/127.png",
+    "officialArt": "/sprites/127.png",
     "generation": 1,
     "forms": [
       {
         "name": "Mega Pinsir",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10040.png",
+        "sprite": "/sprites/10040.png",
         "types": [
           "bug",
           "flying"
@@ -21184,13 +21184,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A move that leaves the target badly poisoned. Its poison damage worsens every turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/130.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/130.png",
+    "sprite": "/sprites/130.png",
+    "officialArt": "/sprites/130.png",
     "generation": 1,
     "forms": [
       {
         "name": "Mega Gyarados",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10041.png",
+        "sprite": "/sprites/10041.png",
         "types": [
           "water",
           "dark"
@@ -21267,8 +21267,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "Transforms into a copy of the foe."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/132.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/132.png",
+    "sprite": "/sprites/132.png",
+    "officialArt": "/sprites/132.png",
     "generation": 1,
     "forms": [],
     "hasMega": false,
@@ -21900,8 +21900,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move called Wish."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/134.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/134.png",
+    "sprite": "/sprites/134.png",
+    "officialArt": "/sprites/134.png",
     "generation": 1,
     "forms": [],
     "hasMega": false,
@@ -22516,8 +22516,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user electrifies the ground under everyone’s feet for five turns. Pokémon on the ground no longer fall asleep."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/135.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/135.png",
+    "sprite": "/sprites/135.png",
+    "officialArt": "/sprites/135.png",
     "generation": 1,
     "forms": [],
     "hasMega": false,
@@ -23402,8 +23402,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user lets loose a huge yawn that lulls the target into falling asleep on the next turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/136.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/136.png",
+    "sprite": "/sprites/136.png",
+    "officialArt": "/sprites/136.png",
     "generation": 1,
     "forms": [],
     "hasMega": false,
@@ -24051,13 +24051,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user and its allies are protected from wide-ranging attacks for one turn. If used in succession, its chance of failing rises."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/142.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/142.png",
+    "sprite": "/sprites/142.png",
+    "officialArt": "/sprites/142.png",
     "generation": 1,
     "forms": [
       {
         "name": "Mega Aerodactyl",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10042.png",
+        "sprite": "/sprites/10042.png",
         "types": [
           "rock",
           "flying"
@@ -25353,8 +25353,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user lets loose a huge yawn that lulls the target into falling asleep on the next turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/143.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/143.png",
+    "sprite": "/sprites/143.png",
+    "officialArt": "/sprites/143.png",
     "generation": 1,
     "forms": [],
     "hasMega": false,
@@ -26636,13 +26636,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A move that leaves the target badly poisoned. Its poison damage worsens every turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/149.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/149.png",
+    "sprite": "/sprites/149.png",
+    "officialArt": "/sprites/149.png",
     "generation": 1,
     "forms": [
       {
         "name": "Mega Dragonite",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10281.png",
+        "sprite": "/sprites/oa-10281.png",
         "types": [
           "dragon",
           "flying"
@@ -26708,7 +26708,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Mega Sol",
-        "description": "All moves used by this Pokémon behave as if under harsh sunlight.",
+        "description": "Even when the sunlight has not turned harsh, the Pokémon can use its moves as if the weather were harsh sunlight.",
         "isChampions": false
       }
     ],
@@ -27542,13 +27542,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "The target is attacked with a shock wave generated by the user's gaping mouth."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/154.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/154.png",
+    "sprite": "/sprites/154.png",
+    "officialArt": "/sprites/154.png",
     "generation": 2,
     "forms": [
       {
         "name": "Mega Meganium",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10282.png",
+        "sprite": "/sprites/oa-10282.png",
         "types": [
           "grass",
           "fairy"
@@ -27564,7 +27564,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Mega Sol",
-            "description": "All moves used by this Pokémon behave as if under harsh sunlight.",
+            "description": "Even when the sunlight has not turned harsh, the Pokémon can use its moves as if the weather were harsh sunlight.",
             "isChampions": false
           }
         ],
@@ -28243,8 +28243,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats increase."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/157.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/157.png",
+    "sprite": "/sprites/157.png",
+    "officialArt": "/sprites/157.png",
     "generation": 2,
     "forms": [],
     "hasMega": false,
@@ -28839,8 +28839,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "Raises SP. ATK and SP. DEF by focusing the mind."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10233.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10233.png",
+    "sprite": "/sprites/10233.png",
+    "officialArt": "/sprites/10233.png",
     "generation": 2,
     "forms": [],
     "hasMega": false,
@@ -28884,7 +28884,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Dragonize",
-        "description": "Normal-type moves become Dragon-type and gain 20% power.",
+        "description": "The Pokémon's Normal-type moves become Dragon-type moves and their power is boosted by 20%.",
         "isChampions": false
       }
     ],
@@ -29934,13 +29934,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/160.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/160.png",
+    "sprite": "/sprites/160.png",
+    "officialArt": "/sprites/160.png",
     "generation": 2,
     "forms": [
       {
         "name": "Mega Feraligatr",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10283.png",
+        "sprite": "/sprites/oa-10283.png",
         "types": [
           "water",
           "dragon"
@@ -29956,7 +29956,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Dragonize",
-            "description": "Normal-type moves become Dragon-type and gain 20% power.",
+            "description": "The Pokémon's Normal-type moves become Dragon-type moves and their power is boosted by 20%.",
             "isChampions": false
           }
         ],
@@ -30896,13 +30896,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A move that leaves the target badly poisoned. Its poison damage worsens every turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/181.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/181.png",
+    "sprite": "/sprites/181.png",
+    "officialArt": "/sprites/181.png",
     "generation": 2,
     "forms": [
       {
         "name": "Mega Ampharos",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10045.png",
+        "sprite": "/sprites/10045.png",
         "types": [
           "electric",
           "dragon"
@@ -31882,8 +31882,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "The user lunges at the target at a speed that makes it almost invisible. It is sure to strike first."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/184.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/184.png",
+    "sprite": "/sprites/184.png",
+    "officialArt": "/sprites/184.png",
     "generation": 2,
     "forms": [],
     "hasMega": false,
@@ -32753,8 +32753,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A move that leaves the target badly poisoned. Its poison damage worsens every turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/186.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/186.png",
+    "sprite": "/sprites/186.png",
+    "officialArt": "/sprites/186.png",
     "generation": 2,
     "forms": [],
     "hasMega": false,
@@ -33700,8 +33700,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/196.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/196.png",
+    "sprite": "/sprites/196.png",
+    "officialArt": "/sprites/196.png",
     "generation": 2,
     "forms": [],
     "hasMega": false,
@@ -34639,8 +34639,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move called Wish."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/197.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/197.png",
+    "sprite": "/sprites/197.png",
+    "officialArt": "/sprites/197.png",
     "generation": 2,
     "forms": [],
     "hasMega": false,
@@ -35539,8 +35539,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user summons a snowstorm lasting five turns. This boosts the Defense stats of Ice types."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/199.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/199.png",
+    "sprite": "/sprites/199.png",
+    "officialArt": "/sprites/199.png",
     "generation": 2,
     "forms": [],
     "hasMega": false,
@@ -36429,8 +36429,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "This protects Pokémon on the ground from priority moves and powers up Psychic-type moves for five turns."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10172.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10172.png",
+    "sprite": "/sprites/10172.png",
+    "officialArt": "/sprites/10172.png",
     "generation": 2,
     "forms": [],
     "hasMega": false,
@@ -37345,13 +37345,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A move that leaves the target badly poisoned. Its poison damage worsens every turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/208.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/208.png",
+    "sprite": "/sprites/208.png",
+    "officialArt": "/sprites/208.png",
     "generation": 2,
     "forms": [
       {
         "name": "Mega Steelix",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10072.png",
+        "sprite": "/sprites/10072.png",
         "types": [
           "steel",
           "ground"
@@ -38288,13 +38288,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A move that leaves the target badly poisoned. Its poison damage worsens every turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/212.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/212.png",
+    "sprite": "/sprites/212.png",
+    "officialArt": "/sprites/212.png",
     "generation": 2,
     "forms": [
       {
         "name": "Mega Scizor",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10046.png",
+        "sprite": "/sprites/10046.png",
         "types": [
           "bug",
           "steel"
@@ -39249,13 +39249,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/214.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/214.png",
+    "sprite": "/sprites/214.png",
+    "officialArt": "/sprites/214.png",
     "generation": 2,
     "forms": [
       {
         "name": "Mega Heracross",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10047.png",
+        "sprite": "/sprites/10047.png",
         "types": [
           "bug",
           "fighting"
@@ -40129,13 +40129,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The target is blown away, and a different Pokémon is dragged out. In the wild, this ends a battle against a single Pokémon."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/227.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/227.png",
+    "sprite": "/sprites/227.png",
+    "officialArt": "/sprites/227.png",
     "generation": 2,
     "forms": [
       {
         "name": "Mega Skarmory",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10284.png",
+        "sprite": "/sprites/oa-10284.png",
         "types": [
           "steel",
           "flying"
@@ -41053,13 +41053,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user shoots a sinister flame at the target to inflict a burn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/229.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/229.png",
+    "sprite": "/sprites/229.png",
+    "officialArt": "/sprites/229.png",
     "generation": 2,
     "forms": [
       {
         "name": "Mega Houndoom",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10048.png",
+        "sprite": "/sprites/10048.png",
         "types": [
           "dark",
           "fire"
@@ -42322,13 +42322,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A move that leaves the target badly poisoned. Its poison damage worsens every turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/248.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/248.png",
+    "sprite": "/sprites/248.png",
+    "officialArt": "/sprites/248.png",
     "generation": 2,
     "forms": [
       {
         "name": "Mega Tyranitar",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10049.png",
+        "sprite": "/sprites/10049.png",
         "types": [
           "rock",
           "dark"
@@ -43174,8 +43174,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user and its allies are protected from wide-ranging attacks for one turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/279.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/279.png",
+    "sprite": "/sprites/279.png",
+    "officialArt": "/sprites/279.png",
     "generation": 3,
     "forms": [],
     "hasMega": false,
@@ -44253,13 +44253,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user creates a bizarre area in which Pokémon's Defense and Sp. Def stats are swapped for five turns."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/282.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/282.png",
+    "sprite": "/sprites/282.png",
+    "officialArt": "/sprites/282.png",
     "generation": 3,
     "forms": [
       {
         "name": "Mega Gardevoir",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10051.png",
+        "sprite": "/sprites/10051.png",
         "types": [
           "psychic",
           "fairy"
@@ -45106,13 +45106,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user suppresses the target and makes its move go last."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/302.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/302.png",
+    "sprite": "/sprites/302.png",
+    "officialArt": "/sprites/302.png",
     "generation": 3,
     "forms": [
       {
         "name": "Mega Sableye",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10066.png",
+        "sprite": "/sprites/10066.png",
         "types": [
           "dark",
           "ghost"
@@ -46282,13 +46282,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "The user attacks with a hazardous, full-power headbutt. The user also takes terrible damage."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/306.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/306.png",
+    "sprite": "/sprites/306.png",
+    "officialArt": "/sprites/306.png",
     "generation": 3,
     "forms": [
       {
         "name": "Mega Aggron",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10053.png",
+        "sprite": "/sprites/10053.png",
         "types": [
           "steel"
         ],
@@ -47141,8 +47141,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user lets loose a huge yawn that lulls the target into falling asleep on the next turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/324.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/324.png",
+    "sprite": "/sprites/324.png",
+    "officialArt": "/sprites/324.png",
     "generation": 3,
     "forms": [],
     "hasMega": false,
@@ -48080,13 +48080,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user creates a bizarre area in which Pokémon's Defense and Sp. Def stats are swapped for five turns."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/334.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/334.png",
+    "sprite": "/sprites/334.png",
+    "officialArt": "/sprites/334.png",
     "generation": 3,
     "forms": [
       {
         "name": "Mega Altaria",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10067.png",
+        "sprite": "/sprites/10067.png",
         "types": [
           "dragon",
           "fairy"
@@ -48958,8 +48958,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user becomes soaked to raise resistance to fire."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/350.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/350.png",
+    "sprite": "/sprites/350.png",
+    "officialArt": "/sprites/350.png",
     "generation": 3,
     "forms": [],
     "hasMega": false,
@@ -50018,13 +50018,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user shoots a sinister flame at the target to inflict a burn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/359.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/359.png",
+    "sprite": "/sprites/359.png",
+    "officialArt": "/sprites/359.png",
     "generation": 3,
     "forms": [
       {
         "name": "Mega Absol",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10057.png",
+        "sprite": "/sprites/10057.png",
         "types": [
           "dark"
         ],
@@ -50047,7 +50047,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Mega Absol Z",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10307.png",
+        "sprite": "/sprites/oa-10307.png",
         "types": [
           "dark",
           "ghost"
@@ -51032,13 +51032,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user catches the target off guard and swaps the target's held item with its own."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/376.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/376.png",
+    "sprite": "/sprites/376.png",
+    "officialArt": "/sprites/376.png",
     "generation": 3,
     "forms": [
       {
         "name": "Mega Metagross",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10076.png",
+        "sprite": "/sprites/10076.png",
         "types": [
           "steel",
           "psychic"
@@ -51816,8 +51816,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move called Heavy Slam."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/389.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/389.png",
+    "sprite": "/sprites/389.png",
+    "officialArt": "/sprites/389.png",
     "generation": 4,
     "forms": [],
     "hasMega": false,
@@ -52665,8 +52665,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user properly coaches its ally Pokémon, boosting their Attack and Defense stats."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/392.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/392.png",
+    "sprite": "/sprites/392.png",
+    "officialArt": "/sprites/392.png",
     "generation": 4,
     "forms": [],
     "hasMega": false,
@@ -53766,8 +53766,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user lets loose a huge yawn that lulls the target into falling asleep on the next turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/395.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/395.png",
+    "sprite": "/sprites/395.png",
+    "officialArt": "/sprites/395.png",
     "generation": 4,
     "forms": [],
     "hasMega": false,
@@ -54754,13 +54754,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move that hits first and makes the target flinch. Only works on the first turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/428.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/428.png",
+    "sprite": "/sprites/428.png",
+    "officialArt": "/sprites/428.png",
     "generation": 4,
     "forms": [
       {
         "name": "Mega Lopunny",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10088.png",
+        "sprite": "/sprites/10088.png",
         "types": [
           "normal",
           "fighting"
@@ -55593,8 +55593,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user creates a bizarre area in which Pokémon's Defense and Sp. Def stats are swapped for five turns."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/442.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/442.png",
+    "sprite": "/sprites/442.png",
+    "officialArt": "/sprites/442.png",
     "generation": 4,
     "forms": [],
     "hasMega": false,
@@ -56470,13 +56470,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A move that leaves the target badly poisoned. Its poison damage worsens every turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/445.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/445.png",
+    "sprite": "/sprites/445.png",
+    "officialArt": "/sprites/445.png",
     "generation": 4,
     "forms": [
       {
         "name": "Mega Garchomp",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10058.png",
+        "sprite": "/sprites/10058.png",
         "types": [
           "dragon",
           "ground"
@@ -56500,7 +56500,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Mega Garchomp Z",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10058.png",
+        "sprite": "/sprites/oa-10058.png",
         "types": [
           "dragon"
         ],
@@ -57607,13 +57607,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "The foe slams the target with its steel-hard head. It may also make the target flinch."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/448.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/448.png",
+    "sprite": "/sprites/448.png",
+    "officialArt": "/sprites/448.png",
     "generation": 4,
     "forms": [
       {
         "name": "Mega Lucario",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10059.png",
+        "sprite": "/sprites/10059.png",
         "types": [
           "fighting",
           "steel"
@@ -57637,7 +57637,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Mega Lucario Z",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10310.png",
+        "sprite": "/sprites/oa-10310.png",
         "types": [
           "fighting",
           "steel"
@@ -58334,8 +58334,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move called Whirlwind."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/450.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/450.png",
+    "sprite": "/sprites/450.png",
+    "officialArt": "/sprites/450.png",
     "generation": 4,
     "forms": [],
     "hasMega": false,
@@ -59229,13 +59229,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A seed that causes worry is planted on the target. It prevents sleep by making the target's Ability Insomnia."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/460.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/460.png",
+    "sprite": "/sprites/460.png",
+    "officialArt": "/sprites/460.png",
     "generation": 4,
     "forms": [
       {
         "name": "Mega Abomasnow",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10060.png",
+        "sprite": "/sprites/10060.png",
         "types": [
           "grass",
           "ice"
@@ -60005,8 +60005,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move called Low Kick."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/461.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/461.png",
+    "sprite": "/sprites/461.png",
+    "officialArt": "/sprites/461.png",
     "generation": 4,
     "forms": [],
     "hasMega": false,
@@ -61202,8 +61202,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A move that leaves the target badly poisoned. Its poison damage worsens every turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/464.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/464.png",
+    "sprite": "/sprites/464.png",
+    "officialArt": "/sprites/464.png",
     "generation": 4,
     "forms": [],
     "hasMega": false,
@@ -62051,8 +62051,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A seed that causes worry is planted on the target. It prevents sleep by making the target's Ability Insomnia."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/470.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/470.png",
+    "sprite": "/sprites/470.png",
+    "officialArt": "/sprites/470.png",
     "generation": 4,
     "forms": [],
     "hasMega": false,
@@ -62873,8 +62873,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/471.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/471.png",
+    "sprite": "/sprites/471.png",
+    "officialArt": "/sprites/471.png",
     "generation": 4,
     "forms": [],
     "hasMega": false,
@@ -63908,8 +63908,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user lays a trap of poison spikes at the feet of the opposing team. The spikes will poison opposing Pokémon that switch into battle."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/472.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/472.png",
+    "sprite": "/sprites/472.png",
+    "officialArt": "/sprites/472.png",
     "generation": 4,
     "forms": [],
     "hasMega": false,
@@ -65257,13 +65257,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/475.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/475.png",
+    "sprite": "/sprites/475.png",
+    "officialArt": "/sprites/475.png",
     "generation": 4,
     "forms": [
       {
         "name": "Mega Gallade",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10068.png",
+        "sprite": "/sprites/10068.png",
         "types": [
           "psychic",
           "fighting"
@@ -66177,13 +66177,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user shoots a sinister flame at the target to inflict a burn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/478.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/478.png",
+    "sprite": "/sprites/478.png",
+    "officialArt": "/sprites/478.png",
     "generation": 4,
     "forms": [
       {
         "name": "Mega Froslass",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10285.png",
+        "sprite": "/sprites/oa-10285.png",
         "types": [
           "ice",
           "ghost"
@@ -66849,8 +66849,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "Allows a full-power attack, but sharply lowers SP. ATK."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/479.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/479.png",
+    "sprite": "/sprites/479.png",
+    "officialArt": "/sprites/479.png",
     "generation": 4,
     "forms": [],
     "hasMega": false,
@@ -67487,8 +67487,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user shoots a sinister flame at the target to inflict a burn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10008.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10008.png",
+    "sprite": "/sprites/10008.png",
+    "officialArt": "/sprites/10008.png",
     "generation": 4,
     "forms": [],
     "hasMega": false,
@@ -68125,8 +68125,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user shoots a sinister flame at the target to inflict a burn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10009.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10009.png",
+    "sprite": "/sprites/10009.png",
+    "officialArt": "/sprites/10009.png",
     "generation": 4,
     "forms": [],
     "hasMega": false,
@@ -68763,8 +68763,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user shoots a sinister flame at the target to inflict a burn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10010.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10010.png",
+    "sprite": "/sprites/10010.png",
+    "officialArt": "/sprites/10010.png",
     "generation": 4,
     "forms": [],
     "hasMega": false,
@@ -69401,8 +69401,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user shoots a sinister flame at the target to inflict a burn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10011.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10011.png",
+    "sprite": "/sprites/10011.png",
+    "officialArt": "/sprites/10011.png",
     "generation": 4,
     "forms": [],
     "hasMega": false,
@@ -70039,8 +70039,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user shoots a sinister flame at the target to inflict a burn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10012.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10012.png",
+    "sprite": "/sprites/10012.png",
+    "officialArt": "/sprites/10012.png",
     "generation": 4,
     "forms": [],
     "hasMega": false,
@@ -70870,8 +70870,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move called Hidden Power Fire."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/497.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/497.png",
+    "sprite": "/sprites/497.png",
+    "officialArt": "/sprites/497.png",
     "generation": 5,
     "forms": [],
     "hasMega": false,
@@ -71825,13 +71825,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user lets loose a huge yawn that lulls the target into falling asleep on the next turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/500.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/500.png",
+    "sprite": "/sprites/500.png",
+    "officialArt": "/sprites/500.png",
     "generation": 5,
     "forms": [
       {
         "name": "Mega Emboar",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10286.png",
+        "sprite": "/sprites/oa-10286.png",
         "types": [
           "fire",
           "fighting"
@@ -72741,8 +72741,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/503.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/503.png",
+    "sprite": "/sprites/503.png",
+    "officialArt": "/sprites/503.png",
     "generation": 5,
     "forms": [],
     "hasMega": false,
@@ -73382,8 +73382,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move called Sacred Sword."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10236.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10236.png",
+    "sprite": "/sprites/10236.png",
+    "officialArt": "/sprites/10236.png",
     "generation": 5,
     "forms": [],
     "hasMega": false,
@@ -74091,13 +74091,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A move that leaves the target badly poisoned. Its poison damage worsens every turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/530.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/530.png",
+    "sprite": "/sprites/530.png",
+    "officialArt": "/sprites/530.png",
     "generation": 5,
     "forms": [
       {
         "name": "Mega Excadrill",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10287.png",
+        "sprite": "/sprites/oa-10287.png",
         "types": [
           "ground",
           "steel"
@@ -74112,8 +74112,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         },
         "abilities": [
           {
-            "name": "Drill Force",
-            "description": "Ground and Steel-type moves gain 30% power. Ignores the target's defensive stat changes.",
+            "name": "Piercing Drill",
+            "description": "When the Pokémon uses contact moves, it can hit even targets that are protecting themselves, dealing 1/4 of the damage that the move would otherwise deal. Everything aside from the target's protective effects is still triggered.",
             "isChampions": true
           }
         ],
@@ -75130,13 +75130,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user lets loose a huge yawn that lulls the target into falling asleep on the next turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/531.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/531.png",
+    "sprite": "/sprites/531.png",
+    "officialArt": "/sprites/531.png",
     "generation": 5,
     "forms": [
       {
         "name": "Mega Audino",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10069.png",
+        "sprite": "/sprites/10069.png",
         "types": [
           "normal",
           "fairy"
@@ -75782,8 +75782,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user properly coaches its ally Pokémon, boosting their Attack and Defense stats."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/534.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/534.png",
+    "sprite": "/sprites/534.png",
+    "officialArt": "/sprites/534.png",
     "generation": 5,
     "forms": [],
     "hasMega": false,
@@ -76464,8 +76464,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A seed that causes worry is planted on the target. It prevents sleep by making the target's Ability Insomnia."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/547.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/547.png",
+    "sprite": "/sprites/547.png",
+    "officialArt": "/sprites/547.png",
     "generation": 5,
     "forms": [],
     "hasMega": false,
@@ -77461,8 +77461,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A move that leaves the target badly poisoned. Its poison damage worsens every turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/553.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/553.png",
+    "sprite": "/sprites/553.png",
+    "officialArt": "/sprites/553.png",
     "generation": 5,
     "forms": [],
     "hasMega": false,
@@ -77944,8 +77944,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user polishes its body to reduce drag. It can sharply raise the Speed stat. "
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/569.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/569.png",
+    "sprite": "/sprites/569.png",
+    "officialArt": "/sprites/569.png",
     "generation": 5,
     "forms": [],
     "hasMega": false,
@@ -78813,8 +78813,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user catches the target off guard and swaps the target's held item with its own."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/571.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/571.png",
+    "sprite": "/sprites/571.png",
+    "officialArt": "/sprites/571.png",
     "generation": 5,
     "forms": [],
     "hasMega": false,
@@ -79495,8 +79495,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user shoots a sinister flame at the target to inflict a burn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10239.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10239.png",
+    "sprite": "/sprites/10239.png",
+    "officialArt": "/sprites/10239.png",
     "generation": 5,
     "forms": [],
     "hasMega": false,
@@ -79870,8 +79870,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move called Aurora Veil."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/584.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/584.png",
+    "sprite": "/sprites/584.png",
+    "officialArt": "/sprites/584.png",
     "generation": 5,
     "forms": [],
     "hasMega": false,
@@ -80520,8 +80520,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A move that leaves the target badly poisoned. Its poison damage worsens every turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/587.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/587.png",
+    "sprite": "/sprites/587.png",
+    "officialArt": "/sprites/587.png",
     "generation": 5,
     "forms": [],
     "hasMega": false,
@@ -81040,8 +81040,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user electrifies the ground under everyone’s feet for five turns. Pokémon on the ground no longer fall asleep."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/618.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/618.png",
+    "sprite": "/sprites/618.png",
+    "officialArt": "/sprites/618.png",
     "generation": 5,
     "forms": [],
     "hasMega": false,
@@ -81522,8 +81522,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "The foe slams the target with its steel-hard head. It may also make the target flinch."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10180.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10180.png",
+    "sprite": "/sprites/10180.png",
+    "officialArt": "/sprites/10180.png",
     "generation": 5,
     "forms": [],
     "hasMega": false,
@@ -82510,8 +82510,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user catches the target off guard and swaps the target's held item with its own."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/623.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/623.png",
+    "sprite": "/sprites/623.png",
+    "officialArt": "/sprites/623.png",
     "generation": 5,
     "forms": [],
     "hasMega": false,
@@ -83479,8 +83479,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/635.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/635.png",
+    "sprite": "/sprites/635.png",
+    "officialArt": "/sprites/635.png",
     "generation": 5,
     "forms": [],
     "hasMega": false,
@@ -84102,8 +84102,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user lightly performs a beautiful, mystic dance. It boosts the user’s Sp. Atk, Sp. Def, and Speed stats."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/637.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/637.png",
+    "sprite": "/sprites/637.png",
+    "officialArt": "/sprites/637.png",
     "generation": 5,
     "forms": [],
     "hasMega": false,
@@ -85192,13 +85192,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A seed that causes worry is planted on the target. It prevents sleep by making the target's Ability Insomnia."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/652.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/652.png",
+    "sprite": "/sprites/652.png",
+    "officialArt": "/sprites/652.png",
     "generation": 6,
     "forms": [
       {
         "name": "Mega Chesnaught",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10292.png",
+        "sprite": "/sprites/oa-10292.png",
         "types": [
           "grass",
           "fighting"
@@ -86208,13 +86208,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/655.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/655.png",
+    "sprite": "/sprites/655.png",
+    "officialArt": "/sprites/655.png",
     "generation": 6,
     "forms": [
       {
         "name": "Mega Delphox",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10293.png",
+        "sprite": "/sprites/oa-10293.png",
         "types": [
           "fire",
           "psychic"
@@ -87107,13 +87107,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/658.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/658.png",
+    "sprite": "/sprites/658.png",
+    "officialArt": "/sprites/658.png",
     "generation": 6,
     "forms": [
       {
         "name": "Mega Greninja",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10294.png",
+        "sprite": "/sprites/oa-10294.png",
         "types": [
           "water",
           "dark"
@@ -87975,8 +87975,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/660.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/660.png",
+    "sprite": "/sprites/660.png",
+    "officialArt": "/sprites/660.png",
     "generation": 6,
     "forms": [],
     "hasMega": false,
@@ -88634,8 +88634,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/663.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/663.png",
+    "sprite": "/sprites/663.png",
+    "officialArt": "/sprites/663.png",
     "generation": 6,
     "forms": [],
     "hasMega": false,
@@ -89136,8 +89136,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move called Rage Powder."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/666.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/666.png",
+    "sprite": "/sprites/666.png",
+    "officialArt": "/sprites/666.png",
     "generation": 6,
     "forms": [],
     "hasMega": false,
@@ -89689,8 +89689,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/676.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/676.png",
+    "sprite": "/sprites/676.png",
+    "officialArt": "/sprites/676.png",
     "generation": 6,
     "forms": [],
     "hasMega": false,
@@ -90549,13 +90549,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user lets loose a huge yawn that lulls the target into falling asleep on the next turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/678.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/678.png",
+    "sprite": "/sprites/678.png",
+    "officialArt": "/sprites/678.png",
     "generation": 6,
     "forms": [
       {
         "name": "Mega Meowstic",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10314.png",
+        "sprite": "/sprites/oa-10314.png",
         "types": [
           "psychic"
         ],
@@ -91182,8 +91182,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "Protects the user from attacks. Lowers Attack of any attacker that makes contact."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/681.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/681.png",
+    "sprite": "/sprites/681.png",
+    "officialArt": "/sprites/681.png",
     "generation": 6,
     "forms": [],
     "hasMega": false,
@@ -91871,8 +91871,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user becomes soaked to raise resistance to fire."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/693.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/693.png",
+    "sprite": "/sprites/693.png",
+    "officialArt": "/sprites/693.png",
     "generation": 6,
     "forms": [],
     "hasMega": false,
@@ -92485,8 +92485,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user lays a trap of levitating stones around the foe. The trap hurts foes that switch into battle."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/697.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/697.png",
+    "sprite": "/sprites/697.png",
+    "officialArt": "/sprites/697.png",
     "generation": 6,
     "forms": [],
     "hasMega": false,
@@ -93099,8 +93099,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move called Aurora Veil."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/699.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/699.png",
+    "sprite": "/sprites/699.png",
+    "officialArt": "/sprites/699.png",
     "generation": 6,
     "forms": [],
     "hasMega": false,
@@ -93865,8 +93865,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move called Yawn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/700.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/700.png",
+    "sprite": "/sprites/700.png",
+    "officialArt": "/sprites/700.png",
     "generation": 6,
     "forms": [],
     "hasMega": false,
@@ -94881,13 +94881,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/701.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/701.png",
+    "sprite": "/sprites/701.png",
+    "officialArt": "/sprites/701.png",
     "generation": 6,
     "forms": [
       {
         "name": "Mega Hawlucha",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10300.png",
+        "sprite": "/sprites/oa-10300.png",
         "types": [
           "fighting",
           "flying"
@@ -95349,8 +95349,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user covers the ground under everyone’s feet with mist for five turns. This protects Pokémon on the ground from status conditions."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/707.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/707.png",
+    "sprite": "/sprites/707.png",
+    "officialArt": "/sprites/707.png",
     "generation": 6,
     "forms": [],
     "hasMega": false,
@@ -95887,8 +95887,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user teleports using a strange power and switches its place with one of its allies."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/711.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/711.png",
+    "sprite": "/sprites/711.png",
+    "officialArt": "/sprites/711.png",
     "generation": 6,
     "forms": [],
     "hasMega": false,
@@ -96704,8 +96704,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The target is blown away, and a different Pokémon is dragged out. In the wild, this ends a battle against a single Pokémon."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/715.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/715.png",
+    "sprite": "/sprites/715.png",
+    "officialArt": "/sprites/715.png",
     "generation": 6,
     "forms": [],
     "hasMega": false,
@@ -97714,8 +97714,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A seed that causes worry is planted on the target. It prevents sleep by making the target's Ability Insomnia."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/724.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/724.png",
+    "sprite": "/sprites/724.png",
+    "officialArt": "/sprites/724.png",
     "generation": 7,
     "forms": [],
     "hasMega": false,
@@ -98464,8 +98464,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The target is taunted into a rage that allows it to use only attack moves for three turns."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10244.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10244.png",
+    "sprite": "/sprites/10244.png",
+    "officialArt": "/sprites/10244.png",
     "generation": 7,
     "forms": [],
     "hasMega": false,
@@ -99447,8 +99447,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/727.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/727.png",
+    "sprite": "/sprites/727.png",
+    "officialArt": "/sprites/727.png",
     "generation": 7,
     "forms": [],
     "hasMega": false,
@@ -100124,8 +100124,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user summons a snowstorm lasting five turns. This boosts the Defense stats of Ice types."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/730.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/730.png",
+    "sprite": "/sprites/730.png",
+    "officialArt": "/sprites/730.png",
     "generation": 7,
     "forms": [],
     "hasMega": false,
@@ -100698,8 +100698,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats increase."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/733.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/733.png",
+    "sprite": "/sprites/733.png",
+    "officialArt": "/sprites/733.png",
     "generation": 7,
     "forms": [],
     "hasMega": false,
@@ -101496,13 +101496,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/740.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/740.png",
+    "sprite": "/sprites/740.png",
+    "officialArt": "/sprites/740.png",
     "generation": 7,
     "forms": [
       {
         "name": "Mega Crabominable",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10315.png",
+        "sprite": "/sprites/oa-10315.png",
         "types": [
           "fighting",
           "ice"
@@ -102255,8 +102255,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move called Counter."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/745.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/745.png",
+    "sprite": "/sprites/745.png",
+    "officialArt": "/sprites/745.png",
     "generation": 7,
     "forms": [],
     "hasMega": false,
@@ -102955,8 +102955,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user and its allies are protected from wide-ranging attacks for one turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/748.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/748.png",
+    "sprite": "/sprites/748.png",
+    "officialArt": "/sprites/748.png",
     "generation": 7,
     "forms": [],
     "hasMega": false,
@@ -103555,8 +103555,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A move that leaves the target badly poisoned. Its poison damage worsens every turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/750.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/750.png",
+    "sprite": "/sprites/750.png",
+    "officialArt": "/sprites/750.png",
     "generation": 7,
     "forms": [],
     "hasMega": false,
@@ -104043,8 +104043,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user weaves a sticky net around the opposing team, which lowers their Speed stat upon switching into battle."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/752.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/752.png",
+    "sprite": "/sprites/752.png",
+    "officialArt": "/sprites/752.png",
     "generation": 7,
     "forms": [],
     "hasMega": false,
@@ -104778,8 +104778,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A seed that causes worry is planted on the target. It prevents sleep by making the target's Ability Insomnia."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/763.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/763.png",
+    "sprite": "/sprites/763.png",
+    "officialArt": "/sprites/763.png",
     "generation": 7,
     "forms": [],
     "hasMega": false,
@@ -105640,8 +105640,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user lets loose a huge yawn that lulls the target into falling asleep on the next turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/765.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/765.png",
+    "sprite": "/sprites/765.png",
+    "officialArt": "/sprites/765.png",
     "generation": 7,
     "forms": [],
     "hasMega": false,
@@ -106456,8 +106456,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/778.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/778.png",
+    "sprite": "/sprites/778.png",
+    "officialArt": "/sprites/778.png",
     "generation": 7,
     "forms": [],
     "hasMega": false,
@@ -107300,13 +107300,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/780.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/780.png",
+    "sprite": "/sprites/780.png",
+    "officialArt": "/sprites/780.png",
     "generation": 7,
     "forms": [
       {
         "name": "Mega Drampa",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10302.png",
+        "sprite": "/sprites/oa-10302.png",
         "types": [
           "normal",
           "dragon"
@@ -108331,8 +108331,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/784.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/784.png",
+    "sprite": "/sprites/784.png",
+    "officialArt": "/sprites/784.png",
     "generation": 7,
     "forms": [],
     "hasMega": false,
@@ -108986,8 +108986,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/823.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/823.png",
+    "sprite": "/sprites/823.png",
+    "officialArt": "/sprites/823.png",
     "generation": 8,
     "forms": [],
     "hasMega": false,
@@ -109442,8 +109442,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user coils up and concentrates. This raises its Attack and Defense stats as well as its accuracy."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/844.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/844.png",
+    "sprite": "/sprites/844.png",
+    "officialArt": "/sprites/844.png",
     "generation": 8,
     "forms": [],
     "hasMega": false,
@@ -109848,8 +109848,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user restores its HP by the same amount as the target’s Attack stat. It also lowers the target’s Attack stat."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/855.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/855.png",
+    "sprite": "/sprites/855.png",
+    "officialArt": "/sprites/855.png",
     "generation": 8,
     "forms": [],
     "hasMega": false,
@@ -110485,8 +110485,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user creates a bizarre area in which Pokémon's Defense and Sp. Def stats are swapped for five turns."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/858.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/858.png",
+    "sprite": "/sprites/858.png",
+    "officialArt": "/sprites/858.png",
     "generation": 8,
     "forms": [],
     "hasMega": false,
@@ -111185,8 +111185,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move that hits first and makes the target flinch. Only works on the first turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/866.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/866.png",
+    "sprite": "/sprites/866.png",
+    "officialArt": "/sprites/866.png",
     "generation": 8,
     "forms": [],
     "hasMega": false,
@@ -111830,8 +111830,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user creates a bizarre area in which Pokémon's Defense and Sp. Def stats are swapped for five turns."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/867.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/867.png",
+    "sprite": "/sprites/867.png",
+    "officialArt": "/sprites/867.png",
     "generation": 8,
     "forms": [],
     "hasMega": false,
@@ -112227,8 +112227,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user sharply raises the target’s Attack and Sp. Atk stats by decorating the target."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/869.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/869.png",
+    "sprite": "/sprites/869.png",
+    "officialArt": "/sprites/869.png",
     "generation": 8,
     "forms": [],
     "hasMega": false,
@@ -112782,8 +112782,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user electrifies the ground under everyone’s feet for five turns. Pokémon on the ground no longer fall asleep."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/877.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/877.png",
+    "sprite": "/sprites/877.png",
+    "officialArt": "/sprites/877.png",
     "generation": 8,
     "forms": [],
     "hasMega": false,
@@ -113446,8 +113446,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user shoots a sinister flame at the target to inflict a burn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/887.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/887.png",
+    "sprite": "/sprites/887.png",
+    "officialArt": "/sprites/887.png",
     "generation": 8,
     "forms": [],
     "hasMega": false,
@@ -113993,8 +113993,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user whips up a turbulent whirlwind that boosts the Speed stats of itself and its allies for four turns."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/900.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/900.png",
+    "sprite": "/sprites/900.png",
+    "officialArt": "/sprites/900.png",
     "generation": 8,
     "forms": [],
     "hasMega": false,
@@ -114729,8 +114729,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The target is taunted into a rage that allows it to use only attack moves for three turns."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/901.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/901.png",
+    "sprite": "/sprites/901.png",
+    "officialArt": "/sprites/901.png",
     "generation": 8,
     "forms": [],
     "hasMega": false,
@@ -115257,8 +115257,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user wags its tail cutely, making opposing Pokémon less wary. This lowers their Defense stats."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/902.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/902.png",
+    "sprite": "/sprites/902.png",
+    "officialArt": "/sprites/902.png",
     "generation": 8,
     "forms": [],
     "hasMega": false,
@@ -115894,8 +115894,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move that hits first and makes the target flinch. Only works on the first turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/903.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/903.png",
+    "sprite": "/sprites/903.png",
+    "officialArt": "/sprites/903.png",
     "generation": 8,
     "forms": [],
     "hasMega": false,
@@ -116589,8 +116589,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "Enables the user to attack first. Fails if the target is not readying an attack."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/908.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/908.png",
+    "sprite": "/sprites/908.png",
+    "officialArt": "/sprites/908.png",
     "generation": 9,
     "forms": [],
     "hasMega": false,
@@ -117112,8 +117112,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user properly coaches its ally Pokémon, boosting their Attack and Defense stats."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/914.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/914.png",
+    "sprite": "/sprites/914.png",
+    "officialArt": "/sprites/914.png",
     "generation": 9,
     "forms": [],
     "hasMega": false,
@@ -117802,8 +117802,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move that hits first and makes the target flinch. Only works on the first turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/923.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/923.png",
+    "sprite": "/sprites/923.png",
+    "officialArt": "/sprites/923.png",
     "generation": 9,
     "forms": [],
     "hasMega": false,
@@ -118293,8 +118293,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move called Bite."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/925.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/925.png",
+    "sprite": "/sprites/925.png",
+    "officialArt": "/sprites/925.png",
     "generation": 9,
     "forms": [],
     "hasMega": false,
@@ -118847,8 +118847,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user and its allies are protected from wide-ranging attacks for one turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/934.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/934.png",
+    "sprite": "/sprites/934.png",
+    "officialArt": "/sprites/934.png",
     "generation": 9,
     "forms": [],
     "hasMega": false,
@@ -119406,8 +119406,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user shoots a sinister flame at the target to inflict a burn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/936.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/936.png",
+    "sprite": "/sprites/936.png",
+    "officialArt": "/sprites/936.png",
     "generation": 9,
     "forms": [],
     "hasMega": false,
@@ -119893,8 +119893,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user teleports using a strange power and switches its place with one of its allies."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/937.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/937.png",
+    "sprite": "/sprites/937.png",
+    "officialArt": "/sprites/937.png",
     "generation": 9,
     "forms": [],
     "hasMega": false,
@@ -120385,13 +120385,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move called Destiny Bond."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/952.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/952.png",
+    "sprite": "/sprites/952.png",
+    "officialArt": "/sprites/952.png",
     "generation": 9,
     "forms": [
       {
         "name": "Mega Scovillain",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10320.png",
+        "sprite": "/sprites/oa-10320.png",
         "types": [
           "grass",
           "fire"
@@ -120406,8 +120406,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         },
         "abilities": [
           {
-            "name": "Spice Rush",
-            "description": "Grass and Fire-type moves gain 30% power. Sun is set up on Mega Evolution.",
+            "name": "Spicy Spray",
+            "description": "When the Pokémon takes damage from a move, it burns the attacker.",
             "isChampions": true
           }
         ],
@@ -120902,8 +120902,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "After making its attack, the user rushes back to switch places with a party Pokémon in waiting."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/959.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/959.png",
+    "sprite": "/sprites/959.png",
+    "officialArt": "/sprites/959.png",
     "generation": 9,
     "forms": [],
     "hasMega": false,
@@ -121491,8 +121491,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The target is taunted into a rage that allows it to use only attack moves for three turns."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/964.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/964.png",
+    "sprite": "/sprites/964.png",
+    "officialArt": "/sprites/964.png",
     "generation": 9,
     "forms": [],
     "hasMega": false,
@@ -121869,8 +121869,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user coils up and concentrates. This raises its Attack and Defense stats as well as its accuracy."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/968.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/968.png",
+    "sprite": "/sprites/968.png",
+    "officialArt": "/sprites/968.png",
     "generation": 9,
     "forms": [],
     "hasMega": false,
@@ -122329,13 +122329,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user lays a trap of poison spikes at the feet of the opposing team. The spikes will poison opposing Pokémon that switch into battle."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/970.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/970.png",
+    "sprite": "/sprites/970.png",
+    "officialArt": "/sprites/970.png",
     "generation": 9,
     "forms": [
       {
         "name": "Mega Glimmora",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10321.png",
+        "sprite": "/sprites/oa-10321.png",
         "types": [
           "rock",
           "poison"
@@ -122809,8 +122809,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user lets loose a huge yawn that lulls the target into falling asleep on the next turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/977.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/977.png",
+    "sprite": "/sprites/977.png",
+    "officialArt": "/sprites/977.png",
     "generation": 9,
     "forms": [],
     "hasMega": false,
@@ -123178,8 +123178,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "An attack that may freeze the foe."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/978.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/978.png",
+    "sprite": "/sprites/978.png",
+    "officialArt": "/sprites/978.png",
     "generation": 9,
     "forms": [
       {
@@ -123911,8 +123911,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user creates a bizarre area in which slower Pokémon get to move first for five turns."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/981.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/981.png",
+    "sprite": "/sprites/981.png",
+    "officialArt": "/sprites/981.png",
     "generation": 9,
     "forms": [],
     "hasMega": false,
@@ -124484,8 +124484,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "Enables the user to attack first. Fails if the target is not readying an attack."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/983.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/983.png",
+    "sprite": "/sprites/983.png",
+    "officialArt": "/sprites/983.png",
     "generation": 9,
     "forms": [],
     "hasMega": false,
@@ -124908,8 +124908,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
               "description": "A move called Helping Hand."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1013.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1013.png",
+    "sprite": "/sprites/1013.png",
+    "officialArt": "/sprites/1013.png",
     "generation": 9,
     "forms": [],
     "hasMega": false,
@@ -125480,8 +125480,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user launches a weak jolt of electricity that paralyzes the target."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1018.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1018.png",
+    "sprite": "/sprites/1018.png",
+    "officialArt": "/sprites/1018.png",
     "generation": 9,
     "forms": [],
     "hasMega": false,
@@ -126052,8 +126052,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user lets loose a huge yawn that lulls the target into falling asleep on the next turn."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1019.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1019.png",
+    "sprite": "/sprites/1019.png",
+    "officialArt": "/sprites/1019.png",
     "generation": 9,
     "forms": [],
     "hasMega": false,
@@ -126426,8 +126426,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The target is scared off, and a different Pokémon is dragged out. In the wild, this ends a battle against a single Pokémon."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/473.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/473.png",
+    "sprite": "/sprites/473.png",
+    "officialArt": "/sprites/473.png",
     "generation": 4,
     "forms": [],
     "hasMega": false,
@@ -126665,13 +126665,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user creates a protective field that prevents status conditions for five turns."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/609.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/609.png",
+    "sprite": "/sprites/609.png",
+    "officialArt": "/sprites/609.png",
     "generation": 5,
     "forms": [
       {
         "name": "Mega Chandelure",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10291.png",
+        "sprite": "/sprites/oa-10291.png",
         "types": [
           "ghost",
           "fire"
@@ -126914,13 +126914,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user endures any attack with at least 1 HP. This move's chance of failing rises if used in succession."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/670.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/670.png",
+    "sprite": "/sprites/670.png",
+    "officialArt": "/sprites/670.png",
     "generation": 6,
     "forms": [
       {
         "name": "Mega Floette",
-        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10296.png",
+        "sprite": "/sprites/oa-10296.png",
         "types": [
           "fairy"
         ],
@@ -127284,8 +127284,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user endures any attack with at least 1 HP."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/706.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/706.png",
+    "sprite": "/sprites/706.png",
+    "officialArt": "/sprites/706.png",
     "generation": 6,
     "forms": [],
     "hasMega": false,
@@ -127586,8 +127586,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user endures any attack with at least 1 HP."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/709.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/709.png",
+    "sprite": "/sprites/709.png",
+    "officialArt": "/sprites/709.png",
     "generation": 6,
     "forms": [],
     "hasMega": false,
@@ -127987,8 +127987,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user randomly uses one of the moves it knows. This move can only be used while the user is asleep."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/842.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/842.png",
+    "sprite": "/sprites/842.png",
+    "officialArt": "/sprites/842.png",
     "generation": 8,
     "forms": [],
     "hasMega": false,
@@ -128451,8 +128451,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "The user randomly uses one of the moves it knows. This move can only be used while the user is asleep."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/861.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/861.png",
+    "sprite": "/sprites/861.png",
+    "officialArt": "/sprites/861.png",
     "generation": 8,
     "forms": [],
     "hasMega": false,
@@ -128892,8 +128892,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "description": "A move that has different effects depending on whether the user is a Ghost type or not."
       }
     ],
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/911.png",
-    "officialArt": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/911.png",
+    "sprite": "/sprites/911.png",
+    "officialArt": "/sprites/911.png",
     "generation": 9,
     "forms": [],
     "hasMega": false,

@@ -81,11 +81,7 @@ export default function RootLayout({
             __html: `try{if(localStorage.getItem('championslab-theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}`,
           }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `document.addEventListener('click',function(e){var d=document.getElementById('mobile-nav-details');if(d&&d.open&&e.target.closest('#mobile-nav-details nav a'))d.removeAttribute('open')})`,
-          }}
-        />
+
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-NVYVM8YJZN"
           strategy="afterInteractive"
@@ -101,6 +97,25 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <LazyParticles />
+        {/* Pure HTML hamburger — works instantly, no React hydration needed */}
+        <button
+          id="mobile-nav-toggle"
+          className="md:hidden fixed top-4 right-4 z-[60] min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg cursor-pointer"
+          aria-label="Toggle menu"
+          suppressHydrationWarning
+        >
+          <svg className="hamburger-open w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg className="hamburger-close w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var b=document.getElementById('mobile-nav-toggle');if(b)b.addEventListener('click',function(){document.body.classList.toggle('mobile-open')});document.addEventListener('click',function(e){if(document.body.classList.contains('mobile-open')&&e.target.closest('.mobile-nav-panel a'))document.body.classList.remove('mobile-open')})})()`,
+          }}
+        />
         <Navbar />
         <Suspense>
           <main className="flex-1 relative z-10">{children}</main>

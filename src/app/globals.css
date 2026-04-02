@@ -123,11 +123,14 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-/* Mobile hamburger — native <details><summary> widget, browser handles toggle */
-.nav-summary { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
-.nav-icon-close { display: none; }
-#mobile-nav-details[open] .nav-icon-close { display: block; }
-#mobile-nav-details[open] .nav-icon-open { display: none; }
+
+
+/* Mobile hamburger — pure HTML, works before React hydrates */
+.hamburger-close { display: none; }
+body.mobile-open .hamburger-close { display: block; }
+body.mobile-open .hamburger-open { display: none; }
+.mobile-nav-panel { display: none; }
+body.mobile-open .mobile-nav-panel { display: block; }
 
 /* Soft shadow effects for cards */
 .glow-red { box-shadow: 0 4px 16px rgba(239, 68, 68, 0.12), 0 1px 3px rgba(0,0,0,0.04); }
