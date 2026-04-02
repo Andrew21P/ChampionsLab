@@ -434,12 +434,12 @@ export const ABILITY_DATA: Record<string, AbilityEffect> = {
   },
   "Dragonize": {
     name: "Dragonize", category: "champions",
-    description: "Normal-type moves become Dragon-type and gain 20% power.",
+    description: "The Pokémon's Normal-type moves become Dragon-type moves and their power is boosted by 20%.",
     vgcRelevance: 8,
   },
   "Piercing Drill": {
     name: "Piercing Drill", category: "champions",
-    description: "Contact moves pierce through Protect, dealing 1/4 of the damage. All other effects from the target's protective moves still trigger.",
+    description: "When the Pokémon uses contact moves, it can hit even targets that are protecting themselves, dealing 1/4 of the damage that the move would otherwise deal. Everything aside from the target's protective effects is still triggered.",
     vgcRelevance: 9,
   },
   "Earth Sovereign": {
@@ -519,7 +519,7 @@ export const ABILITY_DATA: Record<string, AbilityEffect> = {
   },
   "Mega Sol": {
     name: "Mega Sol", category: "champions",
-    description: "All moves used by this Pokémon behave as if under harsh sunlight.",
+    description: "Even when the sunlight has not turned harsh, the Pokémon can use its moves as if the weather were harsh sunlight.",
     personalWeather: "sun",
     vgcRelevance: 9,
   },

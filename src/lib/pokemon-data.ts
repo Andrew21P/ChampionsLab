@@ -26708,7 +26708,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Mega Sol",
-        "description": "All moves used by this Pokémon behave as if under harsh sunlight.",
+        "description": "Even when the sunlight has not turned harsh, the Pokémon can use its moves as if the weather were harsh sunlight.",
         "isChampions": false
       }
     ],
@@ -27564,7 +27564,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Mega Sol",
-            "description": "All moves used by this Pokémon behave as if under harsh sunlight.",
+            "description": "Even when the sunlight has not turned harsh, the Pokémon can use its moves as if the weather were harsh sunlight.",
             "isChampions": false
           }
         ],
@@ -28884,7 +28884,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Dragonize",
-        "description": "Normal-type moves become Dragon-type and gain 20% power.",
+        "description": "The Pokémon's Normal-type moves become Dragon-type moves and their power is boosted by 20%.",
         "isChampions": false
       }
     ],
@@ -29956,7 +29956,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Dragonize",
-            "description": "Normal-type moves become Dragon-type and gain 20% power.",
+            "description": "The Pokémon's Normal-type moves become Dragon-type moves and their power is boosted by 20%.",
             "isChampions": false
           }
         ],
@@ -74113,7 +74113,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Piercing Drill",
-            "description": "When the Pokémon uses contact moves, it can hit even targets that are protecting themselves, dealing 1/4 of the damage. All other effects from the target's protective moves still trigger.",
+            "description": "When the Pokémon uses contact moves, it can hit even targets that are protecting themselves, dealing 1/4 of the damage that the move would otherwise deal. Everything aside from the target's protective effects is still triggered.",
             "isChampions": true
           }
         ],
