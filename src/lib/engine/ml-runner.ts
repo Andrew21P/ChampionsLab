@@ -267,10 +267,7 @@ function megaKey(id: number, formName: string): string {
 function autoSet(pokemon: ChampionsPokemon, existingSets: CommonSet[]): CommonSet | null {
   const sets = USAGE_DATA[pokemon.id];
   if (!sets || sets.length === 0) return null;
-  // Avoid duplicate mega stones
-  const hasMega = existingSets.some(s => isMegaItem(s.item));
-  const available = hasMega ? sets.filter(s => !isMegaItem(s.item)) : sets;
-  return available[0] ?? sets[0];
+  return sets[0];
 }
 
 /** Get a non-mega set for a Pokémon, avoiding mega stones if team already has one */

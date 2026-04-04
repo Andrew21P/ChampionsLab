@@ -192,17 +192,11 @@ function isMegaStoneItem(item: string): boolean {
   return item.endsWith("ite") || item.endsWith("ite X") || item.endsWith("ite Y") || item.endsWith("ite Z");
 }
 
-function teamHasMegaStone(sets: CommonSet[]): boolean {
-  return sets.some(s => isMegaStoneItem(s.item));
-}
-
 function getBestSet(pokemonId: number, teamContext?: ChampionsPokemon[], existingSets?: CommonSet[]): CommonSet | null {
   const sets = USAGE_DATA[pokemonId];
   if (!sets || sets.length === 0) return null;
-  
-  // Filter out mega stones if team already has one
-  const megaBlocked = existingSets && teamHasMegaStone(existingSets);
-  const availableSets = megaBlocked ? sets.filter(s => !isMegaStoneItem(s.item)) : sets;
+
+  const availableSets = sets; // Artifact of when only one mega stone was allowed per team
   if (availableSets.length === 0) return sets[0].item && isMegaStoneItem(sets[0].item) ? { ...sets[0], item: "Life Orb" } : sets[0];
   
   // If no team context, return the first (most common) set

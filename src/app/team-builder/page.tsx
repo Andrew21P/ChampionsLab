@@ -260,15 +260,42 @@ export default function TeamBuilderPage() {
     }
   }, []);
 
+  // Validation
+  const validationErrors = useMemo(() => {
+    const errors: string[] = [];
+    const seenDexNumbers = new Set<number>();
+    const seenItems = new Set<string>();
+
+    slots.forEach((s) => {
+      if (!s.pokemon) return;
+
+      if (seenDexNumbers.has(s.pokemon.dexNumber)) {
+        errors.push(`Duplicate Pokémon: ${s.pokemon.name}`);
+      }
+      seenDexNumbers.add(s.pokemon.dexNumber);
+
+      const item = s.item?.trim();
+      if (item) {
+        if (seenItems.has(item)) {
+          errors.push(`Duplicate item: ${item}`);
+        }
+        seenItems.add(item);
+      }
+    });
+
+    return errors;
+  }, [slots]);
+
   // Auto-save last worked team
   useEffect(() => {
     const filledCount = slots.filter(s => s.pokemon).length;
-    if (filledCount > 0) {
+    if (filledCount > 0 && validationErrors.length === 0) {
       saveLastTeam(teamName, slots, currentTeamId);
     }
-  }, [slots, teamName, currentTeamId]);
+  }, [slots, teamName, currentTeamId, validationErrors.length]);
 
   const handleSaveTeam = () => {
+    if (validationErrors.length > 0) return;
     trackEvent("save_team", "team_builder", teamName, filledSlots.length);
     const team = saveTeam(teamName, slots, currentTeamId);
     setCurrentTeamId(team.id);
@@ -530,20 +557,6 @@ export default function TeamBuilderPage() {
     return getSlotSuggestions(slot.pokemon, otherPokemon);
   }, [selectedSlotIndex, teamPokemon.map(p => p.id).join(",")]);
 
-  // Validation
-  const validationErrors: string[] = [];
-  const duplicateCheck = new Set<number>();
-  slots.forEach((s) => {
-    if (s.pokemon) {
-      if (duplicateCheck.has(s.pokemon.id)) {
-        validationErrors.push(`Duplicate: ${s.pokemon.name}`);
-      }
-      duplicateCheck.add(s.pokemon.id);
-    }
-  });
-  const megaCount = slots.filter((s) => s.isMega).length;
-  if (megaCount > 1) validationErrors.push("Only 1 Mega Evolution allowed per team");
-
   const addPokemon = (pokemon: ChampionsPokemon) => {
     trackEvent("add_pokemon", "team_builder", pokemon.name);
     if (activeSlot !== null) {
@@ -576,16 +589,14 @@ export default function TeamBuilderPage() {
   const loadPrebuiltTeam = (team: PrebuiltTeam) => {
     trackEvent("load_prebuilt_team", "team_builder", team.name);
     const isMegaItem = (item: string) => item.endsWith("ite") || item.endsWith("ite X") || item.endsWith("ite Y") || item.endsWith("ite Z");
-    let teamHasMega = false;
     const newSlots = team.pokemonIds.map((id, i) => {
       const pokemon = POKEMON_SEED.find(p => p.id === id);
       if (!pokemon) return createEmptySlot();
       const set = team.sets[i];
       let isMega = false;
       let megaFormIndex = 0;
-      if (pokemon.hasMega && !teamHasMega && set?.item && isMegaItem(set.item)) {
+      if (pokemon.hasMega && set?.item && isMegaItem(set.item)) {
         isMega = true;
-        teamHasMega = true;
         const megaForms = pokemon.forms?.filter(f => f.isMega) ?? [];
         const idx = megaForms.findIndex(f => f.abilities.some(a => a.name === set.ability));
         megaFormIndex = idx >= 0 ? idx : 0;
@@ -611,21 +622,19 @@ export default function TeamBuilderPage() {
   const loadMetaTeam = (meta: MetaTeamPrediction) => {
     trackEvent("load_meta_team", "team_builder", meta.name);
     const isMegaItem = (item: string) => item.endsWith("ite") || item.endsWith("ite X") || item.endsWith("ite Y") || item.endsWith("ite Z");
-    let teamHasMega = false;
     const newSlots = meta.pokemonIds.map((id) => {
       const pokemon = POKEMON_SEED.find(p => p.id === id);
       if (!pokemon) return createEmptySlot();
       const sets = suggestSets(pokemon, []);
       const bestSet = sets.length > 0 ? sets[0].set : null;
-      // Auto-assign mega if pokemon has mega, no other mega on team yet, and best set uses mega stone
+      // Auto-assign mega if the Pokémon has a Mega set
       let isMega = false;
       let megaFormIndex = 0;
-      if (pokemon.hasMega && !teamHasMega) {
+      if (pokemon.hasMega) {
         const usageSets = USAGE_DATA[pokemon.id] ?? [];
         const megaSet = usageSets.find(s => isMegaItem(s.item));
         if (megaSet) {
           isMega = true;
-          teamHasMega = true;
           const megaForms = pokemon.forms?.filter(f => f.isMega) ?? [];
           const idx = megaForms.findIndex(f => f.abilities.some(a => a.name === megaSet.ability));
           megaFormIndex = idx >= 0 ? idx : 0;
@@ -667,11 +676,10 @@ export default function TeamBuilderPage() {
     const sets = suggestSets(pokemon, teamPokemon);
     const bestSet = sets.length > 0 ? sets[0].set : null;
     const isMegaItem = (item: string) => item.endsWith("ite") || item.endsWith("ite X") || item.endsWith("ite Y") || item.endsWith("ite Z");
-    const teamAlreadyHasMega = slots.some(s => s.isMega);
     let isMega = false;
     let megaFormIndex = 0;
     const setItem = bestSet?.item;
-    if (pokemon.hasMega && !teamAlreadyHasMega && setItem && isMegaItem(setItem)) {
+    if (pokemon.hasMega && setItem && isMegaItem(setItem)) {
       isMega = true;
       const megaForms = pokemon.forms?.filter(f => f.isMega) ?? [];
       const idx = megaForms.findIndex(f => f.abilities.some(a => a.name === bestSet?.ability));
@@ -855,7 +863,6 @@ export default function TeamBuilderPage() {
     const blocks = text.trim().split(/\n\n+/).filter(Boolean);
     if (blocks.length === 0) { setImportError("No Pokémon found in the paste."); return; }
     const newSlots: TeamSlot[] = [];
-    let teamHasMega = false;
     for (const block of blocks.slice(0, 6)) {
       const lines = block.split("\n").map(l => l.trim()).filter(Boolean);
       if (lines.length === 0) continue;
@@ -926,12 +933,11 @@ export default function TeamBuilderPage() {
       // Auto-detect mega from item or Showdown suffix
       let isMega = false;
       let megaFormIndex = 0;
-      if (pokemon.hasMega && !teamHasMega) {
+      if (pokemon.hasMega) {
         const megaForms = pokemon.forms?.filter(f => f.isMega) ?? [];
         if (showdownMegaSuffix !== null) {
           // Came from Showdown mega name like "Charizard-Mega-X"
           isMega = true;
-          teamHasMega = true;
           if (showdownMegaSuffix === "X") megaFormIndex = 0;
           else if (showdownMegaSuffix === "Y") megaFormIndex = megaForms.length > 1 ? 1 : 0;
           else megaFormIndex = 0;
@@ -947,7 +953,6 @@ export default function TeamBuilderPage() {
         } else if (item && isMegaItem(item)) {
           // Detected mega from item (standard Showdown format)
           isMega = true;
-          teamHasMega = true;
           if (ability) {
             const idx = megaForms.findIndex(f => f.abilities.some(a => a.name === ability));
             megaFormIndex = idx >= 0 ? idx : 0;
@@ -1074,7 +1079,7 @@ export default function TeamBuilderPage() {
             </button>
             <button
               onClick={handleSaveTeam}
-              disabled={filledSlots.length === 0}
+              disabled={filledSlots.length === 0 || validationErrors.length > 0}
               className={cn(
                 "px-4 py-2 text-sm rounded-xl flex items-center gap-2 transition-colors shrink-0",
                 saveConfirm
@@ -1838,7 +1843,7 @@ export default function TeamBuilderPage() {
                             <p className="text-muted-foreground mt-0.5">Types: {activeMega.types.map(t => t.charAt(0).toUpperCase() + t.slice(1)).join("/")}</p>
                           </div>
                         )}
-                        <p className="text-[9px] text-muted-foreground mt-1">Only 1 Mega allowed per team · Mega stone is auto-equipped</p>
+                        <p className="text-[9px] text-muted-foreground mt-1">Mega stones can be held by multiple Pokémon but only one can Mega Evolve per battle</p>
                       </div>
                     );
                   })()}
