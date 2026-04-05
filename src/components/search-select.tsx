@@ -87,7 +87,7 @@ export function SearchSelect({
   // Close on click outside
   useEffect(() => {
     if (!open) return;
-    const handler = (e: MouseEvent) => {
+    const handler = (e: MouseEvent | TouchEvent) => {
       const target = e.target as Node;
       if (
         triggerRef.current && !triggerRef.current.contains(target) &&
@@ -97,19 +97,32 @@ export function SearchSelect({
       }
     };
     document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
+    document.addEventListener("touchstart", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+      document.removeEventListener("touchstart", handler);
+    };
   }, [open]);
 
   // Close on scroll of parent containers (modal scroll) — but NOT when scrolling inside the dropdown
+  // On mobile, keyboard appearance triggers scroll/resize events, so add a grace period
   useEffect(() => {
     if (!open) return;
+    let armed = false;
+    const armTimeout = setTimeout(() => { armed = true; }, 300);
     const handler = (e: Event) => {
+      if (!armed) return;
       // Don't close if scrolling inside the dropdown itself
       if (dropdownRef.current && dropdownRef.current.contains(e.target as Node)) return;
+      // Don't close if the search input is focused (mobile keyboard may cause scroll)
+      if (inputRef.current && document.activeElement === inputRef.current) return;
       setOpen(false);
     };
     window.addEventListener("scroll", handler, true);
-    return () => window.removeEventListener("scroll", handler, true);
+    return () => {
+      clearTimeout(armTimeout);
+      window.removeEventListener("scroll", handler, true);
+    };
   }, [open]);
 
   // Focus input on open
