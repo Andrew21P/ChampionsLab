@@ -174,6 +174,7 @@ export default function TeamBuilderPage() {
         te: s.teraType,
         i: s.item,
         mg: s.isMega,
+        pa: s.preMegaAbility,
       })),
     };
     try {
@@ -203,7 +204,7 @@ export default function TeamBuilderPage() {
     const shortId = params.get("s");
     const teamParam = params.get("t") || params.get("team"); // "t" = compressed, "team" = legacy
 
-    const restoreTeam = (data: { n?: string; s: Array<{ p: number; a?: string; t?: string; m: string[]; sp: number[]; te?: string; i?: string; mg?: boolean; mgi?: number }> }) => {
+    const restoreTeam = (data: { n?: string; s: Array<{ p: number; a?: string; t?: string; m: string[]; sp: number[]; te?: string; i?: string; mg?: boolean; mgi?: number; pa?: string }> }) => {
       const restored: SavedTeamSlot[] = data.s.map(s => ({
         pokemonId: s.p,
         ability: s.a,
@@ -214,6 +215,7 @@ export default function TeamBuilderPage() {
         item: s.i,
         isMega: s.mg,
         megaFormIndex: s.mgi,
+        preMegaAbility: s.pa,
       }));
       setSlots(deserializeTeam(restored));
       setTeamName(data.n || "Shared Team");
@@ -415,7 +417,10 @@ export default function TeamBuilderPage() {
       // Nature + Ability
       ctx.font = "15px Inter, system-ui, sans-serif";
       ctx.fillStyle = "rgba(255,255,255,0.8)";
-      const info = [s.nature && `${s.nature} Nature`, s.ability].filter(Boolean).join(" · ");
+      const abilityText = s.isMega && s.preMegaAbility
+        ? `${s.preMegaAbility} → ${s.ability}`
+        : s.ability;
+      const info = [s.nature && `${s.nature} Nature`, abilityText].filter(Boolean).join(" · ");
       ctx.fillText(info, x + 110, y + 72);
 
       // Moves
@@ -1510,7 +1515,7 @@ export default function TeamBuilderPage() {
 
                   {/* Auto-Fill + Quick Apply Sets */}
                   <div className="mb-4">
-                    <p className="text-[10px] text-muted-foreground uppercase font-medium mb-2">Quick Apply - Competitive Sets</p>
+                    <p className="text-[10px] text-muted-foreground uppercase font-bold mb-2">Quick Apply - Competitive Sets</p>
                     <div className="flex flex-wrap gap-2">
                       {(() => {
                         const sets = USAGE_DATA[editPkm.id] ?? [];
@@ -1547,10 +1552,10 @@ export default function TeamBuilderPage() {
                       </div>
                     </div>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 items-start">
                     {/* Col 1: Moves */}
                     <div>
-                      <p className="text-[10px] text-muted-foreground uppercase font-medium mb-2">Moves</p>
+                      <p className="text-[10px] text-muted-foreground uppercase font-bold mb-2">Moves</p>
                       <div className="space-y-2">
                         {[0, 1, 2, 3].map((moveIdx) => {
                           const currentMove = editSlotData.moves[moveIdx] || "";
@@ -1586,7 +1591,7 @@ export default function TeamBuilderPage() {
                     {/* Col 2: Ability + Nature + Item */}
                     <div className="space-y-3">
                       <div>
-                        <p className="text-[10px] text-muted-foreground uppercase font-medium mb-2">Ability</p>
+                        <p className="text-[10px] text-muted-foreground uppercase font-bold mb-2">{editSlotData.isMega ? "Pre-Mega Ability" : "Ability"}</p>
                         <div className="space-y-1.5">
                           {(() => {
                             const megaForms = editPkm.forms?.filter(f => f.isMega) ?? [];
@@ -1607,6 +1612,40 @@ export default function TeamBuilderPage() {
                             };
                             return (
                               <>
+                                {editSlotData.isMega && (() => {
+                                  const activeMegaForm = megaForms[editSlotData.megaFormIndex ?? 0];
+                                  const megaAb = activeMegaForm?.abilities[0];
+                                  const preMegaAbility = editSlotData.preMegaAbility || editPkm.abilities[0]?.name || "";
+                                  return (
+                                    <>
+                                      {editPkm.abilities.map((ab) => {
+                                        const isActive = preMegaAbility === ab.name;
+                                        return (
+                                          <button key={ab.name} onClick={() => updateSlot(selectedSlotIndex, { preMegaAbility: ab.name })} className={cn("w-full text-left px-3 py-1.5 rounded-lg text-[11px] border transition-all", isActive ? "bg-violet-100 border-violet-300 font-semibold text-violet-800" : "bg-gray-50 border-gray-200 hover:bg-gray-100 hover:border-gray-300")}>
+                                            <div className="flex items-center justify-between">
+                                              <span>{ab.name}{ab.isHidden ? " (H)" : ""}{ab.isChampions ? " ✦" : ""}</span>
+                                              {isActive && <span className="text-[8px] text-violet-500 font-bold">ACTIVE</span>}
+                                            </div>
+                                            <p className="text-[8px] text-muted-foreground mt-0.5 line-clamp-1">{ab.description}</p>
+                                          </button>
+                                        );
+                                      })}
+                                      {megaAb && (
+                                        <>
+                                          <p className="text-[10px] text-amber-600 font-bold uppercase mt-2 mb-1">Mega Ability</p>
+                                          <div className="w-full text-left px-3 py-1.5 rounded-lg text-[11px] border bg-amber-50 border-amber-200 text-amber-800">
+                                            <div className="flex items-center justify-between">
+                                              <span>{megaAb.name}<span className="ml-1 text-[9px] text-amber-600 font-bold">MEGA</span></span>
+                                            </div>
+                                            <p className="text-[8px] text-muted-foreground mt-0.5 line-clamp-1">{megaAb.description}</p>
+                                          </div>
+                                        </>
+                                      )}
+                                    </>
+                                  );
+                                })()}
+                                {!editSlotData.isMega && (
+                                  <>
                                 {editPkm.abilities.map((ab) => {
                                   const isActive = editSlotData.ability === ab.name;
                                   const isSugg = slotSuggestion?.suggestedAbilities.some(a => a.name === ab.name);
@@ -1625,7 +1664,7 @@ export default function TeamBuilderPage() {
                                   const isSugg = slotSuggestion?.suggestedAbilities.some(a => a.name === ab.name);
                                   const shortForm = megaForms.length > 1 ? formName.replace(editPkm.name, "").replace("Mega ", "").trim() : "";
                                   return (
-                                    <button key={ab.name} onClick={() => { updateSlot(selectedSlotIndex, { ability: ab.name, isMega: true, megaFormIndex: formIndex, item: getMegaStoneForForm(formIndex) }); }} className={cn("w-full text-left px-3 py-1.5 rounded-lg text-[11px] border transition-all", isActive ? "bg-amber-100 border-amber-300 font-semibold text-amber-800" : "bg-gray-50 border-gray-200 hover:bg-gray-100 hover:border-gray-300")}>
+                                    <button key={ab.name} onClick={() => { updateSlot(selectedSlotIndex, { ability: ab.name, isMega: true, megaFormIndex: formIndex, preMegaAbility: editSlotData.ability || editPkm.abilities[0]?.name, item: getMegaStoneForForm(formIndex) }); }} className={cn("w-full text-left px-3 py-1.5 rounded-lg text-[11px] border transition-all", isActive ? "bg-amber-100 border-amber-300 font-semibold text-amber-800" : "bg-gray-50 border-gray-200 hover:bg-gray-100 hover:border-gray-300")}>
                                       <div className="flex items-center justify-between">
                                         <span>{ab.name}{shortForm ? ` (${shortForm})` : ""}<span className="ml-1 text-[9px] text-amber-600 font-bold">MEGA</span></span>
                                         {isSugg && <span className="text-[8px] text-violet-500 font-bold">REC</span>}
@@ -1634,13 +1673,15 @@ export default function TeamBuilderPage() {
                                     </button>
                                   );
                                 })}
+                                  </>
+                                )}
                               </>
                             );
                           })()}
                         </div>
                       </div>
                       <div>
-                        <p className="text-[10px] text-muted-foreground uppercase font-medium mb-1">Nature</p>
+                        <p className="text-[10px] text-muted-foreground uppercase font-bold mb-1">Nature</p>
                         <SearchSelect
                           value={editSlotData.nature || "Hardy"}
                           options={allNatureNames.map((n) => {
@@ -1658,7 +1699,7 @@ export default function TeamBuilderPage() {
                         {slotSuggestion && <button onClick={() => updateSlot(selectedSlotIndex, { nature: slotSuggestion.suggestedNature.nature })} className="mt-1 text-[9px] text-violet-600 hover:text-violet-800 transition-colors">★ Suggested: {slotSuggestion.suggestedNature.nature} - {slotSuggestion.suggestedNature.reason}</button>}
                       </div>
                       <div>
-                        <p className="text-[10px] text-muted-foreground uppercase font-medium mb-1">Held Item</p>
+                        <p className="text-[10px] text-muted-foreground uppercase font-bold mb-1">Held Item</p>
                         <SearchSelect
                           value={editSlotData.item || ""}
                           options={[
@@ -1681,7 +1722,7 @@ export default function TeamBuilderPage() {
                     {/* Col 3: SP Distribution */}
                     <div>
                       <div className="flex items-center justify-between mb-1">
-                        <p className="text-[10px] text-muted-foreground uppercase font-medium">Stat Points</p>
+                        <p className="text-[10px] text-muted-foreground uppercase font-bold">Stat Points</p>
                         <span className={cn("text-[11px] font-bold", Object.values(editSlotData.statPoints).reduce((a, b) => a + b, 0) >= MAX_TOTAL_POINTS ? "text-red-500" : "text-muted-foreground")}>{Object.values(editSlotData.statPoints).reduce((a, b) => a + b, 0)}/{MAX_TOTAL_POINTS}</span>
                       </div>
                       <div className="flex items-center gap-1.5 mb-1">
@@ -1723,7 +1764,7 @@ export default function TeamBuilderPage() {
                         })()}
                       </div>
                       <div className="mt-2">
-                        <p className="text-[9px] text-muted-foreground uppercase mb-1">Presets</p>
+                        <p className="text-[10px] text-muted-foreground uppercase font-bold mb-1">Presets</p>
                         <div className="flex flex-wrap gap-1">
                           {Object.entries(STAT_PRESETS).map(([name, sp]) => (
                             <button key={name} onClick={() => updateSlot(selectedSlotIndex, { statPoints: { ...sp } })} className="px-2 py-0.5 text-[9px] rounded bg-gray-50 border border-gray-200 hover:bg-violet-50 hover:border-violet-200 transition-colors">{name}</button>
@@ -1753,14 +1794,14 @@ export default function TeamBuilderPage() {
                     };
                     return (
                       <div className="mt-4 pt-3 border-t border-gray-100">
-                        <p className="text-[10px] text-muted-foreground uppercase font-medium mb-2">Mega Evolution</p>
+                        <p className="text-[10px] text-muted-foreground uppercase font-bold mb-2">Mega Evolution</p>
                         {megaForms.length <= 1 ? (
                           <button onClick={() => {
                             if (isMega) {
-                              updateSlot(selectedSlotIndex, { isMega: false, megaFormIndex: 0, ability: editPkm.abilities[0]?.name, item: undefined });
+                              updateSlot(selectedSlotIndex, { isMega: false, megaFormIndex: 0, ability: editSlotData.preMegaAbility || editPkm.abilities[0]?.name, item: undefined, preMegaAbility: undefined });
                             } else {
                               const ab = megaForms[0]?.abilities?.[0];
-                              if (ab) updateSlot(selectedSlotIndex, { isMega: true, megaFormIndex: 0, ability: ab.name, item: getMegaStone(0) });
+                              if (ab) updateSlot(selectedSlotIndex, { isMega: true, megaFormIndex: 0, ability: ab.name, preMegaAbility: editSlotData.ability || editPkm.abilities[0]?.name, item: getMegaStone(0) });
                             }
                           }} className={cn("px-4 py-2 rounded-lg text-[12px] font-medium border transition-all flex items-center gap-2", isMega ? "bg-amber-100 border-amber-300 text-amber-800" : "bg-gray-50 border-gray-200 hover:bg-amber-50 hover:border-amber-200")}>
                             <Sparkles className="w-4 h-4" />{isMega ? "Mega Active" : "Enable Mega"}
@@ -1772,10 +1813,10 @@ export default function TeamBuilderPage() {
                               return (
                                 <button key={fi} onClick={() => {
                                   if (isActive) {
-                                    updateSlot(selectedSlotIndex, { isMega: false, megaFormIndex: 0, ability: editPkm.abilities[0]?.name, item: undefined });
+                                    updateSlot(selectedSlotIndex, { isMega: false, megaFormIndex: 0, ability: editSlotData.preMegaAbility || editPkm.abilities[0]?.name, item: undefined, preMegaAbility: undefined });
                                   } else {
                                     const ab = form.abilities?.[0];
-                                    if (ab) updateSlot(selectedSlotIndex, { isMega: true, megaFormIndex: fi, ability: ab.name, item: getMegaStone(fi) });
+                                    if (ab) updateSlot(selectedSlotIndex, { isMega: true, megaFormIndex: fi, ability: ab.name, preMegaAbility: editSlotData.ability || editPkm.abilities[0]?.name, item: getMegaStone(fi) });
                                   }
                                 }} className={cn("px-4 py-2 rounded-lg text-[12px] font-medium border transition-all flex items-center gap-2", isActive ? "bg-amber-100 border-amber-300 text-amber-800" : "bg-gray-50 border-gray-200 hover:bg-amber-50 hover:border-amber-200")}>
                                   <Sparkles className="w-4 h-4" />{form.name.replace(editPkm.name, "").replace("Mega ", "").trim() || "Mega"}

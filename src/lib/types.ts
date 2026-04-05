@@ -80,6 +80,7 @@ export interface TeamSlot {
   item?: string;
   isMega?: boolean;
   megaFormIndex?: number;
+  preMegaAbility?: string;
 }
 
 export interface CommonSet {
@@ -90,6 +91,7 @@ export interface CommonSet {
   moves: string[];
   sp: StatPoints;
   teraType?: PokemonType;
+  preMegaAbility?: string;
 }
 
 export interface WinningTeamMember {

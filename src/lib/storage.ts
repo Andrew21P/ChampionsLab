@@ -27,6 +27,7 @@ export interface SavedTeamSlot {
   item?: string;
   isMega?: boolean;
   megaFormIndex?: number;
+  preMegaAbility?: string;
 }
 
 export interface SavedTeam {
@@ -93,6 +94,7 @@ export function serializeTeam(slots: TeamSlot[]): SavedTeamSlot[] {
       item: s.item,
       isMega: s.isMega,
       megaFormIndex: s.megaFormIndex,
+      preMegaAbility: s.preMegaAbility,
     }));
 }
 
@@ -121,6 +123,7 @@ export function deserializeTeam(saved: SavedTeamSlot[]): TeamSlot[] {
       item: s.item,
       isMega: s.isMega,
       megaFormIndex,
+      preMegaAbility: s.preMegaAbility,
     };
   });
   // Pad to 6 slots

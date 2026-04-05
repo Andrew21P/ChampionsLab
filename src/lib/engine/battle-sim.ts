@@ -57,9 +57,11 @@ function resolveMegaForm(pokemon: ChampionsPokemon, set: CommonSet): {
   // ability and fall back to the base Pokémon's first ability.
   const megaAbilityName = megaForm.abilities[0]?.name;
   const isMegaAbility = megaForm.abilities.some(a => a.name === set.ability);
-  const baseAbility = isMegaAbility
-    ? (pokemon.abilities[0]?.name ?? set.ability)
-    : set.ability;
+  const baseAbility = set.preMegaAbility
+    ? set.preMegaAbility
+    : isMegaAbility
+      ? (pokemon.abilities[0]?.name ?? set.ability)
+      : set.ability;
   // Return base form stats but store mega data for in-battle evolution
   return {
     baseStats: pokemon.baseStats,

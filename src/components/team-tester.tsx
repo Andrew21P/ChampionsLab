@@ -144,6 +144,7 @@ export default function TeamTester() {
           moves: s.moves.slice(0, 4),
           sp: s.statPoints,
           teraType: s.teraType,
+          preMegaAbility: s.preMegaAbility,
         } as CommonSet;
       }
       return bestAvailableSet(p);
