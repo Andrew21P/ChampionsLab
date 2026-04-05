@@ -128923,10 +128923,10 @@ export function getPokemonByGen(gen: number): ChampionsPokemon[] {
 }
 
 export const STAT_PRESETS = {
-  "Balanced Attacker": { hp: 12, attack: 20, defense: 4, spAtk: 20, spDef: 4, speed: 4 },
-  "Bulky Support": { hp: 20, attack: 0, defense: 16, spAtk: 0, spDef: 16, speed: 12 },
-  "Fast Sweeper": { hp: 0, attack: 32, defense: 0, spAtk: 0, spDef: 0, speed: 32 },
-  "Special Sweeper": { hp: 0, attack: 0, defense: 0, spAtk: 32, spDef: 0, speed: 32 },
-  "Trick Room Tank": { hp: 32, attack: 32, defense: 0, spAtk: 0, spDef: 0, speed: 0 },
-  "Mixed Attacker": { hp: 0, attack: 16, defense: 0, spAtk: 16, spDef: 0, speed: 32 },
+  "Balanced Attacker": { hp: 14, attack: 20, defense: 4, spAtk: 20, spDef: 4, speed: 4 },
+  "Bulky Support": { hp: 20, attack: 0, defense: 16, spAtk: 0, spDef: 16, speed: 14 },
+  "Fast Sweeper": { hp: 2, attack: 32, defense: 0, spAtk: 0, spDef: 0, speed: 32 },
+  "Special Sweeper": { hp: 2, attack: 0, defense: 0, spAtk: 32, spDef: 0, speed: 32 },
+  "Trick Room Tank": { hp: 32, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 0 },
+  "Mixed Attacker": { hp: 2, attack: 16, defense: 0, spAtk: 16, spDef: 0, speed: 32 },
 } as const;

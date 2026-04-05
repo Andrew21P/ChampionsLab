@@ -198,6 +198,10 @@ body.mobile-open .mobile-nav-panel { display: block; }
 
 /* Hide scrollbar utility */
 .scrollbar-hide::-webkit-scrollbar { display: none; }
+
+/* SP slider thumb border color driven by CSS custom property */
+.sp-slider::-webkit-slider-thumb { border-color: var(--sp-thumb-border, #8b5cf6); }
+.sp-slider::-moz-range-thumb { border-color: var(--sp-thumb-border, #8b5cf6); }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
 

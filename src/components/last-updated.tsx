@@ -13,6 +13,11 @@ const SHARED_ENTRIES: ChangelogEntry[] = [
   {
     date: "05/04/2026",
     items: [
+      "Stat Points now show Base Stats and Final Stats (Total) for each stat",
+      "Stat bars are now draggable sliders with grab handles",
+      "Nature-boosted stats highlighted in red, lowered in blue",
+      "Mega Evolution base stats automatically reflected in stat display",
+      "Fixed stat presets using only 64/66 SP instead of 66/66",
       "Fixed empty move bullet points appearing after clearing moves in Team Builder",
     ],
   },

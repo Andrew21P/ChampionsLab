@@ -40,6 +40,7 @@ import {
   type SlotSuggestion,
   type MetaTeamPrediction,
   getTypeImmunity,
+  calculateStats,
 } from "@/lib/engine";
 import {
   getSavedTeams, saveTeam, deleteTeam, deserializeTeam, saveLastTeam, getLastTeam,
@@ -738,9 +739,8 @@ export default function TeamBuilderPage() {
   const setSPDirect = (slotIndex: number, stat: keyof StatPoints, value: number) => {
     const sp = { ...slots[slotIndex].statPoints };
     const total = Object.values(sp).reduce((a, b) => a + b, 0);
-    const clamped = Math.max(0, Math.min(MAX_PER_STAT, value));
-    const newTotal = total - sp[stat] + clamped;
-    if (newTotal > MAX_TOTAL_POINTS) return;
+    const remaining = MAX_TOTAL_POINTS - (total - sp[stat]);
+    const clamped = Math.max(0, Math.min(MAX_PER_STAT, remaining, value));
     sp[stat] = clamped;
     updateSlot(slotIndex, { statPoints: sp });
   };
@@ -1680,23 +1680,47 @@ export default function TeamBuilderPage() {
 
                     {/* Col 3: SP Distribution */}
                     <div>
-                      <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center justify-between mb-1">
                         <p className="text-[10px] text-muted-foreground uppercase font-medium">Stat Points</p>
                         <span className={cn("text-[11px] font-bold", Object.values(editSlotData.statPoints).reduce((a, b) => a + b, 0) >= MAX_TOTAL_POINTS ? "text-red-500" : "text-muted-foreground")}>{Object.values(editSlotData.statPoints).reduce((a, b) => a + b, 0)}/{MAX_TOTAL_POINTS}</span>
                       </div>
+                      <div className="flex items-center gap-1.5 mb-1">
+                        <span className="w-7" />
+                        <span className="text-[8px] text-muted-foreground uppercase w-6 text-right">Base</span>
+                        <span className="w-5" />
+                        <span className="flex-1 text-[8px] text-muted-foreground uppercase text-center">SP</span>
+                        <span className="w-5" />
+                        <span className="w-8" />
+                        <span className="text-[8px] text-muted-foreground uppercase w-7 text-right">Total</span>
+                      </div>
                       <div className="space-y-1.5">
-                        {STAT_KEYS.map((stat) => {
-                          const value = editSlotData.statPoints[stat];
-                          return (
-                            <div key={stat} className="flex items-center gap-2">
-                              <span className="text-[10px] font-medium text-muted-foreground w-7">{STAT_LABELS[stat]}</span>
-                              <button onClick={() => updateSP(selectedSlotIndex, stat, -2)} className="w-5 h-5 rounded bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"><Minus className="w-2.5 h-2.5" /></button>
-                              <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden"><div className="h-full rounded-full bg-violet-400 transition-all duration-150" style={{ width: `${(value / MAX_PER_STAT) * 100}%` }} /></div>
-                              <button onClick={() => updateSP(selectedSlotIndex, stat, 2)} className="w-5 h-5 rounded bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"><Plus className="w-2.5 h-2.5" /></button>
-                              <input type="number" min={0} max={MAX_PER_STAT} value={value} onChange={(e) => setSPDirect(selectedSlotIndex, stat, parseInt(e.target.value) || 0)} className="w-10 text-center text-[11px] font-medium rounded bg-gray-50 border border-gray-200 focus:outline-none focus:ring-1 focus:ring-violet-300 py-0.5" />
-                            </div>
-                          );
-                        })}
+                        {(() => {
+                          const megaForms = editPkm.forms?.filter(f => f.isMega) ?? [];
+                          const activeBase = editSlotData.isMega && megaForms[editSlotData.megaFormIndex ?? 0]
+                            ? megaForms[editSlotData.megaFormIndex ?? 0].baseStats
+                            : editPkm.baseStats;
+                          const nature = (editSlotData.nature || "Hardy") as NatureName;
+                          const finalStats = calculateStats(activeBase, editSlotData.statPoints, nature);
+                          const nat = NATURES[nature];
+                          return STAT_KEYS.map((stat) => {
+                            const value = editSlotData.statPoints[stat];
+                            const base = activeBase[stat];
+                            const final_ = finalStats[stat];
+                            const isPlus = nat.plus === stat;
+                            const isMinus = nat.minus === stat;
+                            return (
+                              <div key={stat} className="flex items-center gap-1.5">
+                                <span className={cn("text-[10px] font-medium w-7", isPlus ? "text-red-500" : isMinus ? "text-blue-500" : "text-muted-foreground")}>{STAT_LABELS[stat]}</span>
+                                <span className="text-[10px] font-bold text-muted-foreground w-6 text-right tabular-nums">{base}</span>
+                                <button onClick={() => updateSP(selectedSlotIndex, stat, -2)} className="w-5 h-5 rounded bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"><Minus className="w-2.5 h-2.5" /></button>
+                                <input type="range" min={0} max={MAX_PER_STAT} step={2} value={value} onChange={(e) => setSPDirect(selectedSlotIndex, stat, parseInt(e.target.value) || 0)} className="sp-slider flex-1 h-2 appearance-none rounded-full cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3.5 [&::-webkit-slider-thumb]:h-3.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:w-3.5 [&::-moz-range-thumb]:h-3.5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:shadow-md [&::-moz-range-thumb]:cursor-grab [&::-moz-range-track]:rounded-full" style={{ background: `linear-gradient(to right, #8b5cf6 ${(value / MAX_PER_STAT) * 100}%, #f3f4f6 ${(value / MAX_PER_STAT) * 100}%)`, "--sp-thumb-border": value === 0 ? "#d1d5db" : "#8b5cf6" } as React.CSSProperties} />
+                                <button onClick={() => updateSP(selectedSlotIndex, stat, 2)} className="w-5 h-5 rounded bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"><Plus className="w-2.5 h-2.5" /></button>
+                                <input type="number" min={0} max={MAX_PER_STAT} value={value} onChange={(e) => setSPDirect(selectedSlotIndex, stat, parseInt(e.target.value) || 0)} className="w-8 text-center text-[10px] font-medium rounded bg-gray-50 border border-gray-200 focus:outline-none focus:ring-1 focus:ring-violet-300 py-0.5" />
+                                <span className={cn("text-[11px] font-bold w-7 text-right tabular-nums", isPlus ? "text-red-500" : isMinus ? "text-blue-500" : "text-foreground")}>{final_}</span>
+                              </div>
+                            );
+                          });
+                        })()}
                       </div>
                       <div className="mt-2">
                         <p className="text-[9px] text-muted-foreground uppercase mb-1">Presets</p>
