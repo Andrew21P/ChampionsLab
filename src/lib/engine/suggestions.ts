@@ -134,15 +134,6 @@ export function suggestSets(
       reasons.push("Adds Intimidate");
     }
     
-    // Mega evolution consideration
-    const teamHasMega = teamContext.some(p =>
-      p.hasMega && USAGE_DATA[p.id]?.some(s => s.item.includes("ite"))
-    );
-    if (set.item.includes("ite") && set.item !== "Eviolite" && teamHasMega) {
-      score -= 20;
-      reasons.push("Team already has a Mega");
-    }
-    
     // Protect is almost always good in VGC
     if (set.moves.includes("Protect")) score += 3;
     
