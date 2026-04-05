@@ -265,6 +265,73 @@ export const ITEMS: Record<string, ItemEffect> = {
     name: "Adrenaline Orb",
     description: "Raises Speed by one stage when Intimidated.",
   },
+
+  // ── Seeds ────────────────────────────────────────────────────────────────
+  "Electric Seed": {
+    name: "Electric Seed",
+    description: "Boosts Defense by one stage on Electric Terrain. Single use.",
+    statBoost: { defense: 1 },
+  },
+  "Grassy Seed": {
+    name: "Grassy Seed",
+    description: "Boosts Defense by one stage on Grassy Terrain. Single use.",
+    statBoost: { defense: 1 },
+  },
+  "Misty Seed": {
+    name: "Misty Seed",
+    description: "Boosts Sp.Def by one stage on Misty Terrain. Single use.",
+    statBoost: { spDef: 1 },
+  },
+  "Psychic Seed": {
+    name: "Psychic Seed",
+    description: "Boosts Sp.Def by one stage on Psychic Terrain. Single use.",
+    statBoost: { spDef: 1 },
+  },
+
+  // ── Gems ─────────────────────────────────────────────────────────────────
+  "Normal Gem": {
+    name: "Normal Gem",
+    description: "Boosts the first Normal-type move by 30%. Single use.",
+    typeDamageBoost: { type: "normal", multiplier: 1.3 },
+  },
+
+  // ── Additional Utility Items ─────────────────────────────────────────────
+  "Power Herb": {
+    name: "Power Herb",
+    description: "Allows immediate use of charge moves (Meteor Beam, Solar Beam, etc.). Single use.",
+  },
+  "Ability Shield": {
+    name: "Ability Shield",
+    description: "Prevents the holder's ability from being changed or suppressed.",
+  },
+  "Silk Scarf": {
+    name: "Silk Scarf",
+    description: "Boosts Normal-type moves by 20%.",
+    typeDamageBoost: { type: "normal", multiplier: 1.2 },
+  },
+  "Black Sludge": {
+    name: "Black Sludge",
+    description: "Restores 1/16 HP per turn for Poison types; damages non-Poison types.",
+  },
+  "Flame Orb": {
+    name: "Flame Orb",
+    description: "Burns the holder at end of turn. Activates Guts, Flare Boost, etc.",
+  },
+  "Toxic Orb": {
+    name: "Toxic Orb",
+    description: "Badly poisons the holder at end of turn. Activates Poison Heal, etc.",
+  },
+  "Light Ball": {
+    name: "Light Ball",
+    description: "Doubles Pikachu's Attack and Sp.Atk.",
+    statBoost: { attack: 2, spAtk: 2 },
+  },
+  "Aguav Berry": {
+    name: "Aguav Berry",
+    description: "Restores 33% max HP when HP falls below 25%.",
+    berryHealThreshold: 25,
+    berryHealAmount: 33,
+  },
 };
 
 /** Get item damage multiplier for a move */
