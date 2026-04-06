@@ -1178,7 +1178,7 @@ export default function TeamBuilderPage() {
       )}
 
       {/* ═══ MAIN THREE-COLUMN LAYOUT ═══ */}
-      <div className="grid grid-cols-1 xl:grid-cols-[320px_1fr_320px] 2xl:grid-cols-[360px_1fr_360px] gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-[320px_1fr] gap-6" data-team-grid>
 
         {/* ══ LEFT COLUMN: Team Analysis + Suggested Teammates ══ */}
         <div className="space-y-6 min-w-0 order-2 xl:order-1">
@@ -1859,7 +1859,7 @@ export default function TeamBuilderPage() {
         </div>
 
         {/* ══ RIGHT COLUMN: Meta Teams + Curated Teams ══ */}
-        <div className="space-y-6 order-3">
+        <div className="space-y-6 order-3" data-right-col>
           {/* ── Engine Predicted Meta ── */}
           <div className="glass rounded-2xl p-5 border border-gray-200/60">
             <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-1 flex items-center gap-2">

@@ -11,6 +11,14 @@ interface ChangelogEntry {
 
 const SHARED_ENTRIES: ChangelogEntry[] = [
   {
+    date: "06/04/2026",
+    items: [
+      "Fixed Team Builder layout at medium screen sizes (1280-1730px) — right column now stacks below instead of squeezing stat sliders",
+      "Added 6 more missing held items: Fairy Feather, Eject Pack, Eject Button, Room Service, Lagging Tail, Iron Ball",
+      "Fixed mobile search dropdown closing when keyboard appears",
+    ],
+  },
+  {
     date: "05/04/2026",
     items: [
       "Added 13 missing held items: Power Herb, Ability Shield, terrain Seeds, Normal Gem, Silk Scarf, and more",

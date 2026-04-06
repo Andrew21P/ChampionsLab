@@ -55,6 +55,22 @@
   --color-neon-gold: #eab308;
 }
 
+/* Team Builder: right column spans full width in the 2-col range (xl to <1730px) */
+@media (min-width: 1280px) and (max-width: 1729px) {
+  [data-right-col] {
+    grid-column: span 2 / span 2;
+  }
+}
+/* Team Builder: restore 3-column layout at 1730px+ */
+@media (min-width: 1730px) {
+  [data-team-grid] {
+    grid-template-columns: 320px 1fr 320px;
+  }
+  [data-right-col] {
+    grid-column: auto;
+  }
+}
+
 :root {
   --background: oklch(0.985 0.002 250);
   --foreground: oklch(0.14 0.01 260);
