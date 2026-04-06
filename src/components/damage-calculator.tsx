@@ -392,7 +392,7 @@ export default function DamageCalculator() {
                 {selectedResult.moveName}
               </p>
               <p className={cn(
-                "text-3xl font-black",
+                "text-3xl font-black font-heading",
                 selectedResult.percentHP[1] >= 100 ? "text-red-600" :
                 selectedResult.percentHP[1] >= 50 ? "text-orange-500" :
                 "text-green-600"

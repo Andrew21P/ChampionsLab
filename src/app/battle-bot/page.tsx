@@ -938,7 +938,7 @@ export default function BattleBotPage() {
                         animate={{ scale: 1 }}
                         transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
                         className={cn(
-                          "text-5xl font-bold bg-clip-text text-transparent",
+                          "text-5xl font-bold font-heading bg-clip-text text-transparent",
                           result.winRate >= 50
                             ? "bg-gradient-to-r from-green-500 to-emerald-500"
                             : "bg-gradient-to-r from-red-500 to-orange-500"

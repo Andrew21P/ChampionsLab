@@ -11,6 +11,15 @@ interface ChangelogEntry {
 
 const SHARED_ENTRIES: ChangelogEntry[] = [
   {
+    date: "07/04/2026",
+    items: [
+      "New font system: Sora for headings, Inter for body text",
+      "New emerald/teal/cyan color palette across all pages (replaced violet)",
+      "PokéSchool expanded with full Champions Lab Features Guide: Pokedex, Team Builder, Team Tester, Battle Bot, Damage Calculator, and META Analysis walkthroughs",
+      "PokéSchool now has 9 chapters and 40+ lessons covering VGC fundamentals through advanced techniques",
+    ],
+  },
+  {
     date: "06/04/2026",
     items: [
       "Comprehensive dark mode fix across Team Tester — all backgrounds, borders, text, bar tracks, badges, and flowchart nodes now properly readable",

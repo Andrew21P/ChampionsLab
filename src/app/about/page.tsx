@@ -177,22 +177,22 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
           <div className="glass rounded-2xl p-5 border border-amber-200/60 dark:border-amber-400/20 text-center">
             <AlertCircle className="w-6 h-6 text-amber-500 mx-auto mb-2" />
-            <p className="text-2xl font-extrabold text-amber-700 dark:text-amber-400">Alpha</p>
+            <p className="text-2xl font-extrabold font-heading text-amber-700 dark:text-amber-400">Alpha</p>
             <p className="text-xs text-muted-foreground mt-1">In active development</p>
           </div>
           <div className="glass rounded-2xl p-5 border border-gray-200/60 dark:border-gray-200/10 text-center">
             <Code className="w-6 h-6 text-violet-500 mx-auto mb-2" />
-            <p className="text-2xl font-extrabold text-violet-700 dark:text-violet-400">Open Source</p>
+            <p className="text-2xl font-extrabold font-heading text-violet-700 dark:text-violet-400">Open Source</p>
             <p className="text-xs text-muted-foreground mt-1">MIT License, fully public</p>
           </div>
           <div className="glass rounded-2xl p-5 border border-gray-200/60 dark:border-gray-200/10 text-center">
             <Heart className="w-6 h-6 text-rose-500 mx-auto mb-2 fill-rose-500" />
-            <p className="text-2xl font-extrabold text-rose-700 dark:text-rose-400">100% Free</p>
+            <p className="text-2xl font-extrabold font-heading text-rose-700 dark:text-rose-400">100% Free</p>
             <p className="text-xs text-muted-foreground mt-1">No ads, no paywalls, forever</p>
           </div>
           <div className="glass rounded-2xl p-5 border border-gray-200/60 dark:border-gray-200/10 text-center">
             <Users className="w-6 h-6 text-cyan-500 mx-auto mb-2" />
-            <p className="text-2xl font-extrabold text-cyan-700 dark:text-cyan-400">Community</p>
+            <p className="text-2xl font-extrabold font-heading text-cyan-700 dark:text-cyan-400">Community</p>
             <p className="text-xs text-muted-foreground mt-1">Built by fans, for fans</p>
           </div>
         </div>

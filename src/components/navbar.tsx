@@ -50,7 +50,7 @@ export function Navbar() {
                 />
               </div>
               <div className="hidden sm:block">
-                <span className="text-lg font-bold tracking-tight whitespace-nowrap bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                <span className="text-lg font-bold tracking-tight whitespace-nowrap bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-500 bg-clip-text text-transparent font-heading">
                   Champions Lab
                 </span>
                 <span className="hidden md:block text-[10px] text-muted-foreground -mt-1 tracking-widest uppercase">

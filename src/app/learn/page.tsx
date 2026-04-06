@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "@/lib/motion";
 import {
   GraduationCap, BookOpen, Swords, Shield, Zap, Target,
   ChevronDown, ChevronRight, Brain, TrendingUp, Users,
-  Award, Sparkles, Flame, Droplets, Wind, Star,
+  Award, Sparkles, Flame, Droplets, Wind, Star, Monitor,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { trackEvent } from "@/lib/analytics";
@@ -31,7 +31,7 @@ function renderRichText(text: string) {
 const TIP_STYLES: Record<TipType, { icon: React.ElementType; label: string; border: string; bg: string; iconColor: string; labelColor: string }> = {
   pro:          { icon: Lightbulb,      label: "Pro Tip",       border: "border-amber-400/50",  bg: "bg-amber-50/60 dark:bg-amber-950/20",  iconColor: "text-amber-500",  labelColor: "text-amber-700 dark:text-amber-400" },
   "did-you-know": { icon: Info,         label: "Did You Know?", border: "border-blue-400/50",   bg: "bg-blue-50/60 dark:bg-blue-950/20",    iconColor: "text-blue-500",   labelColor: "text-blue-700 dark:text-blue-400" },
-  champions:    { icon: Trophy,         label: "Champions Tip", border: "border-violet-400/50", bg: "bg-violet-50/60 dark:bg-violet-950/20", iconColor: "text-violet-500", labelColor: "text-violet-700 dark:text-violet-400" },
+  champions:    { icon: Trophy,         label: "Champions Tip", border: "border-emerald-400/50", bg: "bg-emerald-50/60 dark:bg-emerald-950/20", iconColor: "text-emerald-500", labelColor: "text-emerald-700 dark:text-emerald-400" },
   warning:      { icon: AlertTriangle,  label: "Watch Out!",    border: "border-rose-400/50",   bg: "bg-rose-50/60 dark:bg-rose-950/20",    iconColor: "text-rose-500",   labelColor: "text-rose-700 dark:text-rose-400" },
 };
 
@@ -71,7 +71,7 @@ const SECTIONS: Section[] = [
     id: "intro",
     title: "What is VGC?",
     icon: GraduationCap,
-    color: "violet",
+    color: "teal",
     subsections: [
       {
         title: "Video Game Championships",
@@ -384,6 +384,74 @@ const SECTIONS: Section[] = [
       },
     ],
   },
+  {
+    id: "tools",
+    title: "Champions Lab Features Guide",
+    icon: Monitor,
+    color: "teal",
+    subsections: [
+      {
+        title: "The Pokedex",
+        content: [
+          { text: "The home page of Champions Lab is a **full searchable Pokedex** featuring all 159 Pokemon in the Champions roster. Browse the grid, filter by type, and search by name to find any Pokemon instantly." },
+          { text: "Click any Pokemon card to open a **detailed stat modal** showing base stats, typing, abilities, and the complete move pool. This is your go-to reference when building a team.", tip: { type: "pro", text: "Use the type filter buttons at the top to narrow results. Looking for a Water-type to round out your team? A single click shows every option in the roster." } },
+          { text: "Each card displays **Stat Points (SP)** totals, types, and a high-quality animated sprite. Cards are color-coded by primary type so you can visually scan the roster at a glance." },
+          { text: "**Mega Evolutions** are shown alongside their base forms. The detail modal includes full stat comparisons so you can see exactly how much raw power a Mega form gains." },
+        ],
+      },
+      {
+        title: "Team Builder",
+        content: [
+          { text: "The **Team Builder** is your workshop for creating competitive VGC teams. Add up to 6 Pokemon, assign moves, abilities, held items, and distribute Stat Points with an intuitive slider." },
+          { text: "The **coverage chart** at the top of your team updates in real time. It maps your team's offensive coverage and defensive weaknesses across all 18 types, helping you spot dangerous gaps before you battle.", tip: { type: "pro", text: "Pay close attention to the coverage chart. If a type is highlighted in red, your team is dangerously weak to it. Swap in a Pokemon that resists or is immune to that type." } },
+          { text: "Not sure where to start? Load one of the **curated preset teams** built by the simulation engine. These are proven compositions from top-performing archetypes that you can use as-is or customize.", tip: { type: "champions", text: "The 'Suggested' feature analyzes your current team in real time and recommends Pokemon that fill coverage gaps. It checks what types your team struggles against and suggests hard counters." } },
+          { text: "**Import and export** your teams as compact shareable codes. Send your team to friends, save it for later, or paste in teams you find online. The format is quick and easy to share anywhere." },
+          { text: "Each Pokemon slot lets you choose from **all moves and abilities** available in the Champions format. The SP slider distributes your 66 total points across all 6 stats, with a maximum of 32 in any one stat.", tip: { type: "did-you-know", text: "You can pick your Mega Evolution directly in the Team Builder. Only one Pokemon per team can Mega Evolve, so choose the Mega that best supports your overall strategy." } },
+        ],
+      },
+      {
+        title: "Team Tester",
+        content: [
+          { text: "The **Team Tester** lets you pit two teams against each other in a full AI-driven simulation. Build or import two teams, set the number of battles (from 10 to 1000), and watch the results unfold with animated progress bars." },
+          { text: "Results show **overall win rates** for each team along with detailed statistics. Run more battles for higher confidence in the numbers.", tip: { type: "pro", text: "Run at least 100 battles for reliable results. Small sample sizes (10 to 20 battles) can be misleading due to random crits, misses, and secondary effect variance." } },
+          { text: "The **Lead Analysis** panel breaks down win rates for every possible lead combination. Click any lead pair to reveal a **strategy flowchart** that explains the AI's turn-by-turn reasoning for that matchup." },
+          { text: "Browse individual **battle scenarios** to replay specific games. Each scenario shows the complete battle log with moves used, damage dealt, weather changes, and KOs in chronological order." },
+          { text: "Want to tweak something? The **Edit Team** button lets you modify either team directly from the results screen and re-run the simulation without starting over.", tip: { type: "champions", text: "Use the Team Tester to practice specific matchups. Wondering if your team can handle the top meta archetype? Import both teams, run 200 battles, and let the data speak." } },
+        ],
+      },
+      {
+        title: "Battle Bot",
+        content: [
+          { text: "The **Battle Bot** runs a complete VGC double battle from Team Preview to final KO, controlled entirely by AI. Watch the battle play out in real time with animated sprites, health bars, and move effects." },
+          { text: "Every turn is logged in the **battle feed** with full detail: damage numbers, ability activations, weather and terrain changes, stat boosts, and status conditions. Nothing is hidden." },
+          { text: "The AI decision engine evaluates **type matchups, speed tiers, HP thresholds, and available moves** to pick the best play each turn. It weighs switches, Protect timing, spread moves, and target selection.", tip: { type: "did-you-know", text: "The Battle Bot's AI evaluates every possible action combination each turn, including double Protect, switches, and spread moves. It picks the play with the highest expected value." } },
+          { text: "Use the Battle Bot to **visualize how your team performs** in practice. It shows whether your game plan actually works when both sides play intelligently." },
+          { text: "The **replay system** lets you step through completed battles turn by turn. Review critical moments, see where the game turned, and learn from the AI's choices.", tip: { type: "pro", text: "After building a new team, run 5 to 10 Battle Bot games and watch the replays. You will quickly spot which Pokemon get KO'd too easily, which moves go unused, and which leads work best." } },
+        ],
+      },
+      {
+        title: "Damage Calculator",
+        content: [
+          { text: "The **Damage Calculator** shows exact damage ranges between any attacker and defender in the Champions format. Select two Pokemon, pick a move, and see minimum and maximum damage rolls instantly." },
+          { text: "The calculator uses the **full damage formula** including Stat Points, abilities, held items, weather, terrain, stat boosts, type effectiveness, STAB, spread move reduction, and critical hits. Nothing is approximated." },
+          { text: "Results are **color-coded** for quick reading: red means guaranteed OHKO, orange means 2HKO, yellow means 3HKO, and green means the defender survives comfortably.", tip: { type: "pro", text: "Use the calculator to find SP benchmarks. For example, check whether investing 12 SP in HP lets your Pokemon survive a specific attack. Small stat adjustments like this win real games." } },
+          { text: "The split-screen layout puts the **attacker on the left** and **defender on the right** with clear damage output displayed between them. Swap roles with a single click to check the reverse matchup." },
+          { text: "All calculations use the **official Gen 9 damage formula** adapted for the Champions Stat Point system, so the numbers match exactly what happens in the simulation engine.", tip: { type: "champions", text: "The Damage Calculator runs the same engine that powers the Battle Bot and Team Tester. The damage numbers you see here are identical to what plays out in a full AI battle." } },
+        ],
+      },
+      {
+        title: "META Analysis",
+        content: [
+          { text: "The **META page** is powered by data from over **1,000,000 simulated battles** between randomly generated competitive teams. Every Pokemon, move, ability, and core pair is ranked by actual win rate." },
+          { text: "The **Pokemon Rankings** table shows usage rate and win rate for every Pokemon in the roster. Sort by win rate to find the strongest picks, or by usage to see what is most popular across all teams." },
+          { text: "**Best Cores** reveals the highest win-rate two-Pokemon combinations. These are pairs with proven synergy across thousands of battles, and they make excellent starting points for new teams.", tip: { type: "champions", text: "The Best Cores data updates as we run more simulations. Check back regularly to see whether new combinations have emerged or the meta has shifted in a new direction." } },
+          { text: "**Archetype Analysis** breaks down win rates by team style: Trick Room, Tailwind, Weather, Balance, and Hyper Offense. See which broad strategies are performing best right now." },
+          { text: "**Move Rankings** show which moves have the highest win rates overall. This data helps you choose between similar options. Is Flamethrower or Heat Wave more effective? The simulation results give you a clear answer.", tip: { type: "pro", text: "Keep an eye on moves with high win rates but low usage. These are hidden gems that most players have not adopted yet. Running them before the meta catches on gives you a real advantage." } },
+          { text: "Additional panels cover **type distribution**, **tournament team breakdowns**, and **synergy insights**. The META page is the most data-rich tool on Champions Lab for understanding the competitive landscape." },
+        ],
+      },
+    ],
+  },
 ];
 
 /* ─────────────── Component ─────────────── */
@@ -397,6 +465,7 @@ const COLOR_MAP: Record<string, { bg: string; border: string; text: string; icon
   blue:    { bg: "bg-blue-50",    border: "border-blue-200",    text: "text-blue-700",    icon: "text-blue-500",    pill: "bg-blue-100 text-blue-700" },
   orange:  { bg: "bg-orange-50",  border: "border-orange-200",  text: "text-orange-700",  icon: "text-orange-500",  pill: "bg-orange-100 text-orange-700" },
   purple:  { bg: "bg-purple-50",  border: "border-purple-200",  text: "text-purple-700",  icon: "text-purple-500",  pill: "bg-purple-100 text-purple-700" },
+  teal:    { bg: "bg-teal-50",    border: "border-teal-200",    text: "text-teal-700",    icon: "text-teal-500",    pill: "bg-teal-100 text-teal-700" },
 };
 
 export default function LearnPage() {
@@ -446,12 +515,12 @@ export default function LearnPage() {
         className="mb-8"
       >
         <div className="flex items-center gap-4 mb-2">
-          <div className="p-3 rounded-2xl bg-gradient-to-br from-violet-500 to-cyan-500 shadow-lg shadow-violet-500/25">
+          <div className="p-3 rounded-2xl bg-gradient-to-br from-emerald-500 to-cyan-500 shadow-lg shadow-emerald-500/25">
             <GraduationCap className="w-8 h-8 text-white" />
           </div>
           <div>
             <h1 className="text-3xl font-bold">
-              <span className="bg-gradient-to-r from-violet-600 to-cyan-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-500 bg-clip-text text-transparent">
                 PokéSchool
               </span>
             </h1>
@@ -642,7 +711,7 @@ export default function LearnPage() {
         transition={{ delay: 0.5 }}
         className="mt-12 text-center glass rounded-2xl border border-gray-200/60 p-8"
       >
-        <GraduationCap className="w-12 h-12 mx-auto text-violet-500 mb-4" />
+        <GraduationCap className="w-12 h-12 mx-auto text-emerald-500 mb-4" />
         <h3 className="text-xl font-bold mb-2">Ready to Put It Into Practice?</h3>
         <p className="text-sm text-muted-foreground mb-4 max-w-md mx-auto">
           Use the Team Builder to create your squad, check the META page for what&apos;s winning,
@@ -663,7 +732,7 @@ export default function LearnPage() {
         <div className="flex flex-wrap justify-center gap-3">
           <a
             href="/team-builder"
-            className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-600 text-white text-sm font-medium shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:scale-105 transition-all"
+            className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-cyan-600 text-white text-sm font-medium shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:scale-105 transition-all"
           >
             Open Team Builder
           </a>

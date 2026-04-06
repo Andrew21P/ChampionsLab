@@ -345,7 +345,7 @@ export default function TeamTester() {
             <ArrowRightLeft className="w-5 h-5 text-muted-foreground" />
           </button>
 
-          <div className="text-center text-3xl font-black text-muted-foreground/30">VS</div>
+          <div className="text-center text-3xl font-black font-heading text-muted-foreground/30">VS</div>
         </div>
 
         {/* Team 2 */}
@@ -462,7 +462,7 @@ export default function TeamTester() {
                     ))}
                   </div>
                   <p className={cn(
-                    "text-4xl font-black",
+                    "text-4xl font-black font-heading",
                     result.winRate >= 50
                       ? "bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent"
                       : "bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent"
@@ -495,7 +495,7 @@ export default function TeamTester() {
                     ))}
                   </div>
                   <p className={cn(
-                    "text-4xl font-black",
+                    "text-4xl font-black font-heading",
                     result.winRate <= 50
                       ? "bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent"
                       : "bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent"

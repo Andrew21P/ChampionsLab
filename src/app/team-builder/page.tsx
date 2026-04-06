@@ -1040,7 +1040,7 @@ export default function TeamBuilderPage() {
           <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 min-w-0">
             <div className="shrink-0">
               <h1 className="text-3xl font-bold">
-                <span className="bg-gradient-to-r from-violet-600 to-cyan-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 bg-clip-text text-transparent">
                   Team Builder
                 </span>
               </h1>
@@ -1059,7 +1059,7 @@ export default function TeamBuilderPage() {
               type="text"
               value={teamName}
               onChange={(e) => setTeamName(e.target.value)}
-              className="px-4 py-2 rounded-xl glass border border-gray-200 focus:border-violet-500/50 focus:outline-none text-lg font-semibold bg-transparent w-full sm:w-64"
+              className="px-4 py-2 rounded-xl glass border border-gray-200 focus:border-emerald-500/50 focus:outline-none text-lg font-semibold bg-transparent w-full sm:w-64"
             />
           </div>
 
@@ -1067,7 +1067,7 @@ export default function TeamBuilderPage() {
             <button
               onClick={generateShareImage}
               disabled={filledSlots.length === 0}
-              className="px-5 py-2 text-sm rounded-xl font-semibold flex items-center gap-2 bg-gradient-to-r from-violet-600 to-cyan-600 text-white shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:scale-105 transition-all disabled:opacity-40 disabled:hover:scale-100 shrink-0"
+              className="px-5 py-2 text-sm rounded-xl font-semibold flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:scale-105 transition-all disabled:opacity-40 disabled:hover:scale-100 shrink-0"
             >
               <Share2 className="w-4 h-4" />
               Share
@@ -1186,7 +1186,7 @@ export default function TeamBuilderPage() {
           {filledSlots.length >= 1 && (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="glass rounded-2xl p-5 border border-gray-200/60">
               <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3 flex items-center gap-2">
-                <Brain className="w-4 h-4 text-violet-500" /> Team Analysis
+                <Brain className="w-4 h-4 text-emerald-500" /> Team Analysis
               </h3>
               <div className="flex items-center gap-3 mb-3">
                 <div className="relative w-14 h-14 flex-shrink-0">
@@ -1218,7 +1218,7 @@ export default function TeamBuilderPage() {
               {teamAnalysis.synergy.detectedArchetypes.length > 0 && (
                 <div className="mb-2">
                   <div className="flex flex-wrap gap-1">
-                    {teamAnalysis.synergy.detectedArchetypes.map(a => <span key={a.archetype} className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-violet-100 text-violet-700 capitalize">{a.archetype.replace(/-/g, " ")} ({Math.round(a.confidence * 100)}%)</span>)}
+                    {teamAnalysis.synergy.detectedArchetypes.map(a => <span key={a.archetype} className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-emerald-100 text-emerald-700 capitalize">{a.archetype.replace(/-/g, " ")} ({Math.round(a.confidence * 100)}%)</span>)}
                   </div>
                 </div>
               )}
@@ -1385,7 +1385,7 @@ export default function TeamBuilderPage() {
                     ? selectedSlotIndex === i
                       ? "glass cursor-pointer"
                       : "glass border-gray-200 hover:border-gray-300 cursor-pointer"
-                    : "border-dashed border-gray-300 hover:border-violet-400 cursor-pointer"
+                    : "border-dashed border-gray-300 hover:border-emerald-400 cursor-pointer"
                 )}
                 style={selectedSlotIndex === i && slot.pokemon ? { outline: "3px solid #3b82f6", outlineOffset: "-1px" } : undefined}
                 onClick={() => {
@@ -1449,7 +1449,7 @@ export default function TeamBuilderPage() {
                               ))}
                             </div>
                             {slot.item && <div className="text-[8px] text-amber-700 bg-amber-50 rounded px-1 py-0.5 truncate font-medium">{slot.item}</div>}
-                            {slot.nature && <div className="text-[8px] text-violet-600 truncate">{slot.nature}</div>}
+                            {slot.nature && <div className="text-[8px] text-emerald-600 truncate">{slot.nature}</div>}
                             <div className="space-y-0">
                               {slot.moves.slice(0, 4).filter(Boolean).map((m) => (
                                 <div key={m} className="text-[9px] text-muted-foreground truncate">• {m}</div>
@@ -1484,7 +1484,7 @@ export default function TeamBuilderPage() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="glass rounded-2xl p-5 border border-violet-200/60"
+                  className="glass rounded-2xl p-5 border border-emerald-200/60"
                 >
                   <div className="flex items-center justify-between mb-4">
                     {(() => {
@@ -1498,7 +1498,7 @@ export default function TeamBuilderPage() {
                           <Image src={displaySprite} alt={displayName} width={48} height={48} className="drop-shadow-md" unoptimized />
                           <div>
                             <h3 className="text-base font-bold flex items-center gap-2">
-                              <Settings2 className="w-4 h-4 text-violet-500" />
+                              <Settings2 className="w-4 h-4 text-emerald-500" />
                               {displayName}
                             </h3>
                             <div className="flex gap-1 mt-0.5">
@@ -1536,7 +1536,7 @@ export default function TeamBuilderPage() {
                               </button>
                             )}
                             {filteredSets.slice(bestSet ? 1 : 0, 5).map((s, i) => (
-                              <button key={i} onClick={() => applySet(selectedSlotIndex, { ability: s.ability, moves: s.moves, sp: s.sp, nature: s.nature, item: s.item })} className="px-3 py-1.5 rounded-lg bg-violet-50 hover:bg-violet-100 border border-violet-200 hover:border-violet-300 transition-all text-[11px] font-medium text-violet-700">
+                              <button key={i} onClick={() => applySet(selectedSlotIndex, { ability: s.ability, moves: s.moves, sp: s.sp, nature: s.nature, item: s.item })} className="px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 hover:border-emerald-300 transition-all text-[11px] font-medium text-emerald-700">
                                 {s.name}
                               </button>
                             ))}
@@ -1544,7 +1544,7 @@ export default function TeamBuilderPage() {
                         );
                       })()}
                       {slotSuggestion && slotSuggestion.altSets.length > 0 && slotSuggestion.altSets.slice(0, 3).map((s, i) => (
-                        <button key={`sug-${i}`} onClick={() => applySet(selectedSlotIndex, s.set)} className="px-3 py-1.5 rounded-lg bg-violet-50 hover:bg-violet-100 border border-violet-200 hover:border-violet-300 transition-all text-[11px] font-medium text-violet-700">
+                        <button key={`sug-${i}`} onClick={() => applySet(selectedSlotIndex, s.set)} className="px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 hover:border-emerald-300 transition-all text-[11px] font-medium text-emerald-700">
                             {s.set.name}
                             <span className={cn("ml-1.5 text-[9px] font-bold", s.matchScore >= 70 ? "text-green-600" : s.matchScore >= 50 ? "text-amber-600" : "text-gray-400")}>{s.matchScore}%</span>
                           </button>
@@ -1621,10 +1621,10 @@ export default function TeamBuilderPage() {
                                       {editPkm.abilities.map((ab) => {
                                         const isActive = preMegaAbility === ab.name;
                                         return (
-                                          <button key={ab.name} onClick={() => updateSlot(selectedSlotIndex, { preMegaAbility: ab.name })} className={cn("w-full text-left px-3 py-1.5 rounded-lg text-[11px] border transition-all", isActive ? "bg-violet-100 border-violet-300 font-semibold text-violet-800" : "bg-gray-50 border-gray-200 hover:bg-gray-100 hover:border-gray-300")}>
+                                          <button key={ab.name} onClick={() => updateSlot(selectedSlotIndex, { preMegaAbility: ab.name })} className={cn("w-full text-left px-3 py-1.5 rounded-lg text-[11px] border transition-all", isActive ? "bg-emerald-100 border-emerald-300 font-semibold text-emerald-800" : "bg-gray-50 border-gray-200 hover:bg-gray-100 hover:border-gray-300")}>
                                             <div className="flex items-center justify-between">
                                               <span>{ab.name}{ab.isHidden ? " (H)" : ""}{ab.isChampions ? " ✦" : ""}</span>
-                                              {isActive && <span className="text-[8px] text-violet-500 font-bold">ACTIVE</span>}
+                                              {isActive && <span className="text-[8px] text-emerald-500 font-bold">ACTIVE</span>}
                                             </div>
                                             <p className="text-[8px] text-muted-foreground mt-0.5 line-clamp-1">{ab.description}</p>
                                           </button>
@@ -1650,10 +1650,10 @@ export default function TeamBuilderPage() {
                                   const isActive = editSlotData.ability === ab.name;
                                   const isSugg = slotSuggestion?.suggestedAbilities.some(a => a.name === ab.name);
                                   return (
-                                    <button key={ab.name} onClick={() => { updateSlot(selectedSlotIndex, { ability: ab.name, isMega: false, megaFormIndex: 0 }); }} className={cn("w-full text-left px-3 py-1.5 rounded-lg text-[11px] border transition-all", isActive ? "bg-violet-100 border-violet-300 font-semibold text-violet-800" : "bg-gray-50 border-gray-200 hover:bg-gray-100 hover:border-gray-300")}>
+                                    <button key={ab.name} onClick={() => { updateSlot(selectedSlotIndex, { ability: ab.name, isMega: false, megaFormIndex: 0 }); }} className={cn("w-full text-left px-3 py-1.5 rounded-lg text-[11px] border transition-all", isActive ? "bg-emerald-100 border-emerald-300 font-semibold text-emerald-800" : "bg-gray-50 border-gray-200 hover:bg-gray-100 hover:border-gray-300")}>
                                       <div className="flex items-center justify-between">
                                         <span>{ab.name}{ab.isHidden ? " (H)" : ""}{ab.isChampions ? " ✦" : ""}</span>
-                                        {isSugg && <span className="text-[8px] text-violet-500 font-bold">REC</span>}
+                                        {isSugg && <span className="text-[8px] text-emerald-500 font-bold">REC</span>}
                                       </div>
                                       <p className="text-[8px] text-muted-foreground mt-0.5 line-clamp-1">{ab.description}</p>
                                     </button>
@@ -1667,7 +1667,7 @@ export default function TeamBuilderPage() {
                                     <button key={ab.name} onClick={() => { updateSlot(selectedSlotIndex, { ability: ab.name, isMega: true, megaFormIndex: formIndex, preMegaAbility: editSlotData.ability || editPkm.abilities[0]?.name, item: getMegaStoneForForm(formIndex) }); }} className={cn("w-full text-left px-3 py-1.5 rounded-lg text-[11px] border transition-all", isActive ? "bg-amber-100 border-amber-300 font-semibold text-amber-800" : "bg-gray-50 border-gray-200 hover:bg-gray-100 hover:border-gray-300")}>
                                       <div className="flex items-center justify-between">
                                         <span>{ab.name}{shortForm ? ` (${shortForm})` : ""}<span className="ml-1 text-[9px] text-amber-600 font-bold">MEGA</span></span>
-                                        {isSugg && <span className="text-[8px] text-violet-500 font-bold">REC</span>}
+                                        {isSugg && <span className="text-[8px] text-emerald-500 font-bold">REC</span>}
                                       </div>
                                       <p className="text-[8px] text-muted-foreground mt-0.5 line-clamp-1">{ab.description}</p>
                                     </button>
@@ -1696,7 +1696,7 @@ export default function TeamBuilderPage() {
                           onChange={(v) => updateSlot(selectedSlotIndex, { nature: v })}
                           placeholder="Select nature…"
                         />
-                        {slotSuggestion && <button onClick={() => updateSlot(selectedSlotIndex, { nature: slotSuggestion.suggestedNature.nature })} className="mt-1 text-[9px] text-violet-600 hover:text-violet-800 transition-colors">★ Suggested: {slotSuggestion.suggestedNature.nature} - {slotSuggestion.suggestedNature.reason}</button>}
+                        {slotSuggestion && <button onClick={() => updateSlot(selectedSlotIndex, { nature: slotSuggestion.suggestedNature.nature })} className="mt-1 text-[9px] text-emerald-600 hover:text-emerald-800 transition-colors">★ Suggested: {slotSuggestion.suggestedNature.nature} - {slotSuggestion.suggestedNature.reason}</button>}
                       </div>
                       <div>
                         <p className="text-[10px] text-muted-foreground uppercase font-bold mb-1">Held Item</p>
@@ -1754,9 +1754,9 @@ export default function TeamBuilderPage() {
                                 <span className={cn("text-[10px] font-medium w-7", isPlus ? "text-red-500" : isMinus ? "text-blue-500" : "text-muted-foreground")}>{STAT_LABELS[stat]}</span>
                                 <span className="text-[10px] font-bold text-muted-foreground w-6 text-right tabular-nums">{base}</span>
                                 <button onClick={() => updateSP(selectedSlotIndex, stat, -2)} className="w-5 h-5 rounded bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"><Minus className="w-2.5 h-2.5" /></button>
-                                <input type="range" min={0} max={MAX_PER_STAT} step={2} value={value} onChange={(e) => setSPDirect(selectedSlotIndex, stat, parseInt(e.target.value) || 0)} className="sp-slider flex-1 h-2 appearance-none rounded-full cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3.5 [&::-webkit-slider-thumb]:h-3.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:w-3.5 [&::-moz-range-thumb]:h-3.5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:shadow-md [&::-moz-range-thumb]:cursor-grab [&::-moz-range-track]:rounded-full" style={{ background: `linear-gradient(to right, #8b5cf6 ${(value / MAX_PER_STAT) * 100}%, #f3f4f6 ${(value / MAX_PER_STAT) * 100}%)`, "--sp-thumb-border": value === 0 ? "#d1d5db" : "#8b5cf6" } as React.CSSProperties} />
+                                <input type="range" min={0} max={MAX_PER_STAT} step={2} value={value} onChange={(e) => setSPDirect(selectedSlotIndex, stat, parseInt(e.target.value) || 0)} className="sp-slider flex-1 h-2 appearance-none rounded-full cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3.5 [&::-webkit-slider-thumb]:h-3.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:w-3.5 [&::-moz-range-thumb]:h-3.5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:shadow-md [&::-moz-range-thumb]:cursor-grab [&::-moz-range-track]:rounded-full" style={{ background: `linear-gradient(to right, #10b981 ${(value / MAX_PER_STAT) * 100}%, #f3f4f6 ${(value / MAX_PER_STAT) * 100}%)`, "--sp-thumb-border": value === 0 ? "#d1d5db" : "#10b981" } as React.CSSProperties} />
                                 <button onClick={() => updateSP(selectedSlotIndex, stat, 2)} className="w-5 h-5 rounded bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"><Plus className="w-2.5 h-2.5" /></button>
-                                <input type="number" min={0} max={MAX_PER_STAT} value={value} onChange={(e) => setSPDirect(selectedSlotIndex, stat, parseInt(e.target.value) || 0)} className="w-8 text-center text-[10px] font-medium rounded bg-gray-50 border border-gray-200 focus:outline-none focus:ring-1 focus:ring-violet-300 py-0.5" />
+                                <input type="number" min={0} max={MAX_PER_STAT} value={value} onChange={(e) => setSPDirect(selectedSlotIndex, stat, parseInt(e.target.value) || 0)} className="w-8 text-center text-[10px] font-medium rounded bg-gray-50 border border-gray-200 focus:outline-none focus:ring-1 focus:ring-emerald-300 py-0.5" />
                                 <span className={cn("text-[11px] font-bold w-7 text-right tabular-nums", isPlus ? "text-red-500" : isMinus ? "text-blue-500" : "text-foreground")}>{final_}</span>
                               </div>
                             );
@@ -1767,9 +1767,9 @@ export default function TeamBuilderPage() {
                         <p className="text-[10px] text-muted-foreground uppercase font-bold mb-1">Presets</p>
                         <div className="flex flex-wrap gap-1">
                           {Object.entries(STAT_PRESETS).map(([name, sp]) => (
-                            <button key={name} onClick={() => updateSlot(selectedSlotIndex, { statPoints: { ...sp } })} className="px-2 py-0.5 text-[9px] rounded bg-gray-50 border border-gray-200 hover:bg-violet-50 hover:border-violet-200 transition-colors">{name}</button>
+                            <button key={name} onClick={() => updateSlot(selectedSlotIndex, { statPoints: { ...sp } })} className="px-2 py-0.5 text-[9px] rounded bg-gray-50 border border-gray-200 hover:bg-emerald-50 hover:border-emerald-200 transition-colors">{name}</button>
                           ))}
-                          {slotSuggestion && <button onClick={() => updateSlot(selectedSlotIndex, { statPoints: { ...slotSuggestion.suggestedSP.sp } })} className="px-2 py-0.5 text-[9px] rounded bg-violet-50 border border-violet-200 text-violet-700 hover:bg-violet-100 transition-colors font-medium">★ Suggested</button>}
+                          {slotSuggestion && <button onClick={() => updateSlot(selectedSlotIndex, { statPoints: { ...slotSuggestion.suggestedSP.sp } })} className="px-2 py-0.5 text-[9px] rounded bg-emerald-50 border border-emerald-200 text-emerald-700 hover:bg-emerald-100 transition-colors font-medium">★ Suggested</button>}
                         </div>
                       </div>
                     </div>
@@ -1884,7 +1884,7 @@ export default function TeamBuilderPage() {
                   <div className="flex gap-1 mb-2">
                     {meta.pokemonIds.map((id, pidx) => { const p = POKEMON_SEED.find(pk => pk.id === id); if (!p) return null; const megaForms = p.forms?.filter(f => f.isMega) ?? []; const useSets = USAGE_DATA[p.id] ?? []; const hasMegaSet = p.hasMega && useSets.some(s => s.item.endsWith("ite") || s.item.endsWith("ite X") || s.item.endsWith("ite Y") || s.item.endsWith("ite Z")); const isFirstMega = hasMegaSet && !meta.pokemonIds.slice(0, pidx).some(prevId => { const pp = POKEMON_SEED.find(pk => pk.id === prevId); return pp?.hasMega && (USAGE_DATA[prevId] ?? []).some(s => s.item.endsWith("ite") || s.item.endsWith("ite X") || s.item.endsWith("ite Y") || s.item.endsWith("ite Z")); }); const megaSprite = isFirstMega && megaForms[0] ? megaForms[0].sprite : p.sprite; const megaName = isFirstMega && megaForms[0] ? megaForms[0].name : p.name; return <div key={id} className="flex flex-col items-center relative"><Image src={megaSprite} alt={megaName} width={32} height={32} className="rounded" unoptimized />{isFirstMega && <span className="absolute -top-1 -right-1 px-0.5 text-[6px] font-bold bg-amber-500 text-white rounded">M</span>}<span className="text-[7px] text-muted-foreground mt-0.5 truncate w-9 text-center">{megaName.length > 10 ? p.name : megaName}</span></div>; })}
                   </div>
-                  {meta.corePairs.length > 0 && <div className="flex flex-wrap gap-1 mb-1.5">{meta.corePairs.map(cp => <span key={cp} className="px-1.5 py-0.5 text-[8px] rounded bg-violet-50 text-violet-600 font-medium">{cp}</span>)}</div>}
+                  {meta.corePairs.length > 0 && <div className="flex flex-wrap gap-1 mb-1.5">{meta.corePairs.map(cp => <span key={cp} className="px-1.5 py-0.5 text-[8px] rounded bg-emerald-50 text-emerald-600 font-medium">{cp}</span>)}</div>}
                   <div className="space-y-0">
                     {meta.reasoning.slice(0, 3).map((reason, ri) => <p key={ri} className="text-[9px] text-muted-foreground flex items-start gap-1"><span className="text-emerald-400 mt-px shrink-0">•</span>{reason}</p>)}
                   </div>
@@ -1902,7 +1902,7 @@ export default function TeamBuilderPage() {
             </h3>
             <div className="space-y-2">
               {shuffledTeams.map((team) => (
-                <button key={team.id} onClick={() => loadPrebuiltTeam(team)} className="w-full text-left p-3 rounded-xl glass border border-transparent hover:border-violet-300 transition-all">
+                <button key={team.id} onClick={() => loadPrebuiltTeam(team)} className="w-full text-left p-3 rounded-xl glass border border-transparent hover:border-emerald-300 transition-all">
                   <div className="flex items-center gap-2 mb-1.5">
                     <span className={cn("px-1.5 py-0.5 text-[9px] font-bold uppercase rounded", team.tier === "S" ? "bg-amber-100 text-amber-700" : team.tier === "A" ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-600")}>{team.tier}</span>
                     <h4 className="text-xs font-semibold truncate">{team.name}</h4>
@@ -1947,14 +1947,14 @@ export default function TeamBuilderPage() {
                 value={importText}
                 onChange={(e) => { setImportText(e.target.value); setImportError(""); }}
                 placeholder={`Incineroar @ Figy Berry\nAbility: Intimidate\nCareful Nature\nEVs: 252 HP / 4 Def / 252 SpD\n- Flare Blitz\n- Fake Out\n- Darkest Lariat\n- Protect\n\nGarchomp @ Life Orb\n...`}
-                className="w-full h-64 rounded-xl p-4 bg-gray-50 border border-gray-200 text-xs font-mono resize-none focus:outline-none focus:ring-2 focus:ring-violet-400"
+                className="w-full h-64 rounded-xl p-4 bg-gray-50 border border-gray-200 text-xs font-mono resize-none focus:outline-none focus:ring-2 focus:ring-emerald-400"
               />
               {importError && <p className="text-xs text-red-500 mt-2">{importError}</p>}
               <div className="flex gap-2 mt-4">
                 <button
                   onClick={() => importPokepaste(importText)}
                   disabled={!importText.trim()}
-                  className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-600 text-white text-sm font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-40"
+                  className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-sm font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-40"
                 >
                   <Upload className="w-4 h-4" />
                   Import Team
@@ -2002,7 +2002,7 @@ export default function TeamBuilderPage() {
               <div className="flex gap-2 mt-4">
                 <button
                   onClick={copyToClipboard}
-                  className="flex-1 py-2.5 rounded-xl bg-violet-100 text-violet-700 border border-violet-300 text-sm font-medium flex items-center justify-center gap-2 hover:bg-violet-200 transition-colors"
+                  className="flex-1 py-2.5 rounded-xl bg-emerald-100 text-emerald-700 border border-emerald-300 text-sm font-medium flex items-center justify-center gap-2 hover:bg-emerald-200 transition-colors"
                 >
                   <Copy className="w-4 h-4" />
                   Copy Pokepaste
@@ -2065,7 +2065,7 @@ export default function TeamBuilderPage() {
                   />
                   <button
                     onClick={copyShareUrl}
-                    className={cn("px-3 py-2 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5", urlCopied ? "bg-green-100 text-green-700" : "bg-violet-100 text-violet-700 hover:bg-violet-200")}
+                    className={cn("px-3 py-2 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5", urlCopied ? "bg-green-100 text-green-700" : "bg-emerald-100 text-emerald-700 hover:bg-emerald-200")}
                   >
                     {urlCopied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                     {urlCopied ? "Copied!" : "Copy Link"}
@@ -2075,7 +2075,7 @@ export default function TeamBuilderPage() {
               <div className="flex gap-2">
                 <button
                   onClick={downloadShareImage}
-                  className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-600 text-white text-sm font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
+                  className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-sm font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
                 >
                   <Download className="w-4 h-4" />
                   Download Image
@@ -2123,7 +2123,7 @@ export default function TeamBuilderPage() {
                   placeholder="Search..."
                   value={pickerSearch}
                   onChange={(e) => setPickerSearch(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl glass border border-gray-200 focus:border-violet-500/50 focus:outline-none text-sm"
+                  className="w-full px-4 py-2.5 rounded-xl glass border border-gray-200 focus:border-emerald-500/50 focus:outline-none text-sm"
                   autoFocus
                 />
               </div>
@@ -2135,7 +2135,7 @@ export default function TeamBuilderPage() {
                     <button
                       key={pokemon.id}
                       onClick={() => addPokemon(pokemon)}
-                      className="glass glass-hover rounded-xl p-3 text-left transition-all hover:border-violet-300 border border-transparent"
+                      className="glass glass-hover rounded-xl p-3 text-left transition-all hover:border-emerald-300 border border-transparent"
                     >
                       <div className="flex items-center gap-2">
                         <Image
