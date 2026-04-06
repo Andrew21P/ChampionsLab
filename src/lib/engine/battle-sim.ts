@@ -518,7 +518,7 @@ function evaluateMoveOption(
       if (t.set.moves.includes("Follow Me") || t.set.moves.includes("Rage Powder")) score += 15;
       
       // Don't Fake Out mons with Inner Focus/Clear Body
-      if (["Inner Focus", "Shield Dust", "Own Tempo"].includes(t.ability)) score -= 40;
+      if (["Inner Focus", "Own Tempo"].includes(t.ability) || blocksMoveSecondaryEffects(t, user.ability)) score -= 40;
       
       // Less valuable on weakened mons
       if (t.currentHP < t.maxHP * 0.3) score -= 20;
@@ -1239,6 +1239,14 @@ function isIntimidateBlocked(mon: BattlePokemon): boolean {
   return ["Inner Focus", "Clear Body", "Oblivious", "Own Tempo", "Scrappy", "Mirror Armor"].includes(mon.ability);
 }
 
+function blocksMoveSecondaryEffects(target: BattlePokemon, attackerAbility: string): boolean {
+  if (target.item === "Covert Cloak") {
+    return true;
+  }
+
+  return target.ability === "Shield Dust" && attackerAbility !== "Mold Breaker";
+}
+
 function applyEndOfTurn(state: BattleState): void {
   // Decrement field effects
   if (state.field.weatherTurns > 0) {
@@ -1675,12 +1683,12 @@ function executeMove(
     }
 
     // Secondary effects
-    if (move.secondary && Math.random() * 100 < move.secondary.chance) {
+    if (!blocksMoveSecondaryEffects(t, user.ability) && move.secondary && Math.random() * 100 < move.secondary.chance) {
       if (move.secondary.status && !t.status && t.currentHP > 0) {
         t.status = move.secondary.status;
       }
       if (move.secondary.volatileStatus === "flinch") {
-        if (!["Inner Focus", "Shield Dust", "Own Tempo"].includes(t.ability)) {
+        if (!["Inner Focus", "Own Tempo"].includes(t.ability)) {
           t.hasMoved = true; // Simplified: prevent action
         }
       }
