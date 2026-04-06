@@ -50523,11 +50523,11 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         ],
         "baseStats": {
           "hp": 65,
-          "attack": 150,
-          "defense": 60,
-          "spAtk": 115,
-          "spDef": 60,
-          "speed": 115
+          "attack": 140,
+          "defense": 65,
+          "spAtk": 130,
+          "spDef": 65,
+          "speed": 100
         },
         "abilities": [
           {
@@ -56975,11 +56975,11 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         ],
         "baseStats": {
           "hp": 108,
-          "attack": 170,
-          "defense": 115,
-          "spAtk": 120,
+          "attack": 150,
+          "defense": 105,
+          "spAtk": 140,
           "spDef": 95,
-          "speed": 92
+          "speed": 102
         },
         "abilities": [
           {
@@ -58113,10 +58113,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         ],
         "baseStats": {
           "hp": 70,
-          "attack": 145,
-          "defense": 88,
-          "spAtk": 140,
-          "spDef": 70,
+          "attack": 155,
+          "defense": 78,
+          "spAtk": 130,
+          "spDef": 80,
           "speed": 112
         },
         "abilities": [

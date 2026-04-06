@@ -14,6 +14,7 @@ const SHARED_ENTRIES: ChangelogEntry[] = [
     date: "06/04/2026",
     items: [
       "Fixed Team Builder layout at medium screen sizes (1280-1730px) — right column now stacks below instead of squeezing stat sliders",
+      "Fixed Mega Absol Z, Mega Garchomp Z, and Mega Lucario Z having identical stats to their regular mega forms — restored unique Z-mega stat distributions",
       "Added 6 more missing held items: Fairy Feather, Eject Pack, Eject Button, Room Service, Lagging Tail, Iron Ball",
       "Fixed mobile search dropdown closing when keyboard appears",
     ],
