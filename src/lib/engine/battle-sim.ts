@@ -2622,6 +2622,250 @@ export function runSimulation(
   };
 }
 
+// ── TEAM TEST DETAILED SIMULATION ────────────────────────────────────────────
+
+export interface LeadComboResult {
+  lead1: string;
+  lead2: string;
+  lead1Sprite: string;
+  lead2Sprite: string;
+  winRate: number;
+  games: number;
+}
+
+export interface PokemonImpact {
+  name: string;
+  sprite: string;
+  excludeWinRate: number;
+  impact: number; // main winRate - excludeWinRate (positive = helps, negative = hurts)
+}
+
+export interface TeamTestDetailedResult {
+  wins: number;
+  losses: number;
+  winRate: number;
+  avgTurns: number;
+  totalGames: number;
+  sampleBattle: DetailedBattleResult | null;
+  leadCombos: LeadComboResult[];
+  pokemonImpact: PokemonImpact[];
+  insights: string[];
+}
+
+/** Score each pokemon's value for bring-4 against a given opponent team */
+function scorePokemonForBring(
+  pokemon: ChampionsPokemon[],
+  sets: CommonSet[],
+  oppPokemon: ChampionsPokemon[]
+): { idx: number; score: number }[] {
+  const scores: { idx: number; score: number }[] = [];
+  for (let i = 0; i < pokemon.length; i++) {
+    const p = pokemon[i];
+    const s = sets[i];
+    let score = 50;
+    for (const opp of oppPokemon) {
+      for (const pType of p.types) {
+        const eff = getMatchup(pType, opp.types);
+        if (eff > 1) score += 6;
+      }
+      for (const oType of opp.types) {
+        const eff = getMatchup(oType, p.types);
+        if (eff < 1) score += 3;
+      }
+    }
+    if (isMegaStoneItem(s.item)) score += 10;
+    scores.push({ idx: i, score });
+  }
+  return scores;
+}
+
+/** Run a detailed team-vs-team simulation with lead analysis and per-Pokemon impact */
+export function runTeamTestSimulation(
+  team1Pokemon: ChampionsPokemon[],
+  team1Sets: CommonSet[],
+  team2Pokemon: ChampionsPokemon[],
+  team2Sets: CommonSet[],
+  iterations: number,
+  onProgress?: (pct: number) => void
+): TeamTestDetailedResult {
+  onProgress?.(0);
+
+  // ── Phase 1: Lead Combo Analysis — Two-Pass (0-70%) ───────────────────
+  // Pass 1: Screen every lead combo with a solid sample size.
+  // Pass 2: Re-test the top combos with 2× more battles for precision.
+  // The overall win rate is derived from the aggregate of all battles.
+  const leadCombos: LeadComboResult[] = [];
+  let totalWins = 0;
+  let totalGames = 0;
+  let totalTurns = 0;
+
+  if (team1Pokemon.length >= 4) {
+    const bringScores = scorePokemonForBring(team1Pokemon, team1Sets, team2Pokemon);
+    const pairs: [number, number][] = [];
+    for (let i = 0; i < team1Pokemon.length; i++) {
+      for (let j = i + 1; j < team1Pokemon.length; j++) {
+        pairs.push([i, j]);
+      }
+    }
+
+    // Pass 1: minimum 100 battles per combo for statistical stability
+    const pass1Trials = Math.max(100, Math.round(iterations * 1.5 / pairs.length));
+
+    for (let p = 0; p < pairs.length; p++) {
+      const [i, j] = pairs[p];
+      const remaining = bringScores
+        .filter(s => s.idx !== i && s.idx !== j)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 2);
+
+      const forcedTeam = [team1Pokemon[i], team1Pokemon[j], ...remaining.map(r => team1Pokemon[r.idx])];
+      const forcedSets = [team1Sets[i], team1Sets[j], ...remaining.map(r => team1Sets[r.idx])];
+
+      const res = runSimulation(forcedTeam, forcedSets, team2Pokemon, team2Sets, pass1Trials);
+      totalWins += res.wins;
+      totalGames += pass1Trials;
+      totalTurns += res.avgTurns * pass1Trials;
+
+      leadCombos.push({
+        lead1: team1Pokemon[i].name,
+        lead2: team1Pokemon[j].name,
+        lead1Sprite: team1Pokemon[i].sprite,
+        lead2Sprite: team1Pokemon[j].sprite,
+        winRate: res.winRate,
+        games: pass1Trials,
+      });
+
+      onProgress?.(Math.round(((p + 1) / pairs.length) * 50));
+    }
+
+    // Pass 2: Refine top 5 combos with extra battles to nail down the ranking
+    leadCombos.sort((a, b) => b.winRate - a.winRate);
+    const refineCount = Math.min(5, leadCombos.length);
+    const pass2Trials = Math.max(100, pass1Trials);
+
+    for (let r = 0; r < refineCount; r++) {
+      const combo = leadCombos[r];
+      const i = team1Pokemon.findIndex(p => p.name === combo.lead1);
+      const j = team1Pokemon.findIndex(p => p.name === combo.lead2);
+      if (i < 0 || j < 0) continue;
+
+      const remaining = bringScores
+        .filter(s => s.idx !== i && s.idx !== j)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 2);
+
+      const forcedTeam = [team1Pokemon[i], team1Pokemon[j], ...remaining.map(rr => team1Pokemon[rr.idx])];
+      const forcedSets = [team1Sets[i], team1Sets[j], ...remaining.map(rr => team1Sets[rr.idx])];
+
+      const res = runSimulation(forcedTeam, forcedSets, team2Pokemon, team2Sets, pass2Trials);
+
+      // Merge pass 1 + pass 2 results for this combo
+      const oldWins = Math.round(combo.winRate / 100 * combo.games);
+      const mergedGames = combo.games + pass2Trials;
+      const mergedWins = oldWins + res.wins;
+      combo.winRate = Math.round((mergedWins / mergedGames) * 1000) / 10;
+      combo.games = mergedGames;
+
+      totalWins += res.wins;
+      totalGames += pass2Trials;
+      totalTurns += res.avgTurns * pass2Trials;
+
+      onProgress?.(50 + Math.round(((r + 1) / refineCount) * 15));
+    }
+    // Re-sort after refinement
+    leadCombos.sort((a, b) => b.winRate - a.winRate);
+  } else {
+    const res = runSimulation(team1Pokemon, team1Sets, team2Pokemon, team2Sets, Math.max(200, iterations));
+    totalWins = res.wins;
+    totalGames = Math.max(200, iterations);
+    totalTurns = res.avgTurns * totalGames;
+    onProgress?.(65);
+  }
+
+  const overallWinRate = totalGames > 0 ? Math.round((totalWins / totalGames) * 1000) / 10 : 0;
+  const overallAvgTurns = totalGames > 0 ? Math.round(totalTurns / totalGames * 10) / 10 : 0;
+
+  // ── Phase 2: Sample battle for replay (65-70%) ─────────────────────────
+  const sampleBattle = simulateBattleWithLog(team1Pokemon, team1Sets, team2Pokemon, team2Sets);
+  onProgress?.(70);
+
+  // ── Phase 3: Per-Pokemon impact analysis (70-95%) ──────────────────────
+  // Use 150+ battles per exclusion test for reliable impact scores
+  const pokemonImpact: PokemonImpact[] = [];
+  if (team1Pokemon.length > 4) {
+    const trialsPerExclude = Math.max(150, iterations);
+    for (let i = 0; i < team1Pokemon.length; i++) {
+      const withoutTeam = team1Pokemon.filter((_, idx) => idx !== i);
+      const withoutSets = team1Sets.filter((_, idx) => idx !== i);
+      const res = runSimulation(withoutTeam, withoutSets, team2Pokemon, team2Sets, trialsPerExclude);
+      pokemonImpact.push({
+        name: team1Pokemon[i].name,
+        sprite: team1Pokemon[i].sprite,
+        excludeWinRate: res.winRate,
+        impact: Math.round((overallWinRate - res.winRate) * 10) / 10,
+      });
+      onProgress?.(70 + Math.round(((i + 1) / team1Pokemon.length) * 25));
+    }
+    pokemonImpact.sort((a, b) => b.impact - a.impact);
+  }
+  onProgress?.(95);
+
+  // ── Phase 4: Generate insights (95-100%) ───────────────────────────────
+  const insights: string[] = [];
+  if (leadCombos.length > 0) {
+    const best = leadCombos[0];
+    insights.push(`Best leads: ${best.lead1} + ${best.lead2} (${best.winRate}% win rate over ${best.games} battles)`);
+    if (leadCombos.length > 1) {
+      const worst = leadCombos[leadCombos.length - 1];
+      if (worst.winRate < overallWinRate - 10) {
+        insights.push(`Avoid leading ${worst.lead1} + ${worst.lead2} (only ${worst.winRate}%)`);
+      }
+    }
+    const topAvg = leadCombos.slice(0, 3).reduce((a, c) => a + c.winRate, 0) / Math.min(3, leadCombos.length);
+    const bottomAvg = leadCombos.slice(-3).reduce((a, c) => a + c.winRate, 0) / Math.min(3, leadCombos.length);
+    if (topAvg - bottomAvg > 15) {
+      insights.push(`Lead choice matters a lot here — ${Math.round(topAvg - bottomAvg)}% gap between best and worst`);
+    }
+  }
+  if (pokemonImpact.length > 0) {
+    const mvp = pokemonImpact[0];
+    if (mvp.impact > 0) {
+      insights.push(`${mvp.name} is your MVP for this matchup (+${mvp.impact}% win rate when brought)`);
+    }
+    const weakest = pokemonImpact[pokemonImpact.length - 1];
+    if (weakest.impact < -2) {
+      insights.push(`Consider leaving ${weakest.name} in the back vs this team (${weakest.impact}% impact)`);
+    }
+  }
+  const hasFakeOut = team1Sets.some(s => s.moves.includes("Fake Out"));
+  const hasSpeedControl = team1Sets.some(s => s.moves.includes("Tailwind") || s.moves.includes("Trick Room"));
+  if (hasFakeOut && hasSpeedControl) {
+    insights.push("Lead with Fake Out + Speed Control for maximum turn 1 pressure");
+  } else if (hasFakeOut) {
+    insights.push("Lead with Fake Out user to disrupt the opponent's setup");
+  } else if (hasSpeedControl) {
+    insights.push("Prioritize setting up speed control on turn 1");
+  }
+  if (overallWinRate >= 60) {
+    insights.push("Strong matchup — focus on consistent play and don't overextend");
+  } else if (overallWinRate <= 40) {
+    insights.push("Tough matchup — look for surprise leads or alternate game plans");
+  }
+  onProgress?.(100);
+
+  return {
+    wins: totalWins,
+    losses: totalGames - totalWins,
+    winRate: overallWinRate,
+    avgTurns: overallAvgTurns,
+    totalGames,
+    sampleBattle,
+    leadCombos,
+    pokemonImpact,
+    insights,
+  };
+}
+
 // ── RANDOM TEAM GENERATOR ────────────────────────────────────────────────────
 
 const COMPETITIVE_ITEMS = [

@@ -491,7 +491,7 @@ export default function DamageCalculator() {
                     "text-[9px] font-bold px-2 py-0.5 rounded-md flex-shrink-0 w-16 text-center",
                     r.isOHKO ? "bg-red-100 text-red-700" :
                     r.is2HKO ? "bg-orange-100 text-orange-700" :
-                    "bg-gray-100 text-gray-600"
+                    "bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-white/50"
                   )}>
                     {r.isOHKO ? "OHKO" : r.is2HKO ? "2HKO" : `${Math.ceil(100 / ((r.percentHP[0] + r.percentHP[1]) / 2))}HKO`}
                   </span>
@@ -544,7 +544,7 @@ export default function DamageCalculator() {
       {/* Empty state */}
       {!attacker.pokemon && !defender.pokemon && (
         <div className="glass rounded-2xl p-12 border border-gray-200/60 text-center">
-          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center mx-auto mb-4">
+          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-white/5 dark:to-white/10 flex items-center justify-center mx-auto mb-4">
             <Swords className="w-10 h-10 text-muted-foreground/20" />
           </div>
           <p className="text-muted-foreground text-sm mb-1 font-medium">Select Pokémon to Calculate Damage</p>
@@ -634,7 +634,7 @@ function PokemonPanel({
   const p = slot.pokemon;
   const set = slot.set;
   const borderColor = color === "blue" ? "border-blue-200" : "border-red-200";
-  const headerBg = color === "blue" ? "from-blue-50 to-indigo-50" : "from-red-50 to-orange-50";
+  const headerBg = color === "blue" ? "from-blue-50 to-blue-100" : "from-red-50 to-red-100";
   const headerText = color === "blue" ? "text-blue-600" : "text-red-600";
 
   const usageSets = p ? (USAGE_DATA[p.id] ?? []) : [];
@@ -672,7 +672,7 @@ function PokemonPanel({
         ) : (
           <button
             onClick={onPickerOpen}
-            className="w-full py-8 rounded-xl border-2 border-dashed border-gray-300 hover:border-violet-400 text-muted-foreground hover:text-foreground transition-colors flex flex-col items-center gap-2"
+            className="w-full py-8 rounded-xl border-2 border-dashed border-gray-300 dark:border-white/20 hover:border-violet-400 text-muted-foreground hover:text-foreground transition-colors flex flex-col items-center gap-2"
           >
             <Search className="w-6 h-6" />
             <span className="text-sm font-medium">Select {label}</span>
@@ -830,7 +830,7 @@ function PokemonPanel({
                       {STAT_LABELS[stat]}
                     </span>
                     <span className="text-[10px] text-muted-foreground w-7 text-right font-mono">{base}</span>
-                    <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                    <div className="flex-1 h-2 bg-gray-100 dark:bg-white/10 rounded-full overflow-hidden">
                       <div
                         className={cn(
                           "h-full rounded-full transition-all",

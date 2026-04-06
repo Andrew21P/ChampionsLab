@@ -796,7 +796,7 @@ export default function BattleBotPage() {
               <div>
                 <label className="text-xs text-muted-foreground block mb-1.5">Battles per matchup</label>
                 <div className="grid grid-cols-5 gap-1.5">
-                  {[20, 50, 100, 200, 500].map(n => (
+                  {[50, 100, 200, 500, 1000].map(n => (
                     <button
                       key={n}
                       onClick={() => setIterations(n)}
@@ -909,13 +909,12 @@ export default function BattleBotPage() {
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium truncate">{progressLabel}</p>
                   <div className="h-2 bg-gray-100 dark:bg-gray-200/10 rounded-full mt-2 overflow-hidden">
-                    <motion.div
-                      className="h-full bg-gradient-to-r from-red-500 to-orange-500 rounded-full"
-                      style={{ width: `${progress}%` }}
-                      transition={{ duration: 0.3 }}
+                    <div
+                      className="h-full w-1/3 bg-gradient-to-r from-red-500 to-orange-500 rounded-full"
+                      style={{ animation: "progress-slide 1.2s ease-in-out infinite" }}
                     />
                   </div>
-                  <p className="text-[10px] text-muted-foreground mt-1">{progress}% - Full damage/speed/item/ability calculations</p>
+                  <p className="text-[10px] text-muted-foreground mt-1">{progressLabel}</p>
                 </div>
               </div>
             </motion.div>

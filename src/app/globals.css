@@ -186,6 +186,12 @@ body.mobile-open .mobile-nav-panel { display: block; }
 }
 .animate-stat-fill { animation: stat-fill 0.8s ease-out forwards; }
 
+@keyframes progress-slide {
+  0%   { transform: translateX(-100%); }
+  50%  { transform: translateX(200%); }
+  100% { transform: translateX(-100%); }
+}
+
 /* Type colors */
 .type-normal { --type-color: #a8a878; }
 .type-fire { --type-color: #f08030; }

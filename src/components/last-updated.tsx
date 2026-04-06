@@ -13,6 +13,13 @@ const SHARED_ENTRIES: ChangelogEntry[] = [
   {
     date: "06/04/2026",
     items: [
+      "Comprehensive dark mode fix across Team Tester — all backgrounds, borders, text, bar tracks, badges, and flowchart nodes now properly readable",
+      "Dark mode fix for Damage Calculator — header gradients, dashed borders, stat bars, and KO badges",
+      "Team Tester: clickable lead combos update the Strategy Flowchart dynamically",
+      "Team Tester: editable Pokémon modal (moves, ability, nature, item, SP) matching Battle Bot",
+      "Indeterminate progress bar animation for Team Tester and Battle Engine simulations",
+      "Auto-scroll to progress bar on run, then to results on completion",
+      "Updated simulation iteration options and defaults",
       "Fixed Team Builder layout at medium screen sizes (1280-1730px) — right column now stacks below instead of squeezing stat sliders",
       "Fixed Mega Absol Z, Mega Garchomp Z, and Mega Lucario Z having identical stats to their regular mega forms — restored unique Z-mega stat distributions",
       "Battle Bot replay now shows targets and effects for status moves (e.g. Thunder Wave, Will-O-Wisp)",

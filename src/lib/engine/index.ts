@@ -102,7 +102,19 @@ export {
 export {
   simulateBattle,
   runSimulation,
+  runTeamTestSimulation,
+  type TeamTestDetailedResult,
+  type LeadComboResult,
+  type PokemonImpact,
 } from "./battle-sim";
+
+// Strategy Tree Generator
+export {
+  generateStrategyTree,
+  type StrategyTree,
+  type StrategyNode,
+  type StrategyNodeType,
+} from "./strategy-tree";
 
 // Suggestion Engine
 export {
