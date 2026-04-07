@@ -13,6 +13,9 @@ const SHARED_ENTRIES: ChangelogEntry[] = [
   {
     date: "07/04/2026",
     items: [
+      "Fixed Intimidate affecting immune abilities — Clear Body, White Smoke, Hyper Cutter, Full Metal Body now correctly block Intimidate",
+      "Added Guard Dog ability — boosts Attack instead of lowering it when hit by Intimidate",
+      "Fixed Mega Evolution Intimidate not handling Mirror Armor bounce-back",
       "Pokémon Champions release countdown timer on the Pokédex page (April 8, 2026 — Noon JST)",
       "Three-tier responsive navbar — tablet width (800–1139px) shows Pokédex, Team Builder & Battle Bot in the bar with hamburger for remaining items",
       "Pre-mega ability selector in Battle Bot modal — editable pre-mega ability with locked mega ability display",

@@ -607,7 +607,7 @@ export function getAbilityVGCScore(abilityName: string): number {
 
 /** Is this ability an Intimidate counter? */
 export function isIntimidateImmune(abilityName: string): boolean {
-  return ["Inner Focus", "Oblivious", "Own Tempo", "Clear Body", "Competitive", "Defiant", "Scrappy"].includes(abilityName);
+  return ["Inner Focus", "Oblivious", "Own Tempo", "Clear Body", "White Smoke", "Full Metal Body", "Hyper Cutter", "Competitive", "Defiant", "Scrappy", "Mirror Armor", "Guard Dog"].includes(abilityName);
 }
 
 /** Does this ability benefit from Intimidate being lowered? (Competitive, Defiant) */

@@ -1204,6 +1204,9 @@ function applySwitch(state: BattleState, sideIndex: 1 | 2, slot: 0 | 1): void {
           if (opp.ability === "Mirror Armor") {
             // Mirror Armor bounces the Attack drop back to the Intimidator
             next.boosts.attack = Math.max(-6, next.boosts.attack - 1);
+          } else if (opp.ability === "Guard Dog") {
+            // Guard Dog boosts Attack instead of lowering it
+            opp.boosts.attack = Math.min(6, opp.boosts.attack + 1);
           } else if (!isIntimidateBlocked(opp)) {
             opp.boosts.attack = Math.max(-6, opp.boosts.attack - 1);
             // Competitive/Defiant trigger on ANY stat drop
@@ -1243,7 +1246,7 @@ function applySwitch(state: BattleState, sideIndex: 1 | 2, slot: 0 | 1): void {
 }
 
 function isIntimidateBlocked(mon: BattlePokemon): boolean {
-  return ["Inner Focus", "Clear Body", "Oblivious", "Own Tempo", "Scrappy", "Mirror Armor"].includes(mon.ability);
+  return ["Inner Focus", "Clear Body", "White Smoke", "Full Metal Body", "Hyper Cutter", "Oblivious", "Own Tempo", "Scrappy", "Mirror Armor", "Guard Dog"].includes(mon.ability);
 }
 
 function applyEndOfTurn(state: BattleState): void {
@@ -1924,6 +1927,8 @@ export function simulateBattle(
           if (!opp) continue;
           if (opp.ability === "Mirror Armor") {
             mon.boosts.attack = Math.max(-6, mon.boosts.attack - 1);
+          } else if (opp.ability === "Guard Dog") {
+            opp.boosts.attack = Math.min(6, opp.boosts.attack + 1);
           } else if (!isIntimidateBlocked(opp)) {
             opp.boosts.attack = Math.max(-6, opp.boosts.attack - 1);
             if (opp.ability === "Competitive") opp.boosts.spAtk = Math.min(6, opp.boosts.spAtk + 2);
@@ -2042,10 +2047,16 @@ export function simulateBattle(
           }
           if (action.mon.ability === "Intimidate") {
             for (const opp of opponents) {
-              if (opp && opp.isAlive && !opp.isFainted && !isIntimidateBlocked(opp)) {
-                opp.boosts.attack = Math.max(-6, opp.boosts.attack - 1);
-                if (opp.ability === "Competitive") opp.boosts.spAtk = Math.min(6, opp.boosts.spAtk + 2);
-                if (opp.ability === "Defiant") opp.boosts.attack = Math.min(6, opp.boosts.attack + 2);
+              if (opp && opp.isAlive && !opp.isFainted) {
+                if (opp.ability === "Mirror Armor") {
+                  action.mon.boosts.attack = Math.max(-6, action.mon.boosts.attack - 1);
+                } else if (opp.ability === "Guard Dog") {
+                  opp.boosts.attack = Math.min(6, opp.boosts.attack + 1);
+                } else if (!isIntimidateBlocked(opp)) {
+                  opp.boosts.attack = Math.max(-6, opp.boosts.attack - 1);
+                  if (opp.ability === "Competitive") opp.boosts.spAtk = Math.min(6, opp.boosts.spAtk + 2);
+                  if (opp.ability === "Defiant") opp.boosts.attack = Math.min(6, opp.boosts.attack + 2);
+                }
               }
             }
           }
@@ -2251,6 +2262,9 @@ export function simulateBattleWithLog(
           if (opp && opp.ability === "Mirror Armor") {
             mon.boosts.attack = Math.max(-6, mon.boosts.attack - 1);
             entryEvents.push(`${opp.pokemon.name}'s Mirror Armor reflected ${mon.pokemon.name}'s Intimidate!`);
+          } else if (opp && opp.ability === "Guard Dog") {
+            opp.boosts.attack = Math.min(6, opp.boosts.attack + 1);
+            entryEvents.push(`${opp.pokemon.name}'s Guard Dog raised its Attack from ${mon.pokemon.name}'s Intimidate!`);
           } else if (opp && !isIntimidateBlocked(opp)) {
             opp.boosts.attack = Math.max(-6, opp.boosts.attack - 1);
             entryEvents.push(`${mon.pokemon.name}'s Intimidate lowered ${opp.pokemon.name}'s Attack!`);
@@ -2524,6 +2538,8 @@ export function simulateBattleWithLog(
                 if (!opp || opp.isFainted) continue;
                 if (opp.ability === "Mirror Armor") {
                   turnEvents.push(`${opp.pokemon.name}'s Mirror Armor reflected ${switched.pokemon.name}'s Intimidate!`);
+                } else if (opp.ability === "Guard Dog") {
+                  turnEvents.push(`${opp.pokemon.name}'s Guard Dog raised its Attack from ${switched.pokemon.name}'s Intimidate!`);
                 } else if (!isIntimidateBlocked(opp) && opp.boosts.attack < oppBoostsBefore[oi]) {
                   turnEvents.push(`${switched.pokemon.name}'s Intimidate lowered ${opp.pokemon.name}'s Attack!`);
                   if (opp.ability === "Competitive") {
