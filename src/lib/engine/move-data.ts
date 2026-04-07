@@ -28,6 +28,7 @@ export interface MoveFlags {
   pulse?: boolean;      // aura/pulse move (Mega Launcher)
   recoil?: number;      // recoil % of damage dealt
   drain?: number;       // drain % of damage dealt (heal)
+  selfFaint?: boolean;  // user faints after the move resolves
   protect?: boolean;    // is a Protect variant
   priority?: boolean;   // is a priority move
 }
@@ -148,6 +149,18 @@ export const MOVE_DATA: Record<string, EngineMove> = {
     accuracy: 100, pp: 10, priority: 0, target: "normal",
     flags: { contact: true },
     effect: "Attacks for 2-3 turns, then confused.",
+  },
+  "Explosion": {
+    name: "Explosion", type: "normal", category: "physical", basePower: 250,
+    accuracy: 100, pp: 5, priority: 0, target: "allAdjacent",
+    flags: { selfFaint: true },
+    effect: "Hits all adjacent Pokemon. User faints after use.",
+  },
+  "Self-Destruct": {
+    name: "Self-Destruct", type: "normal", category: "physical", basePower: 200,
+    accuracy: 100, pp: 5, priority: 0, target: "allAdjacent",
+    flags: { selfFaint: true },
+    effect: "Hits all adjacent Pokemon. User faints after use.",
   },
 
   // ── FIRE ───────────────────────────────────────────────────────────────────
@@ -1005,6 +1018,12 @@ export const MOVE_DATA: Record<string, EngineMove> = {
     accuracy: 90, pp: 10, priority: 0, target: "normal",
     flags: { contact: true },
     secondary: { chance: 10, boosts: { attack: -1 } },
+  },
+  "Misty Explosion": {
+    name: "Misty Explosion", type: "fairy", category: "special", basePower: 100,
+    accuracy: 100, pp: 5, priority: 0, target: "allAdjacent",
+    flags: { selfFaint: true },
+    effect: "Hits all adjacent Pokemon. User faints after use.",
   },
 
   // ── STATUS / SUPPORT ──────────────────────────────────────────────────────

@@ -1775,6 +1775,10 @@ function executeMove(
   if (user.item === "Life Orb" && user.ability !== "Sheer Force" && targets.length > 0) {
     user.currentHP -= Math.floor(user.maxHP / 10);
   }
+
+  if (move.flags.selfFaint && targets.length > 0) {
+    user.currentHP = 0;
+  }
   
   // Check user faint from recoil/Life Orb
   if (user.currentHP <= 0) {
@@ -2501,7 +2505,14 @@ export function simulateBattleWithLog(
         const selfDmg = userHPBefore - action.mon.currentHP;
         const hasRecoilMove = move && move.flags.recoil;
         const hasLifeOrb = action.mon.item === "Life Orb";
-        const label = hasRecoilMove ? "recoil" : hasLifeOrb ? "Life Orb damage" : "recoil";
+        const hasSelfFaintMove = move?.flags.selfFaint;
+        const label = hasRecoilMove
+          ? "recoil"
+          : hasLifeOrb
+            ? "Life Orb damage"
+            : hasSelfFaintMove
+              ? `${action.moveName}`
+              : "recoil";
         if (selfDmg > 0 && action.mon.isFainted) {
           turnEvents.push(`${action.mon.pokemon.name} fainted from ${label}!`);
         } else if (selfDmg > 0) {
