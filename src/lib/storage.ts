@@ -185,6 +185,11 @@ export function getLastTeam(): { name: string; slots: SavedTeamSlot[]; teamId?: 
   return readJSON<{ name: string; slots: SavedTeamSlot[]; teamId?: string } | null>(KEYS.LAST_TEAM, null);
 }
 
+/** Clear last worked on team (e.g. when user clicks New/Clear) */
+export function clearLastTeam(): void {
+  writeJSON(KEYS.LAST_TEAM, null);
+}
+
 // ── Simulation Results ──────────────────────────────────────────────────
 
 export function getSavedSimResults(): SavedSimResult[] {

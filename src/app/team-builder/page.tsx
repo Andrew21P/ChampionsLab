@@ -3,11 +3,10 @@
 import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "@/lib/motion";
 import Image from "next/image";
-import { LastUpdated } from "@/components/last-updated";
 import {
   Plus, X, Download, Upload, Copy, Trash2, Shield, Zap,
   ChevronDown, Check, AlertTriangle, Sparkles, Star,
-  TrendingUp, Users, Brain, Target, Award, Minus, Settings2,
+  TrendingUp, Users, Brain, Target, Minus, Settings2,
   Save, FolderOpen, Share2,
 } from "lucide-react";
 import { POKEMON_SEED, STAT_PRESETS } from "@/lib/pokemon-data";
@@ -29,22 +28,17 @@ import {
   ITEMS,
   getAllNatures,
   getAllItems,
-  predictMetaTeams,
-  TOURNAMENT_TEAMS,
-  TOURNAMENT_USAGE,
-  CORE_PAIRS,
   type NatureName,
   type PrebuiltTeam,
   type TeammateSuggestion,
   type TeamAnalysis,
   type SlotSuggestion,
-  type MetaTeamPrediction,
   getTypeImmunity,
   calculateStats,
   isItemAvailable,
 } from "@/lib/engine";
 import {
-  getSavedTeams, saveTeam, deleteTeam, deserializeTeam, saveLastTeam, getLastTeam,
+  getSavedTeams, saveTeam, deleteTeam, deserializeTeam, saveLastTeam, getLastTeam, clearLastTeam,
   serializeTeam,
   type SavedTeam, type SavedTeamSlot,
 } from "@/lib/storage";
@@ -132,7 +126,7 @@ export default function TeamBuilderPage() {
   const [slots, setSlots] = useState<TeamSlot[]>(
     Array.from({ length: 6 }, createEmptySlot)
   );
-  const [teamName, setTeamName] = useState("My Team");
+  const [teamName, setTeamName] = useState("New Team");
   const [activeSlot, setActiveSlot] = useState<number | null>(null);
   const [showPokemonPicker, setShowPokemonPicker] = useState(false);
   const [pickerSearch, setPickerSearch] = useState("");
@@ -151,9 +145,7 @@ export default function TeamBuilderPage() {
   const [shuffledTeams, setShuffledTeams] = useState<PrebuiltTeam[]>([]);
   const [showShare, setShowShare] = useState(false);
   const [shareImageUrl, setShareImageUrl] = useState<string | null>(null);
-
-  // Engine-predicted meta teams (computed once)
-  const metaTeams = useMemo(() => predictMetaTeams(), []);
+  const [showCuratedTeams, setShowCuratedTeams] = useState(false);
 
   // Shuffle suggested teams on mount
   useEffect(() => {
@@ -293,6 +285,8 @@ export default function TeamBuilderPage() {
     const filledCount = slots.filter(s => s.pokemon).length;
     if (filledCount > 0 && validationErrors.length === 0) {
       saveLastTeam(teamName, slots, currentTeamId);
+    } else if (filledCount === 0) {
+      clearLastTeam();
     }
   }, [slots, teamName, currentTeamId, validationErrors.length]);
 
@@ -617,56 +611,6 @@ export default function TeamBuilderPage() {
     while (newSlots.length < 6) newSlots.push(createEmptySlot());
     setSlots(newSlots);
     setTeamName(team.name);
-    setCurrentTeamId(undefined);
-    setSelectedSlotIndex(0);
-  };
-
-  const loadMetaTeam = (meta: MetaTeamPrediction) => {
-    trackEvent("load_meta_team", "team_builder", meta.name);
-    const isMegaItem = (item: string) => item.endsWith("ite") || item.endsWith("ite X") || item.endsWith("ite Y") || item.endsWith("ite Z");
-    const newSlots = meta.pokemonIds.map((id) => {
-      const pokemon = POKEMON_SEED.find(p => p.id === id);
-      if (!pokemon) return createEmptySlot();
-      const sets = suggestSets(pokemon, []);
-      const bestSet = sets.length > 0 ? sets[0].set : null;
-      // Auto-assign mega if the Pokémon has a Mega set
-      let isMega = false;
-      let megaFormIndex = 0;
-      if (pokemon.hasMega) {
-        const usageSets = USAGE_DATA[pokemon.id] ?? [];
-        const megaSet = usageSets.find(s => isMegaItem(s.item));
-        if (megaSet) {
-          isMega = true;
-          const megaForms = pokemon.forms?.filter(f => f.isMega) ?? [];
-          const idx = megaForms.findIndex(f => f.abilities.some(a => a.name === megaSet.ability));
-          megaFormIndex = idx >= 0 ? idx : 0;
-          const megaAbility = megaForms[megaFormIndex]?.abilities?.[0]?.name;
-          return {
-            pokemon,
-            ability: megaAbility ?? megaSet.ability,
-            nature: megaSet.nature,
-            moves: megaSet.moves,
-            statPoints: megaSet.sp ? { ...megaSet.sp } : { ...EMPTY_STAT_POINTS },
-            item: megaSet.item,
-            isMega: true,
-            megaFormIndex,
-          } as TeamSlot;
-        }
-      }
-      return {
-        pokemon,
-        ability: bestSet?.ability ?? pokemon.abilities[0]?.name,
-        nature: bestSet?.nature ?? "Adamant",
-        moves: bestSet?.moves ?? pokemon.moves.slice(0, 4).map(m => m.name),
-        statPoints: bestSet?.sp ?? { ...EMPTY_STAT_POINTS },
-        item: bestSet?.item && isItemAvailable(bestSet.item) ? bestSet.item : undefined,
-        isMega,
-        megaFormIndex,
-      } as TeamSlot;
-    });
-    while (newSlots.length < 6) newSlots.push(createEmptySlot());
-    setSlots(newSlots);
-    setTeamName(meta.name);
     setCurrentTeamId(undefined);
     setSelectedSlotIndex(0);
   };
@@ -1051,92 +995,67 @@ export default function TeamBuilderPage() {
 
   return (
     <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 py-8 overflow-x-hidden">
-      {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="mb-6"
-      >
-        <div className="flex flex-col gap-4">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 min-w-0">
-            <div className="shrink-0">
-              <h1 className="text-3xl font-bold">
-                <span className="bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 bg-clip-text text-transparent">
-                  Team Builder
-                </span>
-              </h1>
-              <p className="text-sm text-muted-foreground mt-1">
-                Build your team. Click a slot to customize moves, nature, items &amp; EVs.
-              </p>
-              <div className="flex items-center gap-2 mt-1.5">
-                <a href="/battle-bot" className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[9px] font-bold uppercase tracking-wider bg-gradient-to-r from-amber-400/15 to-yellow-500/15 border border-amber-400/30 text-amber-700 hover:border-amber-400/50 transition-all">
-                  <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                  Powered by 2M+ Battle Engine
-                </a>
-                <LastUpdated page="team-builder" />
-              </div>
-            </div>
-            <input
-              type="text"
-              value={teamName}
-              onChange={(e) => setTeamName(e.target.value)}
-              className="px-4 py-2 rounded-xl glass border border-gray-200 focus:border-emerald-500/50 focus:outline-none text-lg font-semibold bg-transparent w-full sm:w-64"
-            />
-          </div>
-
-          <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1 -mx-4 px-4 sm:mx-0 sm:px-0 sm:overflow-visible sm:flex-wrap sm:justify-center">
-            <button
-              onClick={generateShareImage}
-              disabled={filledSlots.length === 0}
-              className="px-5 py-2 text-sm rounded-xl font-semibold flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:scale-105 transition-all disabled:opacity-40 disabled:hover:scale-100 shrink-0"
-            >
-              <Share2 className="w-4 h-4" />
-              Share
-            </button>
-            <button
-              onClick={handleSaveTeam}
-              disabled={filledSlots.length === 0 || validationErrors.length > 0}
-              className={cn(
-                "px-4 py-2 text-sm rounded-xl flex items-center gap-2 transition-colors shrink-0",
-                saveConfirm
-                  ? "bg-green-100 text-green-700 border border-green-300"
-                  : "glass glass-hover text-muted-foreground hover:text-foreground"
-              )}
-            >
-              {saveConfirm ? <Check className="w-4 h-4" /> : <Save className="w-4 h-4" />}
-              {saveConfirm ? "Saved!" : "Save"}
-            </button>
-            <button
-              onClick={() => setShowSavedTeams(!showSavedTeams)}
-              className="px-4 py-2 text-sm rounded-xl glass glass-hover flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors shrink-0"
-            >
-              <FolderOpen className="w-4 h-4" />
-              My Teams / Load
-            </button>
-            <button
-              onClick={() => { setShowImport(true); setImportText(""); setImportError(""); }}
-              className="px-4 py-2 text-sm rounded-xl glass glass-hover flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors shrink-0"
-            >
-              <Upload className="w-4 h-4" />
-              Import
-            </button>
-            <button
-              onClick={() => setShowExport(true)}
-              className="px-4 py-2 text-sm rounded-xl glass glass-hover flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors shrink-0"
-            >
-              <Download className="w-4 h-4" />
-              Export
-            </button>
-            <button
-              onClick={() => { trackEvent("new_team", "team_builder"); setSlots(Array.from({ length: 6 }, createEmptySlot)); setCurrentTeamId(undefined); setSelectedSlotIndex(null); setTeamName("My Team"); }}
-              className="px-4 py-2 text-sm rounded-xl glass glass-hover flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors shrink-0"
-            >
-              <Trash2 className="w-4 h-4" />
-              New Team / Clear
-            </button>
-          </div>
+      {/* Toolbar */}
+      <div className="flex items-center gap-1.5 sm:gap-2 lg:gap-3 mb-6 border-b border-gray-200/60 pb-4">
+        <input
+          type="text"
+          value={teamName}
+          onChange={(e) => setTeamName(e.target.value)}
+          className="px-2 sm:px-3 py-1.5 rounded-lg border border-gray-200 focus:border-emerald-500/50 focus:outline-none text-base sm:text-lg font-semibold bg-white min-w-0 w-24 sm:w-40 lg:w-64"
+          placeholder="Team Name"
+        />
+        <div className="flex items-center gap-0.5 sm:gap-1 lg:gap-1.5 ml-auto">
+          <button
+            onClick={handleSaveTeam}
+            disabled={filledSlots.length === 0 || validationErrors.length > 0}
+            className={cn(
+              "p-1.5 sm:p-2 lg:px-3 lg:py-1.5 text-sm rounded-lg flex items-center gap-1.5 transition-colors",
+              saveConfirm
+                ? "bg-green-100 text-green-700 border border-green-300"
+                : "glass glass-hover text-muted-foreground hover:text-foreground"
+            )}
+          >
+            {saveConfirm ? <Check className="w-4 h-4" /> : <Save className="w-4 h-4" />}
+            <span className="hidden lg:inline">{saveConfirm ? "Saved!" : "Save"}</span>
+          </button>
+          <button
+            onClick={() => setShowSavedTeams(!showSavedTeams)}
+            className="p-1.5 sm:p-2 lg:px-3 lg:py-1.5 text-sm rounded-lg glass glass-hover flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <FolderOpen className="w-4 h-4" />
+            <span className="hidden lg:inline">My Teams</span>
+          </button>
+          <button
+            onClick={() => { setShowImport(true); setImportText(""); setImportError(""); }}
+            className="p-1.5 sm:p-2 lg:px-3 lg:py-1.5 text-sm rounded-lg glass glass-hover flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Upload className="w-4 h-4" />
+            <span className="hidden lg:inline">Import</span>
+          </button>
+          <button
+            onClick={() => setShowExport(true)}
+            className="p-1.5 sm:p-2 lg:px-3 lg:py-1.5 text-sm rounded-lg glass glass-hover flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Download className="w-4 h-4" />
+            <span className="hidden lg:inline">Export</span>
+          </button>
+          <button
+            onClick={generateShareImage}
+            disabled={filledSlots.length === 0}
+            className="p-1.5 sm:p-2 lg:px-3 lg:py-1.5 text-sm rounded-lg glass glass-hover flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors disabled:opacity-40"
+          >
+            <Share2 className="w-4 h-4" />
+            <span className="hidden lg:inline">Share</span>
+          </button>
+          <button
+            onClick={() => { trackEvent("new_team", "team_builder"); setSlots(Array.from({ length: 6 }, createEmptySlot)); setCurrentTeamId(undefined); setSelectedSlotIndex(null); setTeamName("New Team"); }}
+            className="p-1.5 sm:p-2 lg:px-3 lg:py-1.5 text-sm rounded-lg glass glass-hover flex items-center gap-1.5 text-red-400 hover:text-red-300 transition-colors"
+          >
+            <Trash2 className="w-4 h-4" />
+            <span className="hidden lg:inline">New</span>
+          </button>
         </div>
-      </motion.div>
+      </div>
 
       {/* Saved Teams Panel */}
       <AnimatePresence>
@@ -1879,63 +1798,65 @@ export default function TeamBuilderPage() {
 
         </div>
 
-        {/* ══ RIGHT COLUMN: Meta Teams + Curated Teams ══ */}
+        {/* ══ RIGHT COLUMN: Curated Teams ══ */}
         <div className="space-y-6 order-3" data-right-col>
-          {/* ── Engine Predicted Meta ── */}
-          <div className="glass rounded-2xl p-5 border border-gray-200/60">
-            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-1 flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-amber-500" />
-              <span className="bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">Engine Predicted Meta</span>
-              <span className="px-1.5 py-0.5 text-[8px] font-bold rounded bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-700 border border-amber-200">⚡ LIVE</span>
-            </h3>
-            <p className="text-[10px] text-muted-foreground mb-3">{TOURNAMENT_TEAMS.length} tournaments · {TOURNAMENT_USAGE.length} usage entries · {CORE_PAIRS.length} core pairs · 2M+ battle engine</p>
-            <div className="space-y-3">
-              {metaTeams.map((meta) => (
-                <button key={meta.id} onClick={() => loadMetaTeam(meta)} className="w-full text-left p-3 rounded-xl glass border border-gray-200/40 hover:border-emerald-300 hover:bg-emerald-50/30 transition-all">
-                  <div className="flex items-center justify-between mb-1.5">
-                    <div className="flex items-center gap-2">
-                      <span className={cn("px-1.5 py-0.5 text-[9px] font-bold uppercase rounded", meta.confidence >= 80 ? "bg-emerald-100 text-emerald-700" : meta.confidence >= 60 ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-600")}>{meta.confidence}%</span>
-                      <h4 className="text-xs font-semibold">{meta.name}</h4>
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <span className={cn("text-[9px] font-medium", meta.recentTrend === "rising" ? "text-emerald-600" : meta.recentTrend === "falling" ? "text-red-500" : "text-gray-500")}>{meta.recentTrend === "rising" ? "↑" : meta.recentTrend === "falling" ? "↓" : "→"}</span>
-                      <span className="text-[9px] text-muted-foreground">{meta.metaShare}%</span>
-                    </div>
-                  </div>
-                  <div className="flex gap-1 mb-2">
-                    {meta.pokemonIds.map((id, pidx) => { const p = POKEMON_SEED.find(pk => pk.id === id); if (!p) return null; const megaForms = p.forms?.filter(f => f.isMega) ?? []; const useSets = USAGE_DATA[p.id] ?? []; const hasMegaSet = p.hasMega && useSets.some(s => s.item.endsWith("ite") || s.item.endsWith("ite X") || s.item.endsWith("ite Y") || s.item.endsWith("ite Z")); const isFirstMega = hasMegaSet && !meta.pokemonIds.slice(0, pidx).some(prevId => { const pp = POKEMON_SEED.find(pk => pk.id === prevId); return pp?.hasMega && (USAGE_DATA[prevId] ?? []).some(s => s.item.endsWith("ite") || s.item.endsWith("ite X") || s.item.endsWith("ite Y") || s.item.endsWith("ite Z")); }); const megaSprite = isFirstMega && megaForms[0] ? megaForms[0].sprite : p.sprite; const megaName = isFirstMega && megaForms[0] ? megaForms[0].name : p.name; return <div key={id} className="flex flex-col items-center relative"><Image src={megaSprite} alt={megaName} width={32} height={32} className="rounded" unoptimized />{isFirstMega && <span className="absolute -top-1 -right-1 px-0.5 text-[6px] font-bold bg-amber-500 text-white rounded">M</span>}<span className="text-[7px] text-muted-foreground mt-0.5 truncate w-9 text-center">{megaName.length > 10 ? p.name : megaName}</span></div>; })}
-                  </div>
-                  {meta.corePairs.length > 0 && <div className="flex flex-wrap gap-1 mb-1.5">{meta.corePairs.map(cp => <span key={cp} className="px-1.5 py-0.5 text-[8px] rounded bg-emerald-50 text-emerald-600 font-medium">{cp}</span>)}</div>}
-                  <div className="space-y-0">
-                    {meta.reasoning.slice(0, 3).map((reason, ri) => <p key={ri} className="text-[9px] text-muted-foreground flex items-start gap-1"><span className="text-emerald-400 mt-px shrink-0">•</span>{reason}</p>)}
-                  </div>
-                  {meta.historicalWins > 0 && <div className="mt-1.5 flex items-center gap-1"><Award className="w-3 h-3 text-amber-500" /><span className="text-[9px] text-amber-600 font-medium">{meta.historicalWins} win{meta.historicalWins > 1 ? "s" : ""}</span></div>}
-                  <div className="mt-2 text-[9px] text-emerald-600 font-medium">Click to load with auto sets →</div>
-                </button>
-              ))}
+          {/* ── Get Started CTA (shown when team is empty) ── */}
+          {filledSlots.length === 0 && (
+            <div className="glass rounded-2xl p-5 border border-emerald-200/60 bg-gradient-to-br from-emerald-50/40 to-cyan-50/40">
+              <h3 className="text-sm font-semibold mb-1.5 flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-emerald-500" /> Get Started
+              </h3>
+              <p className="text-xs text-muted-foreground mb-3">
+                Browse the Meta page to discover top-performing teams and import one directly into the builder.
+              </p>
+              <a
+                href="/meta"
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-white shadow-md hover:shadow-lg transition-all"
+              >
+                <TrendingUp className="w-4 h-4" /> Explore the Meta
+              </a>
             </div>
-          </div>
+          )}
 
-          {/* ── Curated Teams ── */}
-          <div className="glass rounded-2xl p-5 border border-gray-200/60">
-            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3 flex items-center gap-2">
-              <Star className="w-4 h-4 text-amber-500" /> Curated Teams
-            </h3>
-            <div className="space-y-2">
-              {shuffledTeams.map((team) => (
-                <button key={team.id} onClick={() => loadPrebuiltTeam(team)} className="w-full text-left p-3 rounded-xl glass border border-transparent hover:border-emerald-300 transition-all">
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className={cn("px-1.5 py-0.5 text-[9px] font-bold uppercase rounded", team.tier === "S" ? "bg-amber-100 text-amber-700" : team.tier === "A" ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-600")}>{team.tier}</span>
-                    <h4 className="text-xs font-semibold truncate">{team.name}</h4>
-                    <div className="ml-auto flex gap-0.5">{team.tags.slice(0, 2).map(tag => <span key={tag} className="px-1 py-0.5 text-[8px] rounded bg-gray-100 text-gray-500 capitalize">{tag}</span>)}</div>
+          {/* ── Curated Teams (collapsed by default) ── */}
+          <div className="glass rounded-2xl border border-gray-200/60">
+            <button
+              onClick={() => setShowCuratedTeams(!showCuratedTeams)}
+              className="w-full flex items-center justify-between p-4 text-left"
+            >
+              <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider flex items-center gap-2">
+                <Star className="w-4 h-4 text-amber-500" /> Curated Teams
+                <span className="text-[10px] font-normal normal-case tracking-normal text-muted-foreground">({shuffledTeams.length})</span>
+              </h3>
+              <ChevronDown className={cn("w-4 h-4 text-muted-foreground transition-transform", showCuratedTeams && "rotate-180")} />
+            </button>
+            {showCuratedTeams && (
+              <div className="px-4 pb-4 space-y-2">
+                {shuffledTeams.map((team) => (
+                  <div key={team.id} className="p-3 rounded-xl glass border border-transparent hover:border-emerald-300 transition-all">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className={cn("px-1.5 py-0.5 text-[9px] font-bold uppercase rounded", team.tier === "S" ? "bg-amber-100 text-amber-700" : team.tier === "A" ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-600")}>{team.tier}</span>
+                      <h4 className="text-xs font-semibold truncate">{team.name}</h4>
+                      <div className="ml-auto flex gap-0.5">{team.tags.slice(0, 2).map(tag => <span key={tag} className="px-1 py-0.5 text-[8px] rounded bg-gray-100 text-gray-500 capitalize">{tag}</span>)}</div>
+                    </div>
+                    <div className="flex items-end justify-between gap-2">
+                      <div>
+                        <p className="text-[10px] text-muted-foreground mb-1.5 line-clamp-1">{team.description}</p>
+                        <div className="flex gap-1">
+                          {team.pokemonIds.map(id => { const p = POKEMON_SEED.find(pk => pk.id === id); return p ? <Image key={id} src={p.sprite} alt={p.name} width={26} height={26} className="rounded" unoptimized /> : null; })}
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => { loadPrebuiltTeam(team); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                        className="text-[11px] font-medium text-emerald-600 hover:text-emerald-700 whitespace-nowrap transition-colors shrink-0"
+                      >
+                        Use this team &rarr;
+                      </button>
+                    </div>
                   </div>
-                  <p className="text-[10px] text-muted-foreground mb-1.5 line-clamp-1">{team.description}</p>
-                  <div className="flex gap-1">
-                    {team.pokemonIds.map(id => { const p = POKEMON_SEED.find(pk => pk.id === id); return p ? <Image key={id} src={p.sprite} alt={p.name} width={26} height={26} className="rounded" unoptimized /> : null; })}
-                  </div>
-                </button>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

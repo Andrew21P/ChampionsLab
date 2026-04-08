@@ -37,6 +37,19 @@ import {
   SIM_POKEMON, SIM_PAIRS, SIM_ARCHETYPES, SIM_META,
   SIM_TOTAL_BATTLES, SIM_MOVES,
 } from "@/lib/simulation-data";
+import { deflateRaw } from "pako";
+
+/** Build a compressed /team-builder?t= URL that imports a team by Pokemon IDs */
+function buildTeamBuilderUrl(pokemonIds: number[], teamName: string): string {
+  const data = {
+    n: teamName,
+    s: pokemonIds.map(id => ({ p: id, m: [] as string[], sp: [0, 0, 0, 0, 0, 0] })),
+  };
+  const compressed = deflateRaw(JSON.stringify(data));
+  const b64 = btoa(String.fromCharCode(...compressed))
+    .replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  return `/team-builder?t=${b64}`;
+}
 
 // ── HYBRID TIER CALCULATION (ML + Tournament Data) ────────────────────────
 // Thresholds from ML data only (keeps percentiles stable). Individual Pokemon
@@ -1837,8 +1850,8 @@ export default function MetaPage() {
                     })}
                   </div>
 
-                  <Link href="/team-builder" className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-sm">
-                    <Sparkles className="w-4 h-4" /> Load in Team Builder <ArrowRight className="w-4 h-4" />
+                  <Link href={buildTeamBuilderUrl(team.pokemonIds, team.name)} className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-sm">
+                    <Sparkles className="w-4 h-4" /> Import to Team Builder <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               );
@@ -1936,8 +1949,8 @@ function MetaTeamCard({ meta, expanded, onToggle }: { meta: MetaTeamPrediction; 
                     <div className="flex justify-between p-2 bg-white/50 rounded-lg"><span className="text-xs text-muted-foreground">Archetype</span><span className="text-xs font-bold capitalize">{meta.archetype}</span></div>
                     <div className="flex justify-between p-2 bg-white/50 rounded-lg"><span className="text-xs text-muted-foreground">Trend</span><span className={cn("text-xs font-bold", meta.recentTrend === "rising" ? "text-emerald-600" : meta.recentTrend === "falling" ? "text-red-600" : "text-gray-600")}>{meta.recentTrend === "rising" ? "↑ Rising" : meta.recentTrend === "falling" ? "↓ Falling" : "→ Stable"}</span></div>
                   </div>
-                  <Link href="/team-builder" className="mt-3 flex items-center gap-1.5 text-xs font-medium text-emerald-600 hover:text-emerald-700 transition-colors">
-                    <Sparkles className="w-3 h-3" /> Load in Team Builder <ArrowRight className="w-3 h-3" />
+                  <Link href={buildTeamBuilderUrl(meta.pokemonIds, meta.name)} className="mt-3 flex items-center gap-1.5 text-xs font-medium text-emerald-600 hover:text-emerald-700 transition-colors">
+                    <Sparkles className="w-3 h-3" /> Import to Team Builder <ArrowRight className="w-3 h-3" />
                   </Link>
                 </div>
               </div>
