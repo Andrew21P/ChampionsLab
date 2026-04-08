@@ -97,7 +97,7 @@ export default function AboutPage() {
         className="mb-6"
       >
         <a
-          href="https://discord.gg/jFbxQde8"
+          href="https://discord.gg/kpwE7u3M"
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackEvent("discord_click", "about")}

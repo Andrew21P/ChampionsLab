@@ -226,7 +226,7 @@ export default function HomePage() {
                 </p>
                 <div className="flex justify-center">
                   <a
-                    href="https://discord.gg/jFbxQde8"
+                    href="https://discord.gg/kpwE7u3M"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-[#5865F2]/15 hover:bg-[#5865F2]/25 border border-[#5865F2]/30 hover:border-[#5865F2]/50 transition-all text-xs font-bold text-[#5865F2] hover:scale-105"
@@ -250,7 +250,7 @@ export default function HomePage() {
                 </p>
                 <div className="flex justify-center">
                   <a
-                    href="https://discord.gg/jFbxQde8"
+                    href="https://discord.gg/kpwE7u3M"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-[#5865F2]/15 hover:bg-[#5865F2]/25 border border-[#5865F2]/30 hover:border-[#5865F2]/50 transition-all text-xs font-bold text-[#5865F2] hover:scale-105"
