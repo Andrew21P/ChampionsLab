@@ -423,11 +423,18 @@ export function analyzeTeamSynergy(pokemon: ChampionsPokemon[]): TeamSynergy {
   const avgDefSynergy = pairs > 0 ? defensivePairScore / pairs : 0;
 
   // Weakness concentration penalty
-  const maxWeakness = weaknessProfile.length > 0 ? weaknessProfile[0].count : 0;
-  const weakConcentration = maxWeakness / Math.max(pokemon.length, 1);
-  const typeScore = Math.round(
-    (coverage * 40 + avgDefSynergy * 40 + (1 - weakConcentration * 0.5) * 20)
-  );
+  // Type score: coverage (0-1) * 45 + defense synergy * 35 + base 20 - penalties
+  // Weakness penalty: -5 per triple-weak type, -8 per quadruple-weak type
+  let weakPenalty = 0;
+  for (const wp of weaknessProfile) {
+    if (wp.count >= 4) weakPenalty += 12;
+    else if (wp.count >= 3) weakPenalty += 7;
+  }
+  // Uncovered types penalty (missing offensive coverage)
+  const uncoveredPenalty = Math.min(25, uncoveredTypes.length * 4);
+  const typeScore = Math.max(0, Math.min(100, Math.round(
+    coverage * 45 + avgDefSynergy * 35 + 20 - weakPenalty - uncoveredPenalty
+  )));
 
   // ── Speed Analysis ─────────────────────────────────────────────────────
   const speedTiers = pokemon.map(p => ({
@@ -447,38 +454,64 @@ export function analyzeTeamSynergy(pokemon: ChampionsPokemon[]): TeamSynergy {
       return md && md.priority > 0 && md.category !== "status";
     })
   );
+  // Speed diversity: having both fast and slow options is valuable
+  const fastCount = pokemon.filter(p => p.baseStats.speed >= 100).length;
+  const medCount = pokemon.filter(p => p.baseStats.speed >= 70 && p.baseStats.speed < 100).length;
+  const slowCount2 = pokemon.filter(p => p.baseStats.speed < 70).length;
+  const speedSpread = [fastCount, medCount, slowCount2].filter(c => c > 0).length; // 1-3
 
-  let speedScore = 30; // Base
-  if (hasSpeedControl) speedScore += 30;
+  let speedScore = 10; // Reduced base
+  if (hasSpeedControl) speedScore += 35;
   if (hasFastMon) speedScore += 15;
-  if (hasPriority) speedScore += 15;
+  if (hasPriority) speedScore += 10;
   if (hasSlowMon && hasSpeedControl) speedScore += 10; // Modal flexibility
-  speedScore = Math.min(100, speedScore);
+  if (speedSpread >= 3) speedScore += 10; // Good speed diversity
+  else if (speedSpread >= 2) speedScore += 5;
+  // Penalty: all similar speeds with no speed control is bad
+  if (!hasSpeedControl && !hasFastMon) speedScore -= 10;
+  speedScore = Math.max(0, Math.min(100, speedScore));
 
   // ── Role Analysis ──────────────────────────────────────────────────────
   const roles = pokemon.map(p => identifyRoles(p));
   const allRoles = new Set(roles.flatMap(r => r.roles));
 
-  let roleScore = 30;
+  let roleScore = 10; // Reduced base
   const essentialRoles: TeamRole[] = ["speed-control", "support", "physical-sweeper", "special-sweeper"];
   for (const er of essentialRoles) {
-    if (allRoles.has(er)) roleScore += 12;
+    if (allRoles.has(er)) roleScore += 15;
   }
-  if (allRoles.has("intimidate-user")) roleScore += 8;
-  if (allRoles.has("redirector")) roleScore += 5;
+  if (allRoles.has("intimidate-user")) roleScore += 10;
+  if (allRoles.has("redirector")) roleScore += 8;
   if (allRoles.has("weather-setter")) roleScore += 5;
-  roleScore = Math.min(100, roleScore);
+  if (allRoles.has("pivot")) roleScore += 4;
+  if (allRoles.has("setup-sweeper")) roleScore += 3;
+  // Penalty for role redundancy: too many sweepers with no support
+  const sweepCount = roles.filter(r =>
+    r.primaryRole === "physical-sweeper" || r.primaryRole === "special-sweeper" || r.primaryRole === "mixed-attacker"
+  ).length;
+  if (sweepCount >= 5 && !allRoles.has("support")) roleScore -= 10;
+  roleScore = Math.max(0, Math.min(100, roleScore));
 
   // ── Archetype Analysis ─────────────────────────────────────────────────
   const detectedArchetypes = detectArchetypes(pokemon);
-  const archetypeScore = Math.round(
-    detectedArchetypes.length > 0 ? detectedArchetypes[0].confidence * 100 : 40
-  );
+  // More discriminating: no clear archetype = 20, weak match penalized more
+  const topArch = detectedArchetypes.length > 0 ? detectedArchetypes[0] : null;
+  let archetypeScore: number;
+  if (!topArch) {
+    archetypeScore = 20;
+  } else if (topArch.confidence >= 0.85) {
+    archetypeScore = Math.round(topArch.confidence * 100);
+  } else if (topArch.confidence >= 0.6) {
+    archetypeScore = Math.round(topArch.confidence * 85);
+  } else {
+    archetypeScore = Math.round(topArch.confidence * 70);
+  }
 
   // ── Overall Score ──────────────────────────────────────────────────────
-  const overallScore = Math.round(
-    typeScore * 0.35 + speedScore * 0.25 + roleScore * 0.25 + archetypeScore * 0.15
-  );
+  // Scale by team completeness (partial teams get proportional reduction)
+  const completeness = Math.min(pokemon.length / 6, 1);
+  const rawScore = typeScore * 0.35 + speedScore * 0.25 + roleScore * 0.25 + archetypeScore * 0.15;
+  const overallScore = Math.round(rawScore * (0.5 + 0.5 * completeness));
 
   // ── Generate Insights ──────────────────────────────────────────────────
   const strengths: string[] = [];

@@ -114,6 +114,30 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
     { name: "Bulky Intimidate", nature: "Adamant", ability: "Intimidate", item: "Sitrus Berry", moves: ["Body Slam", "Close Combat", "Helping Hand", "Protect"], sp: { hp: 20, attack: 32, defense: 2, spAtk: 0, spDef: 12, speed: 0 } },
   ],
 
+  // Paldean Tauros Combat (id: 10250)
+  10250: [
+    {"name":"Intimidate Physical","nature":"Jolly","ability":"Intimidate","item":"Life Orb","moves":["Close Combat","Raging Bull","Rock Slide","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Bulk Up Sweeper","nature":"Jolly","ability":"Intimidate","item":"Sitrus Berry","moves":["Bulk Up","Close Combat","Raging Bull","Protect"],"sp":{"hp":4,"attack":30,"defense":0,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Choice Scarf","nature":"Jolly","ability":"Intimidate","item":"Choice Scarf","moves":["Close Combat","Rock Slide","Wild Charge","Earthquake"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Bulky Intimidate","nature":"Adamant","ability":"Intimidate","item":"Sitrus Berry","moves":["Close Combat","Body Slam","Rock Slide","Protect"],"sp":{"hp":20,"attack":32,"defense":2,"spAtk":0,"spDef":12,"speed":0}},
+  ],
+
+  // Paldean Tauros Blaze (id: 10251)
+  10251: [
+    {"name":"Intimidate Attacker","nature":"Jolly","ability":"Intimidate","item":"Life Orb","moves":["Flare Blitz","Close Combat","Rock Slide","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Flame Charge Sweeper","nature":"Jolly","ability":"Intimidate","item":"Sitrus Berry","moves":["Flame Charge","Flare Blitz","Close Combat","Protect"],"sp":{"hp":4,"attack":30,"defense":0,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Choice Band","nature":"Adamant","ability":"Intimidate","item":"Choice Band","moves":["Flare Blitz","Close Combat","Wild Charge","Zen Headbutt"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Will-O-Wisp Support","nature":"Impish","ability":"Intimidate","item":"Sitrus Berry","moves":["Will-O-Wisp","Flare Blitz","Close Combat","Protect"],"sp":{"hp":32,"attack":0,"defense":32,"spAtk":0,"spDef":2,"speed":0}},
+  ],
+
+  // Paldean Tauros Aqua (id: 10252)
+  10252: [
+    {"name":"Intimidate Attacker","nature":"Jolly","ability":"Intimidate","item":"Life Orb","moves":["Wave Crash","Close Combat","Rock Slide","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Aqua Jet Priority","nature":"Adamant","ability":"Intimidate","item":"Life Orb","moves":["Aqua Jet","Close Combat","Rock Slide","Protect"],"sp":{"hp":4,"attack":32,"defense":0,"spAtk":0,"spDef":0,"speed":30}},
+    {"name":"Choice Band","nature":"Adamant","ability":"Intimidate","item":"Choice Band","moves":["Wave Crash","Close Combat","Wild Charge","Earthquake"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Bulk Up","nature":"Jolly","ability":"Intimidate","item":"Sitrus Berry","moves":["Bulk Up","Liquidation","Close Combat","Protect"],"sp":{"hp":4,"attack":30,"defense":0,"spAtk":0,"spDef":0,"speed":32}},
+  ],
+
   // Gyarados (id: 130)
   130: [
     { name: "Mega Intimidate", nature: "Adamant", ability: "Mold Breaker", item: "Gyaradosite", moves: ["Waterfall", "Crunch", "Ice Fang", "Protect"], sp: { hp: 4, attack: 32, defense: 0, spAtk: 0, spDef: 0, speed: 30 } },
@@ -1278,6 +1302,15 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
     {"name":"Bulky Dragon","nature":"Calm","ability":"Gooey","item":"Sitrus Berry","moves":["Dragon Pulse","Flamethrower","Breaking Swipe","Protect"],"sp":{"hp":32,"attack":0,"defense":2,"spAtk":0,"spDef":32,"speed":0}},
   ],
 
+  // Hisuian Goodra (id: 5706)
+  5706: [
+    {"name":"Steel Dragon Tank","nature":"Modest","ability":"Sap Sipper","item":"Assault Vest","moves":["Flash Cannon","Dragon Pulse","Flamethrower","Thunderbolt"],"sp":{"hp":32,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":0}},
+    {"name":"Trick Room Attacker","nature":"Quiet","ability":"Sap Sipper","item":"Life Orb","moves":["Draco Meteor","Flash Cannon","Flamethrower","Protect"],"sp":{"hp":32,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":0}},
+    {"name":"Iron Defense Wall","nature":"Bold","ability":"Shell Armor","item":"Leftovers","moves":["Iron Defense","Acid Spray","Dragon Pulse","Protect"],"sp":{"hp":32,"attack":0,"defense":32,"spAtk":0,"spDef":2,"speed":0}},
+    {"name":"Choice Specs","nature":"Modest","ability":"Sap Sipper","item":"Choice Specs","moves":["Draco Meteor","Flash Cannon","Hydro Pump","Thunderbolt"],"sp":{"hp":4,"attack":0,"defense":0,"spAtk":32,"spDef":0,"speed":30}},
+    {"name":"Physical Mixed","nature":"Brave","ability":"Sap Sipper","item":"Life Orb","moves":["Iron Head","Outrage","Earthquake","Protect"],"sp":{"hp":32,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":0}},
+  ],
+
   // Trevenant (id: 709)
   709: [
     {"name":"Harvest TR","nature":"Brave","ability":"Harvest","item":"Sitrus Berry","moves":["Wood Hammer","Shadow Claw","Horn Leech","Protect"],"sp":{"hp":32,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":0}},
@@ -1436,11 +1469,12 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
     {"name":"Assault Vest","nature":"Adamant","ability":"Dry Skin","item":"Assault Vest","moves":["Drain Punch","Poison Jab","Sucker Punch","Ice Punch"],"sp":{"hp":20,"attack":32,"defense":2,"spAtk":0,"spDef":12,"speed":0}},
   ],
 
-  // Patrat (id: 504)
-  504: [
-    {"name":"Focus Sash Lead","nature":"Jolly","ability":"Analytic","item":"Focus Sash","moves":["Hypnosis","Super Fang","Crunch","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
-    {"name":"After You Support","nature":"Jolly","ability":"Analytic","item":"Focus Sash","moves":["After You","Hypnosis","Super Fang","Protect"],"sp":{"hp":4,"attack":0,"defense":0,"spAtk":0,"spDef":30,"speed":32}},
-    {"name":"Trick Room","nature":"Brave","ability":"Analytic","item":"Sitrus Berry","moves":["Super Fang","Crunch","Helping Hand","Protect"],"sp":{"hp":32,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":0}},
+  // Watchog (id: 505)
+  505: [
+    {"name":"Swords Dance","nature":"Jolly","ability":"Analytic","item":"Life Orb","moves":["Swords Dance","Crunch","Zen Headbutt","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Nasty Plot Special","nature":"Timid","ability":"Analytic","item":"Life Orb","moves":["Nasty Plot","Thunderbolt","Flamethrower","Shadow Ball"],"sp":{"hp":0,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":32}},
+    {"name":"Hypnosis Lead","nature":"Jolly","ability":"Keen Eye","item":"Focus Sash","moves":["Hypnosis","Super Fang","Crunch","Protect"],"sp":{"hp":4,"attack":30,"defense":0,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Mixed Attacker","nature":"Naive","ability":"Analytic","item":"Life Orb","moves":["Crunch","Thunderbolt","Fire Punch","Protect"],"sp":{"hp":0,"attack":16,"defense":2,"spAtk":16,"spDef":0,"speed":32}},
   ],
 
   // Liepard (id: 510)

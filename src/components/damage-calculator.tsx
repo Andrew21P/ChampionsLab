@@ -84,7 +84,15 @@ function resolveMegaForCalc(p: ChampionsPokemon, set: CommonSet): {
   ability: string;
 } {
   if (p.hasMega && p.forms && isMegaStoneItem(set.item)) {
-    const megaForm = p.forms.find(f => f.isMega);
+    // Match X/Y/Z mega stone to the correct form
+    let megaForm = p.forms.find(f => f.isMega);
+    if (set.item.endsWith("ite X")) {
+      megaForm = p.forms.find(f => f.isMega && f.name.endsWith(" X")) ?? megaForm;
+    } else if (set.item.endsWith("ite Y")) {
+      megaForm = p.forms.find(f => f.isMega && f.name.endsWith(" Y")) ?? megaForm;
+    } else if (set.item.endsWith("ite Z")) {
+      megaForm = p.forms.find(f => f.isMega && f.name.endsWith(" Z")) ?? megaForm;
+    }
     if (megaForm) {
       return {
         baseStats: megaForm.baseStats,
@@ -385,6 +393,7 @@ export default function DamageCalculator() {
           currentHP={attacker.currentHP}
           onHPChange={(hp) => setAttacker(prev => ({ ...prev, currentHP: hp }))}
           preferUp={allMoveResults.length === 0}
+          weather={weather}
         />
 
         {/* ── CENTER: SWAP + RESULTS ────────────────────────────────── */}
@@ -444,6 +453,7 @@ export default function DamageCalculator() {
           onStageChange={(stat, val) => setDefender(prev => ({ ...prev, stages: { ...prev.stages, [stat]: val } }))}
           showDefStages
           preferUp={allMoveResults.length === 0}
+          weather={weather}
         />
       </div>
 
@@ -471,7 +481,7 @@ export default function DamageCalculator() {
                   {move && (
                     <span
                       className="w-2.5 h-2.5 rounded-full flex-shrink-0"
-                      style={{ backgroundColor: TYPE_COLORS[move.type] }}
+                      style={{ backgroundColor: TYPE_COLORS[r.effectiveType ?? move.type] }}
                     />
                   )}
                   <div className="flex-1 min-w-0">
@@ -645,7 +655,7 @@ export default function DamageCalculator() {
 function PokemonPanel({
   label, slot, stats, color, onPickerOpen, onSetUpdate, onSPUpdate,
   onStageChange, showAtkStages, showDefStages, onBurnToggle, isBurned,
-  currentHP, onHPChange, preferUp,
+  currentHP, onHPChange, preferUp, weather,
 }: {
   label: string;
   slot: PokemonSlot;
@@ -662,6 +672,7 @@ function PokemonPanel({
   currentHP?: number;
   onHPChange?: (hp: number) => void;
   preferUp?: boolean;
+  weather?: DamageCalcOptions["weather"];
 }) {
   const [expanded, setExpanded] = useState(false);
   const p = slot.pokemon;
@@ -812,6 +823,9 @@ function PokemonPanel({
             <div className="grid grid-cols-2 gap-1.5">
               {set.moves.map((moveName, idx) => {
                 const move = getMove(moveName);
+                const WEATHER_BALL_MAP: Record<string, PokemonType> = { sun: "fire", rain: "water", sand: "rock", snow: "ice" };
+                const wbType = move?.name === "Weather Ball" && weather && weather !== "none" ? WEATHER_BALL_MAP[weather] : null;
+                const displayType = (wbType ?? move?.type ?? "normal") as PokemonType;
                 return (
                   <SearchSelect
                     key={idx}
@@ -823,7 +837,7 @@ function PokemonPanel({
                     }}
                     placeholder="Move…"
                     preferUp={preferUp}
-                    triggerBadge={move ? { text: move.type.slice(0, 3).toUpperCase(), color: TYPE_COLORS[move.type] } : null}
+                    triggerBadge={move ? { text: displayType.slice(0, 3).toUpperCase(), color: TYPE_COLORS[displayType] } : null}
                     options={p.moves.map(m => ({
                       value: m.name,
                       label: m.name,

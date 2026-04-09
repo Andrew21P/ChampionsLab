@@ -57,19 +57,20 @@ const STAT_KEYS: (keyof StatPoints)[] = ["hp", "attack", "defense", "spAtk", "sp
 const STAT_LABELS: Record<string, string> = { hp: "HP", attack: "Atk", defense: "Def", spAtk: "SpA", spDef: "SpD", speed: "Spe" };
 
 // ── Showdown EV ↔ SP conversion ─────────────────────────────────────────
-// Showdown: 0-252 per stat (multiples of 4), 510 total
-// Champions Lab: 0-32 per stat, 66 total
+// Proportional: 32 SP = 252 EVs (exact), no 510 total cap (Champions allows more)
+// Champions: 0-32 per stat, 66 total
+// Showdown EVs: multiples of 4, 0-252 per stat
 function evsToStatPoints(evs: StatPoints): StatPoints {
-  const raw = STAT_KEYS.map(k => (evs[k] / 252) * MAX_PER_STAT);
-  const result = raw.map(v => Math.floor(v));
+  const result = STAT_KEYS.map(k => Math.min(MAX_PER_STAT, Math.round(evs[k] * MAX_PER_STAT / 252)));
   let total = result.reduce((a, b) => a + b, 0);
-  // distribute remaining budget by highest fractional part
-  const fracs = raw.map((v, i) => ({ i, f: v - result[i] }))
-    .filter(x => x.f > 0)
-    .sort((a, b) => b.f - a.f);
-  for (const { i } of fracs) {
-    if (total >= MAX_TOTAL_POINTS) break;
-    if (result[i] < MAX_PER_STAT) { result[i]++; total++; }
+  while (total > MAX_TOTAL_POINTS) {
+    let minIdx = -1, minVal = Infinity;
+    for (let i = 0; i < result.length; i++) {
+      if (result[i] > 0 && result[i] < minVal) { minVal = result[i]; minIdx = i; }
+    }
+    if (minIdx === -1) break;
+    result[minIdx]--;
+    total--;
   }
   const sp: StatPoints = { ...EMPTY_STAT_POINTS };
   STAT_KEYS.forEach((k, i) => { sp[k] = result[i]; });
@@ -77,22 +78,10 @@ function evsToStatPoints(evs: StatPoints): StatPoints {
 }
 
 function statPointsToEVs(sp: StatPoints): StatPoints {
-  const result = STAT_KEYS.map(k => {
-    const ev = Math.round((sp[k] / MAX_PER_STAT) * 252);
-    return Math.min(252, Math.round(ev / 4) * 4);
-  });
-  let total = result.reduce((a, b) => a + b, 0);
-  while (total > 510) {
-    let minIdx = -1, minVal = Infinity;
-    for (let i = 0; i < result.length; i++) {
-      if (result[i] > 0 && result[i] < minVal) { minVal = result[i]; minIdx = i; }
-    }
-    if (minIdx === -1) break;
-    result[minIdx] = Math.max(0, result[minIdx] - 4);
-    total = result.reduce((a, b) => a + b, 0);
-  }
   const evs: StatPoints = { ...EMPTY_STAT_POINTS };
-  STAT_KEYS.forEach((k, i) => { evs[k] = result[i]; });
+  STAT_KEYS.forEach(k => {
+    evs[k] = Math.min(252, Math.round(sp[k] * 252 / MAX_PER_STAT / 4) * 4);
+  });
   return evs;
 }
 
@@ -1015,7 +1004,6 @@ export default function TeamBuilderPage() {
 
         lines.push(`Level: 50`);
         lines.push(`IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe`);
-        // Convert our stat points to Showdown EVs for compatibility
         const evs = statPointsToEVs(s.statPoints);
         const evParts = STAT_KEYS
           .map(k => ({ val: evs[k], label: STAT_LABELS[k] }))
@@ -1644,7 +1632,7 @@ export default function TeamBuilderPage() {
                                         return (
                                           <button key={ab.name} onClick={() => updateSlot(selectedSlotIndex, { preMegaAbility: ab.name })} className={cn("w-full text-left px-3 py-1.5 rounded-lg text-[11px] border transition-all", isActive ? "bg-emerald-100 border-emerald-300 font-semibold text-emerald-800" : "bg-gray-50 border-gray-200 hover:bg-gray-100 hover:border-gray-300")}>
                                             <div className="flex items-center justify-between">
-                                              <span>{ab.name}{ab.isHidden ? " (H)" : ""}{ab.isChampions ? " ✦" : ""}</span>
+                                              <span>{ab.name}{ab.isHidden ? " (H)" : ""}</span>
                                               {isActive && <span className="text-[8px] text-emerald-500 font-bold">ACTIVE</span>}
                                             </div>
                                             <p className="text-[8px] text-muted-foreground mt-0.5 line-clamp-1">{ab.description}</p>
@@ -1673,7 +1661,7 @@ export default function TeamBuilderPage() {
                                   return (
                                     <button key={ab.name} onClick={() => { updateSlot(selectedSlotIndex, { ability: ab.name, isMega: false, megaFormIndex: 0 }); }} className={cn("w-full text-left px-3 py-1.5 rounded-lg text-[11px] border transition-all", isActive ? "bg-emerald-100 border-emerald-300 font-semibold text-emerald-800" : "bg-gray-50 border-gray-200 hover:bg-gray-100 hover:border-gray-300")}>
                                       <div className="flex items-center justify-between">
-                                        <span>{ab.name}{ab.isHidden ? " (H)" : ""}{ab.isChampions ? " ✦" : ""}</span>
+                                        <span>{ab.name}{ab.isHidden ? " (H)" : ""}</span>
                                         {isSugg && <span className="text-[8px] text-emerald-500 font-bold">REC</span>}
                                       </div>
                                       <p className="text-[8px] text-muted-foreground mt-0.5 line-clamp-1">{ab.description}</p>
@@ -2129,7 +2117,7 @@ export default function TeamBuilderPage() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 50 }}
-              className="fixed inset-4 sm:inset-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 z-50 sm:w-full sm:max-w-2xl sm:max-h-[80vh] glass rounded-2xl border border-gray-200/60 flex flex-col overflow-hidden"
+              className="fixed inset-x-3 top-20 bottom-3 sm:inset-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 z-50 sm:w-full sm:max-w-2xl sm:max-h-[80vh] glass rounded-2xl border border-gray-200/60 flex flex-col overflow-hidden"
             >
               {/* Picker Header */}
               <div className="p-4 border-b border-gray-200/60">

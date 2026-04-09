@@ -47,7 +47,15 @@ function resolveMegaForm(pokemon: ChampionsPokemon, set: CommonSet): {
   if (!pokemon.hasMega || !pokemon.forms || !isMegaStoneItem(set.item)) {
     return { baseStats: pokemon.baseStats, types: [...pokemon.types], ability: set.ability, isMega: false };
   }
-  const megaForm = pokemon.forms.find(f => f.isMega);
+  // Match X/Y/Z mega stone to the correct form
+  let megaForm = pokemon.forms.find(f => f.isMega);
+  if (set.item.endsWith("ite X")) {
+    megaForm = pokemon.forms.find(f => f.isMega && f.name.endsWith(" X")) ?? megaForm;
+  } else if (set.item.endsWith("ite Y")) {
+    megaForm = pokemon.forms.find(f => f.isMega && f.name.endsWith(" Y")) ?? megaForm;
+  } else if (set.item.endsWith("ite Z")) {
+    megaForm = pokemon.forms.find(f => f.isMega && f.name.endsWith(" Z")) ?? megaForm;
+  }
   if (!megaForm) {
     return { baseStats: pokemon.baseStats, types: [...pokemon.types], ability: set.ability, isMega: false };
   }

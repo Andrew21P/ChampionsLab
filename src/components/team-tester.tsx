@@ -1217,7 +1217,7 @@ export default function TeamTester() {
                                   return (
                                     <button key={ab.name} onClick={() => updateTesterSetField(team, idx, { preMegaAbility: ab.name })} className={cn("w-full text-left px-2.5 py-1.5 rounded-lg text-[10px] border transition-all", isActive ? "bg-emerald-100 dark:bg-emerald-500/30 border-emerald-300 dark:border-emerald-400/50 font-semibold text-emerald-800 dark:text-white" : "bg-gray-50 dark:bg-white/5 border-gray-200 dark:border-white/10 hover:bg-gray-100 dark:hover:bg-white/10")}>
                                       <div className="flex items-center justify-between">
-                                        <span>{ab.name}{ab.isHidden ? " (H)" : ""}{ab.isChampions ? " ✦" : ""}</span>
+                                        <span>{ab.name}{ab.isHidden ? " (H)" : ""}</span>
                                         {isActive && <span className="text-[8px] text-emerald-500 dark:text-emerald-400 font-bold">ACTIVE</span>}
                                       </div>
                                       <p className={cn("text-[8px] mt-0.5 line-clamp-1", isActive ? "text-emerald-600 dark:text-emerald-300" : "text-muted-foreground")}>{ab.description}</p>
@@ -1245,7 +1245,7 @@ export default function TeamTester() {
                               <>
                                 {editPkm.abilities.map((ab) => (
                                   <button key={ab.name} onClick={() => updateTesterSetField(team, idx, { ability: ab.name })} className={cn("w-full text-left px-2.5 py-1.5 rounded-lg text-[10px] border transition-all", editSet.ability === ab.name ? "bg-violet-100 dark:bg-violet-500/30 border-violet-300 dark:border-violet-400/50 font-semibold text-violet-800 dark:text-white" : "bg-gray-50 dark:bg-white/5 border-gray-200 dark:border-white/10 hover:bg-gray-100 dark:hover:bg-white/10")}>
-                                    <span>{ab.name}{ab.isHidden ? " (H)" : ""}{ab.isChampions ? " ✦" : ""}</span>
+                                    <span>{ab.name}{ab.isHidden ? " (H)" : ""}</span>
                                     <p className={cn("text-[8px] mt-0.5 line-clamp-1", editSet.ability === ab.name ? "text-violet-600" : "text-muted-foreground")}>{ab.description}</p>
                                   </button>
                                 ))}
