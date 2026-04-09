@@ -1746,6 +1746,143 @@ export const MOVE_DATA: Record<string, EngineMove> = {
     effect: "Raises the user's Sp. Atk by one stage.",
     selfBoost: { spAtk: 1 },
   },
+
+  // ── MISSING COMPETITIVE MOVES (added by audit 09/04/2026) ─────────────────
+  "Acid Spray": {
+    name: "Acid Spray", type: "poison", category: "special", basePower: 40,
+    accuracy: 100, pp: 20, priority: 0, target: "normal",
+    flags: { bullet: true },
+    secondary: { chance: 100, boosts: { spDef: -2 } },
+  },
+  "Amnesia": {
+    name: "Amnesia", type: "psychic", category: "status", basePower: 0,
+    accuracy: 0, pp: 20, priority: 0, target: "self",
+    flags: {},
+    selfBoost: { spDef: 2 },
+  },
+  "Baton Pass": {
+    name: "Baton Pass", type: "normal", category: "status", basePower: 0,
+    accuracy: 0, pp: 40, priority: 0, target: "self",
+    flags: {},
+    effect: "Switches out, passing stat changes and certain effects to the replacement.",
+  },
+  "Brick Break": {
+    name: "Brick Break", type: "fighting", category: "physical", basePower: 75,
+    accuracy: 100, pp: 15, priority: 0, target: "normal",
+    flags: { contact: true },
+    effect: "Shatters Light Screen and Reflect before dealing damage.",
+  },
+  "Charge": {
+    name: "Charge", type: "electric", category: "status", basePower: 0,
+    accuracy: 0, pp: 20, priority: 0, target: "self",
+    flags: {},
+    selfBoost: { spDef: 1 },
+    effect: "Doubles the power of the user's next Electric-type move.",
+  },
+  "Defog": {
+    name: "Defog", type: "flying", category: "status", basePower: 0,
+    accuracy: 0, pp: 15, priority: 0, target: "normal",
+    flags: {},
+    effect: "Clears all hazards, screens, and terrain from both sides.",
+  },
+  "Dragon Rush": {
+    name: "Dragon Rush", type: "dragon", category: "physical", basePower: 100,
+    accuracy: 75, pp: 10, priority: 0, target: "normal",
+    flags: { contact: true },
+    secondary: { chance: 20, volatileStatus: "flinch" },
+  },
+  "Dynamic Punch": {
+    name: "Dynamic Punch", type: "fighting", category: "physical", basePower: 100,
+    accuracy: 50, pp: 5, priority: 0, target: "normal",
+    flags: { contact: true, punch: true },
+    secondary: { chance: 100, volatileStatus: "confusion" },
+  },
+  "Electroweb": {
+    name: "Electroweb", type: "electric", category: "special", basePower: 55,
+    accuracy: 95, pp: 15, priority: 0, target: "allAdjacentFoes",
+    flags: {},
+    secondary: { chance: 100, boosts: { speed: -1 } },
+  },
+  "Fake Tears": {
+    name: "Fake Tears", type: "dark", category: "status", basePower: 0,
+    accuracy: 100, pp: 20, priority: 0, target: "normal",
+    flags: {},
+    secondary: { chance: 100, boosts: { spDef: -2 } },
+  },
+  "Focus Punch": {
+    name: "Focus Punch", type: "fighting", category: "physical", basePower: 150,
+    accuracy: 100, pp: 20, priority: -3, target: "normal",
+    flags: { contact: true, punch: true },
+    effect: "Fails if the user is hit before it can execute.",
+  },
+  "Grassy Terrain": {
+    name: "Grassy Terrain", type: "grass", category: "status", basePower: 0,
+    accuracy: 0, pp: 10, priority: 0, target: "all",
+    flags: {},
+    fieldEffect: "grassyterrain",
+    effect: "Sets Grassy Terrain for 5 turns. Heals grounded Pokemon 1/16 HP per turn.",
+  },
+  "Hypnosis": {
+    name: "Hypnosis", type: "psychic", category: "status", basePower: 0,
+    accuracy: 60, pp: 20, priority: 0, target: "normal",
+    flags: {},
+    secondary: { chance: 100, status: "sleep" },
+  },
+  "Lumina Crash": {
+    name: "Lumina Crash", type: "psychic", category: "special", basePower: 80,
+    accuracy: 100, pp: 10, priority: 0, target: "normal",
+    flags: {},
+    secondary: { chance: 100, boosts: { spDef: -2 } },
+  },
+  "Metal Burst": {
+    name: "Metal Burst", type: "steel", category: "physical", basePower: 0,
+    accuracy: 100, pp: 10, priority: 0, target: "normal",
+    flags: {},
+    effect: "Returns 1.5x the damage received from the last hit.",
+  },
+  "Moonlight": {
+    name: "Moonlight", type: "fairy", category: "status", basePower: 0,
+    accuracy: 0, pp: 5, priority: 0, target: "self",
+    flags: {},
+    effect: "Heals 50% HP (66% in sun, 25% in other weather).",
+  },
+  "Psychic Fangs": {
+    name: "Psychic Fangs", type: "psychic", category: "physical", basePower: 85,
+    accuracy: 100, pp: 10, priority: 0, target: "normal",
+    flags: { contact: true, bite: true },
+    effect: "Shatters Light Screen and Reflect before dealing damage.",
+  },
+  "Raging Bull": {
+    name: "Raging Bull", type: "normal", category: "physical", basePower: 90,
+    accuracy: 100, pp: 10, priority: 0, target: "normal",
+    flags: { contact: true },
+    effect: "Type depends on the user's form. Shatters Light Screen and Reflect.",
+  },
+  "Skitter Smack": {
+    name: "Skitter Smack", type: "bug", category: "physical", basePower: 70,
+    accuracy: 90, pp: 10, priority: 0, target: "normal",
+    flags: { contact: true },
+    secondary: { chance: 100, boosts: { spAtk: -1 } },
+  },
+  "Steel Beam": {
+    name: "Steel Beam", type: "steel", category: "special", basePower: 140,
+    accuracy: 95, pp: 5, priority: 0, target: "normal",
+    flags: {},
+    effect: "User loses 50% of max HP as recoil.",
+  },
+  "Sticky Web": {
+    name: "Sticky Web", type: "bug", category: "status", basePower: 0,
+    accuracy: 0, pp: 20, priority: 0, target: "foeSide",
+    flags: {},
+    effect: "Lowers Speed of opposing Pokemon that switch in by 1 stage.",
+  },
+  "Toxic Thread": {
+    name: "Toxic Thread", type: "poison", category: "status", basePower: 0,
+    accuracy: 100, pp: 20, priority: 0, target: "normal",
+    flags: {},
+    secondary: { chance: 100, status: "poison" },
+    effect: "Poisons the target and lowers its Speed by 2 stages.",
+  },
 };
 
 /** Look up a move by name */
