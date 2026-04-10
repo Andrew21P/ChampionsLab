@@ -91,9 +91,11 @@ export function PokemonCard({ pokemon, onClick, index }: PokemonCardProps) {
         {/* Info section */}
         <div className="px-4 pb-4 pt-2 space-y-2">
           {/* Name & Dex number */}
-          <div className="flex items-center justify-between">
-            <h3 className="font-semibold text-[13px] tracking-tight text-gray-900">{pokemon.name}</h3>
-            <span className="text-[10px] text-gray-400 tabular-nums">
+          <div className="flex items-center justify-between gap-1">
+            <h3 className="font-semibold text-[13px] tracking-tight text-gray-900 truncate min-w-0">
+              {pokemon.name.replace(/^(.+?)\s*\((.+)\)$/, "($2) $1")}
+            </h3>
+            <span className="text-[10px] text-gray-400 tabular-nums flex-shrink-0">
               #{pokemon.dexNumber.toString().padStart(3, "0")}
             </span>
           </div>

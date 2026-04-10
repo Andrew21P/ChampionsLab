@@ -40,7 +40,8 @@ git push
 
 echo "=== Step 4: Deploy to VPS ==="
 VPS_PASS=$(cat ~/Downloads/vps.txt)
-sshpass -p "$VPS_PASS" ssh -o StrictHostKeyChecking=no andre@167.235.57.190 \
+VPS_IP=$(cat ~/Downloads/vpsaddress.txt)
+sshpass -p "$VPS_PASS" ssh -o StrictHostKeyChecking=no andre@"$VPS_IP" \
   "cd /srv/championslab && git checkout -- . && git pull && npm run build && echo $VPS_PASS | sudo -S systemctl restart championslab"
 
 echo ""

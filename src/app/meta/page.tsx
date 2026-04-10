@@ -51,11 +51,27 @@ function buildTeamBuilderUrl(pokemonIds: number[], teamName: string): string {
   return `/team-builder?t=${b64}`;
 }
 
+// ── ROSTER FILTER: exclude hidden Pokemon from all meta calculations ──────
+const _VALID_IDS = new Set(POKEMON_SEED.filter(p => !p.hidden).map(p => p.id));
+const _VALID_NAMES = new Set(POKEMON_SEED.filter(p => !p.hidden).map(p => p.name));
+// Also include mega form names like "Mega Charizard X"
+for (const p of POKEMON_SEED.filter(p => !p.hidden)) {
+  if (p.forms) for (const f of p.forms) if (f.isMega) _VALID_NAMES.add(f.name);
+}
+// Filtered tournament teams: only teams where ALL Pokemon are in the active roster
+const _VALID_TOURNAMENT_TEAMS = TOURNAMENT_TEAMS.filter(t => t.pokemonIds.every(id => _VALID_IDS.has(id)));
+// Filtered core pairs
+const _VALID_CORE_PAIRS = CORE_PAIRS.filter(c => _VALID_IDS.has(c.pokemon1) && _VALID_IDS.has(c.pokemon2));
+// Filtered tournament usage
+const _VALID_TOURNAMENT_USAGE = TOURNAMENT_USAGE.filter(u => _VALID_IDS.has(u.pokemonId));
+// Filtered prebuilt teams
+const _VALID_PREBUILT_TEAMS = PREBUILT_TEAMS.filter(t => t.pokemonIds.every(id => _VALID_IDS.has(id)));
+
 // ── HYBRID TIER CALCULATION (ML + Tournament Data) ────────────────────────
 // Thresholds from ML data only (keeps percentiles stable). Individual Pokemon
 // get a composite score blending ML + tournament, which is compared against
 // these ML-only cutoffs - so tournament data acts as a pure positive adjustment.
-const _tournamentMap = new Map(TOURNAMENT_USAGE.map(u => [u.pokemonId, u]));
+const _tournamentMap = new Map(TOURNAMENT_USAGE.filter(u => _VALID_IDS.has(u.pokemonId)).map(u => [u.pokemonId, u]));
 function _getCompositeWR(simEntry: (typeof SIM_POKEMON)[keyof typeof SIM_POKEMON]): number {
   const t = _tournamentMap.get(simEntry.id);
   if (!t) return simEntry.winRate;
@@ -65,7 +81,7 @@ function _getCompositeWR(simEntry: (typeof SIM_POKEMON)[keyof typeof SIM_POKEMON
 
 // Percentile thresholds computed from COMPOSITE win-rates to keep distribution stable
 const _qualifiedCWRs = Object.values(SIM_POKEMON)
-  .filter(p => p.appearances >= 500)
+  .filter(p => p.appearances >= 500 && _VALID_IDS.has(p.id))
   .map(p => _getCompositeWR(p))
   .sort((a, b) => b - a);
 const _qLen = _qualifiedCWRs.length;
@@ -101,6 +117,7 @@ function getMLTier(compositeWR: number, games: number, pokemonId?: number): "S" 
 
 // ── ML SIMULATION RESULTS - derived from simulation-data.ts + tournament ──
 const ML_POKEMON_RANKINGS = Object.values(SIM_POKEMON)
+  .filter(p => _VALID_IDS.has(p.id))
   .sort((a, b) => b.elo - a.elo)
   .map(p => {
     const cwr = _getCompositeWR(p);
@@ -108,6 +125,7 @@ const ML_POKEMON_RANKINGS = Object.values(SIM_POKEMON)
   });
 
 const ML_BEST_CORES = SIM_PAIRS
+  .filter(p => _VALID_NAMES.has(p.pokemon1) && _VALID_NAMES.has(p.pokemon2))
   .sort((a, b) => b.winRate - a.winRate)
   .slice(0, 20)
   .map(p => ({ pair: `${p.pokemon1} + ${p.pokemon2}`, wr: p.winRate, games: p.games }));
@@ -236,7 +254,7 @@ export default function MetaPage() {
         </div>
         <p className="text-muted-foreground mt-2 text-sm max-w-2xl">
           Deep competitive analysis powered by the <span className="font-semibold bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">Champions Lab Advanced VGC Battle Engine</span> - <span className="font-semibold text-foreground">{SIM_TOTAL_BATTLES > 0 ? SIM_TOTAL_BATTLES.toLocaleString() : "2,000,000+"}  simulated battles</span> with full damage calc, ELO rankings,
-          win-rate matrices across {TOURNAMENT_TEAMS.length} tournament teams, {TOURNAMENT_USAGE.length} usage entries, and {CORE_PAIRS.length} core pair combinations.
+          win-rate matrices across {_VALID_TOURNAMENT_TEAMS.length} tournament teams, {_VALID_TOURNAMENT_USAGE.length} usage entries, and {_VALID_CORE_PAIRS.length} core pair combinations.
         </p>
         <div className="flex items-center gap-4 mt-3">
           <a href="/battle-bot" className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-300 hover:border-amber-400 transition-colors">
@@ -245,11 +263,11 @@ export default function MetaPage() {
           </a>
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200">
             <Award className="w-3.5 h-3.5 text-emerald-600" />
-            <span className="text-xs font-medium text-emerald-700">{TOURNAMENT_TEAMS.length} Tournament Results</span>
+            <span className="text-xs font-medium text-emerald-700">{_VALID_TOURNAMENT_TEAMS.length} Tournament Results</span>
           </div>
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-50 border border-cyan-200">
             <Swords className="w-3.5 h-3.5 text-cyan-600" />
-            <span className="text-xs font-medium text-cyan-700">{CORE_PAIRS.length} Core Pairs</span>
+            <span className="text-xs font-medium text-cyan-700">{_VALID_CORE_PAIRS.length} Core Pairs</span>
           </div>
         </div>
       </motion.div>
@@ -447,7 +465,7 @@ export default function MetaPage() {
                 const pokemon = getPokemonByName(p.name);
                 const sprite = getSpriteForName(p.name);
                 const types = getTypesForName(p.name);
-                const usageData = pokemon ? TOURNAMENT_USAGE.find(u => u.pokemonId === pokemon.id) : null;
+                const usageData = pokemon ? _VALID_TOURNAMENT_USAGE.find(u => u.pokemonId === pokemon.id) : null;
                 const tier = p.tier;
                 return (
                   <div key={p.name} className={cn("p-4 rounded-xl border transition-all hover:shadow-md cursor-pointer", tier === "S" ? "bg-amber-50/50 border-amber-200" : tier === "A" ? "bg-blue-50/30 border-blue-200" : "bg-gray-50 border-gray-200")}
@@ -640,8 +658,7 @@ export default function MetaPage() {
                   <Award className="w-3.5 h-3.5 text-amber-500" /> Tournament-Proven (20 Years)
                 </h4>
                 <div className="space-y-2">
-                  {CORE_PAIRS
-                    .filter(cp => POKEMON_SEED.some(p => p.id === cp.pokemon1) && POKEMON_SEED.some(p => p.id === cp.pokemon2))
+                  {_VALID_CORE_PAIRS
                     .sort((a, b) => b.winRate - a.winRate).slice(0, 4).map(cp => {
                     const p1 = POKEMON_SEED.find(p => p.id === cp.pokemon1);
                     const p2 = POKEMON_SEED.find(p => p.id === cp.pokemon2);
@@ -664,7 +681,7 @@ export default function MetaPage() {
               </div>
             </div>
             <button onClick={() => setActiveTab("cores")} className="mt-4 text-xs text-cyan-600 hover:text-cyan-700 font-medium flex items-center gap-1">
-              View all {CORE_PAIRS.length} core pairs <ArrowRight className="w-3 h-3" />
+              View all {_VALID_CORE_PAIRS.length} core pairs <ArrowRight className="w-3 h-3" />
             </button>
           </div>
 
@@ -779,7 +796,7 @@ export default function MetaPage() {
               Hand-picked teams with full sets ready to load into the Team Builder. These represent proven archetypes from competitive play.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {PREBUILT_TEAMS.slice(0, 6).map(team => (
+              {_VALID_PREBUILT_TEAMS.slice(0, 6).map(team => (
                 <div key={team.id} className="p-4 rounded-xl bg-gray-50 border border-gray-200 hover:border-emerald-300 hover:shadow-md transition-all cursor-pointer" onClick={() => setModal({ kind: "prebuilt", id: team.id })}>
                   <div className="flex items-center justify-between mb-2">
                     <span className={cn("px-2 py-0.5 text-[9px] font-bold rounded uppercase", team.tier === "S" ? "bg-amber-100 text-amber-700" : team.tier === "A" ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-600")}>{team.tier}-Tier</span>
@@ -810,7 +827,7 @@ export default function MetaPage() {
               Winning teams from the most recent VGC events. Click any team for full breakdown.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {TOURNAMENT_TEAMS.filter(t => t.placement === 1).sort((a, b) => b.year - a.year).slice(0, 8).map(team => {
+              {_VALID_TOURNAMENT_TEAMS.filter(t => t.placement === 1).sort((a, b) => b.year - a.year).slice(0, 8).map(team => {
                 const teamPokemon = team.pokemonIds.map(id => POKEMON_SEED.find(p => p.id === id)).filter((p): p is NonNullable<typeof p> => !!p);
                 const champMegaId = getMegaIdFromArchetype(team.archetype);
                 return (
@@ -844,7 +861,7 @@ export default function MetaPage() {
               })}
             </div>
             <button onClick={() => setActiveTab("teams")} className="mt-4 text-xs text-amber-600 hover:text-amber-700 font-medium flex items-center gap-1">
-              View all {TOURNAMENT_TEAMS.length} teams <ArrowRight className="w-3 h-3" />
+              View all {_VALID_TOURNAMENT_TEAMS.length} teams <ArrowRight className="w-3 h-3" />
             </button>
           </div>
         </motion.div>
@@ -909,7 +926,7 @@ export default function MetaPage() {
             {selectedPokemon && (() => {
               const pokemon = getPokemonByName(selectedPokemon);
               const mlData = ML_POKEMON_RANKINGS.find(p => p.name === selectedPokemon);
-              const usageData = pokemon ? TOURNAMENT_USAGE.find(u => u.pokemonId === pokemon.id) : null;
+              const usageData = pokemon ? _VALID_TOURNAMENT_USAGE.find(u => u.pokemonId === pokemon.id) : null;
               const corePairs = pokemon ? getCorePairsForPokemon(pokemon.id) : [];
               const teamAppearances = pokemon ? getTournamentTeamsWithPokemon(pokemon.id) : [];
               if (!pokemon) return null;
@@ -1054,10 +1071,10 @@ export default function MetaPage() {
           <div className="glass rounded-2xl p-6 border border-gray-200/60">
             <h2 className="text-lg font-bold mb-2">Tournament Team Database</h2>
             <p className="text-sm text-muted-foreground mb-4">
-              {TOURNAMENT_TEAMS.length} teams from major VGC events (2005–2025). Click any team for detailed breakdown including archetype analysis, event context, and Pokémon roles.
+              {_VALID_TOURNAMENT_TEAMS.length} teams from major VGC events (2005–2025). Click any team for detailed breakdown including archetype analysis, event context, and Pokémon roles.
             </p>
             <div className="space-y-3">
-              {TOURNAMENT_TEAMS.map(team => (
+              {_VALID_TOURNAMENT_TEAMS.map(team => (
                 <TournamentTeamCard key={team.id} team={team} expanded={expandedTeam === team.id} onToggle={() => setExpandedTeam(expandedTeam === team.id ? null : team.id)} />
               ))}
             </div>
@@ -1115,8 +1132,7 @@ export default function MetaPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {CORE_PAIRS
-                    .filter(cp => POKEMON_SEED.some(p => p.id === cp.pokemon1) && POKEMON_SEED.some(p => p.id === cp.pokemon2))
+                  {_VALID_CORE_PAIRS
                     .sort((a, b) => b.winRate - a.winRate).map(cp => {
                     const p1 = POKEMON_SEED.find(p => p.id === cp.pokemon1);
                     const p2 = POKEMON_SEED.find(p => p.id === cp.pokemon2);
@@ -1268,7 +1284,7 @@ export default function MetaPage() {
               const megaTypes = getTypesForName(modal.name);
               const displayName = modal.name;
               const mlData = ML_POKEMON_RANKINGS.find(p => p.name === modal.name);
-              const usageData = TOURNAMENT_USAGE.find(u => u.pokemonId === pokemon.id);
+              const usageData = _VALID_TOURNAMENT_USAGE.find(u => u.pokemonId === pokemon.id);
               const corePairs = getCorePairsForPokemon(pokemon.id);
               const teamAppearances = getTournamentTeamsWithPokemon(pokemon.id);
               const prebuiltTeams = getPrebuiltTeamsWithPokemon(pokemon.id);
@@ -1479,8 +1495,8 @@ export default function MetaPage() {
             {modal.kind === "archetype" && (() => {
               const arch = modal.name;
               const mlArch = ML_ARCHETYPES.find(a => a.name === arch);
-              const archTeams = TOURNAMENT_TEAMS.filter(t => t.archetype.toLowerCase().includes(arch.toLowerCase()) || arch.toLowerCase().includes(t.archetype.toLowerCase()));
-              const prebuiltArch = PREBUILT_TEAMS.filter(t => t.archetype.toLowerCase() === arch.toLowerCase() || t.name.toLowerCase().includes(arch.toLowerCase()));
+              const archTeams = _VALID_TOURNAMENT_TEAMS.filter(t => t.archetype.toLowerCase().includes(arch.toLowerCase()) || arch.toLowerCase().includes(t.archetype.toLowerCase()));
+              const prebuiltArch = _VALID_PREBUILT_TEAMS.filter(t => t.archetype.toLowerCase() === arch.toLowerCase() || t.name.toLowerCase().includes(arch.toLowerCase()));
               const matchups = ARCHETYPE_MATCHUPS.filter(m => m.archetype1.toLowerCase().includes(arch.toLowerCase()) || m.archetype2.toLowerCase().includes(arch.toLowerCase()));
               const metaPredictions = metaTeams.filter(m => m.archetype.toLowerCase().includes(arch.toLowerCase()) || arch.toLowerCase().includes(m.archetype.toLowerCase()));
               const archPokemon = archTeams.flatMap(t => t.pokemonIds);
@@ -1669,11 +1685,11 @@ export default function MetaPage() {
                     <h4 className="text-sm font-bold uppercase text-muted-foreground mb-3">Pokémon with this Move ({pokemonWithMove.length})</h4>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                       {pokemonWithMove.sort((a, b) => {
-                        const aUsage = TOURNAMENT_USAGE.find(u => u.pokemonId === a.id);
-                        const bUsage = TOURNAMENT_USAGE.find(u => u.pokemonId === b.id);
+                        const aUsage = _VALID_TOURNAMENT_USAGE.find(u => u.pokemonId === a.id);
+                        const bUsage = _VALID_TOURNAMENT_USAGE.find(u => u.pokemonId === b.id);
                         return (bUsage?.usageRate || 0) - (aUsage?.usageRate || 0);
                       }).slice(0, 12).map(pkm => {
-                        const usage = TOURNAMENT_USAGE.find(u => u.pokemonId === pkm.id);
+                        const usage = _VALID_TOURNAMENT_USAGE.find(u => u.pokemonId === pkm.id);
                         const mlRank = ML_POKEMON_RANKINGS.findIndex(r => r.name === pkm.name);
                         return (
                           <div key={pkm.id} className="flex items-center gap-2 p-2.5 bg-gray-50 rounded-xl cursor-pointer hover:bg-gray-100 transition-colors" onClick={() => setModal({ kind: "pokemon", name: pkm.name })}>
@@ -1698,12 +1714,12 @@ export default function MetaPage() {
             {/* ── CORE PAIR MODAL ── */}
             {modal.kind === "core" && (() => {
               const pairName = modal.pair;
-              const corePair = CORE_PAIRS.find(cp => cp.name === pairName);
+              const corePair = _VALID_CORE_PAIRS.find(cp => cp.name === pairName);
               const mlCore = ML_BEST_CORES.find(c => c.pair === pairName);
               const names = pairName.split(" + ");
               const pokemon1 = POKEMON_SEED.find(p => p.name === names[0]);
               const pokemon2 = POKEMON_SEED.find(p => p.name === names[1]);
-              const teamsWithBoth = (pokemon1 && pokemon2) ? TOURNAMENT_TEAMS.filter(t => t.pokemonIds.includes(pokemon1.id) && t.pokemonIds.includes(pokemon2.id)) : [];
+              const teamsWithBoth = (pokemon1 && pokemon2) ? _VALID_TOURNAMENT_TEAMS.filter(t => t.pokemonIds.includes(pokemon1.id) && t.pokemonIds.includes(pokemon2.id)) : [];
               return (
                 <div className="p-6 space-y-6">
                   <div className="flex items-center gap-5">
@@ -1733,7 +1749,7 @@ export default function MetaPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {[pokemon1, pokemon2].map(pkm => {
                       if (!pkm) return null;
-                      const usage = TOURNAMENT_USAGE.find(u => u.pokemonId === pkm.id);
+                      const usage = _VALID_TOURNAMENT_USAGE.find(u => u.pokemonId === pkm.id);
                       return (
                         <div key={pkm.id} className="p-4 bg-gray-50 rounded-xl cursor-pointer hover:bg-gray-100 transition-colors" onClick={() => setModal({ kind: "pokemon", name: pkm.name })}>
                           <div className="flex items-center gap-3 mb-3">
@@ -1777,7 +1793,7 @@ export default function MetaPage() {
 
             {/* ── PREBUILT TEAM MODAL ── */}
             {modal.kind === "prebuilt" && (() => {
-              const team = PREBUILT_TEAMS.find(t => t.id === modal.id);
+              const team = _VALID_PREBUILT_TEAMS.find(t => t.id === modal.id);
               if (!team) return <div className="p-8 text-center text-muted-foreground">Team not found</div>;
               const teamPokemon = team.pokemonIds.map((id, idx) => ({ pkm: POKEMON_SEED.find(p => p.id === id), set: team.sets[idx] }));
               return (
@@ -1923,7 +1939,7 @@ function MetaTeamCard({ meta, expanded, onToggle }: { meta: MetaTeamPrediction; 
                     {meta.pokemonIds.map(id => {
                       const p = POKEMON_SEED.find(pk => pk.id === id);
                       if (!p) return null;
-                      const usage = TOURNAMENT_USAGE.find(u => u.pokemonId === id);
+                      const usage = _VALID_TOURNAMENT_USAGE.find(u => u.pokemonId === id);
                       return (
                         <div key={id} className="flex items-center gap-2 p-1.5 rounded-lg bg-white/50">
                           <Image src={p.sprite} alt={p.name} width={24} height={24} className="rounded" unoptimized />
@@ -1969,7 +1985,7 @@ function TournamentTeamCard({ team, expanded, onToggle }: { team: TournamentTeam
   const megaId = getMegaIdFromArchetype(team.archetype);
   const teamPokemon = team.pokemonIds.map(id => POKEMON_SEED.find(p => p.id === id)).filter((p): p is NonNullable<typeof p> => !!p);
   const allTypes = [...new Set(teamPokemon.flatMap(p => p.types))];
-  const corePairs = CORE_PAIRS.filter(cp => team.pokemonIds.includes(cp.pokemon1) && team.pokemonIds.includes(cp.pokemon2));
+  const corePairs = _VALID_CORE_PAIRS.filter(cp => team.pokemonIds.includes(cp.pokemon1) && team.pokemonIds.includes(cp.pokemon2));
 
   return (
     <motion.div layout className={cn("rounded-xl border transition-all overflow-hidden", expanded ? "bg-emerald-50/30 border-emerald-300" : "glass border-gray-200/60 hover:border-emerald-300")}>
@@ -2015,7 +2031,7 @@ function TournamentTeamCard({ team, expanded, onToggle }: { team: TournamentTeam
                   <h5 className="text-xs font-semibold text-muted-foreground uppercase mb-2">Team Members ({teamPokemon.length})</h5>
                   <div className="space-y-2">
                     {teamPokemon.map(p => {
-                      const usage = TOURNAMENT_USAGE.find(u => u.pokemonId === p.id);
+                      const usage = _VALID_TOURNAMENT_USAGE.find(u => u.pokemonId === p.id);
                       const mlRank = ML_POKEMON_RANKINGS.findIndex(r => r.name === p.name);
                       const pIsMega = megaId === p.id;
                       return (

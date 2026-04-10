@@ -57,6 +57,7 @@ export interface DamageResult {
   is2HKO: boolean;
   effectiveness: number;        // type effectiveness multiplier
   moveName: string;
+  effectiveType: PokemonType;    // resolved move type (after Weather Ball, -ate, etc.)
 }
 
 /** Full Gen 9 damage formula */
@@ -71,6 +72,7 @@ export function calculateDamage(
     return {
       damage: [0, 0], percentHP: [0, 0], numHits: Infinity,
       isOHKO: false, is2HKO: false, effectiveness: 1, moveName,
+      effectiveType: moveOriginal?.type as PokemonType ?? "normal",
     };
   }
 
@@ -90,10 +92,19 @@ export function calculateDamage(
     Galvanize: "electric", Dragonize: "dragon",
   };
   const ateType = ATE_ABILITIES[attacker.ability];
-  const moveCalc = ateType && moveEffective.type === "normal" && moveEffective.category !== "status"
+  const moveAte = ateType && moveEffective.type === "normal" && moveEffective.category !== "status"
     ? { ...moveEffective, type: ateType }
     : moveEffective;
   const ateBpBoost = ateType && moveEffective.type === "normal" && moveEffective.category !== "status";
+
+  // Weather Ball: type and power change based on active weather
+  const WEATHER_BALL_TYPE: Record<string, PokemonType> = {
+    sun: "fire", rain: "water", sand: "rock", snow: "ice",
+  };
+  const wbWeather = attacker.ability === "Mega Sol" ? "sun" : (options.weather ?? "none");
+  const moveCalc = moveAte.name === "Weather Ball" && WEATHER_BALL_TYPE[wbWeather]
+    ? { ...moveAte, type: WEATHER_BALL_TYPE[wbWeather], basePower: 100 }
+    : moveAte;
 
   // Use the type-overridden move for all subsequent calculations
 
@@ -149,6 +160,7 @@ export function calculateDamage(
     return {
       damage: [0, 0], percentHP: [0, 0], numHits: Infinity,
       isOHKO: false, is2HKO: false, effectiveness: 0, moveName,
+      effectiveType: moveCalc.type as PokemonType,
     };
   }
 
@@ -165,7 +177,7 @@ export function calculateDamage(
       return {
         damage: [fixedDmg, fixedDmg],
         percentHP: [Math.round((fixedDmg / defStats.hp) * 100), Math.round((fixedDmg / defStats.hp) * 100)], numHits: 2,
-        isOHKO: false, is2HKO: fixedDmg * 2 >= currentHP, effectiveness: 1, moveName,
+        isOHKO: false, is2HKO: fixedDmg * 2 >= currentHP, effectiveness: 1, moveName, effectiveType: moveCalc.type as PokemonType,
       };
     }
   }
@@ -307,6 +319,7 @@ export function calculateDamage(
     return {
       damage: [0, 0], percentHP: [0, 0], numHits: Infinity,
       isOHKO: false, is2HKO: false, effectiveness: 0, moveName,
+      effectiveType: moveCalc.type as PokemonType,
     };
   }
 
@@ -385,6 +398,7 @@ export function calculateDamage(
     is2HKO: minDamage * 2 >= targetHP,
     effectiveness,
     moveName,
+    effectiveType: moveCalc.type as PokemonType,
   };
 }
 

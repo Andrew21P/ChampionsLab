@@ -114,6 +114,30 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
     { name: "Bulky Intimidate", nature: "Adamant", ability: "Intimidate", item: "Sitrus Berry", moves: ["Body Slam", "Close Combat", "Helping Hand", "Protect"], sp: { hp: 20, attack: 32, defense: 2, spAtk: 0, spDef: 12, speed: 0 } },
   ],
 
+  // Paldean Tauros Combat (id: 10250)
+  10250: [
+    {"name":"Intimidate Physical","nature":"Jolly","ability":"Intimidate","item":"Life Orb","moves":["Close Combat","Raging Bull","Rock Slide","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Bulk Up Sweeper","nature":"Jolly","ability":"Intimidate","item":"Sitrus Berry","moves":["Bulk Up","Close Combat","Raging Bull","Protect"],"sp":{"hp":4,"attack":30,"defense":0,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Choice Scarf","nature":"Jolly","ability":"Intimidate","item":"Choice Scarf","moves":["Close Combat","Rock Slide","Wild Charge","Earthquake"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Bulky Intimidate","nature":"Adamant","ability":"Intimidate","item":"Sitrus Berry","moves":["Close Combat","Body Slam","Rock Slide","Protect"],"sp":{"hp":20,"attack":32,"defense":2,"spAtk":0,"spDef":12,"speed":0}},
+  ],
+
+  // Paldean Tauros Blaze (id: 10251)
+  10251: [
+    {"name":"Intimidate Attacker","nature":"Jolly","ability":"Intimidate","item":"Life Orb","moves":["Flare Blitz","Close Combat","Rock Slide","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Flame Charge Sweeper","nature":"Jolly","ability":"Intimidate","item":"Sitrus Berry","moves":["Flame Charge","Flare Blitz","Close Combat","Protect"],"sp":{"hp":4,"attack":30,"defense":0,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Choice Band","nature":"Adamant","ability":"Intimidate","item":"Choice Band","moves":["Flare Blitz","Close Combat","Wild Charge","Zen Headbutt"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Will-O-Wisp Support","nature":"Impish","ability":"Intimidate","item":"Sitrus Berry","moves":["Will-O-Wisp","Flare Blitz","Close Combat","Protect"],"sp":{"hp":32,"attack":0,"defense":32,"spAtk":0,"spDef":2,"speed":0}},
+  ],
+
+  // Paldean Tauros Aqua (id: 10252)
+  10252: [
+    {"name":"Intimidate Attacker","nature":"Jolly","ability":"Intimidate","item":"Life Orb","moves":["Wave Crash","Close Combat","Rock Slide","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Aqua Jet Priority","nature":"Adamant","ability":"Intimidate","item":"Life Orb","moves":["Aqua Jet","Close Combat","Rock Slide","Protect"],"sp":{"hp":4,"attack":32,"defense":0,"spAtk":0,"spDef":0,"speed":30}},
+    {"name":"Choice Band","nature":"Adamant","ability":"Intimidate","item":"Choice Band","moves":["Wave Crash","Close Combat","Wild Charge","Earthquake"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Bulk Up","nature":"Jolly","ability":"Intimidate","item":"Sitrus Berry","moves":["Bulk Up","Liquidation","Close Combat","Protect"],"sp":{"hp":4,"attack":30,"defense":0,"spAtk":0,"spDef":0,"speed":32}},
+  ],
+
   // Gyarados (id: 130)
   130: [
     { name: "Mega Intimidate", nature: "Adamant", ability: "Mold Breaker", item: "Gyaradosite", moves: ["Waterfall", "Crunch", "Ice Fang", "Protect"], sp: { hp: 4, attack: 32, defense: 0, spAtk: 0, spDef: 0, speed: 30 } },
@@ -281,14 +305,6 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
     { name: "Choice Band", nature: "Jolly", ability: "Super Luck", item: "Choice Band", moves: ["Knock Off", "Sucker Punch", "Play Rough", "Close Combat"], sp: { hp: 0, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 32 } },
     { name: "Focus Sash Lead", nature: "Jolly", ability: "Pressure", item: "Focus Sash", moves: ["Knock Off", "Sucker Punch", "Taunt", "Protect"], sp: { hp: 0, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 32 } },
     { name: "Mega Spectral", nature: "Jolly", ability: "Spectral Doom", item: "Absolite Z", moves: ["Knock Off", "Shadow Claw", "Play Rough", "Protect"], sp: { hp: 0, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 32 } },
-  ],
-
-  // Metagross (id: 376)
-  376: [
-    { name: "Mega Tough Claws", nature: "Jolly", ability: "Tough Claws", item: "Metagrossite", moves: ["Iron Head", "Zen Headbutt", "Ice Punch", "Protect"], sp: { hp: 0, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 32 } },
-    { name: "Bulky Mega", nature: "Adamant", ability: "Tough Claws", item: "Metagrossite", moves: ["Iron Head", "Zen Headbutt", "Bullet Punch", "Protect"], sp: { hp: 20, attack: 32, defense: 2, spAtk: 0, spDef: 12, speed: 0 } },
-    { name: "Assault Vest", nature: "Adamant", ability: "Clear Body", item: "Assault Vest", moves: ["Iron Head", "Zen Headbutt", "Bullet Punch", "Ice Punch"], sp: { hp: 32, attack: 32, defense: 0, spAtk: 0, spDef: 2, speed: 0 } },
-    { name: "Trick Room", nature: "Brave", ability: "Clear Body", item: "Weakness Policy", moves: ["Iron Head", "Zen Headbutt", "Rock Slide", "Protect"], sp: { hp: 32, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 0 } },
   ],
 
   // Empoleon (id: 395)
@@ -643,14 +659,6 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
     { name: "Swords Dance", nature: "Jolly", ability: "Swarm", item: "Focus Sash", moves: ["Swords Dance", "Stone Axe", "X-Scissor", "Protect"], sp: { hp: 0, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 32 } },
   ],
 
-  // Ursaluna (id: 901)
-  901: [
-    { name: "Trick Room Sweeper", nature: "Brave", ability: "Guts", item: "Flame Orb", moves: ["Facade", "Earthquake", "Close Combat", "Protect"], sp: { hp: 32, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 0 } },
-    { name: "Headlong Rush", nature: "Brave", ability: "Guts", item: "Flame Orb", moves: ["Headlong Rush", "Facade", "Close Combat", "Protect"], sp: { hp: 32, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 0 } },
-    { name: "Assault Vest", nature: "Brave", ability: "Guts", item: "Assault Vest", moves: ["Headlong Rush", "Facade", "Close Combat", "Rock Slide"], sp: { hp: 32, attack: 32, defense: 0, spAtk: 0, spDef: 2, speed: 0 } },
-    { name: "Choice Band", nature: "Brave", ability: "Guts", item: "Choice Band", moves: ["Earthquake", "Double-Edge", "Close Combat", "Rock Slide"], sp: { hp: 32, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 0 } },
-  ],
-
   // Basculegion (id: 902)
   902: [
     { name: "Last Respects Sweeper", nature: "Adamant", ability: "Swift Swim", item: "Choice Band", moves: ["Last Respects", "Wave Crash", "Aqua Jet", "Shadow Ball"], sp: { hp: 4, attack: 32, defense: 0, spAtk: 0, spDef: 0, speed: 30 } },
@@ -674,14 +682,6 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
     { name: "Choice Band", nature: "Jolly", ability: "Protean", item: "Choice Band", moves: ["Flower Trick", "Knock Off", "U-turn", "Play Rough"], sp: { hp: 0, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 32 } },
     { name: "Focus Sash", nature: "Jolly", ability: "Overgrow", item: "Focus Sash", moves: ["Flower Trick", "Knock Off", "Thunder Punch", "Protect"], sp: { hp: 0, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 32 } },
     { name: "Support", nature: "Jolly", ability: "Protean", item: "Focus Sash", moves: ["Flower Trick", "Knock Off", "Taunt", "Protect"], sp: { hp: 4, attack: 30, defense: 0, spAtk: 0, spDef: 0, speed: 32 } },
-  ],
-
-  // Pawmot (id: 923)
-  923: [
-    { name: "Revival Blessing", nature: "Jolly", ability: "Iron Fist", item: "Focus Sash", moves: ["Close Combat", "Wild Charge", "Revival Blessing", "Protect"], sp: { hp: 0, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 32 } },
-    { name: "Offensive", nature: "Jolly", ability: "Iron Fist", item: "Life Orb", moves: ["Close Combat", "Thunder Punch", "Ice Punch", "Protect"], sp: { hp: 0, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 32 } },
-    { name: "Double Shock", nature: "Jolly", ability: "Volt Absorb", item: "Focus Sash", moves: ["Close Combat", "Double Shock", "Revival Blessing", "Protect"], sp: { hp: 0, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 32 } },
-    { name: "Fake Out Lead", nature: "Jolly", ability: "Iron Fist", item: "Focus Sash", moves: ["Fake Out", "Close Combat", "Wild Charge", "Protect"], sp: { hp: 4, attack: 30, defense: 0, spAtk: 0, spDef: 0, speed: 32 } },
   ],
 
   // Maushold (id: 925)
@@ -735,15 +735,6 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
     { name: "Mega Toxic Crystal", nature: "Timid", ability: "Toxic Crystallize", item: "Glimmorite", moves: ["Power Gem", "Sludge Wave", "Earth Power", "Protect"], sp: { hp: 0, attack: 0, defense: 2, spAtk: 32, spDef: 0, speed: 32 } },
   ],
 
-  // Dondozo (id: 977)
-  977: [
-    { name: "Unaware Wall", nature: "Impish", ability: "Unaware", item: "Leftovers", moves: ["Wave Crash", "Earthquake", "Yawn", "Protect"], sp: { hp: 32, attack: 0, defense: 32, spAtk: 0, spDef: 2, speed: 0 } },
-    { name: "Curse Tank", nature: "Careful", ability: "Unaware", item: "Sitrus Berry", moves: ["Curse", "Wave Crash", "Rest", "Protect"], sp: { hp: 32, attack: 0, defense: 2, spAtk: 0, spDef: 32, speed: 0 } },
-    { name: "Tatsugiri Combo", nature: "Impish", ability: "Unaware", item: "Sitrus Berry", moves: ["Order Up", "Earthquake", "Protect", "Wave Crash"], sp: { hp: 32, attack: 2, defense: 32, spAtk: 0, spDef: 0, speed: 0 } },
-    { name: "Offensive", nature: "Adamant", ability: "Oblivious", item: "Choice Band", moves: ["Wave Crash", "Earthquake", "Heavy Slam", "Avalanche"], sp: { hp: 32, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 0 } },
-  ],
-
-  // Tatsugiri (id: 978)
   // Kingambit (id: 983)
   983: [
     { name: "Supreme Overlord", nature: "Adamant", ability: "Supreme Overlord", item: "Black Glasses", moves: ["Kowtow Cleave", "Sucker Punch", "Iron Head", "Protect"], sp: { hp: 32, attack: 32, defense: 2, spAtk: 0, spDef: 0, speed: 0 } },
@@ -1205,14 +1196,6 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
     { name: "Shed Tail Support", nature: "Jolly", ability: "Earth Eater", item: "Sitrus Berry", moves: ["Shed Tail","Iron Head","Earthquake","Protect"], sp: { hp: 32, attack: 0, defense: 2, spAtk: 0, spDef: 0, speed: 32 } },
   ],
 
-  // Tatsugiri (id: 978)
-  978: [
-    { name: "Commander Support", nature: "Modest", ability: "Commander", item: "Choice Specs", moves: ["Draco Meteor","Muddy Water","Ice Beam","Dragon Pulse"], sp: { hp: 4, attack: 0, defense: 0, spAtk: 32, spDef: 0, speed: 30 } },
-    { name: "Dondozo Partner", nature: "Modest", ability: "Commander", item: "Sitrus Berry", moves: ["Draco Meteor","Muddy Water","Ice Beam","Protect"], sp: { hp: 32, attack: 0, defense: 2, spAtk: 32, spDef: 0, speed: 0 } },
-    { name: "Scarf Attacker", nature: "Timid", ability: "Commander", item: "Choice Scarf", moves: ["Draco Meteor","Muddy Water","Ice Beam","Dragon Pulse"], sp: { hp: 0, attack: 0, defense: 2, spAtk: 32, spDef: 0, speed: 32 } },
-    { name: "Mega Commander", nature: "Modest", ability: "Commander Surge", item: "Tatsugirite", moves: ["Draco Meteor","Muddy Water","Nasty Plot","Protect"], sp: { hp: 4, attack: 0, defense: 0, spAtk: 32, spDef: 0, speed: 30 } },
-  ],
-
   // Hisuian Arcanine (id: 5059)
   5059: [
     { name: "Intimidate Support", nature: "Adamant", ability: "Intimidate", item: "Sitrus Berry", moves: ["Flare Blitz","Head Smash","Extreme Speed","Protect"], sp: { hp: 32, attack: 20, defense: 2, spAtk: 0, spDef: 12, speed: 0 } },
@@ -1278,6 +1261,15 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
     {"name":"Bulky Dragon","nature":"Calm","ability":"Gooey","item":"Sitrus Berry","moves":["Dragon Pulse","Flamethrower","Breaking Swipe","Protect"],"sp":{"hp":32,"attack":0,"defense":2,"spAtk":0,"spDef":32,"speed":0}},
   ],
 
+  // Hisuian Goodra (id: 5706)
+  5706: [
+    {"name":"Steel Dragon Tank","nature":"Modest","ability":"Sap Sipper","item":"Assault Vest","moves":["Flash Cannon","Dragon Pulse","Flamethrower","Thunderbolt"],"sp":{"hp":32,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":0}},
+    {"name":"Trick Room Attacker","nature":"Quiet","ability":"Sap Sipper","item":"Life Orb","moves":["Draco Meteor","Flash Cannon","Flamethrower","Protect"],"sp":{"hp":32,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":0}},
+    {"name":"Iron Defense Wall","nature":"Bold","ability":"Shell Armor","item":"Leftovers","moves":["Iron Defense","Acid Spray","Dragon Pulse","Protect"],"sp":{"hp":32,"attack":0,"defense":32,"spAtk":0,"spDef":2,"speed":0}},
+    {"name":"Choice Specs","nature":"Modest","ability":"Sap Sipper","item":"Choice Specs","moves":["Draco Meteor","Flash Cannon","Hydro Pump","Thunderbolt"],"sp":{"hp":4,"attack":0,"defense":0,"spAtk":32,"spDef":0,"speed":30}},
+    {"name":"Physical Mixed","nature":"Brave","ability":"Sap Sipper","item":"Life Orb","moves":["Iron Head","Outrage","Earthquake","Protect"],"sp":{"hp":32,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":0}},
+  ],
+
   // Trevenant (id: 709)
   709: [
     {"name":"Harvest TR","nature":"Brave","ability":"Harvest","item":"Sitrus Berry","moves":["Wood Hammer","Shadow Claw","Horn Leech","Protect"],"sp":{"hp":32,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":0}},
@@ -1290,14 +1282,6 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
     {"name":"Trick Room Tank","nature":"Quiet","ability":"Thick Fat","item":"Sitrus Berry","moves":["Apple Acid","Dragon Pulse","Recover","Protect"],"sp":{"hp":32,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":0}},
     {"name":"Body Press Wall","nature":"Bold","ability":"Thick Fat","item":"Leftovers","moves":["Apple Acid","Body Press","Iron Defense","Protect"],"sp":{"hp":32,"attack":0,"defense":32,"spAtk":0,"spDef":2,"speed":0}},
     {"name":"Assault Vest","nature":"Quiet","ability":"Thick Fat","item":"Assault Vest","moves":["Apple Acid","Dragon Pulse","Energy Ball","Draco Meteor"],"sp":{"hp":32,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":0}},
-  ],
-
-  // Grimmsnarl (id: 861)
-  861: [
-    {"name":"Screens Lead","nature":"Careful","ability":"Prankster","item":"Light Clay","moves":["Reflect","Light Screen","Spirit Break","Fake Out"],"sp":{"hp":32,"attack":0,"defense":2,"spAtk":0,"spDef":32,"speed":0}},
-    {"name":"Thunder Wave Support","nature":"Impish","ability":"Prankster","item":"Sitrus Berry","moves":["Thunder Wave","Spirit Break","Fake Out","Protect"],"sp":{"hp":32,"attack":0,"defense":32,"spAtk":0,"spDef":2,"speed":0}},
-    {"name":"Physical Attacker","nature":"Adamant","ability":"Prankster","item":"Life Orb","moves":["Play Rough","Sucker Punch","Fake Out","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
-    {"name":"Bulky Taunt","nature":"Careful","ability":"Prankster","item":"Sitrus Berry","moves":["Taunt","Spirit Break","Fake Out","Protect"],"sp":{"hp":32,"attack":0,"defense":2,"spAtk":0,"spDef":32,"speed":0}},
   ],
 
   // Skeledirge (id: 911)
@@ -1358,7 +1342,7 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
     {"name":"Mega Intimidate","nature":"Timid","ability":"Intimidate","item":"Manectite","moves":["Thunderbolt","Overheat","Volt Switch","Protect"],"sp":{"hp":0,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":32}},
     {"name":"Mega Snarl Support","nature":"Timid","ability":"Intimidate","item":"Manectite","moves":["Thunderbolt","Snarl","Overheat","Protect"],"sp":{"hp":20,"attack":0,"defense":14,"spAtk":0,"spDef":0,"speed":32}},
     {"name":"Life Orb Attacker","nature":"Timid","ability":"Lightning Rod","item":"Life Orb","moves":["Thunderbolt","Overheat","Volt Switch","Protect"],"sp":{"hp":0,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":32}},
-    {"name":"Choice Specs","nature":"Timid","ability":"Lightning Rod","item":"Choice Specs","moves":["Thunderbolt","Overheat","Volt Switch","Hidden Power Ice"],"sp":{"hp":0,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":32}},
+    {"name":"Choice Specs","nature":"Timid","ability":"Lightning Rod","item":"Choice Specs","moves":["Thunderbolt","Overheat","Volt Switch","Hyper Voice"],"sp":{"hp":0,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":32}},
   ],
 
   // Sharpedo (id: 319)
@@ -1393,8 +1377,8 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
 
   // Glalie (id: 362)
   362: [
-    {"name":"Mega Refrigerate","nature":"Jolly","ability":"Refrigerate","item":"Glalitite","moves":["Return","Earthquake","Explosion","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
-    {"name":"Mega Special","nature":"Timid","ability":"Refrigerate","item":"Glalitite","moves":["Hyper Voice","Freeze-Dry","Dark Pulse","Protect"],"sp":{"hp":0,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":32}},
+    {"name":"Mega Refrigerate","nature":"Jolly","ability":"Refrigerate","item":"Glalitite","moves":["Body Slam","Earthquake","Explosion","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Mega Special","nature":"Timid","ability":"Refrigerate","item":"Glalitite","moves":["Blizzard","Freeze-Dry","Dark Pulse","Protect"],"sp":{"hp":0,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":32}},
     {"name":"Focus Sash Lead","nature":"Timid","ability":"Inner Focus","item":"Focus Sash","moves":["Ice Beam","Freeze-Dry","Dark Pulse","Protect"],"sp":{"hp":0,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":32}},
   ],
 
@@ -1424,7 +1408,7 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
   // Bastiodon (id: 411)
   411: [
     {"name":"TR Wall","nature":"Relaxed","ability":"Sturdy","item":"Sitrus Berry","moves":["Wide Guard","Body Press","Metal Burst","Protect"],"sp":{"hp":32,"attack":0,"defense":32,"spAtk":0,"spDef":2,"speed":0}},
-    {"name":"Stealth Rock Support","nature":"Relaxed","ability":"Sturdy","item":"Mental Herb","moves":["Stealth Rock","Body Press","Toxic","Protect"],"sp":{"hp":32,"attack":0,"defense":32,"spAtk":0,"spDef":2,"speed":0}},
+    {"name":"Stealth Rock Support","nature":"Relaxed","ability":"Sturdy","item":"Mental Herb","moves":["Stealth Rock","Body Press","Taunt","Protect"],"sp":{"hp":32,"attack":0,"defense":32,"spAtk":0,"spDef":2,"speed":0}},
     {"name":"Iron Defense","nature":"Relaxed","ability":"Sturdy","item":"Leftovers","moves":["Iron Defense","Body Press","Stealth Rock","Protect"],"sp":{"hp":32,"attack":0,"defense":20,"spAtk":0,"spDef":14,"speed":0}},
   ],
 
@@ -1436,11 +1420,12 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
     {"name":"Assault Vest","nature":"Adamant","ability":"Dry Skin","item":"Assault Vest","moves":["Drain Punch","Poison Jab","Sucker Punch","Ice Punch"],"sp":{"hp":20,"attack":32,"defense":2,"spAtk":0,"spDef":12,"speed":0}},
   ],
 
-  // Patrat (id: 504)
-  504: [
-    {"name":"Focus Sash Lead","nature":"Jolly","ability":"Analytic","item":"Focus Sash","moves":["Hypnosis","Super Fang","Crunch","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
-    {"name":"After You Support","nature":"Jolly","ability":"Analytic","item":"Focus Sash","moves":["After You","Hypnosis","Super Fang","Protect"],"sp":{"hp":4,"attack":0,"defense":0,"spAtk":0,"spDef":30,"speed":32}},
-    {"name":"Trick Room","nature":"Brave","ability":"Analytic","item":"Sitrus Berry","moves":["Super Fang","Crunch","Helping Hand","Protect"],"sp":{"hp":32,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":0}},
+  // Watchog (id: 505)
+  505: [
+    {"name":"Swords Dance","nature":"Jolly","ability":"Analytic","item":"Life Orb","moves":["Swords Dance","Crunch","Zen Headbutt","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Nasty Plot Special","nature":"Timid","ability":"Analytic","item":"Life Orb","moves":["Nasty Plot","Thunderbolt","Flamethrower","Shadow Ball"],"sp":{"hp":0,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":32}},
+    {"name":"Hypnosis Lead","nature":"Jolly","ability":"Keen Eye","item":"Focus Sash","moves":["Hypnosis","Super Fang","Crunch","Protect"],"sp":{"hp":4,"attack":30,"defense":0,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Mixed Attacker","nature":"Naive","ability":"Analytic","item":"Life Orb","moves":["Crunch","Thunderbolt","Fire Punch","Protect"],"sp":{"hp":0,"attack":16,"defense":2,"spAtk":16,"spDef":0,"speed":32}},
   ],
 
   // Liepard (id: 510)
@@ -1452,21 +1437,21 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
 
   // Simisage (id: 512)
   512: [
-    {"name":"Physical Attacker","nature":"Jolly","ability":"Overgrow","item":"Life Orb","moves":["Seed Bomb","Knock Off","Superpower","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Physical Attacker","nature":"Jolly","ability":"Overgrow","item":"Life Orb","moves":["Seed Bomb","Throat Chop","Superpower","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
     {"name":"Nasty Plot","nature":"Timid","ability":"Overgrow","item":"Focus Sash","moves":["Nasty Plot","Leaf Storm","Focus Blast","Protect"],"sp":{"hp":0,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":32}},
-    {"name":"Choice Scarf","nature":"Jolly","ability":"Overgrow","item":"Choice Scarf","moves":["Seed Bomb","Knock Off","Superpower","Rock Slide"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Choice Scarf","nature":"Jolly","ability":"Overgrow","item":"Choice Scarf","moves":["Seed Bomb","Throat Chop","Superpower","Rock Slide"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
   ],
 
   // Simisear (id: 514)
   514: [
-    {"name":"Physical Attacker","nature":"Jolly","ability":"Blaze","item":"Life Orb","moves":["Flare Blitz","Knock Off","Superpower","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Physical Attacker","nature":"Jolly","ability":"Blaze","item":"Life Orb","moves":["Flare Blitz","Throat Chop","Superpower","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
     {"name":"Nasty Plot","nature":"Timid","ability":"Blaze","item":"Focus Sash","moves":["Nasty Plot","Fire Blast","Focus Blast","Protect"],"sp":{"hp":0,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":32}},
-    {"name":"Choice Scarf","nature":"Jolly","ability":"Blaze","item":"Choice Scarf","moves":["Flare Blitz","Knock Off","Superpower","U-turn"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Choice Scarf","nature":"Jolly","ability":"Blaze","item":"Choice Scarf","moves":["Flare Blitz","Throat Chop","Superpower","Crunch"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
   ],
 
   // Simipour (id: 516)
   516: [
-    {"name":"Physical Attacker","nature":"Jolly","ability":"Torrent","item":"Life Orb","moves":["Waterfall","Knock Off","Superpower","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Physical Attacker","nature":"Jolly","ability":"Torrent","item":"Life Orb","moves":["Waterfall","Throat Chop","Superpower","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
     {"name":"Nasty Plot","nature":"Timid","ability":"Torrent","item":"Focus Sash","moves":["Nasty Plot","Hydro Pump","Ice Beam","Protect"],"sp":{"hp":0,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":32}},
     {"name":"Choice Specs","nature":"Timid","ability":"Torrent","item":"Choice Specs","moves":["Hydro Pump","Ice Beam","Focus Blast","Surf"],"sp":{"hp":0,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":32}},
   ],
@@ -1497,9 +1482,9 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
   // Florges (id: 671)
   671: [
     {"name":"Special Tank","nature":"Calm","ability":"Flower Veil","item":"Sitrus Berry","moves":["Moonblast","Calm Mind","Synthesis","Protect"],"sp":{"hp":32,"attack":0,"defense":2,"spAtk":0,"spDef":32,"speed":0}},
-    {"name":"Trick Room","nature":"Quiet","ability":"Flower Veil","item":"Life Orb","moves":["Trick Room","Moonblast","Psychic","Protect"],"sp":{"hp":32,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":0}},
+    {"name":"Calm Mind","nature":"Quiet","ability":"Flower Veil","item":"Life Orb","moves":["Calm Mind","Moonblast","Psychic","Protect"],"sp":{"hp":32,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":0}},
     {"name":"Offensive","nature":"Modest","ability":"Flower Veil","item":"Choice Specs","moves":["Moonblast","Psychic","Dazzling Gleam","Energy Ball"],"sp":{"hp":4,"attack":0,"defense":0,"spAtk":32,"spDef":0,"speed":30}},
-    {"name":"Support","nature":"Bold","ability":"Flower Veil","item":"Sitrus Berry","moves":["Moonblast","Helping Hand","Aromatherapy","Protect"],"sp":{"hp":32,"attack":0,"defense":20,"spAtk":0,"spDef":14,"speed":0}},
+    {"name":"Support","nature":"Bold","ability":"Flower Veil","item":"Sitrus Berry","moves":["Moonblast","Helping Hand","Wish","Protect"],"sp":{"hp":32,"attack":0,"defense":20,"spAtk":0,"spDef":14,"speed":0}},
   ],
 
   // Pangoro (id: 675)
@@ -1518,9 +1503,9 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
 
   // Slurpuff (id: 685)
   685: [
-    {"name":"Belly Drum","nature":"Adamant","ability":"Unburden","item":"Sitrus Berry","moves":["Belly Drum","Play Rough","Drain Punch","Protect"],"sp":{"hp":20,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":12}},
+    {"name":"Unburden Yawn","nature":"Adamant","ability":"Unburden","item":"Sitrus Berry","moves":["Yawn","Play Rough","Drain Punch","Protect"],"sp":{"hp":20,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":12}},
     {"name":"Support","nature":"Bold","ability":"Sweet Veil","item":"Sitrus Berry","moves":["Dazzling Gleam","Fake Tears","Helping Hand","Protect"],"sp":{"hp":32,"attack":0,"defense":20,"spAtk":0,"spDef":14,"speed":0}},
-    {"name":"Unburden Attacker","nature":"Jolly","ability":"Unburden","item":"Sitrus Berry","moves":["Play Rough","Drain Punch","Fake Out","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
+    {"name":"Unburden Attacker","nature":"Jolly","ability":"Unburden","item":"Sitrus Berry","moves":["Play Rough","Drain Punch","Charm","Protect"],"sp":{"hp":0,"attack":32,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
   ],
 
   // Heliolisk (id: 695)
@@ -1534,8 +1519,8 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
   // Dedenne (id: 702)
   702: [
     {"name":"Support","nature":"Timid","ability":"Cheek Pouch","item":"Sitrus Berry","moves":["Nuzzle","Dazzling Gleam","Helping Hand","Protect"],"sp":{"hp":32,"attack":0,"defense":2,"spAtk":0,"spDef":0,"speed":32}},
-    {"name":"Encore Lead","nature":"Timid","ability":"Plus","item":"Focus Sash","moves":["Thunderbolt","Dazzling Gleam","Encore","Protect"],"sp":{"hp":0,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":32}},
-    {"name":"Nasty Plot","nature":"Timid","ability":"Plus","item":"Life Orb","moves":["Nasty Plot","Thunderbolt","Dazzling Gleam","Protect"],"sp":{"hp":0,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":32}},
+    {"name":"Electroweb Lead","nature":"Timid","ability":"Plus","item":"Focus Sash","moves":["Thunderbolt","Dazzling Gleam","Electroweb","Protect"],"sp":{"hp":0,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":32}},
+    {"name":"Charge Beam","nature":"Timid","ability":"Plus","item":"Life Orb","moves":["Charge Beam","Thunderbolt","Dazzling Gleam","Protect"],"sp":{"hp":0,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":32}},
   ],
 
   // Avalugg (id: 713)
@@ -1569,10 +1554,10 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
 
   // Wyrdeer (id: 899)
   899: [
-    {"name":"TR Attacker","nature":"Quiet","ability":"Intimidate","item":"Life Orb","moves":["Psyshock","Hyper Voice","Shadow Ball","Protect"],"sp":{"hp":32,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":0}},
+    {"name":"TR Attacker","nature":"Quiet","ability":"Intimidate","item":"Life Orb","moves":["Psyshock","Expanding Force","Shadow Ball","Protect"],"sp":{"hp":32,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":0}},
     {"name":"Intimidate Support","nature":"Adamant","ability":"Intimidate","item":"Sitrus Berry","moves":["Zen Headbutt","Double-Edge","Megahorn","Protect"],"sp":{"hp":20,"attack":32,"defense":2,"spAtk":0,"spDef":12,"speed":0}},
     {"name":"Calm Mind","nature":"Modest","ability":"Frisk","item":"Sitrus Berry","moves":["Calm Mind","Psychic","Shadow Ball","Protect"],"sp":{"hp":20,"attack":0,"defense":14,"spAtk":32,"spDef":0,"speed":0}},
-    {"name":"Choice Specs","nature":"Modest","ability":"Intimidate","item":"Choice Specs","moves":["Psychic","Hyper Voice","Shadow Ball","Energy Ball"],"sp":{"hp":4,"attack":0,"defense":0,"spAtk":32,"spDef":0,"speed":30}},
+    {"name":"Choice Specs","nature":"Modest","ability":"Intimidate","item":"Choice Specs","moves":["Psychic","Expanding Force","Shadow Ball","Energy Ball"],"sp":{"hp":4,"attack":0,"defense":0,"spAtk":32,"spDef":0,"speed":30}},
   ],
 
   // Bellibolt (id: 939)
@@ -1587,6 +1572,6 @@ export const USAGE_DATA: Record<number, CommonSet[]> = {
     {"name":"Speed Boost Sweeper","nature":"Timid","ability":"Speed Boost","item":"Life Orb","moves":["Lumina Crash","Dazzling Gleam","Shadow Ball","Protect"],"sp":{"hp":0,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":32}},
     {"name":"Calm Mind","nature":"Timid","ability":"Speed Boost","item":"Focus Sash","moves":["Calm Mind","Lumina Crash","Dazzling Gleam","Protect"],"sp":{"hp":0,"attack":0,"defense":2,"spAtk":32,"spDef":0,"speed":32}},
     {"name":"Stored Power","nature":"Timid","ability":"Speed Boost","item":"Sitrus Berry","moves":["Calm Mind","Stored Power","Dazzling Gleam","Protect"],"sp":{"hp":20,"attack":0,"defense":14,"spAtk":0,"spDef":0,"speed":32}},
-    {"name":"Bulky Pivot","nature":"Bold","ability":"Opportunist","item":"Sitrus Berry","moves":["Lumina Crash","Helping Hand","Quick Guard","Protect"],"sp":{"hp":32,"attack":0,"defense":20,"spAtk":0,"spDef":14,"speed":0}},
+    {"name":"Bulky Pivot","nature":"Bold","ability":"Opportunist","item":"Sitrus Berry","moves":["Lumina Crash","Helping Hand","Trick Room","Protect"],"sp":{"hp":32,"attack":0,"defense":20,"spAtk":0,"spDef":14,"speed":0}},
   ],
 };

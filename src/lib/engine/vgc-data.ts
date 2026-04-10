@@ -5,6 +5,11 @@
 // ═══════════════════════════════════════════════════════════════════════════════
 
 import type { PokemonType } from "@/lib/types";
+import { POKEMON_SEED } from "@/lib/pokemon-data";
+
+// IDs of all active (non-hidden) Pokemon in the roster — used to filter out
+// historical VGC data for Pokemon not available in Champions.
+const VALID_ROSTER_IDS = new Set(POKEMON_SEED.filter(p => !p.hidden).map(p => p.id));
 
 // ── Usage Rate Data ─────────────────────────────────────────────────────────
 
@@ -695,19 +700,20 @@ export const ARCHETYPE_MATCHUPS: ArchetypeMatchup[] = [
 // ── Helper Functions ────────────────────────────────────────────────────
 
 export function getUsageForPokemon(pokemonId: number): TournamentUsage | undefined {
+  if (!VALID_ROSTER_IDS.has(pokemonId)) return undefined;
   return TOURNAMENT_USAGE.find(t => t.pokemonId === pokemonId);
 }
 
 export function getTopUsagePokemon(limit = 20): TournamentUsage[] {
-  return [...TOURNAMENT_USAGE].sort((a, b) => b.usageRate - a.usageRate).slice(0, limit);
+  return [...TOURNAMENT_USAGE].filter(u => VALID_ROSTER_IDS.has(u.pokemonId)).sort((a, b) => b.usageRate - a.usageRate).slice(0, limit);
 }
 
 export function getCorePairsForPokemon(pokemonId: number): CorePair[] {
-  return CORE_PAIRS.filter(c => c.pokemon1 === pokemonId || c.pokemon2 === pokemonId);
+  return CORE_PAIRS.filter(c => (c.pokemon1 === pokemonId || c.pokemon2 === pokemonId) && VALID_ROSTER_IDS.has(c.pokemon1) && VALID_ROSTER_IDS.has(c.pokemon2));
 }
 
 export function getTournamentTeamsWithPokemon(pokemonId: number): TournamentTeam[] {
-  return TOURNAMENT_TEAMS.filter(t => t.pokemonIds.includes(pokemonId));
+  return TOURNAMENT_TEAMS.filter(t => t.pokemonIds.includes(pokemonId) && t.pokemonIds.every(id => VALID_ROSTER_IDS.has(id)));
 }
 
 export function getArchetypeWinRate(arch1: string, arch2: string): number | null {
@@ -719,7 +725,7 @@ export function getArchetypeWinRate(arch1: string, arch2: string): number | null
 }
 
 export function getMetaTrends(): { risers: TournamentUsage[]; fallers: TournamentUsage[] } {
-  const sorted = [...TOURNAMENT_USAGE].sort((a, b) => b.winRate - a.winRate);
+  const sorted = [...TOURNAMENT_USAGE].filter(u => VALID_ROSTER_IDS.has(u.pokemonId)).sort((a, b) => b.winRate - a.winRate);
   return {
     risers: sorted.filter(p => p.winRate > 52 && p.usageRate > 5).slice(0, 5),
     fallers: sorted.filter(p => p.winRate < 50 && p.usageRate > 3).slice(0, 5),
@@ -751,7 +757,10 @@ export function predictMetaTeams(): MetaTeamPrediction[] {
   const weightedPokemonScores = new Map<number, number>();
   const archetypeCounts = new Map<string, { count: number; weightedCount: number; wins: number; recentCount: number }>();
 
-  for (const team of TOURNAMENT_TEAMS) {
+  // Filter to teams whose Pokemon are all in the active roster
+  const validTeams = TOURNAMENT_TEAMS.filter(t => t.pokemonIds.every(id => VALID_ROSTER_IDS.has(id)));
+
+  for (const team of validTeams) {
     const yearsAgo = currentYear - team.year;
     const recencyWeight = Math.pow(0.82, yearsAgo); // Recent = high, old = low
     const placementWeight = team.placement <= 1 ? 1.5 : team.placement <= 2 ? 1.2 : team.placement <= 4 ? 1.0 : 0.8;
@@ -786,7 +795,7 @@ export function predictMetaTeams(): MetaTeamPrediction[] {
   const predictions: MetaTeamPrediction[] = [];
   const archetypeTeamMap = new Map<string, typeof TOURNAMENT_TEAMS>();
 
-  for (const team of TOURNAMENT_TEAMS) {
+  for (const team of validTeams) {
     const arch = normalizeArchetype(team.archetype);
     const existing = archetypeTeamMap.get(arch) || [];
     existing.push(team);

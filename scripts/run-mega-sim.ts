@@ -8,11 +8,11 @@ import { runMLSimulation, formatReport, type FinalReport } from "../src/lib/engi
 import fs from "fs";
 import path from "path";
 
-const TARGET_BATTLES = 5_000_000;
+const TARGET_BATTLES = 2_000_000;
 
 async function main() {
   console.log("═══════════════════════════════════════════════════════════");
-  console.log("  CHAMPIONS LAB — MEGA-AWARE 5,000,000 BATTLE SIMULATION");
+  console.log("  CHAMPIONS LAB — MEGA-AWARE 2,000,000 BATTLE SIMULATION");
   console.log("  Tournament + Generated + Prebuilt + Mega/Base Variant Teams");
   console.log("  50 Mega Pokémon tracked separately from base forms");
   console.log("═══════════════════════════════════════════════════════════\n");

@@ -135,7 +135,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Thick Fat",
-            "description": "Halves damage from fire and ice moves.",
+            "description": "The Pokémon is protected by a layer of thick fat, which halves the damage taken from Fire- and Ice-type moves.",
             "isChampions": false
           }
         ],
@@ -181,7 +181,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Solar Power",
-        "description": "Increases Special Attack to 1.5× but costs 1/8 max HP after each turn during strong sunlight.",
+        "description": "In harsh sunlight, the Pokémon's Sp. Atk stat is boosted, but HP decreases every turn.",
         "isHidden": true
       }
     ],
@@ -281,7 +281,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Tough Claws",
-            "description": "Strengthens moves that make contact to 1.33× their power.",
+            "description": "Powers up moves that make direct contact.",
             "isChampions": false
           }
         ],
@@ -305,7 +305,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Drought",
-            "description": "Summons strong sunlight that lasts indefinitely upon entering battle.",
+            "description": "Turns the sunlight harsh when the Pokémon enters a battle.",
             "isChampions": false
           }
         ],
@@ -394,7 +394,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Ice Punch","type":"ice","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The target is attacked with an icy punch. This may also leave the target frozen."},
         {"name":"Ice Spinner","type":"ice","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user covers its feet in thin ice and twirls around, slamming into the target. This move's spinning motion also destroys the terrain."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"Has a 20% chance of making the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"Has a 20% chance of making the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."},
         {"name":"Life Dew","type":"water","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user scatters mysterious water around and restores the HP of itself and its ally Pokémon currently in the battle."},
         {"name":"Liquidation","type":"water","category":"physical","power":85,"accuracy":100,"pp":10,"description":"The user slams into the target using a full-force blast of water. This may also lower the target's Defense stat."},
@@ -449,7 +449,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Mega Launcher",
-            "description": "Strengthens aura and pulse moves to 1.5× their power.",
+            "description": "Powers up pulse moves.",
             "isChampions": false
           }
         ],
@@ -576,7 +576,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Adaptability",
-            "description": "Powers up same-type moves even further.",
+            "description": "Powers up moves of the same type as the Pokémon.",
             "isHidden": false
           }
         ],
@@ -685,7 +685,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "No Guard",
-            "description": "All moves used by or against always hit.",
+            "description": "Ensures that all moves used by and against the Pokémon land.",
             "isChampions": false
           }
         ],
@@ -724,7 +724,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Intimidate",
-        "description": "Lowers the foe’s ATTACK.",
+        "description": "When the Pokémon enters a battle, it intimidates opposing Pokémon and makes them cower, lowering their Attack stats.",
         "isHidden": false
       },
       {
@@ -972,7 +972,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Charge","type":"electric","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user becomes charged, boosting the power of the next Electric-type move it uses. This also boosts the user's Sp. Def stat."},
         {"name":"Charge Beam","type":"electric","category":"special","power":50,"accuracy":90,"pp":10,"description":"The user attacks the target with an electric charge. The residual electricity may also boost the user's Sp. Atk stat."},
         {"name":"Charm","type":"fairy","category":"status","power":null,"accuracy":100,"pp":20,"description":"The user gazes at the target rather charmingly, making it less wary. This harshly lowers the target's Attack stat."},
-        {"name":"Dazzling Gleam","type":"fairy","category":"special","power":80,"accuracy":100,"pp":15,"description":""},
+        {"name":"Dazzling Gleam","type":"fairy","category":"special","power":80,"accuracy":100,"pp":15,"description":"The user damages opposing Pokémon by emitting a powerful flash."},
         {"name":"Dig","type":"ground","category":"physical","power":80,"accuracy":100,"pp":10,"description":"The user burrows into the ground on the first turn, then attacks on the next turn."},
         {"name":"Discharge","type":"electric","category":"special","power":80,"accuracy":100,"pp":15,"description":"The user strikes everything around it by letting loose a flare of electricity. This may also leave those hit by the attack with paralysis."},
         {"name":"Double Team","type":"normal","category":"status","power":null,"accuracy":null,"pp":15,"description":"By moving rapidly, the user makes illusory copies of itself to boost its evasiveness."},
@@ -1074,7 +1074,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "No Guard",
-        "description": "Ensures the Pokémon and its foe’s attacks land.",
+        "description": "Ensures that all moves used by and against the Pokémon land.",
         "isHidden": false
       },
       {
@@ -1088,7 +1088,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Attract","type":"normal","category":"status","power":null,"accuracy":100,"pp":15,"description":"If the target is of the opposite gender to the user, it becomes infatuated with the user and will sometimes be unable to use its moves."},
         {"name":"Body Slam","type":"normal","category":"physical","power":85,"accuracy":100,"pp":15,"description":"The user attacks by dropping onto the target with its full body weight. This may also leave the target with paralysis."},
         {"name":"Brick Break","type":"fighting","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The user attacks with a swift chop. This move can also break barriers, such as Light Screen and Reflect."},
-        {"name":"Brutal Swing","type":"dark","category":"physical","power":60,"accuracy":100,"pp":15,"description":""},
+        {"name":"Brutal Swing","type":"dark","category":"physical","power":60,"accuracy":100,"pp":15,"description":"The user swings its body around violently to inflict damage on everything in its vicinity."},
         {"name":"Bulk Up","type":"fighting","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user tenses its muscles to bulk up its body, boosting its Attack and Defense stats."},
         {"name":"Bulldoze","type":"ground","category":"physical","power":60,"accuracy":100,"pp":20,"description":"The user strikes everything around it by stomping down on the ground. This lowers the Speed stats of those hit."},
         {"name":"Bullet Punch","type":"steel","category":"physical","power":40,"accuracy":100,"pp":30,"description":"The user strikes the target with tough punches as fast as bullets. This move always goes first."},
@@ -1218,7 +1218,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Endure","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user endures any attack with at least 1 HP. This move's chance of failing rises if used in succession."},
         {"name":"Facade","type":"normal","category":"physical","power":70,"accuracy":100,"pp":20,"description":"This move's power is doubled if the user is poisoned, burned, or paralyzed."},
         {"name":"Fell Stinger","type":"bug","category":"physical","power":50,"accuracy":100,"pp":25,"description":"When the user knocks out a target with this move, the user's Attack stat is boosted drastically."},
-        {"name":"First Impression","type":"bug","category":"physical","power":90,"accuracy":100,"pp":10,"description":"This move fails unless it is the first move used by the user after it enters a battle."},
+        {"name":"First Impression","type":"bug","category":"physical","power":100,"accuracy":100,"pp":10,"description":"This move fails unless it is the first move used by the user after it enters a battle."},
         {"name":"Focus Energy","type":"normal","category":"status","power":null,"accuracy":null,"pp":30,"description":"The user takes a deep breath and focuses so that its future attacks have a heightened chance of landing critical hits."},
         {"name":"Foul Play","type":"dark","category":"physical","power":95,"accuracy":100,"pp":15,"description":"The user turns the target's strength against it. The higher the target's Attack stat, the greater the damage this move inflicts."},
         {"name":"Giga Drain","type":"grass","category":"special","power":75,"accuracy":100,"pp":10,"description":"A nutrient-draining attack. The user's HP is restored by up to half the damage taken by the target."},
@@ -1266,7 +1266,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Toxic Thread","type":"poison","category":"status","power":null,"accuracy":100,"pp":20,"description":"The user shoots poisonous threads to poison the target and lower the target’s Speed stat."},
         {"name":"Trailblaze","type":"grass","category":"physical","power":50,"accuracy":100,"pp":20,"description":"The user attacks suddenly as if leaping out from tall grass. The user's nimble footwork boosts its Speed stat."},
         {"name":"Venoshock","type":"poison","category":"special","power":65,"accuracy":100,"pp":10,"description":"The user drenches the target in a special poisonous liquid. This move's power is doubled if the target is poisoned."},
-        {"name":"X-Scissor","type":"bug","category":"physical","power":80,"accuracy":100,"pp":15,"description":""}
+        {"name":"X-Scissor","type":"bug","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slashes at the target by crossing its scythes or claws as if they were a pair of scissors."}
       ],
     "sprite": "/sprites/168.png",
     "officialArt": "/sprites/168.png",
@@ -1341,7 +1341,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Ice Spinner","type":"ice","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user covers its feet in thin ice and twirls around, slamming into the target. This move's spinning motion also destroys the terrain."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Light Screen","type":"psychic","category":"status","power":null,"accuracy":null,"pp":30,"description":"A wondrous wall of light is put up to reduce damage from special moves for five turns."},
         {"name":"Lunge","type":"bug","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user makes a lunge at the target, attacking with full force. This also lowers the target's Attack stat."},
         {"name":"Magnet Rise","type":"electric","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user levitates using electrically generated magnetism for five turns."},
@@ -1420,7 +1420,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Pure Power",
-        "description": "Raises ATTACK.",
+        "description": "Doubles the Pokémon's Attack stat.",
         "isHidden": false
       },
       {
@@ -1440,7 +1440,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Body Slam","type":"normal","category":"physical","power":85,"accuracy":100,"pp":15,"description":"The user attacks by dropping onto the target with its full body weight. This may also leave the target with paralysis."},
         {"name":"Brick Break","type":"fighting","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The user attacks with a swift chop. This move can also break barriers, such as Light Screen and Reflect."},
         {"name":"Bulk Up","type":"fighting","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user tenses its muscles to bulk up its body, boosting its Attack and Defense stats."},
-        {"name":"Bullet Punch","type":"steel","category":"physical","power":40,"accuracy":100,"pp":20,"description":""},
+        {"name":"Bullet Punch","type":"steel","category":"physical","power":40,"accuracy":100,"pp":20,"description":"The user strikes the target with tough punches as fast as bullets. This move always goes first."},
         {"name":"Calm Mind","type":"psychic","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user quietly focuses its mind and calms its spirit to boost its Sp. Atk and Sp. Def stats."},
         {"name":"Close Combat","type":"fighting","category":"physical","power":120,"accuracy":100,"pp":5,"description":"The user fights the target up close, inflicting damage without guarding itself. This also lowers the user's Defense and Sp. Def stats."},
         {"name":"Coaching","type":"fighting","category":"status","power":null,"accuracy":null,"pp":20,"description":"Boosts allies' Attack and Defense stats by 1 stage."},
@@ -1590,7 +1590,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Charge","type":"electric","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user becomes charged, boosting the power of the next Electric-type move it uses. This also boosts the user's Sp. Def stat."},
         {"name":"Charge Beam","type":"electric","category":"special","power":50,"accuracy":90,"pp":10,"description":"The user attacks the target with an electric charge. The residual electricity may also boost the user's Sp. Atk stat."},
         {"name":"Crunch","type":"dark","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user crunches up the target with sharp fangs. This may also lower the target's Defense stat."},
-        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":20,"description":""},
+        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":20,"description":"A move that has different effects depending on whether the user is a Ghost type or not."},
         {"name":"Discharge","type":"electric","category":"special","power":80,"accuracy":100,"pp":15,"description":"The user strikes everything around it by letting loose a flare of electricity. This may also leave those hit by the attack with paralysis."},
         {"name":"Eerie Impulse","type":"electric","category":"status","power":null,"accuracy":100,"pp":15,"description":"The user's body generates an eerie impulse. Exposing the target to it harshly lowers the target's Sp. Atk stat."},
         {"name":"Electric Terrain","type":"electric","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user turns the ground into Electric Terrain for five turns, powering up Electric-type moves. Pokémon on the ground can no longer fall asleep."},
@@ -1654,7 +1654,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Intimidate",
-            "description": "Upon entering battle, lowers the opposing Pokémon's Attack stat.",
+            "description": "When the Pokémon enters a battle, it intimidates opposing Pokémon and makes them cower, lowering their Attack stats.",
             "isChampions": false
           }
         ],
@@ -1782,7 +1782,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Strong Jaw",
-            "description": "The Pokémon's bite moves are powered up by 50%.",
+            "description": "The Pokémon's strong jaw boosts the power of its biting moves.",
             "isChampions": false
           }
         ],
@@ -1868,7 +1868,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"High Horsepower","type":"ground","category":"physical","power":95,"accuracy":95,"pp":10,"description":"The user fiercely attacks the target using its entire body."},
         {"name":"Howl","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"Boosts the Attack stats of the user and its allies by 1 stage."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Lash Out","type":"dark","category":"physical","power":75,"accuracy":100,"pp":5,"description":"The user lashes out to vent its frustration toward the target. This move's power is doubled if the user's stats were lowered during this turn."},
         {"name":"Lava Plume","type":"fire","category":"special","power":80,"accuracy":100,"pp":15,"description":"The user torches everything around it in an inferno of scarlet flames. This may also leave those it hits with a burn."},
         {"name":"Mud Shot","type":"ground","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks by hurling a blob of mud at the target. This also lowers the target's Speed stat."},
@@ -1925,7 +1925,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Sheer Force",
-            "description": "Moves with secondary effects have 1.3× power but lose their secondary effects.",
+            "description": "Removes additional effects from moves but increases their power.",
             "isChampions": false
           }
         ],
@@ -2065,7 +2065,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Prankster",
-            "description": "Status moves gain +1 priority.",
+            "description": "Gives priority to the Pokémon's status moves.",
             "isChampions": false
           }
         ],
@@ -2102,14 +2102,14 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Levitate",
-        "description": "Gives full immunity to all Ground-type moves.",
+        "description": "By floating in the air, the Pokémon receives full immunity to all Ground-type moves.",
         "isHidden": false
       }
     ],
     "moves": [
         {"name":"Ally Switch","type":"psychic","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user teleports using a strange power and switches places with one of its allies. This move's chance of failing rises if it is used in succession."},
         {"name":"Baton Pass","type":"normal","category":"status","power":null,"accuracy":null,"pp":40,"description":"The user switches places with a party Pokémon in waiting and passes along any stat changes."},
-        {"name":"Boomburst","type":"normal","category":"special","power":140,"accuracy":100,"pp":5,"description":""},
+        {"name":"Boomburst","type":"normal","category":"special","power":140,"accuracy":100,"pp":5,"description":"The user attacks everything around it with the destructive power of a terrible explosive sound."},
         {"name":"Calm Mind","type":"psychic","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user quietly focuses its mind and calms its spirit to boost its Sp. Atk and Sp. Def stats."},
         {"name":"Charge Beam","type":"electric","category":"special","power":50,"accuracy":90,"pp":10,"description":"The user attacks the target with an electric charge. The residual electricity may also boost the user's Sp. Atk stat."},
         {"name":"Charm","type":"fairy","category":"status","power":null,"accuracy":100,"pp":20,"description":"The user gazes at the target rather charmingly, making it less wary. This harshly lowers the target's Attack stat."},
@@ -2195,7 +2195,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Levitate",
-            "description": "Gives immunity to Ground-type moves.",
+            "description": "By floating in the air, the Pokémon receives full immunity to all Ground-type moves.",
             "isChampions": false
           }
         ],
@@ -2232,7 +2232,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Inner Focus",
-        "description": "Prevents flinching.",
+        "description": "The Pokémon's intensely focused, and that prevents it from flinching.",
         "isHidden": false
       },
       {
@@ -2278,7 +2278,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Icicle Crash","type":"ice","category":"physical","power":85,"accuracy":90,"pp":10,"description":"The user attacks by crashing large icicles onto the target. This may also make the target flinch."},
         {"name":"Icicle Spear","type":"ice","category":"physical","power":25,"accuracy":100,"pp":30,"description":"The user attacks by launching sharp icicles at the target. This move hits two to five times in a row."},
         {"name":"Icy Wind","type":"ice","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks with a gust of chilled air. This also lowers opposing Pokémon's Speed stats."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Light Screen","type":"psychic","category":"status","power":null,"accuracy":null,"pp":30,"description":"A wondrous wall of light is put up to reduce damage from special moves for five turns."},
         {"name":"Payback","type":"dark","category":"physical","power":50,"accuracy":100,"pp":10,"description":"The user stores power, then attacks. This move's power is doubled if the user moves after the target."},
         {"name":"Protect","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession."},
@@ -2323,7 +2323,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Refrigerate",
-            "description": "Normal-type moves become Ice-type and gain a 20% power boost.",
+            "description": "Normal-type moves become Ice-type moves. The power of those moves is boosted a little.",
             "isChampions": false
           }
         ],
@@ -2366,7 +2366,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Intimidate",
-        "description": "Lowers the foe’s ATTACK.",
+        "description": "When the Pokémon enters a battle, it intimidates opposing Pokémon and makes them cower, lowering their Attack stats.",
         "isHidden": false
       },
       {
@@ -2476,7 +2476,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Technician",
-        "description": "Powers up the Pokémon’s weaker moves.",
+        "description": "Powers up weak moves so the Pokémon can deal more damage with them.",
         "isHidden": true
       }
     ],
@@ -2569,12 +2569,12 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Mold Breaker",
-        "description": "Moves can be used regardless of abilities.",
+        "description": "Moves can be used on the target regardless of its Abilities.",
         "isHidden": false
       },
       {
         "name": "Sheer Force",
-        "description": "Removes added effects to increase move damage.",
+        "description": "Removes additional effects from moves but increases their power.",
         "isHidden": true
       }
     ],
@@ -2615,7 +2615,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Heavy Slam","type":"steel","category":"physical","power":null,"accuracy":100,"pp":10,"description":"The user slams into the target with its heavy body. The more the user outweighs the target, the greater the move's power."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Ice Beam","type":"ice","category":"special","power":90,"accuracy":100,"pp":10,"description":"The target is struck with an icy-cold beam of energy. This may also leave the target frozen."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."},
         {"name":"Meteor Beam","type":"rock","category":"special","power":120,"accuracy":90,"pp":5,"description":"The user gains the Charging status on the turn this move is used then attacks on the following turn. The user's Sp. Atk stat is boosted by 1 stage on the turn this move is used."},
         {"name":"Mud-Slap","type":"ground","category":"special","power":20,"accuracy":100,"pp":20,"description":"Lowers the target's accuracy by 1 stage."},
@@ -2729,7 +2729,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Ice Beam","type":"ice","category":"special","power":90,"accuracy":100,"pp":10,"description":"The target is struck with an icy-cold beam of energy. This may also leave the target frozen."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."},
         {"name":"Metal Burst","type":"steel","category":"physical","power":null,"accuracy":100,"pp":10,"description":"The user retaliates with much greater force against the opponent that last inflicted damage on it."},
         {"name":"Metal Sound","type":"steel","category":"status","power":null,"accuracy":85,"pp":40,"description":"A horrible sound like scraping metal harshly lowers the target's Sp. Def stat."},
@@ -2829,7 +2829,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Brick Break","type":"fighting","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The user attacks with a swift chop. This move can also break barriers, such as Light Screen and Reflect."},
         {"name":"Bulk Up","type":"fighting","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user tenses its muscles to bulk up its body, boosting its Attack and Defense stats."},
         {"name":"Bulldoze","type":"ground","category":"physical","power":60,"accuracy":100,"pp":20,"description":"The user strikes everything around it by stomping down on the ground. This lowers the Speed stats of those hit."},
-        {"name":"Bullet Punch","type":"steel","category":"physical","power":40,"accuracy":100,"pp":20,"description":""},
+        {"name":"Bullet Punch","type":"steel","category":"physical","power":40,"accuracy":100,"pp":20,"description":"The user strikes the target with tough punches as fast as bullets. This move always goes first."},
         {"name":"Chilling Water","type":"water","category":"special","power":50,"accuracy":100,"pp":20,"description":"The user attacks the target by showering it with water that's so cold it saps the target's power. This also lowers the target's Attack stat."},
         {"name":"Close Combat","type":"fighting","category":"physical","power":120,"accuracy":100,"pp":5,"description":"The user fights the target up close, inflicting damage without guarding itself. This also lowers the user's Defense and Sp. Def stats."},
         {"name":"Coaching","type":"fighting","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user properly coaches its ally Pokémon, boosting their Attack and Defense stats."},
@@ -2900,7 +2900,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Upper Hand","type":"fighting","category":"physical","power":65,"accuracy":100,"pp":15,"description":"The user reacts to the target's movement and strikes with the heel of its palm, making the target flinch. This move fails if the target is not readying a priority move."},
         {"name":"Vacuum Wave","type":"fighting","category":"special","power":40,"accuracy":100,"pp":30,"description":"The user whirls its fists to send a wave of pure vacuum at the target. This move always goes first."},
         {"name":"Venoshock","type":"poison","category":"special","power":65,"accuracy":100,"pp":10,"description":"The user drenches the target in a special poisonous liquid. This move's power is doubled if the target is poisoned."},
-        {"name":"X-Scissor","type":"bug","category":"physical","power":80,"accuracy":100,"pp":15,"description":""}
+        {"name":"X-Scissor","type":"bug","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slashes at the target by crossing its scythes or claws as if they were a pair of scissors."}
       ],
     "sprite": "/sprites/454.png",
     "officialArt": "/sprites/454.png",
@@ -2921,620 +2921,93 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "usageRate": 2.5
   },
   {
-    "id": 504,
-    "name": "Patrat",
-    "dexNumber": 504,
+    "id": 505,
+    "name": "Watchog",
+    "dexNumber": 505,
     "types": [
       "normal"
     ],
     "baseStats": {
-      "hp": 45,
-      "attack": 55,
-      "defense": 39,
-      "spAtk": 35,
-      "spDef": 39,
-      "speed": 42
+      "hp": 60,
+      "attack": 85,
+      "defense": 69,
+      "spAtk": 60,
+      "spDef": 69,
+      "speed": 77
     },
     "abilities": [
       {
-        "name": "Run Away",
-        "description": "Makes escaping easier.",
+        "name": "Illuminate",
+        "description": "By illuminating its surroundings, the Pokémon prevents its accuracy from being lowered.",
         "isHidden": false
       },
       {
         "name": "Keen Eye",
-        "description": "Prevents loss of accuracy.",
+        "description": "Opponent cannot lower this Pokémon's accuracy. The Pokémon ignores evasion boosts of the opponent.",
         "isHidden": false
       },
       {
         "name": "Analytic",
-        "description": "Boosts move power when the Pokémon moves last.",
+        "description": "Attack power increases by 30% if the Pokémon is the last Pokémon to attack this turn.",
         "isHidden": true
       }
     ],
     "moves": [
-      {
-        "name": "Last Resort",
-        "type": "normal",
-        "category": "physical",
-        "power": 140,
-        "accuracy": 100,
-        "pp": 5,
-        "description": "This move can be used only after the user has used all the other moves it knows in the battle."
-      },
-      {
-        "name": "Gunk Shot",
-        "type": "poison",
-        "category": "physical",
-        "power": 120,
-        "accuracy": 80,
-        "pp": 5,
-        "description": "The user shoots filthy garbage at the target to attack. This may also poison the target."
-      },
-      {
-        "name": "Iron Tail",
-        "type": "steel",
-        "category": "physical",
-        "power": 100,
-        "accuracy": 75,
-        "pp": 15,
-        "description": "The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."
-      },
-      {
-        "name": "Thunderbolt",
-        "type": "electric",
-        "category": "special",
-        "power": 90,
-        "accuracy": 100,
-        "pp": 15,
-        "description": "The user attacks the target with a strong electric blast. This may also leave the target with paralysis."
-      },
-      {
-        "name": "Aqua Tail",
-        "type": "water",
-        "category": "physical",
-        "power": 90,
-        "accuracy": 90,
-        "pp": 10,
-        "description": "The user attacks by swinging its tail as if it were a vicious wave in a raging storm."
-      },
-      {
-        "name": "Slam",
-        "type": "normal",
-        "category": "physical",
-        "power": 80,
-        "accuracy": 75,
-        "pp": 20,
-        "description": "The target is slammed with a long tail, vines, or the like to inflict damage."
-      },
-      {
-        "name": "Dig",
-        "type": "ground",
-        "category": "physical",
-        "power": 80,
-        "accuracy": 100,
-        "pp": 10,
-        "description": "The user burrows into the ground on the first turn, then attacks on the next turn."
-      },
-      {
-        "name": "Hyper Fang",
-        "type": "normal",
-        "category": "physical",
-        "power": 80,
-        "accuracy": 90,
-        "pp": 15,
-        "description": "An attack that may cause flinching."
-      },
-      {
-        "name": "Crunch",
-        "type": "dark",
-        "category": "physical",
-        "power": 80,
-        "accuracy": 100,
-        "pp": 15,
-        "description": "The user crunches up the target with sharp fangs. This may also lower the target's Defense stat."
-      },
-      {
-        "name": "Shadow Ball",
-        "type": "ghost",
-        "category": "special",
-        "power": 80,
-        "accuracy": 100,
-        "pp": 15,
-        "description": "The user attacks by hurling a shadowy blob at the target. This may also lower the target’s Sp. Def stat."
-      },
-      {
-        "name": "Seed Bomb",
-        "type": "grass",
-        "category": "physical",
-        "power": 80,
-        "accuracy": 100,
-        "pp": 15,
-        "description": "The user attacks by slamming a barrage of hard-shelled seeds down on the target from above."
-      },
-      {
-        "name": "Zen Headbutt",
-        "type": "psychic",
-        "category": "physical",
-        "power": 80,
-        "accuracy": 90,
-        "pp": 15,
-        "description": "The user focuses its willpower to its head and attacks the target. This may also make the target flinch."
-      },
-      {
-        "name": "Facade",
-        "type": "normal",
-        "category": "physical",
-        "power": 70,
-        "accuracy": 100,
-        "pp": 20,
-        "description": "This move's power is doubled if the user is poisoned, burned, or paralyzed."
-      },
-      {
-        "name": "Secret Power",
-        "type": "normal",
-        "category": "physical",
-        "power": 70,
-        "accuracy": 100,
-        "pp": 20,
-        "description": "An attack with effects that vary by location."
-      },
-      {
-        "name": "Retaliate",
-        "type": "normal",
-        "category": "physical",
-        "power": 70,
-        "accuracy": 100,
-        "pp": 5,
-        "description": "The user takes revenge for a fainted ally. This move's power is boosted if an ally fainted in the previous turn."
-      },
-      {
-        "name": "Bite",
-        "type": "dark",
-        "category": "physical",
-        "power": 60,
-        "accuracy": 100,
-        "pp": 25,
-        "description": "The target is bitten with viciously sharp fangs. This may also make the target flinch."
-      },
-      {
-        "name": "Hidden Power",
-        "type": "normal",
-        "category": "special",
-        "power": 60,
-        "accuracy": 100,
-        "pp": 15,
-        "description": "The power varies with the POKéMON."
-      },
-      {
-        "name": "Revenge",
-        "type": "fighting",
-        "category": "physical",
-        "power": 60,
-        "accuracy": 100,
-        "pp": 10,
-        "description": "An attack that gains power if injured by the foe."
-      },
-      {
-        "name": "Covet",
-        "type": "normal",
-        "category": "physical",
-        "power": 60,
-        "accuracy": 100,
-        "pp": 25,
-        "description": "The user endearingly approaches the target, then steals the target's held item."
-      },
-      {
-        "name": "Shock Wave",
-        "type": "electric",
-        "category": "special",
-        "power": 60,
-        "accuracy": null,
-        "pp": 20,
-        "description": "The user strikes the target with a quick jolt of electricity. This attack never misses."
-      },
-      {
-        "name": "Assurance",
-        "type": "dark",
-        "category": "physical",
-        "power": 60,
-        "accuracy": 100,
-        "pp": 10,
-        "description": "This move's power is doubled if the target has already taken some damage in the same turn."
-      },
-      {
-        "name": "Round",
-        "type": "normal",
-        "category": "special",
-        "power": 60,
-        "accuracy": 100,
-        "pp": 15,
-        "description": "The user attacks the target with a song. If others use this move, they will act immediately after the initial user, and the power of their Rounds will be boosted."
-      },
-      {
-        "name": "Cut",
-        "type": "normal",
-        "category": "physical",
-        "power": 50,
-        "accuracy": 95,
-        "pp": 30,
-        "description": "Cuts using claws, scythes, etc."
-      },
-      {
-        "name": "Snore",
-        "type": "normal",
-        "category": "special",
-        "power": 50,
-        "accuracy": 100,
-        "pp": 15,
-        "description": "This attack can be used only if the user is asleep. The harsh noise may also make the target flinch."
-      },
-      {
-        "name": "Tackle",
-        "type": "normal",
-        "category": "physical",
-        "power": 40,
-        "accuracy": 100,
-        "pp": 35,
-        "description": "A physical attack in which the user charges and slams into the target with its whole body."
-      },
-      {
-        "name": "Pursuit",
-        "type": "dark",
-        "category": "physical",
-        "power": 40,
-        "accuracy": 100,
-        "pp": 20,
-        "description": "Heavily strikes switching POKéMON."
-      },
-      {
-        "name": "Bullet Seed",
-        "type": "grass",
-        "category": "physical",
-        "power": 25,
-        "accuracy": 100,
-        "pp": 30,
-        "description": "The user attacks by forcefully shooting seeds at the target. This move hits two to five times in a row."
-      },
-      {
-        "name": "Low Kick",
-        "type": "fighting",
-        "category": "physical",
-        "power": null,
-        "accuracy": 100,
-        "pp": 20,
-        "description": "A powerful low kick that makes the target fall over. The heavier the target, the greater the move's power."
-      },
-      {
-        "name": "Bide",
-        "type": "normal",
-        "category": "physical",
-        "power": null,
-        "accuracy": null,
-        "pp": 10,
-        "description": "Waits 2-3 turns & hits back double."
-      },
-      {
-        "name": "Super Fang",
-        "type": "normal",
-        "category": "physical",
-        "power": null,
-        "accuracy": 90,
-        "pp": 10,
-        "description": "The user chomps hard on the target with its sharp front fangs. This cuts the target's HP in half."
-      },
-      {
-        "name": "Flail",
-        "type": "normal",
-        "category": "physical",
-        "power": null,
-        "accuracy": 100,
-        "pp": 15,
-        "description": "The user flails about aimlessly to attack. The less HP the user has, the greater the move's power."
-      },
-      {
-        "name": "Return",
-        "type": "normal",
-        "category": "physical",
-        "power": null,
-        "accuracy": 100,
-        "pp": 20,
-        "description": "An attack that is based on loyalty."
-      },
-      {
-        "name": "Frustration",
-        "type": "normal",
-        "category": "physical",
-        "power": null,
-        "accuracy": 100,
-        "pp": 20,
-        "description": "An attack based on lack of loyalty."
-      },
-      {
-        "name": "Endeavor",
-        "type": "normal",
-        "category": "physical",
-        "power": null,
-        "accuracy": 100,
-        "pp": 5,
-        "description": "The user inflicts damage by cutting down the target's HP to roughly equal the user's HP."
-      },
-      {
-        "name": "Fling",
-        "type": "dark",
-        "category": "physical",
-        "power": null,
-        "accuracy": 100,
-        "pp": 10,
-        "description": "The user flings its held item at the target to attack. This move's power and effects depend on the item."
-      },
-      {
-        "name": "Grass Knot",
-        "type": "grass",
-        "category": "special",
-        "power": null,
-        "accuracy": 100,
-        "pp": 20,
-        "description": "The user snares the target with grass and trips it. The heavier the target, the greater the move's power."
-      },
-      {
-        "name": "Swords Dance",
-        "type": "normal",
-        "category": "status",
-        "power": null,
-        "accuracy": null,
-        "pp": 20,
-        "description": "A frenetic dance to uplift the fighting spirit. This sharply boosts the user's Attack stat."
-      },
-      {
-        "name": "Sand Attack",
-        "type": "ground",
-        "category": "status",
-        "power": null,
-        "accuracy": 100,
-        "pp": 15,
-        "description": "Sand is hurled in the target's face, lowering the target's accuracy."
-      },
-      {
-        "name": "Leer",
-        "type": "normal",
-        "category": "status",
-        "power": null,
-        "accuracy": 100,
-        "pp": 30,
-        "description": "The user gives opposing Pokémon an intimidating leer that lowers their Defense stats."
-      },
-      {
-        "name": "Toxic",
-        "type": "poison",
-        "category": "status",
-        "power": null,
-        "accuracy": 90,
-        "pp": 10,
-        "description": "A move that leaves the target badly poisoned. Its poison damage worsens every turn."
-      },
-      {
-        "name": "Hypnosis",
-        "type": "psychic",
-        "category": "status",
-        "power": null,
-        "accuracy": 60,
-        "pp": 20,
-        "description": "The user employs hypnotic suggestion to make the target fall asleep."
-      },
-      {
-        "name": "Screech",
-        "type": "normal",
-        "category": "status",
-        "power": null,
-        "accuracy": 85,
-        "pp": 40,
-        "description": "An earsplitting screech harshly lowers the target's Defense stat."
-      },
-      {
-        "name": "Double Team",
-        "type": "normal",
-        "category": "status",
-        "power": null,
-        "accuracy": null,
-        "pp": 15,
-        "description": "By moving rapidly, the user makes illusory copies of itself to boost its evasiveness."
-      },
-      {
-        "name": "Focus Energy",
-        "type": "normal",
-        "category": "status",
-        "power": null,
-        "accuracy": null,
-        "pp": 30,
-        "description": "The user takes a deep breath and focuses so that its future attacks have a heightened chance of landing critical hits."
-      },
-      {
-        "name": "Rest",
-        "type": "psychic",
-        "category": "status",
-        "power": null,
-        "accuracy": null,
-        "pp": 5,
-        "description": "The user goes to sleep for two turns. This fully restores the user's HP and cures any status conditions."
-      },
-      {
-        "name": "Substitute",
-        "type": "normal",
-        "category": "status",
-        "power": null,
-        "accuracy": null,
-        "pp": 10,
-        "description": "The user creates a substitute for itself using some of its own HP. The substitute serves as the user's decoy."
-      },
-      {
-        "name": "Protect",
-        "type": "normal",
-        "category": "status",
-        "power": null,
-        "accuracy": null,
-        "pp": 10,
-        "description": "This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession."
-      },
-      {
-        "name": "Foresight",
-        "type": "normal",
-        "category": "status",
-        "power": null,
-        "accuracy": null,
-        "pp": 40,
-        "description": "Negates accuracy reduction moves."
-      },
-      {
-        "name": "Detect",
-        "type": "fighting",
-        "category": "status",
-        "power": null,
-        "accuracy": null,
-        "pp": 5,
-        "description": "This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession."
-      },
-      {
-        "name": "Swagger",
-        "type": "normal",
-        "category": "status",
-        "power": null,
-        "accuracy": 85,
-        "pp": 15,
-        "description": "The user enrages and confuses the target. However, this also sharply boosts the target's Attack stat."
-      },
-      {
-        "name": "Mean Look",
-        "type": "normal",
-        "category": "status",
-        "power": null,
-        "accuracy": null,
-        "pp": 5,
-        "description": "The user pins the target with a dark, arresting look. The target becomes unable to flee."
-      },
-      {
-        "name": "Attract",
-        "type": "normal",
-        "category": "status",
-        "power": null,
-        "accuracy": 100,
-        "pp": 15,
-        "description": "If the target is of the opposite gender to the user, it becomes infatuated with the user and will sometimes be unable to use its moves."
-      },
-      {
-        "name": "Sleep Talk",
-        "type": "normal",
-        "category": "status",
-        "power": null,
-        "accuracy": null,
-        "pp": 10,
-        "description": "The user randomly uses one of the moves it knows. This move can only be used while the user is asleep."
-      },
-      {
-        "name": "Baton Pass",
-        "type": "normal",
-        "category": "status",
-        "power": null,
-        "accuracy": null,
-        "pp": 40,
-        "description": "The user switches places with a party Pokémon in waiting and passes along any stat changes."
-      },
-      {
-        "name": "Rain Dance",
-        "type": "water",
-        "category": "status",
-        "power": null,
-        "accuracy": null,
-        "pp": 5,
-        "description": "The user summons a heavy rain that falls for five turns, powering up Water-type attacks. The rain also lowers the power of Fire-type attacks."
-      },
-      {
-        "name": "Sunny Day",
-        "type": "fire",
-        "category": "status",
-        "power": null,
-        "accuracy": null,
-        "pp": 5,
-        "description": "The user intensifies the sun for five turns, powering up Fire-type attacks. The sunlight also lowers the power of Water-type attacks."
-      },
-      {
-        "name": "Helping Hand",
-        "type": "normal",
-        "category": "status",
-        "power": null,
-        "accuracy": null,
-        "pp": 20,
-        "description": "The user assists an ally by boosting the power of that ally's attack."
-      },
-      {
-        "name": "Nasty Plot",
-        "type": "dark",
-        "category": "status",
-        "power": null,
-        "accuracy": null,
-        "pp": 20,
-        "description": "The user stimulates its brain by thinking bad thoughts. This sharply boosts the user's Sp. Atk stat."
-      },
-      {
-        "name": "After You",
-        "type": "normal",
-        "category": "status",
-        "power": null,
-        "accuracy": null,
-        "pp": 15,
-        "description": "The user helps the target and makes it use its move right after the user."
-      },
-      {
-        "name": "Work Up",
-        "type": "normal",
-        "category": "status",
-        "power": null,
-        "accuracy": null,
-        "pp": 30,
-        "description": "The user is roused, and its Attack and Sp. Atk stats are boosted."
-      },
-      {
-        "name": "Confide",
-        "type": "normal",
-        "category": "status",
-        "power": null,
-        "accuracy": null,
-        "pp": 20,
-        "description": "The user tells the target a secret, and the target loses its ability to concentrate. This lowers the target's Sp. Atk stat."
-      },
-      {
-        "name": "Laser Focus",
-        "type": "normal",
-        "category": "status",
-        "power": null,
-        "accuracy": null,
-        "pp": 30,
-        "description": "The user concentrates intensely. The attack on the next turn always results in a critical hit."
-      },
-      {
-        "name": "Tearful Look",
-        "type": "normal",
-        "category": "status",
-        "power": null,
-        "accuracy": null,
-        "pp": 20,
-        "description": "The user gets teary-eyed to make the target lose its combative spirit. This lowers the target's Attack and Sp. Atk stats."
-      }
-    ],
-    "sprite": "/sprites/504.png",
-    "officialArt": "/sprites/504.png",
-    "generation": 0,
+        {"name":"Bite","type":"dark","category":"physical","power":60,"accuracy":100,"pp":25,"description":"The user bites with viciously sharp fangs. This may also make the target flinch."},
+        {"name":"Bullet Seed","type":"grass","category":"physical","power":25,"accuracy":100,"pp":30,"description":"The user forcefully shoots seeds at the target two to five times in a row."},
+        {"name":"Confuse Ray","type":"ghost","category":"status","power":null,"accuracy":100,"pp":10,"description":"The user shines a sinister ray at the target, leaving it confused."},
+        {"name":"Crunch","type":"dark","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user crunches up the target with sharp fangs. This may also lower the target's Defense stat."},
+        {"name":"Detect","type":"fighting","category":"status","power":null,"accuracy":null,"pp":5,"description":"The user takes on a protective stance that prevents incoming attacks from landing."},
+        {"name":"Dig","type":"ground","category":"physical","power":80,"accuracy":100,"pp":10,"description":"The user burrows underground on the first turn, then attacks on the following turn."},
+        {"name":"Double Team","type":"normal","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user moves so quickly that it creates illusory copies of itself, raising its evasiveness."},
+        {"name":"Double-Edge","type":"normal","category":"physical","power":120,"accuracy":100,"pp":15,"description":"A reckless, life-risking tackle. This also damages the user quite a lot."},
+        {"name":"Endure","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user endures any attack with at least 1 HP."},
+        {"name":"Facade","type":"normal","category":"physical","power":70,"accuracy":100,"pp":20,"description":"This move's power is doubled if the user is poisoned, burned, or paralyzed."},
+        {"name":"Fire Punch","type":"fire","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The user punches with a fiery fist. This may also leave the target with a burn."},
+        {"name":"Flamethrower","type":"fire","category":"special","power":90,"accuracy":100,"pp":15,"description":"The user attacks with a stream of fierce flames. This may also leave the target with a burn."},
+        {"name":"Focus Energy","type":"normal","category":"status","power":null,"accuracy":null,"pp":30,"description":"The user takes a deep breath and focuses, increasing the chance of its attacks landing critical hits."},
+        {"name":"Giga Impact","type":"normal","category":"physical","power":150,"accuracy":90,"pp":5,"description":"The user charges at the target using every bit of its power. The user can't move on the next turn."},
+        {"name":"Gunk Shot","type":"poison","category":"physical","power":120,"accuracy":80,"pp":5,"description":"The user shoots filthy garbage at the target. This may also poison the target."},
+        {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
+        {"name":"Hypnosis","type":"psychic","category":"status","power":null,"accuracy":60,"pp":20,"description":"The user employs hypnotic suggestion to make the target fall asleep."},
+        {"name":"Ice Punch","type":"ice","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The user punches with an icy fist. This may also leave the target frozen."},
+        {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The user slams the target with its steel-hard tail. This may also lower the target's Defense stat."},
+        {"name":"Leer","type":"normal","category":"status","power":null,"accuracy":100,"pp":30,"description":"The user gives the target an intimidating leer, which lowers the target's Defense stat."},
+        {"name":"Light Screen","type":"psychic","category":"status","power":null,"accuracy":null,"pp":30,"description":"A wondrous wall of light is put up to reduce damage from special moves for five turns."},
+        {"name":"Mud Shot","type":"ground","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks by hurling a blob of mud at the target. This also lowers the target's Speed stat."},
+        {"name":"Nasty Plot","type":"dark","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user stimulates its brain by thinking bad thoughts. This sharply raises the user's Sp. Atk stat."},
+        {"name":"Power-Up Punch","type":"fighting","category":"physical","power":40,"accuracy":100,"pp":20,"description":"Striking opponents over and over makes the user's fists harder. Hitting a target raises the user's Attack stat."},
+        {"name":"Protect","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"This move enables the user to protect itself from all attacks."},
+        {"name":"Rock Smash","type":"fighting","category":"physical","power":40,"accuracy":100,"pp":15,"description":"The user attacks with a punch. This may also lower the target's Defense stat."},
+        {"name":"Seed Bomb","type":"grass","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams a barrage of hard-shelled seeds on the target from above."},
+        {"name":"Shadow Ball","type":"ghost","category":"special","power":80,"accuracy":100,"pp":15,"description":"The user hurls a shadowy blob at the target. This may also lower the target's Sp. Def stat."},
+        {"name":"Skull Bash","type":"normal","category":"physical","power":130,"accuracy":100,"pp":10,"description":"The user tucks in its head to raise its Defense, then rams the target on the next turn."},
+        {"name":"Substitute","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user creates a substitute for itself using some of its own HP."},
+        {"name":"Super Fang","type":"normal","category":"physical","power":null,"accuracy":90,"pp":10,"description":"The user chomps hard on the target with its sharp front fangs. This cuts the target's HP in half."},
+        {"name":"Swift","type":"normal","category":"special","power":60,"accuracy":null,"pp":20,"description":"Star-shaped rays are shot at opposing Pokémon. This attack never misses."},
+        {"name":"Swords Dance","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"A frenetic dance to uplift the fighting spirit. This sharply raises the user's Attack stat."},
+        {"name":"Tackle","type":"normal","category":"physical","power":40,"accuracy":100,"pp":35,"description":"A physical attack in which the user charges and slams into the target with its whole body."},
+        {"name":"Take Down","type":"normal","category":"physical","power":90,"accuracy":85,"pp":20,"description":"A reckless, full-body charge attack for slamming into the target. This also damages the user a little."},
+        {"name":"Thunder Punch","type":"electric","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The user punches with an electrified fist. This may also leave the target paralyzed."},
+        {"name":"Thunder Wave","type":"electric","category":"status","power":null,"accuracy":90,"pp":20,"description":"The user launches a weak jolt of electricity that paralyzes the target."},
+        {"name":"Thunderbolt","type":"electric","category":"special","power":90,"accuracy":100,"pp":15,"description":"A strong electric blast crashes down on the target. This may also leave the target with paralysis."},
+        {"name":"Toxic","type":"poison","category":"status","power":null,"accuracy":90,"pp":10,"description":"A move that leaves the target badly poisoned. Its poison damage worsens every turn."},
+        {"name":"Work Up","type":"normal","category":"status","power":null,"accuracy":null,"pp":30,"description":"The user is roused, and its Attack and Sp. Atk stats increase."},
+        {"name":"Zen Headbutt","type":"psychic","category":"physical","power":80,"accuracy":90,"pp":15,"description":"The user focuses its willpower to its head and attacks the target. This may also make the target flinch."}
+      ],
+    "sprite": "/sprites/505.png",
+    "officialArt": "/sprites/505.png",
+    "generation": 5,
     "forms": [],
     "hasMega": false,
     "recruitmentCost": null,
     "homeCompatible": true,
     "homeSource": [
-      "Legends Z-A",
-      "Pokémon GO"
+      "Legends Z-A"
     ],
     "season": 1,
     "tier": "D",
-    "usageRate": 0.4
+    "usageRate": 1.5
   },
   {
     "id": 510,
@@ -3564,7 +3037,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Prankster",
-        "description": "Gives priority to a status move.",
+        "description": "Gives priority to the Pokémon's status moves.",
         "isHidden": true
       }
     ],
@@ -3603,7 +3076,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Protect","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession."},
         {"name":"Psychic Fangs","type":"psychic","category":"physical","power":85,"accuracy":100,"pp":15,"description":"Removes the Light Screen Reflect and Aurora Veil statuses on the target's side."},
         {"name":"Psycho Cut","type":"psychic","category":"physical","power":70,"accuracy":100,"pp":20,"description":"The user tears at the target with blades formed by psychic power. This move has a heightened chance of landing a critical hit."},
-        {"name":"Quick Attack","type":"normal","category":"physical","power":40,"accuracy":100,"pp":20,"description":""},
+        {"name":"Quick Attack","type":"normal","category":"physical","power":40,"accuracy":100,"pp":20,"description":"The user lunges at the target to inflict damage, moving at blinding speed. This move always goes first."},
         {"name":"Rain Dance","type":"water","category":"status","power":null,"accuracy":null,"pp":5,"description":"The user summons a heavy rain that falls for five turns, powering up Water-type attacks. The rain also lowers the power of Fire-type attacks."},
         {"name":"Rest","type":"psychic","category":"status","power":null,"accuracy":null,"pp":5,"description":"The user goes to sleep for two turns. This fully restores the user's HP and cures any status conditions."},
         {"name":"Round","type":"normal","category":"special","power":60,"accuracy":100,"pp":15,"description":"The user attacks the target with a song. If others use this move, they will act immediately after the initial user, and the power of their Rounds will be boosted."},
@@ -3887,7 +3360,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Grass Knot","type":"grass","category":"special","power":null,"accuracy":100,"pp":20,"description":"The user snares the target with grass and trips it. The heavier the target, the greater the move's power."},
         {"name":"Gunk Shot","type":"poison","category":"physical","power":120,"accuracy":80,"pp":5,"description":"The user shoots filthy garbage at the target to attack. This may also poison the target."},
         {"name":"Helping Hand","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user assists an ally by boosting the power of that ally's attack."},
-        {"name":"Hydro Pump","type":"water","category":"special","power":110,"accuracy":80,"pp":10,"description":""},
+        {"name":"Hydro Pump","type":"water","category":"special","power":110,"accuracy":80,"pp":10,"description":"The user blasts the target with a huge volume of water launched under great pressure."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Ice Beam","type":"ice","category":"special","power":90,"accuracy":100,"pp":10,"description":"The target is struck with an icy-cold beam of energy. This may also leave the target frozen."},
         {"name":"Ice Punch","type":"ice","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The target is attacked with an icy punch. This may also leave the target frozen."},
@@ -4252,7 +3725,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Throat Chop","type":"dark","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user attacks the target's throat, and the resultant suffering prevents the target from using sound-based moves for two turns."},
         {"name":"Trailblaze","type":"grass","category":"physical","power":50,"accuracy":100,"pp":20,"description":"The user attacks suddenly as if leaping out from tall grass. The user's nimble footwork boosts its Speed stat."},
         {"name":"Water Pulse","type":"water","category":"special","power":60,"accuracy":100,"pp":20,"description":"The user attacks the target with a pulsing blast of water. This may also confuse the target."},
-        {"name":"X-Scissor","type":"bug","category":"physical","power":80,"accuracy":100,"pp":15,"description":""},
+        {"name":"X-Scissor","type":"bug","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slashes at the target by crossing its scythes or claws as if they were a pair of scissors."},
         {"name":"Yawn","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"Makes the target drowsy. This move never misses."}
       ],
     "sprite": "/sprites/614.png",
@@ -4322,7 +3795,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Light Screen","type":"psychic","category":"status","power":null,"accuracy":null,"pp":30,"description":"A wondrous wall of light is put up to reduce damage from special moves for five turns."},
         {"name":"Misty Explosion","type":"fairy","category":"special","power":100,"accuracy":100,"pp":5,"description":"The user attacks everything around it and faints upon using this move. This move's power is boosted on Misty Terrain."},
         {"name":"Misty Terrain","type":"fairy","category":"status","power":null,"accuracy":null,"pp":10,"description":"This protects Pokémon on the ground from status conditions and halves damage from Dragon-type moves for five turns."},
-        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":15,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target's Sp. Atk stat."},
+        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":16,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target's Sp. Atk stat."},
         {"name":"Petal Blizzard","type":"grass","category":"physical","power":90,"accuracy":100,"pp":15,"description":"The user stirs up a violent petal blizzard and damages everything around it."},
         {"name":"Petal Dance","type":"grass","category":"special","power":120,"accuracy":100,"pp":10,"description":"The user attacks the target by scattering petals for two to three turns. The user then becomes confused."},
         {"name":"Pollen Puff","type":"bug","category":"special","power":90,"accuracy":100,"pp":15,"description":"The user attacks the enemy with a pollen puff that explodes. If the target is an ally, it gives the ally a pollen puff that restores its HP instead."},
@@ -4382,17 +3855,17 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Iron Fist",
-        "description": "Boosts the power of punching moves.",
+        "description": "Powers up punching moves.",
         "isHidden": false
       },
       {
         "name": "Mold Breaker",
-        "description": "Moves can be used regardless of abilities.",
+        "description": "Moves can be used on the target regardless of its Abilities.",
         "isHidden": false
       },
       {
         "name": "Scrappy",
-        "description": "Enables moves to hit Ghost-type foes.",
+        "description": "The Pokémon can hit Ghost-type Pokémon with Normal- and Fighting-type moves.",
         "isHidden": true
       }
     ],
@@ -4401,7 +3874,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Beat Up","type":"dark","category":"physical","power":null,"accuracy":100,"pp":10,"description":"The user gets all party Pokémon to attack the target. The more party Pokémon, the greater the number of attacks."},
         {"name":"Body Slam","type":"normal","category":"physical","power":85,"accuracy":100,"pp":15,"description":"The user attacks by dropping onto the target with its full body weight. This may also leave the target with paralysis."},
         {"name":"Brick Break","type":"fighting","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The user attacks with a swift chop. This move can also break barriers, such as Light Screen and Reflect."},
-        {"name":"Brutal Swing","type":"dark","category":"physical","power":60,"accuracy":100,"pp":15,"description":""},
+        {"name":"Brutal Swing","type":"dark","category":"physical","power":60,"accuracy":100,"pp":15,"description":"The user swings its body around violently to inflict damage on everything in its vicinity."},
         {"name":"Bulk Up","type":"fighting","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user tenses its muscles to bulk up its body, boosting its Attack and Defense stats."},
         {"name":"Bulldoze","type":"ground","category":"physical","power":60,"accuracy":100,"pp":20,"description":"The user strikes everything around it by stomping down on the ground. This lowers the Speed stats of those hit."},
         {"name":"Bullet Punch","type":"steel","category":"physical","power":40,"accuracy":100,"pp":30,"description":"The user strikes the target with tough punches as fast as bullets. This move always goes first."},
@@ -4434,7 +3907,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Hyper Voice","type":"normal","category":"special","power":90,"accuracy":100,"pp":10,"description":"The user attacks by letting loose a horribly loud, resounding cry."},
         {"name":"Ice Punch","type":"ice","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The target is attacked with an icy punch. This may also leave the target frozen."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Knock Off","type":"dark","category":"physical","power":65,"accuracy":100,"pp":20,"description":"The user slaps down the target's held item, making it unusable for that battle. This move does more damage if the target has a held item."},
         {"name":"Lash Out","type":"dark","category":"physical","power":75,"accuracy":100,"pp":5,"description":"The user lashes out to vent its frustration toward the target. This move's power is doubled if the user's stats were lowered during this turn."},
         {"name":"Low Kick","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":20,"description":"A powerful low kick that makes the target fall over. The heavier the target, the greater the move's power."},
@@ -4475,7 +3948,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Throat Chop","type":"dark","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user attacks the target's throat, and the resultant suffering prevents the target from using sound-based moves for two turns."},
         {"name":"Thunder Punch","type":"electric","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The target is attacked with an electrified punch. This may also leave the target with paralysis."},
         {"name":"Uproar","type":"normal","category":"special","power":90,"accuracy":100,"pp":10,"description":"The user attacks in an uproar for three turns. During that time, no Pokémon can fall asleep."},
-        {"name":"X-Scissor","type":"bug","category":"physical","power":80,"accuracy":100,"pp":15,"description":""},
+        {"name":"X-Scissor","type":"bug","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slashes at the target by crossing its scythes or claws as if they were a pair of scissors."},
         {"name":"Zen Headbutt","type":"psychic","category":"physical","power":80,"accuracy":90,"pp":15,"description":"The user focuses its willpower to its head and attacks the target. This may also make the target flinch."}
       ],
     "sprite": "/sprites/675.png",
@@ -4513,7 +3986,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Healer",
-        "description": "May heal an ally’s status conditions.",
+        "description": "Sometimes cures the status conditions of the Pokémon's allies.",
         "isHidden": false
       },
       {
@@ -4550,7 +4023,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Light Screen","type":"psychic","category":"status","power":null,"accuracy":null,"pp":30,"description":"A wondrous wall of light is put up to reduce damage from special moves for five turns."},
         {"name":"Misty Explosion","type":"fairy","category":"special","power":100,"accuracy":100,"pp":5,"description":"The user attacks everything around it and faints upon using this move. This move's power is boosted on Misty Terrain."},
         {"name":"Misty Terrain","type":"fairy","category":"status","power":null,"accuracy":null,"pp":10,"description":"This protects Pokémon on the ground from status conditions and halves damage from Dragon-type moves for five turns."},
-        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":15,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target's Sp. Atk stat."},
+        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":16,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target's Sp. Atk stat."},
         {"name":"Nasty Plot","type":"dark","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user stimulates its brain by thinking bad thoughts. This sharply boosts the user's Sp. Atk stat."},
         {"name":"Protect","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession."},
         {"name":"Psych Up","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user hypnotizes itself into copying any stat change made by the target."},
@@ -4706,7 +4179,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Solar Power",
-        "description": "Boosts Sp. Atk, but lowers HP in sunshine.",
+        "description": "In harsh sunlight, the Pokémon's Sp. Atk stat is boosted, but HP decreases every turn.",
         "isHidden": true
       }
     ],
@@ -4956,7 +4429,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Icicle Spear","type":"ice","category":"physical","power":25,"accuracy":100,"pp":30,"description":"The user attacks by launching sharp icicles at the target. This move hits two to five times in a row."},
         {"name":"Icy Wind","type":"ice","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks with a gust of chilled air. This also lowers opposing Pokémon's Speed stats."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Mirror Coat","type":"psychic","category":"special","power":null,"accuracy":100,"pp":20,"description":"The user retaliates to deal double the damage it took from an opponent's special move during the turn this move is used."},
         {"name":"Protect","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession."},
         {"name":"Rain Dance","type":"water","category":"status","power":null,"accuracy":null,"pp":5,"description":"The user summons a heavy rain that falls for five turns, powering up Water-type attacks. The rain also lowers the power of Fire-type attacks."},
@@ -5047,7 +4520,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Fake Tears","type":"dark","category":"status","power":null,"accuracy":100,"pp":20,"description":"The user feigns crying to fluster the target. This harshly lowers the target's Sp. Def stat."},
         {"name":"Fire Blast","type":"fire","category":"special","power":110,"accuracy":85,"pp":5,"description":"The target is attacked with an intense blast of all-consuming fire. This may also leave the target with a burn."},
         {"name":"Fire Fang","type":"fire","category":"physical","power":65,"accuracy":95,"pp":15,"description":"The user bites with flame-cloaked fangs. This may also make the target flinch or leave it with a burn."},
-        {"name":"Fire Lash","type":"fire","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user strikes the target with a burning lash. This also lowers the target’s Defense stat."},
+        {"name":"Fire Lash","type":"fire","category":"physical","power":90,"accuracy":100,"pp":15,"description":"The user strikes the target with a burning lash. This also lowers the target’s Defense stat."},
         {"name":"Flame Charge","type":"fire","category":"physical","power":50,"accuracy":100,"pp":20,"description":"Cloaking itself in flame, the user attacks the target. Then, building up momentum, the user boosts its Speed stat."},
         {"name":"Flamethrower","type":"fire","category":"special","power":90,"accuracy":100,"pp":15,"description":"The target is scorched with an intense blast of fire. This may also leave the target with a burn."},
         {"name":"Flare Blitz","type":"fire","category":"physical","power":120,"accuracy":100,"pp":15,"description":"The user cloaks itself in fire and charges the target to inflict damage. This also damages the user quite a lot and may leave the target with a burn."},
@@ -5170,7 +4643,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Gunk Shot","type":"poison","category":"physical","power":120,"accuracy":80,"pp":5,"description":"The user shoots filthy garbage at the target to attack. This may also poison the target."},
         {"name":"Gyro Ball","type":"steel","category":"physical","power":null,"accuracy":100,"pp":5,"description":"The user tackles the target with a high-speed spin. The slower the user is than the target, the greater the move's power."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."},
         {"name":"Knock Off","type":"dark","category":"physical","power":65,"accuracy":100,"pp":20,"description":"The user slaps down the target's held item, making it unusable for that battle. This move does more damage if the target has a held item."},
         {"name":"Low Kick","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":20,"description":"A powerful low kick that makes the target fall over. The heavier the target, the greater the move's power."},
@@ -5278,7 +4751,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Grass Knot","type":"grass","category":"special","power":null,"accuracy":100,"pp":20,"description":"The user snares the target with grass and trips it. The heavier the target, the greater the move's power."},
         {"name":"Grassy Glide","type":"grass","category":"physical","power":55,"accuracy":100,"pp":20,"description":"Gliding on the ground, the user attacks the target. This move always goes first on Grassy Terrain."},
         {"name":"Grassy Terrain","type":"grass","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user turns the ground into Grassy Terrain for five turns. This restores the HP of Pokémon on the ground a little every turn and powers up Grass-type moves."},
-        {"name":"Grav Apple","type":"grass","category":"physical","power":80,"accuracy":100,"pp":10,"description":"The user inflicts damage by dropping an apple from high above. This also lowers the target’s Defense stat."},
+        {"name":"Grav Apple","type":"grass","category":"physical","power":90,"accuracy":100,"pp":10,"description":"The user inflicts damage by dropping an apple from high above. This also lowers the target’s Defense stat."},
         {"name":"Growth","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user's body grows all at once, boosting the Attack and Sp. Atk stats."},
         {"name":"Heavy Slam","type":"steel","category":"physical","power":null,"accuracy":100,"pp":10,"description":"The user slams into the target with its heavy body. The more the user outweighs the target, the greater the move's power."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
@@ -5338,7 +4811,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Intimidate",
-        "description": "Lowers the foe’s ATTACK.",
+        "description": "When the Pokémon enters a battle, it intimidates opposing Pokémon and makes them cower, lowering their Attack stats.",
         "isHidden": false
       },
       {
@@ -5386,7 +4859,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Psych Up","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user hypnotizes itself into copying any stat change made by the target."},
         {"name":"Psychic","type":"psychic","category":"special","power":90,"accuracy":100,"pp":10,"description":"The target is hit with a strong telekinetic force to inflict damage. This may also lower the target’s Sp. Def stat."},
         {"name":"Psychic Noise","type":"psychic","category":"special","power":75,"accuracy":100,"pp":10,"description":"The user attacks the target with unpleasant sound waves. For two turns, the target is prevented from recovering HP through moves, Abilities, or held items."},
-        {"name":"Psyshield Bash","type":"psychic","category":"physical","power":70,"accuracy":90,"pp":10,"description":"Cloaking itself in psychic energy, the user slams into the target. This may also raise the user’s defensive stats."},
+        {"name":"Psyshield Bash","type":"psychic","category":"physical","power":90,"accuracy":90,"pp":10,"description":"Cloaking itself in psychic energy, the user slams into the target. This may also raise the user’s defensive stats."},
         {"name":"Psyshock","type":"psychic","category":"special","power":80,"accuracy":100,"pp":10,"description":"The user materializes an odd psychic wave to attack the target. This move deals physical damage."},
         {"name":"Rain Dance","type":"water","category":"status","power":null,"accuracy":null,"pp":5,"description":"The user summons a heavy rain that falls for five turns, powering up Water-type attacks. The rain also lowers the power of Fire-type attacks."},
         {"name":"Reflect","type":"psychic","category":"status","power":null,"accuracy":null,"pp":20,"description":"A wondrous wall of light is put up to reduce damage from physical moves for five turns."},
@@ -5660,7 +5133,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Charge","type":"electric","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user becomes charged, boosting the power of the next Electric-type move it uses. This also boosts the user's Sp. Def stat."},
         {"name":"Charge Beam","type":"electric","category":"special","power":50,"accuracy":90,"pp":10,"description":"The user attacks the target with an electric charge. The residual electricity may also boost the user's Sp. Atk stat."},
         {"name":"Charm","type":"fairy","category":"status","power":null,"accuracy":100,"pp":20,"description":"The user gazes at the target rather charmingly, making it less wary. This harshly lowers the target's Attack stat."},
-        {"name":"Dazzling Gleam","type":"fairy","category":"special","power":80,"accuracy":100,"pp":15,"description":""},
+        {"name":"Dazzling Gleam","type":"fairy","category":"special","power":80,"accuracy":100,"pp":15,"description":"The user damages opposing Pokémon by emitting a powerful flash."},
         {"name":"Dig","type":"ground","category":"physical","power":80,"accuracy":100,"pp":10,"description":"The user burrows into the ground on the first turn, then attacks on the next turn."},
         {"name":"Discharge","type":"electric","category":"special","power":80,"accuracy":100,"pp":15,"description":"The user strikes everything around it by letting loose a flare of electricity. This may also leave those hit by the attack with paralysis."},
         {"name":"Double Team","type":"normal","category":"status","power":null,"accuracy":null,"pp":15,"description":"By moving rapidly, the user makes illusory copies of itself to boost its evasiveness."},
@@ -5829,7 +5302,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Meteor Mash","type":"steel","category":"physical","power":90,"accuracy":90,"pp":10,"description":"The target is hit with a hard punch fired like a meteor. This may also boost the user’s Attack stat."},
         {"name":"Misty Explosion","type":"fairy","category":"special","power":100,"accuracy":100,"pp":5,"description":"The user attacks everything around it and faints upon using this move. This move's power is boosted on Misty Terrain."},
         {"name":"Misty Terrain","type":"fairy","category":"status","power":null,"accuracy":null,"pp":10,"description":"This protects Pokémon on the ground from status conditions and halves damage from Dragon-type moves for five turns."},
-        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":15,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target's Sp. Atk stat."},
+        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":16,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target's Sp. Atk stat."},
         {"name":"Moonlight","type":"fairy","category":"status","power":null,"accuracy":null,"pp":5,"description":"The user restores its own HP. The amount of HP regained varies with the weather."},
         {"name":"Mystical Fire","type":"fire","category":"special","power":75,"accuracy":100,"pp":10,"description":"The user attacks by breathing a special, hot fire. This also lowers the target's Sp. Atk stat."},
         {"name":"Night Shade","type":"ghost","category":"special","power":null,"accuracy":100,"pp":15,"description":"The user makes the target see a frightening mirage. It inflicts damage equal to the user's level."},
@@ -5890,7 +5363,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Magic Bounce",
-            "description": "Fairy-type moves gain 30% power. Allies gain a 20% boost to Special Defense.",
+            "description": "Reflects most non-damaging moves back at their user.",
             "isChampions": false
           }
         ],
@@ -5936,7 +5409,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Drought",
-        "description": "Summons strong sunlight that lasts indefinitely upon entering battle.",
+        "description": "Turns the sunlight harsh when the Pokémon enters a battle.",
         "isHidden": true
       }
     ],
@@ -6048,7 +5521,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Snow Warning",
-        "description": "Summons hail/snow when entering battle.",
+        "description": "The Pokémon makes it snow when it enters a battle.",
         "isHidden": false
       },
       {
@@ -6097,7 +5570,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Imprison","type":"psychic","category":"status","power":null,"accuracy":null,"pp":10,"description":"If opposing Pokémon know any move also known by the user, they are prevented from using it."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."},
         {"name":"Misty Terrain","type":"fairy","category":"status","power":null,"accuracy":null,"pp":10,"description":"This protects Pokémon on the ground from status conditions and halves damage from Dragon-type moves for five turns."},
-        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":15,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target's Sp. Atk stat."},
+        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":16,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target's Sp. Atk stat."},
         {"name":"Nasty Plot","type":"dark","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user stimulates its brain by thinking bad thoughts. This sharply boosts the user's Sp. Atk stat."},
         {"name":"Pain Split","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user adds its HP to the target's HP, then equally splits the combined HP between the target and itself."},
         {"name":"Payback","type":"dark","category":"physical","power":50,"accuracy":100,"pp":10,"description":"The user stores power, then attacks. This move's power is doubled if the user moves after the target."},
@@ -6159,7 +5632,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Intimidate",
-        "description": "Lowers adjacent opponents' Attack by one stage upon entering battle.",
+        "description": "When the Pokémon enters a battle, it intimidates opposing Pokémon and makes them cower, lowering their Attack stats.",
         "isHidden": false
       },
       {
@@ -6204,7 +5677,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Howl","type":"normal","category":"status","power":null,"accuracy":null,"pp":40,"description":"The user howls loudly to rouse itself and its allies. This boosts their Attack stats."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Hyper Voice","type":"normal","category":"special","power":90,"accuracy":100,"pp":10,"description":"The user attacks by letting loose a horribly loud, resounding cry."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."},
         {"name":"Morning Sun","type":"normal","category":"status","power":0,"accuracy":100,"pp":5,"description":"A move called Morning Sun."},
         {"name":"Outrage","type":"dragon","category":"physical","power":120,"accuracy":100,"pp":10,"description":"The user rampages and attacks for two to three turns. The user then becomes confused."},
@@ -6271,7 +5744,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Intimidate",
-        "description": "Lowers the foe’s ATTACK.",
+        "description": "When the Pokémon enters a battle, it intimidates opposing Pokémon and makes them cower, lowering their Attack stats.",
         "isHidden": false
       },
       {
@@ -6315,7 +5788,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Howl","type":"normal","category":"status","power":0,"accuracy":null,"pp":40,"description":"Howls to raise the spirit and boosts ATTACK."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"1st turn: Attack 2nd turn: Rest"},
         {"name":"Hyper Voice","type":"normal","category":"special","power":90,"accuracy":100,"pp":10,"description":"A loud attack that uses sound waves to injure."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The foe slams the target with its steel-hard head. It may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The foe slams the target with its steel-hard head. It may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"An attack that may reduce DEFENSE."},
         {"name":"Morning Sun","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"Restores 1/2 of the user's max HP. In harsh sunlight 2/3 of its max HP will be restored instead. In all other weather conditions 1/4 of its max HP will be restored instead."},
         {"name":"Outrage","type":"dragon","category":"physical","power":120,"accuracy":100,"pp":10,"description":"Works 2-3 turns and confuses user."},
@@ -6391,7 +5864,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Inner Focus",
-        "description": "Prevents flinching.",
+        "description": "The Pokémon's intensely focused, and that prevents it from flinching.",
         "isHidden": false
       },
       {
@@ -6483,7 +5956,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Trace",
-            "description": "Copies the foe's ability.",
+            "description": "When it enters a battle, the Pokémon copies an opposing Pokémon's Ability.",
             "isHidden": false
           }
         ],
@@ -6615,7 +6088,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Innards Out",
-            "description": "Poison and Grass-type moves gain 30% power. Biting moves poison the target on contact.",
+            "description": "Damages the attacker landing the finishing hit by the amount equal to its last HP.",
             "isChampions": false
           }
         ],
@@ -6771,7 +6244,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Shell Armor",
-            "description": "The Pokémon's hard armor prevents critical hits from landing.",
+            "description": "A hard shell protects the Pokémon from critical hits.",
             "isHidden": false
           }
         ],
@@ -7058,7 +6531,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Shadow Tag",
-            "description": "Prevents opponents from fleeing or switching out.",
+            "description": "The Pokémon steps on the opposing Pokémon's shadow to prevent it from fleeing or switching out.",
             "isChampions": false
           }
         ],
@@ -7104,12 +6577,12 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Scrappy",
-        "description": "Lets the Pokémon's normal and fighting moves hit ghost Pokémon.",
+        "description": "The Pokémon can hit Ghost-type Pokémon with Normal- and Fighting-type moves.",
         "isHidden": false
       },
       {
         "name": "Inner Focus",
-        "description": "Prevents flinching.",
+        "description": "The Pokémon's intensely focused, and that prevents it from flinching.",
         "isHidden": true
       }
     ],
@@ -7203,7 +6676,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Parental Bond",
-            "description": "Lets the bearer hit twice with damaging moves.  The second hit has half power.",
+            "description": "Parent and child each attack.",
             "isChampions": false
           }
         ],
@@ -7262,7 +6735,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Agility","type":"psychic","category":"status","power":null,"accuracy":null,"pp":30,"description":"The user relaxes and lightens its body to move faster. This sharply boosts its Speed stat."},
         {"name":"Ally Switch","type":"psychic","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user teleports using a strange power and switches places with one of its allies. This move's chance of failing rises if it is used in succession."},
         {"name":"Ancient Power","type":"rock","category":"special","power":60,"accuracy":100,"pp":15,"description":"Has a 10% chance of boosting the user's Attack Defense Sp. Atk Sp. Def and Speed stats by 1 stage."},
-        {"name":"Aqua Jet","type":"water","category":"physical","power":40,"accuracy":100,"pp":20,"description":""},
+        {"name":"Aqua Jet","type":"water","category":"physical","power":40,"accuracy":100,"pp":20,"description":"The user lunges at the target to inflict damage, moving at blinding speed. This move always goes first."},
         {"name":"Avalanche","type":"ice","category":"physical","power":60,"accuracy":100,"pp":10,"description":"This move's power is doubled if the target has inflicted damage on the user in the same turn."},
         {"name":"Blizzard","type":"ice","category":"special","power":110,"accuracy":70,"pp":5,"description":"A howling blizzard is summoned to strike opposing Pokémon. This may also leave the opposing Pokémon frozen."},
         {"name":"Bulk Up","type":"fighting","category":"status","power":null,"accuracy":null,"pp":20,"description":"Boosts the user's Attack and Defense stats by 1 stage."},
@@ -7344,7 +6817,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Huge Power",
-            "description": "Water and Psychic-type moves gain 30% power. Reduces the power of super-effective attacks taken.",
+            "description": "Doubles the Pokémon's Attack stat.",
             "isChampions": false
           }
         ],
@@ -7389,7 +6862,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Mold Breaker",
-        "description": "Bypasses targets' abilities if they could hinder or prevent a move.",
+        "description": "Moves can be used on the target regardless of its Abilities.",
         "isHidden": false
       },
       {
@@ -7474,7 +6947,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Aerilate",
-            "description": "Turns the bearer's normal moves into flying moves and strengthens them to 1.3× their power.",
+            "description": "Normal-type moves become Flying-type moves. The power of those moves is boosted a little.",
             "isChampions": false
           }
         ],
@@ -7514,7 +6987,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Intimidate",
-        "description": "Upon entering battle, lowers the opposing Pokémon's Attack stat.",
+        "description": "When the Pokémon enters a battle, it intimidates opposing Pokémon and makes them cower, lowering their Attack stats.",
         "isHidden": false
       },
       {
@@ -7524,7 +6997,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Sheer Force",
-        "description": "Moves with secondary effects have 1.3× power but lose their secondary effects.",
+        "description": "Removes additional effects from moves but increases their power.",
         "isHidden": true
       }
     ],
@@ -7534,7 +7007,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Body Slam","type":"normal","category":"physical","power":85,"accuracy":100,"pp":15,"description":"The user drops onto the target with its full body weight. This may also leave the target with paralysis."},
         {"name":"Bulldoze","type":"ground","category":"physical","power":60,"accuracy":100,"pp":20,"description":"The user strikes everything around it by stomping down on the ground. This lowers the Speed stats of those hit."},
         {"name":"Close Combat","type":"fighting","category":"physical","power":120,"accuracy":100,"pp":5,"description":"The user fights the target up close without guarding itself. This lowers the user's Defense and Sp. Def stats."},
-        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":20,"description":""},
+        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":20,"description":"A move that has different effects depending on whether the user is a Ghost type or not."},
         {"name":"Dig","type":"ground","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user gains the Underground status on the turn this move is used then attacks on the following turn."},
         {"name":"Double-Edge","type":"normal","category":"physical","power":120,"accuracy":100,"pp":15,"description":"A reckless life-risking tackle in which the user rushes the target. This also damages the user quite a lot."},
         {"name":"Earthquake","type":"ground","category":"physical","power":100,"accuracy":100,"pp":10,"description":"The user sets off an earthquake that strikes every Pokémon around it."},
@@ -7549,10 +7022,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The user gains the Recharging status on the turn after this move is used."},
         {"name":"Ice Beam","type":"ice","category":"special","power":90,"accuracy":100,"pp":10,"description":"The target is struck with an icy-cold beam of energy. This may also leave the target frozen."},
         {"name":"Icy Wind","type":"ice","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks with a gust of chilled air. This also lowers opposing Pokémon's Speed stats."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":10,"description":"Has a 30% chance of lowering the target's Defense stat by 1 stage."},
         {"name":"Lash Out","type":"dark","category":"physical","power":75,"accuracy":100,"pp":5,"description":"The user lashes out to vent its frustration. This move's power is doubled if the user's stats were lowered during this turn."},
-        {"name":"Megahorn","type":"bug","category":"physical","power":120,"accuracy":85,"pp":5,"description":""},
+        {"name":"Megahorn","type":"bug","category":"physical","power":120,"accuracy":85,"pp":5,"description":"Using its tough and impressive horn, the user rams into the target with no letup."},
         {"name":"Outrage","type":"dragon","category":"physical","power":120,"accuracy":100,"pp":5,"description":"The user gains the Rampaging status."},
         {"name":"Payback","type":"dark","category":"physical","power":50,"accuracy":100,"pp":20,"description":"This move's power is doubled if the user attacks after the target."},
         {"name":"Protect","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession."},
@@ -7606,6 +7079,312 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "usageRate": 1.4
   },
   {
+    "id": 10250,
+    "name": "Paldean Tauros",
+    "dexNumber": 128,
+    "types": [
+      "fighting"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "attack": 110,
+      "defense": 105,
+      "spAtk": 30,
+      "spDef": 70,
+      "speed": 100
+    },
+    "abilities": [
+      {
+        "name": "Intimidate",
+        "description": "When the Pokémon enters a battle, it intimidates opposing Pokémon and makes them cower, lowering their Attack stats.",
+        "isHidden": false
+      },
+      {
+        "name": "Anger Point",
+        "description": "Raises Attack to the maximum when hit by a critical hit.",
+        "isHidden": false
+      },
+      {
+        "name": "Cud Chew",
+        "description": "When the Pokémon eats a Berry, it will regurgitate that Berry at the end of the next turn and eat it one more time.",
+        "isHidden": true
+      }
+    ],
+    "moves": [
+        {"name":"Assurance","type":"dark","category":"physical","power":60,"accuracy":100,"pp":10,"description":"This move's power is doubled if the target has already taken some damage in the same turn."},
+        {"name":"Body Press","type":"fighting","category":"physical","power":80,"accuracy":100,"pp":10,"description":"The user attacks by slamming its body into the target. The higher the user's Defense stat, the greater the damage this move deals."},
+        {"name":"Body Slam","type":"normal","category":"physical","power":85,"accuracy":100,"pp":15,"description":"The user drops onto the target with its full body weight. This may also leave the target with paralysis."},
+        {"name":"Bulk Up","type":"fighting","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user tenses its muscles to bulk up its body, boosting its Attack and Defense stats."},
+        {"name":"Bulldoze","type":"ground","category":"physical","power":60,"accuracy":100,"pp":20,"description":"The user strikes everything around it by stomping down on the ground. This lowers the Speed stats of those hit."},
+        {"name":"Close Combat","type":"fighting","category":"physical","power":120,"accuracy":100,"pp":5,"description":"The user fights the target up close without guarding itself. This lowers the user's Defense and Sp. Def stats."},
+        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":10,"description":"A move that has different effects depending on whether the user is a Ghost type or not."},
+        {"name":"Dig","type":"ground","category":"physical","power":80,"accuracy":100,"pp":10,"description":"The user burrows underground on the first turn, then attacks on the following turn."},
+        {"name":"Double Kick","type":"fighting","category":"physical","power":30,"accuracy":100,"pp":30,"description":"The user attacks by kicking the target twice in a row using two feet."},
+        {"name":"Double-Edge","type":"normal","category":"physical","power":120,"accuracy":100,"pp":15,"description":"A reckless life-risking tackle in which the user rushes the target. This also damages the user quite a lot."},
+        {"name":"Drill Run","type":"ground","category":"physical","power":80,"accuracy":95,"pp":10,"description":"The user crashes into the target while rotating its body like a drill. This move has a heightened chance of landing a critical hit."},
+        {"name":"Earthquake","type":"ground","category":"physical","power":100,"accuracy":100,"pp":10,"description":"The user sets off an earthquake that strikes every Pokémon around it."},
+        {"name":"Endeavor","type":"normal","category":"physical","power":null,"accuracy":100,"pp":5,"description":"The user inflicts damage by cutting down the target's HP to roughly equal the user's HP."},
+        {"name":"Endure","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user endures any attack with at least 1 HP."},
+        {"name":"Facade","type":"normal","category":"physical","power":70,"accuracy":100,"pp":20,"description":"This move's power is doubled if the user is poisoned, burned, or paralyzed."},
+        {"name":"Fire Blast","type":"fire","category":"special","power":110,"accuracy":85,"pp":5,"description":"The target is attacked with an intense blast of all-consuming fire. This may also leave the target with a burn."},
+        {"name":"Flamethrower","type":"fire","category":"special","power":90,"accuracy":100,"pp":15,"description":"The target is scorched with an intense blast of fire. This may also leave the target with a burn."},
+        {"name":"Giga Impact","type":"normal","category":"physical","power":150,"accuracy":90,"pp":5,"description":"The user charges at the target using every bit of its power. The user can't move on the next turn."},
+        {"name":"Headbutt","type":"normal","category":"physical","power":70,"accuracy":100,"pp":15,"description":"The user sticks out its head and attacks by charging straight into the target. This may also make the target flinch."},
+        {"name":"High Horsepower","type":"ground","category":"physical","power":95,"accuracy":95,"pp":10,"description":"The user fiercely attacks the target using its entire body."},
+        {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Lash Out","type":"dark","category":"physical","power":75,"accuracy":100,"pp":5,"description":"The user lashes out to vent its frustration. This move's power is doubled if the user's stats were lowered during this turn."},
+        {"name":"Outrage","type":"dragon","category":"physical","power":120,"accuracy":100,"pp":10,"description":"The user rampages and attacks for two to three turns. The user then becomes confused."},
+        {"name":"Protect","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"This move enables the user to protect itself from all attacks."},
+        {"name":"Raging Bull","type":"fighting","category":"physical","power":90,"accuracy":100,"pp":10,"description":"The user performs a tackle like a raging bull. This move's type depends on the user's form. It can also break barriers such as Light Screen and Reflect."},
+        {"name":"Rain Dance","type":"water","category":"status","power":null,"accuracy":null,"pp":5,"description":"The user summons a heavy rain that falls for five turns, powering up Water-type attacks."},
+        {"name":"Rest","type":"psychic","category":"status","power":null,"accuracy":null,"pp":5,"description":"The user goes to sleep for two turns. This fully restores the user's HP and cures any status conditions."},
+        {"name":"Reversal","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":15,"description":"An all-out attack that becomes more powerful the less HP the user has."},
+        {"name":"Rock Slide","type":"rock","category":"physical","power":75,"accuracy":90,"pp":10,"description":"Large boulders are hurled at opposing Pokémon to inflict damage. This may also make the opposing Pokémon flinch."},
+        {"name":"Rock Tomb","type":"rock","category":"physical","power":60,"accuracy":95,"pp":15,"description":"The user hurls boulders at the target to inflict damage. This also lowers the target's Speed stat."},
+        {"name":"Sandstorm","type":"rock","category":"status","power":null,"accuracy":null,"pp":10,"description":"A five-turn sandstorm is summoned to hurt all types except Rock, Ground, and Steel."},
+        {"name":"Scary Face","type":"normal","category":"status","power":null,"accuracy":100,"pp":10,"description":"The user frightens the target with a scary face to harshly lower its Speed stat."},
+        {"name":"Sleep Talk","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user randomly uses one of the moves it knows while asleep."},
+        {"name":"Smart Strike","type":"steel","category":"physical","power":70,"accuracy":null,"pp":10,"description":"The user stabs the target with a sharp horn. This attack never misses."},
+        {"name":"Stomping Tantrum","type":"ground","category":"physical","power":75,"accuracy":100,"pp":10,"description":"Driven by frustration, the user attacks the target. This move's power is doubled if the user's previous move failed."},
+        {"name":"Stone Edge","type":"rock","category":"physical","power":100,"accuracy":80,"pp":5,"description":"The user stabs the target with sharpened stones. This move has a heightened chance of landing a critical hit."},
+        {"name":"Substitute","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user creates a substitute for itself using some of its own HP."},
+        {"name":"Sunny Day","type":"fire","category":"status","power":null,"accuracy":null,"pp":5,"description":"The user intensifies the sun for five turns, powering up Fire-type attacks."},
+        {"name":"Surf","type":"water","category":"special","power":90,"accuracy":100,"pp":15,"description":"The user attacks everything around it by swamping its surroundings with a giant wave."},
+        {"name":"Swagger","type":"normal","category":"status","power":null,"accuracy":85,"pp":15,"description":"The user enrages and confuses the target. However, this also sharply boosts the target's Attack stat."},
+        {"name":"Take Down","type":"normal","category":"physical","power":90,"accuracy":85,"pp":20,"description":"A reckless full-body charge attack for slamming into the target. This also damages the user a little."},
+        {"name":"Thief","type":"dark","category":"physical","power":60,"accuracy":100,"pp":25,"description":"The user attacks and steals the target's held item simultaneously."},
+        {"name":"Thrash","type":"normal","category":"physical","power":120,"accuracy":100,"pp":10,"description":"The user rampages and attacks for two to three turns. The user then becomes confused."},
+        {"name":"Throat Chop","type":"dark","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user attacks the target's throat, preventing the target from using sound-based moves for two turns."},
+        {"name":"Trailblaze","type":"grass","category":"physical","power":50,"accuracy":100,"pp":20,"description":"The user attacks suddenly as if leaping out from tall grass. The user's nimble footwork boosts its Speed stat."},
+        {"name":"Wild Charge","type":"electric","category":"physical","power":90,"accuracy":100,"pp":15,"description":"The user shrouds itself in electricity and smashes into the target. This also damages the user a little."},
+        {"name":"Work Up","type":"normal","category":"status","power":null,"accuracy":null,"pp":30,"description":"The user is roused, and its Attack and Sp. Atk stats are boosted."},
+        {"name":"Zen Headbutt","type":"psychic","category":"physical","power":80,"accuracy":90,"pp":15,"description":"The user focuses its willpower to its head and attacks the target. This may also make the target flinch."}
+      ],
+    "sprite": "/sprites/10250.png",
+    "officialArt": "/sprites/10250.png",
+    "generation": 9,
+    "forms": [],
+    "hasMega": false,
+    "recruitmentCost": null,
+    "homeCompatible": true,
+    "homeSource": [
+      "Scarlet/Violet"
+    ],
+    "season": 1,
+    "tier": "B",
+    "usageRate": 3.5
+  },
+  {
+    "id": 10251,
+    "name": "Paldean Tauros (Blaze)",
+    "dexNumber": 128,
+    "types": [
+      "fighting",
+      "fire"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "attack": 110,
+      "defense": 105,
+      "spAtk": 30,
+      "spDef": 70,
+      "speed": 100
+    },
+    "abilities": [
+      {
+        "name": "Intimidate",
+        "description": "When the Pokémon enters a battle, it intimidates opposing Pokémon and makes them cower, lowering their Attack stats.",
+        "isHidden": false
+      },
+      {
+        "name": "Anger Point",
+        "description": "Raises Attack to the maximum when hit by a critical hit.",
+        "isHidden": false
+      },
+      {
+        "name": "Cud Chew",
+        "description": "When the Pokémon eats a Berry, it will regurgitate that Berry at the end of the next turn and eat it one more time.",
+        "isHidden": true
+      }
+    ],
+    "moves": [
+        {"name":"Assurance","type":"dark","category":"physical","power":60,"accuracy":100,"pp":10,"description":"This move's power is doubled if the target has already taken some damage in the same turn."},
+        {"name":"Body Press","type":"fighting","category":"physical","power":80,"accuracy":100,"pp":10,"description":"The user attacks by slamming its body into the target. The higher the user's Defense stat, the greater the damage this move deals."},
+        {"name":"Body Slam","type":"normal","category":"physical","power":85,"accuracy":100,"pp":15,"description":"The user drops onto the target with its full body weight. This may also leave the target with paralysis."},
+        {"name":"Bulk Up","type":"fighting","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user tenses its muscles to bulk up its body, boosting its Attack and Defense stats."},
+        {"name":"Bulldoze","type":"ground","category":"physical","power":60,"accuracy":100,"pp":20,"description":"The user strikes everything around it by stomping down on the ground. This lowers the Speed stats of those hit."},
+        {"name":"Close Combat","type":"fighting","category":"physical","power":120,"accuracy":100,"pp":5,"description":"The user fights the target up close without guarding itself. This lowers the user's Defense and Sp. Def stats."},
+        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":10,"description":"A move that has different effects depending on whether the user is a Ghost type or not."},
+        {"name":"Dig","type":"ground","category":"physical","power":80,"accuracy":100,"pp":10,"description":"The user burrows underground on the first turn, then attacks on the following turn."},
+        {"name":"Double Kick","type":"fighting","category":"physical","power":30,"accuracy":100,"pp":30,"description":"The user attacks by kicking the target twice in a row using two feet."},
+        {"name":"Double-Edge","type":"normal","category":"physical","power":120,"accuracy":100,"pp":15,"description":"A reckless life-risking tackle in which the user rushes the target. This also damages the user quite a lot."},
+        {"name":"Drill Run","type":"ground","category":"physical","power":80,"accuracy":95,"pp":10,"description":"The user crashes into the target while rotating its body like a drill. This move has a heightened chance of landing a critical hit."},
+        {"name":"Earthquake","type":"ground","category":"physical","power":100,"accuracy":100,"pp":10,"description":"The user sets off an earthquake that strikes every Pokémon around it."},
+        {"name":"Endeavor","type":"normal","category":"physical","power":null,"accuracy":100,"pp":5,"description":"The user inflicts damage by cutting down the target's HP to roughly equal the user's HP."},
+        {"name":"Endure","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user endures any attack with at least 1 HP."},
+        {"name":"Facade","type":"normal","category":"physical","power":70,"accuracy":100,"pp":20,"description":"This move's power is doubled if the user is poisoned, burned, or paralyzed."},
+        {"name":"Fire Blast","type":"fire","category":"special","power":110,"accuracy":85,"pp":5,"description":"The target is attacked with an intense blast of all-consuming fire. This may also leave the target with a burn."},
+        {"name":"Fire Spin","type":"fire","category":"special","power":35,"accuracy":85,"pp":15,"description":"The user traps the target inside a fierce vortex of fire that inflicts damage for four to five turns."},
+        {"name":"Flame Charge","type":"fire","category":"physical","power":50,"accuracy":100,"pp":20,"description":"Cloaking itself in flame, the user attacks the target. Then, building up momentum, the user boosts its Speed stat."},
+        {"name":"Flamethrower","type":"fire","category":"special","power":90,"accuracy":100,"pp":15,"description":"The target is scorched with an intense blast of fire. This may also leave the target with a burn."},
+        {"name":"Flare Blitz","type":"fire","category":"physical","power":120,"accuracy":100,"pp":15,"description":"The user cloaks itself in fire and charges the target. This also damages the user quite a lot and may leave the target with a burn."},
+        {"name":"Giga Impact","type":"normal","category":"physical","power":150,"accuracy":90,"pp":5,"description":"The user charges at the target using every bit of its power. The user can't move on the next turn."},
+        {"name":"Headbutt","type":"normal","category":"physical","power":70,"accuracy":100,"pp":15,"description":"The user sticks out its head and attacks by charging straight into the target. This may also make the target flinch."},
+        {"name":"High Horsepower","type":"ground","category":"physical","power":95,"accuracy":95,"pp":10,"description":"The user fiercely attacks the target using its entire body."},
+        {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Lash Out","type":"dark","category":"physical","power":75,"accuracy":100,"pp":5,"description":"The user lashes out to vent its frustration. This move's power is doubled if the user's stats were lowered during this turn."},
+        {"name":"Outrage","type":"dragon","category":"physical","power":120,"accuracy":100,"pp":10,"description":"The user rampages and attacks for two to three turns. The user then becomes confused."},
+        {"name":"Overheat","type":"fire","category":"special","power":130,"accuracy":90,"pp":5,"description":"The user attacks with all its might. The recoil from this move harshly lowers the user's Sp. Atk stat."},
+        {"name":"Protect","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"This move enables the user to protect itself from all attacks."},
+        {"name":"Raging Bull","type":"fire","category":"physical","power":90,"accuracy":100,"pp":10,"description":"The user performs a tackle like a raging bull. This move's type depends on the user's form. It can also break barriers such as Light Screen and Reflect."},
+        {"name":"Rain Dance","type":"water","category":"status","power":null,"accuracy":null,"pp":5,"description":"The user summons a heavy rain that falls for five turns, powering up Water-type attacks."},
+        {"name":"Rest","type":"psychic","category":"status","power":null,"accuracy":null,"pp":5,"description":"The user goes to sleep for two turns. This fully restores the user's HP and cures any status conditions."},
+        {"name":"Reversal","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":15,"description":"An all-out attack that becomes more powerful the less HP the user has."},
+        {"name":"Rock Slide","type":"rock","category":"physical","power":75,"accuracy":90,"pp":10,"description":"Large boulders are hurled at opposing Pokémon to inflict damage. This may also make the opposing Pokémon flinch."},
+        {"name":"Rock Tomb","type":"rock","category":"physical","power":60,"accuracy":95,"pp":15,"description":"The user hurls boulders at the target to inflict damage. This also lowers the target's Speed stat."},
+        {"name":"Sandstorm","type":"rock","category":"status","power":null,"accuracy":null,"pp":10,"description":"A five-turn sandstorm is summoned to hurt all types except Rock, Ground, and Steel."},
+        {"name":"Scary Face","type":"normal","category":"status","power":null,"accuracy":100,"pp":10,"description":"The user frightens the target with a scary face to harshly lower its Speed stat."},
+        {"name":"Sleep Talk","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user randomly uses one of the moves it knows while asleep."},
+        {"name":"Smart Strike","type":"steel","category":"physical","power":70,"accuracy":null,"pp":10,"description":"The user stabs the target with a sharp horn. This attack never misses."},
+        {"name":"Stomping Tantrum","type":"ground","category":"physical","power":75,"accuracy":100,"pp":10,"description":"Driven by frustration, the user attacks the target. This move's power is doubled if the user's previous move failed."},
+        {"name":"Stone Edge","type":"rock","category":"physical","power":100,"accuracy":80,"pp":5,"description":"The user stabs the target with sharpened stones. This move has a heightened chance of landing a critical hit."},
+        {"name":"Substitute","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user creates a substitute for itself using some of its own HP."},
+        {"name":"Sunny Day","type":"fire","category":"status","power":null,"accuracy":null,"pp":5,"description":"The user intensifies the sun for five turns, powering up Fire-type attacks."},
+        {"name":"Surf","type":"water","category":"special","power":90,"accuracy":100,"pp":15,"description":"The user attacks everything around it by swamping its surroundings with a giant wave."},
+        {"name":"Swagger","type":"normal","category":"status","power":null,"accuracy":85,"pp":15,"description":"The user enrages and confuses the target. However, this also sharply boosts the target's Attack stat."},
+        {"name":"Take Down","type":"normal","category":"physical","power":90,"accuracy":85,"pp":20,"description":"A reckless full-body charge attack for slamming into the target. This also damages the user a little."},
+        {"name":"Temper Flare","type":"fire","category":"physical","power":75,"accuracy":100,"pp":10,"description":"Spurred by desperation, the user attacks the target. This move's power is doubled if the user's previous move failed."},
+        {"name":"Thief","type":"dark","category":"physical","power":60,"accuracy":100,"pp":25,"description":"The user attacks and steals the target's held item simultaneously."},
+        {"name":"Thrash","type":"normal","category":"physical","power":120,"accuracy":100,"pp":10,"description":"The user rampages and attacks for two to three turns. The user then becomes confused."},
+        {"name":"Throat Chop","type":"dark","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user attacks the target's throat, preventing the target from using sound-based moves for two turns."},
+        {"name":"Trailblaze","type":"grass","category":"physical","power":50,"accuracy":100,"pp":20,"description":"The user attacks suddenly as if leaping out from tall grass. The user's nimble footwork boosts its Speed stat."},
+        {"name":"Wild Charge","type":"electric","category":"physical","power":90,"accuracy":100,"pp":15,"description":"The user shrouds itself in electricity and smashes into the target. This also damages the user a little."},
+        {"name":"Will-O-Wisp","type":"fire","category":"status","power":null,"accuracy":85,"pp":15,"description":"The user shoots a sinister flame at the target to inflict a burn."},
+        {"name":"Work Up","type":"normal","category":"status","power":null,"accuracy":null,"pp":30,"description":"The user is roused, and its Attack and Sp. Atk stats are boosted."},
+        {"name":"Zen Headbutt","type":"psychic","category":"physical","power":80,"accuracy":90,"pp":15,"description":"The user focuses its willpower to its head and attacks the target. This may also make the target flinch."}
+      ],
+    "sprite": "/sprites/10251.png",
+    "officialArt": "/sprites/10251.png",
+    "generation": 9,
+    "forms": [],
+    "hasMega": false,
+    "recruitmentCost": null,
+    "homeCompatible": true,
+    "homeSource": [
+      "Scarlet/Violet"
+    ],
+    "season": 1,
+    "tier": "B",
+    "usageRate": 4.2
+  },
+  {
+    "id": 10252,
+    "name": "Paldean Tauros (Aqua)",
+    "dexNumber": 128,
+    "types": [
+      "fighting",
+      "water"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "attack": 110,
+      "defense": 105,
+      "spAtk": 30,
+      "spDef": 70,
+      "speed": 100
+    },
+    "abilities": [
+      {
+        "name": "Intimidate",
+        "description": "When the Pokémon enters a battle, it intimidates opposing Pokémon and makes them cower, lowering their Attack stats.",
+        "isHidden": false
+      },
+      {
+        "name": "Anger Point",
+        "description": "Raises Attack to the maximum when hit by a critical hit.",
+        "isHidden": false
+      },
+      {
+        "name": "Cud Chew",
+        "description": "When the Pokémon eats a Berry, it will regurgitate that Berry at the end of the next turn and eat it one more time.",
+        "isHidden": true
+      }
+    ],
+    "moves": [
+        {"name":"Aqua Jet","type":"water","category":"physical","power":40,"accuracy":100,"pp":20,"description":"The user lunges at the target to inflict damage, moving at blinding speed. This move always goes first."},
+        {"name":"Assurance","type":"dark","category":"physical","power":60,"accuracy":100,"pp":10,"description":"This move's power is doubled if the target has already taken some damage in the same turn."},
+        {"name":"Body Press","type":"fighting","category":"physical","power":80,"accuracy":100,"pp":10,"description":"The user attacks by slamming its body into the target. The higher the user's Defense stat, the greater the damage this move deals."},
+        {"name":"Body Slam","type":"normal","category":"physical","power":85,"accuracy":100,"pp":15,"description":"The user drops onto the target with its full body weight. This may also leave the target with paralysis."},
+        {"name":"Bulk Up","type":"fighting","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user tenses its muscles to bulk up its body, boosting its Attack and Defense stats."},
+        {"name":"Bulldoze","type":"ground","category":"physical","power":60,"accuracy":100,"pp":20,"description":"The user strikes everything around it by stomping down on the ground. This lowers the Speed stats of those hit."},
+        {"name":"Chilling Water","type":"water","category":"special","power":50,"accuracy":100,"pp":20,"description":"The user attacks the target by showering it with water that's so cold it saps the target's power. This also lowers the target's Attack stat."},
+        {"name":"Close Combat","type":"fighting","category":"physical","power":120,"accuracy":100,"pp":5,"description":"The user fights the target up close without guarding itself. This lowers the user's Defense and Sp. Def stats."},
+        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":10,"description":"A move that has different effects depending on whether the user is a Ghost type or not."},
+        {"name":"Dig","type":"ground","category":"physical","power":80,"accuracy":100,"pp":10,"description":"The user burrows underground on the first turn, then attacks on the following turn."},
+        {"name":"Double Kick","type":"fighting","category":"physical","power":30,"accuracy":100,"pp":30,"description":"The user attacks by kicking the target twice in a row using two feet."},
+        {"name":"Double-Edge","type":"normal","category":"physical","power":120,"accuracy":100,"pp":15,"description":"A reckless life-risking tackle in which the user rushes the target. This also damages the user quite a lot."},
+        {"name":"Drill Run","type":"ground","category":"physical","power":80,"accuracy":95,"pp":10,"description":"The user crashes into the target while rotating its body like a drill. This move has a heightened chance of landing a critical hit."},
+        {"name":"Earthquake","type":"ground","category":"physical","power":100,"accuracy":100,"pp":10,"description":"The user sets off an earthquake that strikes every Pokémon around it."},
+        {"name":"Endeavor","type":"normal","category":"physical","power":null,"accuracy":100,"pp":5,"description":"The user inflicts damage by cutting down the target's HP to roughly equal the user's HP."},
+        {"name":"Endure","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user endures any attack with at least 1 HP."},
+        {"name":"Facade","type":"normal","category":"physical","power":70,"accuracy":100,"pp":20,"description":"This move's power is doubled if the user is poisoned, burned, or paralyzed."},
+        {"name":"Fire Blast","type":"fire","category":"special","power":110,"accuracy":85,"pp":5,"description":"The target is attacked with an intense blast of all-consuming fire. This may also leave the target with a burn."},
+        {"name":"Flamethrower","type":"fire","category":"special","power":90,"accuracy":100,"pp":15,"description":"The target is scorched with an intense blast of fire. This may also leave the target with a burn."},
+        {"name":"Giga Impact","type":"normal","category":"physical","power":150,"accuracy":90,"pp":5,"description":"The user charges at the target using every bit of its power. The user can't move on the next turn."},
+        {"name":"Headbutt","type":"normal","category":"physical","power":70,"accuracy":100,"pp":15,"description":"The user sticks out its head and attacks by charging straight into the target. This may also make the target flinch."},
+        {"name":"High Horsepower","type":"ground","category":"physical","power":95,"accuracy":95,"pp":10,"description":"The user fiercely attacks the target using its entire body."},
+        {"name":"Hydro Pump","type":"water","category":"special","power":110,"accuracy":80,"pp":5,"description":"The target is blasted by a huge volume of water launched under great pressure."},
+        {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Lash Out","type":"dark","category":"physical","power":75,"accuracy":100,"pp":5,"description":"The user lashes out to vent its frustration. This move's power is doubled if the user's stats were lowered during this turn."},
+        {"name":"Liquidation","type":"water","category":"physical","power":85,"accuracy":100,"pp":10,"description":"The user slams into the target using a full-force blast of water. This may also lower the target's Defense stat."},
+        {"name":"Outrage","type":"dragon","category":"physical","power":120,"accuracy":100,"pp":10,"description":"The user rampages and attacks for two to three turns. The user then becomes confused."},
+        {"name":"Protect","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"This move enables the user to protect itself from all attacks."},
+        {"name":"Raging Bull","type":"water","category":"physical","power":90,"accuracy":100,"pp":10,"description":"The user performs a tackle like a raging bull. This move's type depends on the user's form. It can also break barriers such as Light Screen and Reflect."},
+        {"name":"Rain Dance","type":"water","category":"status","power":null,"accuracy":null,"pp":5,"description":"The user summons a heavy rain that falls for five turns, powering up Water-type attacks."},
+        {"name":"Rest","type":"psychic","category":"status","power":null,"accuracy":null,"pp":5,"description":"The user goes to sleep for two turns. This fully restores the user's HP and cures any status conditions."},
+        {"name":"Reversal","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":15,"description":"An all-out attack that becomes more powerful the less HP the user has."},
+        {"name":"Rock Slide","type":"rock","category":"physical","power":75,"accuracy":90,"pp":10,"description":"Large boulders are hurled at opposing Pokémon to inflict damage. This may also make the opposing Pokémon flinch."},
+        {"name":"Rock Tomb","type":"rock","category":"physical","power":60,"accuracy":95,"pp":15,"description":"The user hurls boulders at the target to inflict damage. This also lowers the target's Speed stat."},
+        {"name":"Sandstorm","type":"rock","category":"status","power":null,"accuracy":null,"pp":10,"description":"A five-turn sandstorm is summoned to hurt all types except Rock, Ground, and Steel."},
+        {"name":"Scary Face","type":"normal","category":"status","power":null,"accuracy":100,"pp":10,"description":"The user frightens the target with a scary face to harshly lower its Speed stat."},
+        {"name":"Sleep Talk","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user randomly uses one of the moves it knows while asleep."},
+        {"name":"Smart Strike","type":"steel","category":"physical","power":70,"accuracy":null,"pp":10,"description":"The user stabs the target with a sharp horn. This attack never misses."},
+        {"name":"Stomping Tantrum","type":"ground","category":"physical","power":75,"accuracy":100,"pp":10,"description":"Driven by frustration, the user attacks the target. This move's power is doubled if the user's previous move failed."},
+        {"name":"Stone Edge","type":"rock","category":"physical","power":100,"accuracy":80,"pp":5,"description":"The user stabs the target with sharpened stones. This move has a heightened chance of landing a critical hit."},
+        {"name":"Substitute","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user creates a substitute for itself using some of its own HP."},
+        {"name":"Sunny Day","type":"fire","category":"status","power":null,"accuracy":null,"pp":5,"description":"The user intensifies the sun for five turns, powering up Fire-type attacks."},
+        {"name":"Surf","type":"water","category":"special","power":90,"accuracy":100,"pp":15,"description":"The user attacks everything around it by swamping its surroundings with a giant wave."},
+        {"name":"Swagger","type":"normal","category":"status","power":null,"accuracy":85,"pp":15,"description":"The user enrages and confuses the target. However, this also sharply boosts the target's Attack stat."},
+        {"name":"Take Down","type":"normal","category":"physical","power":90,"accuracy":85,"pp":20,"description":"A reckless full-body charge attack for slamming into the target. This also damages the user a little."},
+        {"name":"Thief","type":"dark","category":"physical","power":60,"accuracy":100,"pp":25,"description":"The user attacks and steals the target's held item simultaneously."},
+        {"name":"Thrash","type":"normal","category":"physical","power":120,"accuracy":100,"pp":10,"description":"The user rampages and attacks for two to three turns. The user then becomes confused."},
+        {"name":"Throat Chop","type":"dark","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user attacks the target's throat, preventing the target from using sound-based moves for two turns."},
+        {"name":"Trailblaze","type":"grass","category":"physical","power":50,"accuracy":100,"pp":20,"description":"The user attacks suddenly as if leaping out from tall grass. The user's nimble footwork boosts its Speed stat."},
+        {"name":"Water Pulse","type":"water","category":"special","power":60,"accuracy":100,"pp":20,"description":"The user attacks the target with a pulsing blast of water. This may also confuse the target."},
+        {"name":"Wave Crash","type":"water","category":"physical","power":120,"accuracy":100,"pp":10,"description":"The user shrouds itself in water and slams into the target with its whole body. This also damages the user quite a lot."},
+        {"name":"Whirlpool","type":"water","category":"special","power":35,"accuracy":85,"pp":15,"description":"The user traps the target in a violent swirling whirlpool for four to five turns."},
+        {"name":"Wild Charge","type":"electric","category":"physical","power":90,"accuracy":100,"pp":15,"description":"The user shrouds itself in electricity and smashes into the target. This also damages the user a little."},
+        {"name":"Work Up","type":"normal","category":"status","power":null,"accuracy":null,"pp":30,"description":"The user is roused, and its Attack and Sp. Atk stats are boosted."},
+        {"name":"Zen Headbutt","type":"psychic","category":"physical","power":80,"accuracy":90,"pp":15,"description":"The user focuses its willpower to its head and attacks the target. This may also make the target flinch."}
+      ],
+    "sprite": "/sprites/10252.png",
+    "officialArt": "/sprites/10252.png",
+    "generation": 9,
+    "forms": [],
+    "hasMega": false,
+    "recruitmentCost": null,
+    "homeCompatible": true,
+    "homeSource": [
+      "Scarlet/Violet"
+    ],
+    "season": 1,
+    "tier": "B",
+    "usageRate": 3.8
+  },
+  {
     "id": 130,
     "name": "Gyarados",
     "dexNumber": 130,
@@ -7624,7 +7403,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Intimidate",
-        "description": "Lowers opponents' Attack one stage upon entering battle.",
+        "description": "When the Pokémon enters a battle, it intimidates opposing Pokémon and makes them cower, lowering their Attack stats.",
         "isHidden": false
       },
       {
@@ -7667,7 +7446,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Ice Beam","type":"ice","category":"special","power":90,"accuracy":100,"pp":10,"description":"The target is struck with an icy-cold beam of energy. This may also leave the target frozen."},
         {"name":"Ice Fang","type":"ice","category":"physical","power":65,"accuracy":95,"pp":15,"description":"The user bites with cold-infused fangs. This may also make the target flinch or leave it frozen."},
         {"name":"Icy Wind","type":"ice","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks with a gust of chilled air. This also lowers opposing Pokémon's Speed stats."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."},
         {"name":"Lash Out","type":"dark","category":"physical","power":75,"accuracy":100,"pp":5,"description":"The user lashes out to vent its frustration toward the target. This move's power is doubled if the user's stats were lowered during this turn."},
         {"name":"Muddy Water","type":"water","category":"special","power":90,"accuracy":85,"pp":10,"description":"The user attacks by shooting muddy water at opposing Pokémon. This may also lower their accuracy."},
@@ -7724,7 +7503,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Mold Breaker",
-            "description": "Bypasses targets' abilities if they could hinder or prevent a move.",
+            "description": "Moves can be used on the target regardless of its Abilities.",
             "isChampions": false
           }
         ],
@@ -8184,7 +7963,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Hurricane","type":"flying","category":"special","power":110,"accuracy":70,"pp":10,"description":"The user attacks by wrapping its opponent in a fierce wind that flies up into the sky. It may also confuse the target."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"1st turn: Attack 2nd turn: Rest"},
         {"name":"Ice Fang","type":"ice","category":"physical","power":65,"accuracy":95,"pp":15,"description":"The user bites with cold-infused fangs. It may also make the foe flinch or freeze. "},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The foe slams the target with its steel-hard head. It may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The foe slams the target with its steel-hard head. It may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"An attack that may reduce DEFENSE."},
         {"name":"Meteor Beam","type":"rock","category":"special","power":120,"accuracy":90,"pp":10,"description":"In this two-turn attack, the user gathers space power and boosts its Sp. Atk stat, then attacks the target on the next turn."},
         {"name":"Payback","type":"dark","category":"physical","power":50,"accuracy":100,"pp":10,"description":"If the user can use this attack after the foe attacks, its power is doubled. "},
@@ -8238,7 +8017,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Tough Claws",
-            "description": "",
+            "description": "Powers up moves that make direct contact.",
             "isChampions": false
           }
         ],
@@ -8283,7 +8062,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Thick Fat",
-        "description": "Halves damage from fire and ice moves.",
+        "description": "The Pokémon is protected by a layer of thick fat, which halves the damage taken from Fire- and Ice-type moves.",
         "isHidden": false
       },
       {
@@ -8339,7 +8118,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Ice Beam","type":"ice","category":"special","power":90,"accuracy":100,"pp":10,"description":"The target is struck with an icy-cold beam of energy. This may also leave the target frozen."},
         {"name":"Ice Punch","type":"ice","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The target is attacked with an icy punch. This may also leave the target frozen."},
         {"name":"Icy Wind","type":"ice","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks with a gust of chilled air. This also lowers opposing Pokémon's Speed stats."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Last Resort","type":"normal","category":"physical","power":140,"accuracy":100,"pp":5,"description":"This move can be used only after the user has used all the other moves it knows in the battle."},
         {"name":"Mud-Slap","type":"ground","category":"special","power":20,"accuracy":100,"pp":10,"description":"The user hurls mud in the target's face to inflict damage and lower its accuracy."},
         {"name":"Outrage","type":"dragon","category":"physical","power":120,"accuracy":100,"pp":10,"description":"The user rampages and attacks for two to three turns. The user then becomes confused."},
@@ -8416,12 +8195,12 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Inner Focus",
-        "description": "Prevents flinching.",
+        "description": "The Pokémon's intensely focused, and that prevents it from flinching.",
         "isHidden": false
       },
       {
         "name": "Multiscale",
-        "description": "Halves damage taken from full HP.",
+        "description": "Reduces damage taken when HP is full.",
         "isHidden": true
       }
     ],
@@ -8471,7 +8250,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Ice Punch","type":"ice","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The target is attacked with an icy punch. This may also leave the target frozen."},
         {"name":"Ice Spinner","type":"ice","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user covers its feet in thin ice and twirls around, slamming into the target. This move's spinning motion also destroys the terrain."},
         {"name":"Icy Wind","type":"ice","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks with a gust of chilled air. This also lowers opposing Pokémon's Speed stats."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."},
         {"name":"Light Screen","type":"psychic","category":"status","power":null,"accuracy":null,"pp":30,"description":"A wondrous wall of light is put up to reduce damage from special moves for five turns."},
         {"name":"Low Kick","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":20,"description":"A powerful low kick that makes the target fall over. The heavier the target, the greater the move's power."},
@@ -8595,7 +8374,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Charm","type":"fairy","category":"status","power":null,"accuracy":100,"pp":20,"description":"The user gazes at the target rather charmingly, making it less wary. This harshly lowers the target's Attack stat."},
         {"name":"Counter","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":20,"description":"A retaliatory attack that counters any physical move, inflicting double the damage taken."},
         {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":10,"description":"A move that has different effects depending on whether the user is a Ghost type or not."},
-        {"name":"Dazzling Gleam","type":"fairy","category":"special","power":80,"accuracy":100,"pp":15,"description":""},
+        {"name":"Dazzling Gleam","type":"fairy","category":"special","power":80,"accuracy":100,"pp":15,"description":"The user damages opposing Pokémon by emitting a powerful flash."},
         {"name":"Double-Edge","type":"normal","category":"physical","power":120,"accuracy":100,"pp":15,"description":"A reckless life-risking tackle in which the user rushes the target. This also damages the user quite a lot."},
         {"name":"Dragon Tail","type":"dragon","category":"physical","power":60,"accuracy":90,"pp":10,"description":"The target is knocked away, and a different Pokémon is dragged out. In the wild, this ends a battle against a single Pokémon."},
         {"name":"Earth Power","type":"ground","category":"special","power":90,"accuracy":100,"pp":10,"description":"Has a 10% chance of lowering the target's Sp. Def stat by 1 stage."},
@@ -8753,10 +8532,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Howl","type":"normal","category":"status","power":0,"accuracy":null,"pp":40,"description":"Howls to raise the spirit and boosts ATTACK."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"1st turn: Attack 2nd turn: Rest"},
         {"name":"Inferno","type":"fire","category":"special","power":100,"accuracy":50,"pp":5,"description":"The user attacks by engulfing the target in an intense fire. It leaves the target with a burn."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The foe slams the target with its steel-hard head. It may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The foe slams the target with its steel-hard head. It may also make the target flinch."},
         {"name":"Lava Plume","type":"fire","category":"special","power":80,"accuracy":100,"pp":15,"description":"An inferno of scarlet flames washes over all Pokémon in battle. It may also inflict burns."},
         {"name":"Low Kick","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":20,"description":"The heavier the target the greater this move's power (ranging between 20 and 120)."},
-        {"name":"Mega Kick","type":"normal","category":"physical","power":120,"accuracy":75,"pp":5,"description":""},
+        {"name":"Mega Kick","type":"normal","category":"physical","power":120,"accuracy":75,"pp":5,"description":"The target is attacked by a kick launched with muscle-packed power."},
         {"name":"Overheat","type":"fire","category":"special","power":130,"accuracy":90,"pp":5,"description":"Allows a full-power attack, but sharply lowers SP. ATK."},
         {"name":"Play Rough","type":"fairy","category":"physical","power":90,"accuracy":90,"pp":10,"description":"The user plays rough with the target and attacks it. This may also lower the target’s Attack stat."},
         {"name":"Protect","type":"normal","category":"status","power":0,"accuracy":null,"pp":10,"description":"Foils attack that turn. It may fail."},
@@ -8863,12 +8642,12 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Hex","type":"ghost","category":"special","power":65,"accuracy":100,"pp":10,"description":"This relentless attack does massive damage to a target affected by status problems."},
         {"name":"Howl","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"Boosts the Attack stats of the user and its allies by 1 stage."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"1st turn: Attack 2nd turn: Rest"},
-        {"name":"Infernal Parade","type":"ghost","category":"special","power":60,"accuracy":100,"pp":15,"description":"The user attacks with myriad fireballs. This may also leave the target with a burn. This move's power is doubled if the target has a status condition."},
+        {"name":"Infernal Parade","type":"ghost","category":"special","power":65,"accuracy":100,"pp":15,"description":"The user attacks with myriad fireballs. This may also leave the target with a burn. This move's power is doubled if the target has a status condition."},
         {"name":"Inferno","type":"fire","category":"special","power":100,"accuracy":50,"pp":5,"description":"The user attacks by engulfing the target in an intense fire. It leaves the target with a burn."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The foe slams the target with its steel-hard head. It may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The foe slams the target with its steel-hard head. It may also make the target flinch."},
         {"name":"Lava Plume","type":"fire","category":"special","power":80,"accuracy":100,"pp":15,"description":"An inferno of scarlet flames washes over all Pokémon in battle. It may also inflict burns."},
         {"name":"Low Kick","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":20,"description":"The heavier the target the greater this move's power (ranging between 20 and 120)."},
-        {"name":"Mega Kick","type":"normal","category":"physical","power":120,"accuracy":75,"pp":5,"description":""},
+        {"name":"Mega Kick","type":"normal","category":"physical","power":120,"accuracy":75,"pp":5,"description":"The target is attacked by a kick launched with muscle-packed power."},
         {"name":"Mystical Fire","type":"fire","category":"special","power":75,"accuracy":100,"pp":10,"description":"The user attacks by breathing a special, hot fire. This also lowers the target’s Sp. Atk stat."},
         {"name":"Night Shade","type":"ghost","category":"special","power":null,"accuracy":100,"pp":20,"description":"Deals 50 HP of damage."},
         {"name":"Overheat","type":"fire","category":"special","power":130,"accuracy":90,"pp":5,"description":"Allows a full-power attack, but sharply lowers SP. ATK."},
@@ -8936,7 +8715,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Sheer Force",
-        "description": "Strengthens moves with extra effects to 1.3× their power, but prevents their extra effects.",
+        "description": "Removes additional effects from moves but increases their power.",
         "isHidden": true
       },
       {
@@ -8958,7 +8737,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Body Slam","type":"normal","category":"physical","power":85,"accuracy":100,"pp":15,"description":"The user attacks by dropping onto the target with its full body weight. This may also leave the target with paralysis."},
         {"name":"Breaking Swipe","type":"dragon","category":"physical","power":60,"accuracy":100,"pp":15,"description":"The user swings its tough tail wildly and attacks opposing Pokémon. This also lowers their Attack stats."},
         {"name":"Brick Break","type":"fighting","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The user attacks with a swift chop. This move can also break barriers, such as Light Screen and Reflect."},
-        {"name":"Brutal Swing","type":"dark","category":"physical","power":60,"accuracy":100,"pp":15,"description":""},
+        {"name":"Brutal Swing","type":"dark","category":"physical","power":60,"accuracy":100,"pp":15,"description":"The user swings its body around violently to inflict damage on everything in its vicinity."},
         {"name":"Bulldoze","type":"ground","category":"physical","power":60,"accuracy":100,"pp":20,"description":"The user strikes everything around it by stomping down on the ground. This lowers the Speed stats of those hit."},
         {"name":"Chilling Water","type":"water","category":"special","power":50,"accuracy":100,"pp":20,"description":"The user attacks the target by showering it with water that's so cold it saps the target's power. This also lowers the target's Attack stat."},
         {"name":"Counter","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":20,"description":"A retaliatory attack that counters any physical move, inflicting double the damage taken."},
@@ -9189,7 +8968,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Mold Breaker",
-            "description": "Bypasses targets' abilities if they could hinder or prevent a move.",
+            "description": "Moves can be used on the target regardless of its Abilities.",
             "isChampions": false
           }
         ],
@@ -9228,7 +9007,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Thick Fat",
-        "description": "Halves damage from Fire and Ice-type moves.",
+        "description": "The Pokémon is protected by a layer of thick fat, which halves the damage taken from Fire- and Ice-type moves.",
         "isHidden": false
       },
       {
@@ -9460,7 +9239,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Magic Bounce",
-        "description": "Reflects status moves back.",
+        "description": "Reflects most non-damaging moves back at their user.",
         "isHidden": true
       }
     ],
@@ -9575,7 +9354,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Inner Focus",
-        "description": "Prevents flinching.",
+        "description": "The Pokémon's intensely focused, and that prevents it from flinching.",
         "isHidden": true
       }
     ],
@@ -9985,7 +9764,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Sheer Force",
-        "description": "Removes secondary effects but boosts power by 30%.",
+        "description": "Removes additional effects from moves but increases their power.",
         "isHidden": true
       }
     ],
@@ -10024,7 +9803,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Ice Fang","type":"ice","category":"physical","power":65,"accuracy":95,"pp":15,"description":"The user bites with cold-infused fangs. This may also make the target flinch or leave it frozen."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."},
         {"name":"Magnet Rise","type":"electric","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user levitates using electrically generated magnetism for five turns."},
         {"name":"Meteor Beam","type":"rock","category":"special","power":120,"accuracy":90,"pp":10,"description":"The user gathers energy from space and boosts its Sp. Atk stat on the first turn, then attacks on the next turn."},
@@ -10079,7 +9858,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Sand Force",
-            "description": "Boosts Rock, Ground, and Steel-type moves by 30% in sandstorm.",
+            "description": "Boosts the power of Rock-, Ground-, and Steel-type moves in a sandstorm.",
             "isChampions": false
           }
         ],
@@ -10125,7 +9904,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Technician",
-        "description": "Strengthens moves of 60 base power or less to 1.5× their power.",
+        "description": "Powers up weak moves so the Pokémon can deal more damage with them.",
         "isHidden": false
       },
       {
@@ -10166,7 +9945,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Helping Hand","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user assists an ally by boosting the power of that ally's attack."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Knock Off","type":"dark","category":"physical","power":65,"accuracy":100,"pp":20,"description":"The user slaps down the target's held item, making it unusable for that battle. This move does more damage if the target has a held item."},
         {"name":"Light Screen","type":"psychic","category":"status","power":null,"accuracy":null,"pp":30,"description":"A wondrous wall of light is put up to reduce damage from special moves for five turns."},
         {"name":"Lunge","type":"bug","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user makes a lunge at the target, attacking with full force. This also lowers the target's Attack stat."},
@@ -10222,7 +10001,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Technician",
-            "description": "Strengthens moves of 60 base power or less to 1.5× their power.",
+            "description": "Powers up weak moves so the Pokémon can deal more damage with them.",
             "isChampions": false
           }
         ],
@@ -10367,7 +10146,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Skill Link",
-            "description": "Extends two-to-five-hit moves and triple kick to their full length every time.",
+            "description": "Maximizes the number of times multistrike moves hit.",
             "isChampions": false
           }
         ],
@@ -10445,7 +10224,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Icy Wind","type":"ice","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks with a gust of chilled air. This also lowers opposing Pokémon's Speed stats."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Metal Sound","type":"steel","category":"status","power":null,"accuracy":85,"pp":40,"description":"A horrible sound like scraping metal harshly lowers the target's Sp. Def stat."},
         {"name":"Night Slash","type":"dark","category":"physical","power":70,"accuracy":100,"pp":15,"description":"The user slashes the target the instant an opportunity arises. This move has a heightened chance of landing a critical hit."},
         {"name":"Payback","type":"dark","category":"physical","power":50,"accuracy":100,"pp":10,"description":"The user stores power, then attacks. This move's power is doubled if the user moves after the target."},
@@ -10497,7 +10276,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Stalwart",
-            "description": "Steel-type moves gain 30% power. Contact moves deal 1/8 max HP to the attacker.",
+            "description": "Ignores the effects of opposing Pokémon's Abilities and moves that draw in moves.",
             "isChampions": false
           }
         ],
@@ -10642,7 +10421,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Solar Power",
-            "description": "Increases Special Attack to 1.5× but costs 1/8 max HP after each turn during strong sunlight.",
+            "description": "In harsh sunlight, the Pokémon's Sp. Atk stat is boosted, but HP decreases every turn.",
             "isChampions": false
           }
         ],
@@ -10681,7 +10460,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Sand Stream",
-        "description": "Summons a sandstorm that lasts indefinitely upon entering battle.",
+        "description": "The Pokémon summons a sandstorm when it enters a battle.",
         "isHidden": false
       },
       {
@@ -10737,7 +10516,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Ice Punch","type":"ice","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The target is attacked with an icy punch. This may also leave the target frozen."},
         {"name":"Icy Wind","type":"ice","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks with a gust of chilled air. This also lowers opposing Pokémon's Speed stats."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."},
         {"name":"Knock Off","type":"dark","category":"physical","power":65,"accuracy":100,"pp":20,"description":"The user slaps down the target's held item, making it unusable for that battle. This move does more damage if the target has a held item."},
         {"name":"Lash Out","type":"dark","category":"physical","power":75,"accuracy":100,"pp":5,"description":"The user lashes out to vent its frustration toward the target. This move's power is doubled if the user's stats were lowered during this turn."},
@@ -10806,7 +10585,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Sand Stream",
-            "description": "Summons a sandstorm that lasts indefinitely upon entering battle.",
+            "description": "The Pokémon summons a sandstorm when it enters a battle.",
             "isChampions": false
           }
         ],
@@ -10956,7 +10735,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Trace",
-        "description": "Copies an opponent's ability upon entering battle.",
+        "description": "When it enters a battle, the Pokémon copies an opposing Pokémon's Ability.",
         "isHidden": false
       },
       {
@@ -11008,7 +10787,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Memento","type":"dark","category":"status","power":null,"accuracy":100,"pp":20,"description":"Lowers the target's Attack and Sp. Atk stats by 2 stages. The user faints upon using this move."},
         {"name":"Misty Explosion","type":"fairy","category":"special","power":100,"accuracy":100,"pp":5,"description":"The user attacks everything around it and faints upon using this move. This move's power is boosted on Misty Terrain."},
         {"name":"Misty Terrain","type":"fairy","category":"status","power":null,"accuracy":null,"pp":10,"description":"This protects Pokémon on the ground from status conditions and halves damage from Dragon-type moves for five turns."},
-        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":15,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target's Sp. Atk stat."},
+        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":16,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target's Sp. Atk stat."},
         {"name":"Mystical Fire","type":"fire","category":"special","power":75,"accuracy":100,"pp":10,"description":"The user attacks by breathing a special, hot fire. This also lowers the target's Sp. Atk stat."},
         {"name":"Night Shade","type":"ghost","category":"special","power":null,"accuracy":100,"pp":15,"description":"The user makes the target see a frightening mirage. It inflicts damage equal to the user's level."},
         {"name":"Pain Split","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user adds its HP to the target's HP, then equally splits the combined HP between the target and itself."},
@@ -11025,7 +10804,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Round","type":"normal","category":"special","power":60,"accuracy":100,"pp":15,"description":"The user attacks the target with a song. If others use this move, they will act immediately after the initial user, and the power of their Rounds will be boosted."},
         {"name":"Safeguard","type":"normal","category":"status","power":null,"accuracy":null,"pp":25,"description":"The user creates a protective field that prevents status conditions for five turns."},
         {"name":"Shadow Ball","type":"ghost","category":"special","power":80,"accuracy":100,"pp":15,"description":"The user attacks by hurling a shadowy blob at the target. This may also lower the target’s Sp. Def stat."},
-        {"name":"Shadow Sneak","type":"ghost","category":"physical","power":40,"accuracy":100,"pp":20,"description":""},
+        {"name":"Shadow Sneak","type":"ghost","category":"physical","power":40,"accuracy":100,"pp":20,"description":"The user extends its shadow and attacks the foe from behind. This move always goes first."},
         {"name":"Skill Swap","type":"psychic","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user employs its psychic power to exchange Abilities with the target."},
         {"name":"Sleep Talk","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user randomly uses one of the moves it knows. This move can only be used while the user is asleep."},
         {"name":"Snore","type":"normal","category":"special","power":50,"accuracy":100,"pp":15,"description":"This attack can be used only if the user is asleep. The harsh noise may also make the target flinch."},
@@ -11069,7 +10848,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Pixilate",
-            "description": "Turns the bearer's normal moves into fairy moves and strengthens them to 1.3× their power.",
+            "description": "Normal-type moves become Fairy-type moves. The power of those moves is boosted a little.",
             "isChampions": false
           }
         ],
@@ -11120,7 +10899,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Prankster",
-        "description": "Gives priority to a status move.",
+        "description": "Gives priority to the Pokémon's status moves.",
         "isHidden": true
       }
     ],
@@ -11236,7 +11015,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Magic Bounce",
-            "description": "",
+            "description": "Reflects most non-damaging moves back at their user.",
             "isChampions": false
           }
         ],
@@ -11301,7 +11080,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Brutal Swing","type":"dark","category":"physical","power":60,"accuracy":100,"pp":20,"description":"The user swings its body around violently to inflict damage on everything in its vicinity."},
         {"name":"Bulldoze","type":"ground","category":"physical","power":60,"accuracy":100,"pp":20,"description":"The user strikes everything around it by stomping down on the ground. This lowers the Speed stats of those hit."},
         {"name":"Crunch","type":"dark","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user crunches up the target with sharp fangs. This may also lower the target's Defense stat."},
-        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":20,"description":""},
+        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":20,"description":"A move that has different effects depending on whether the user is a Ghost type or not."},
         {"name":"Dark Pulse","type":"dark","category":"special","power":80,"accuracy":100,"pp":15,"description":"The user releases a horrible aura imbued with ill intent. This may also make the target flinch."},
         {"name":"Dig","type":"ground","category":"physical","power":80,"accuracy":100,"pp":10,"description":"The user burrows into the ground on the first turn, then attacks on the next turn."},
         {"name":"Double-Edge","type":"normal","category":"physical","power":120,"accuracy":100,"pp":15,"description":"A reckless life-risking tackle in which the user rushes the target. This also damages the user quite a lot."},
@@ -11329,7 +11108,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Ice Punch","type":"ice","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The target is attacked with an icy punch. This may also leave the target frozen."},
         {"name":"Icy Wind","type":"ice","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks with a gust of chilled air. This also lowers opposing Pokémon's Speed stats."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."},
         {"name":"Low Kick","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":20,"description":"A powerful low kick that makes the target fall over. The heavier the target, the greater the move's power."},
         {"name":"Mega Kick","type":"normal","category":"physical","power":120,"accuracy":75,"pp":5,"description":"The target is attacked by a kick launched with muscle-packed power."},
@@ -11396,7 +11175,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Filter",
-            "description": "Reduces super-effective damage by 25%.",
+            "description": "Reduces the power of supereffective attacks that hit the Pokémon.",
             "isHidden": false
           }
         ],
@@ -11440,12 +11219,12 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Drought",
-        "description": "Summons strong sunlight that lasts indefinitely upon entering battle.",
+        "description": "Turns the sunlight harsh when the Pokémon enters a battle.",
         "isHidden": false
       },
       {
         "name": "Shell Armor",
-        "description": "Protects against critical hits.",
+        "description": "A hard shell protects the Pokémon from critical hits.",
         "isHidden": true
       }
     ],
@@ -11591,7 +11370,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Hyper Voice","type":"normal","category":"special","power":90,"accuracy":100,"pp":10,"description":"The user attacks by letting loose a horribly loud, resounding cry."},
         {"name":"Ice Beam","type":"ice","category":"special","power":90,"accuracy":100,"pp":10,"description":"The target is struck with an icy-cold beam of energy. This may also leave the target frozen."},
-        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":15,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target's Sp. Atk stat."},
+        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":16,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target's Sp. Atk stat."},
         {"name":"Outrage","type":"dragon","category":"physical","power":120,"accuracy":100,"pp":10,"description":"The user rampages and attacks for two to three turns. The user then becomes confused."},
         {"name":"Perish Song","type":"normal","category":"status","power":null,"accuracy":null,"pp":5,"description":"Any Pokémon that hears this song faints in three turns, unless it switches out of battle."},
         {"name":"Play Rough","type":"fairy","category":"physical","power":90,"accuracy":90,"pp":10,"description":"The user attacks by playing rough with the target. This may also lower the target's Attack stat."},
@@ -11643,7 +11422,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Pixilate",
-            "description": "Turns the bearer's normal moves into fairy moves and strengthens them to 1.3× their power.",
+            "description": "Normal-type moves become Fairy-type moves. The power of those moves is boosted a little.",
             "isChampions": false
           }
         ],
@@ -11730,7 +11509,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Ice Beam","type":"ice","category":"special","power":90,"accuracy":100,"pp":10,"description":"The target is struck with an icy-cold beam of energy. This may also leave the target frozen."},
         {"name":"Icy Wind","type":"ice","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks with a gust of chilled air. This also lowers opposing Pokémon's Speed stats."},
         {"name":"Imprison","type":"psychic","category":"status","power":null,"accuracy":null,"pp":10,"description":"If opposing Pokémon know any move also known by the user, they are prevented from using it."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."},
         {"name":"Life Dew","type":"water","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user scatters mysterious water around and restores the HP of itself and its ally Pokémon currently in the battle."},
         {"name":"Light Screen","type":"psychic","category":"status","power":null,"accuracy":null,"pp":30,"description":"A wondrous wall of light is put up to reduce damage from special moves for five turns."},
@@ -11937,7 +11716,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Sandstorm","type":"rock","category":"status","power":null,"accuracy":null,"pp":10,"description":"A five-turn sandstorm is summoned to damage all Pokémon except Rock, Ground, and Steel types. The sandstorm also boosts the Sp. Def stats of Rock types."},
         {"name":"Shadow Ball","type":"ghost","category":"special","power":80,"accuracy":100,"pp":15,"description":"The user attacks by hurling a shadowy blob at the target. This may also lower the target’s Sp. Def stat."},
         {"name":"Shadow Claw","type":"ghost","category":"physical","power":70,"accuracy":100,"pp":15,"description":"The user attacks by slashing the target with a sharp claw made from shadows. This move has a heightened chance of landing a critical hit."},
-        {"name":"Shadow Sneak","type":"ghost","category":"physical","power":40,"accuracy":100,"pp":20,"description":""},
+        {"name":"Shadow Sneak","type":"ghost","category":"physical","power":40,"accuracy":100,"pp":20,"description":"The user extends its shadow and attacks the foe from behind. This move always goes first."},
         {"name":"Sleep Talk","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user randomly uses one of the moves it knows. This move can only be used while the user is asleep."},
         {"name":"Snarl","type":"dark","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user yells as if it's ranting about something, which lowers the Sp. Atk stats of opposing Pokémon."},
         {"name":"Snore","type":"normal","category":"special","power":50,"accuracy":100,"pp":15,"description":"This attack can be used only if the user is asleep. The harsh noise may also make the target flinch."},
@@ -12004,7 +11783,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
           {
             "name": "Spectral Doom",
             "description": "Dark and Ghost-type moves gain 30% power. Moves bypass Screens and Substitute.",
-            "isChampions": true
+            "isChampions": false
           }
         ],
         "isMega": true
@@ -12267,7 +12046,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "category": "physical",
         "power": 80,
         "accuracy": 100,
-        "pp": 15,
+        "pp": 16,
         "description": "The user slams the target with its steel-hard head. This may also make the target flinch."
       },
       {
@@ -12995,7 +12774,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Tough Claws",
-            "description": "Strengthens moves that make contact to 1.33× their power.",
+            "description": "Powers up moves that make direct contact.",
             "isChampions": false
           }
         ],
@@ -13040,7 +12819,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Shell Armor",
-        "description": "Blocks critical hits.",
+        "description": "A hard shell protects the Pokémon from critical hits.",
         "isHidden": true
       }
     ],
@@ -13074,7 +12853,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"1st turn: Attack 2nd turn: Rest"},
         {"name":"Hyper Voice","type":"normal","category":"special","power":90,"accuracy":100,"pp":10,"description":"A loud attack that uses sound waves to injure."},
         {"name":"Iron Defense","type":"steel","category":"status","power":0,"accuracy":null,"pp":15,"description":"Hardens the body’s surface to sharply raise DEFENSE."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The foe slams the target with its steel-hard head. It may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The foe slams the target with its steel-hard head. It may also make the target flinch."},
         {"name":"Leaf Storm","type":"grass","category":"special","power":130,"accuracy":90,"pp":5,"description":"A storm of sharp leaves is whipped up. The attack’s recoil sharply reduces the user’s Sp. Atk stat."},
         {"name":"Leech Seed","type":"grass","category":"status","power":0,"accuracy":90,"pp":10,"description":"Steals HP from the foe on every turn."},
         {"name":"Light Screen","type":"psychic","category":"status","power":0,"accuracy":null,"pp":30,"description":"Ups SPCL.DEF with a wall of light."},
@@ -13160,7 +12939,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Iron Fist",
-        "description": "Boosts the power of punching moves.",
+        "description": "Powers up punching moves.",
         "isHidden": true
       }
     ],
@@ -13526,7 +13305,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Scrappy",
-            "description": "Can hit Ghost types with Normal and Fighting moves.",
+            "description": "The Pokémon can hit Ghost-type Pokémon with Normal- and Fighting-type moves.",
             "isHidden": false
           }
         ],
@@ -13572,7 +13351,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Infiltrator",
-        "description": "Ignores screens and Substitute.",
+        "description": "Passes through the opposing Pokémon's barrier, substitute, and the like and strikes.",
         "isHidden": true
       }
     ],
@@ -13707,7 +13486,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Giga Impact","type":"normal","category":"physical","power":150,"accuracy":90,"pp":5,"description":"The user charges at the target using every bit of its power. The user can't move on the next turn."},
         {"name":"Helping Hand","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user assists an ally by boosting the power of that ally's attack."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."},
         {"name":"Liquidation","type":"water","category":"physical","power":85,"accuracy":100,"pp":10,"description":"The user slams into the target using a full-force blast of water. This may also lower the target's Defense stat."},
         {"name":"Mud Shot","type":"ground","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks by hurling a blob of mud at the target. This also lowers the target's Speed stat."},
@@ -13761,7 +13540,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Sand Force",
-            "description": "Strengthens rock, ground, and steel moves to 1.3× their power during a sandstorm.  Protects against sandstorm damage.",
+            "description": "Boosts the power of Rock-, Ground-, and Steel-type moves in a sandstorm.",
             "isChampions": false
           }
         ],
@@ -13785,7 +13564,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
           {
             "name": "Earth Sovereign",
             "description": "Ground and Dragon-type moves ignore immunities. On Mega Evolution, summons a sandstorm.",
-            "isChampions": true
+            "isChampions": false
           }
         ],
         "isMega": true
@@ -13830,7 +13609,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Inner Focus",
-        "description": "Prevents flinching.",
+        "description": "The Pokémon's intensely focused, and that prevents it from flinching.",
         "isHidden": false
       },
       {
@@ -13846,7 +13625,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Bite","type":"dark","category":"physical","power":60,"accuracy":100,"pp":25,"description":"The target is bitten with viciously sharp fangs. This may also make the target flinch."},
         {"name":"Blaze Kick","type":"fire","category":"physical","power":85,"accuracy":90,"pp":10,"description":"The user launches a kick that has a heightened chance of landing a critical hit. This may also leave the target with a burn."},
         {"name":"Body Slam","type":"normal","category":"physical","power":85,"accuracy":100,"pp":15,"description":"The user attacks by dropping onto the target with its full body weight. This may also leave the target with paralysis."},
-        {"name":"Bone Rush","type":"ground","category":"physical","power":25,"accuracy":90,"pp":10,"description":"The user attacks by striking the target with a hard bone. This move hits two to five times in a row."},
+        {"name":"Bone Rush","type":"ground","category":"physical","power":30,"accuracy":90,"pp":10,"description":"The user attacks by striking the target with a hard bone. This move hits two to five times in a row."},
         {"name":"Brick Break","type":"fighting","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The user attacks with a swift chop. This move can also break barriers, such as Light Screen and Reflect."},
         {"name":"Bulk Up","type":"fighting","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user tenses its muscles to bulk up its body, boosting its Attack and Defense stats."},
         {"name":"Bulldoze","type":"ground","category":"physical","power":60,"accuracy":100,"pp":20,"description":"The user strikes everything around it by stomping down on the ground. This lowers the Speed stats of those hit."},
@@ -13946,7 +13725,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Adaptability",
-            "description": "Increases the same-type attack bonus from 1.5× to 2×.",
+            "description": "Powers up moves of the same type as the Pokémon.",
             "isChampions": false
           }
         ],
@@ -13954,7 +13733,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Mega Lucario Z",
-        "sprite": "/sprites/oa-10310.png",
+        "sprite": "/sprites/oa-10448.png",
         "types": [
           "fighting",
           "steel"
@@ -13971,7 +13750,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
           {
             "name": "Aura Maximizer",
             "description": "Fighting and Steel-type moves gain 30% power. Special Attack is raised by one stage on Mega Evolution.",
-            "isChampions": true
+            "isChampions": false
           }
         ],
         "isMega": true
@@ -14010,12 +13789,12 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Sand Stream",
-        "description": "Summons a sandstorm that lasts indefinitely upon entering battle.",
+        "description": "The Pokémon summons a sandstorm when it enters a battle.",
         "isHidden": false
       },
       {
         "name": "Sand Force",
-        "description": "Strengthens rock, ground, and steel moves to 1.3× their power during a sandstorm.  Protects against sandstorm damage.",
+        "description": "Boosts the power of Rock-, Ground-, and Steel-type moves in a sandstorm.",
         "isHidden": true
       }
     ],
@@ -14042,7 +13821,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Hyper Voice","type":"normal","category":"special","power":90,"accuracy":100,"pp":10,"description":"The user attacks by letting loose a horribly loud, resounding cry."},
         {"name":"Ice Fang","type":"ice","category":"physical","power":65,"accuracy":95,"pp":15,"description":"The user bites with cold-infused fangs. This may also make the target flinch or leave it frozen."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Mud Shot","type":"ground","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks by hurling a blob of mud at the target. This also lowers the target's Speed stat."},
         {"name":"Mud-Slap","type":"ground","category":"special","power":20,"accuracy":100,"pp":10,"description":"The user hurls mud in the target's face to inflict damage and lower its accuracy."},
         {"name":"Muddy Water","type":"water","category":"special","power":90,"accuracy":85,"pp":10,"description":"The user attacks by shooting muddy water at opposing Pokémon. This may also lower their accuracy."},
@@ -14109,7 +13888,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Snow Warning",
-        "description": "Summons hail/snow when entering battle.",
+        "description": "The Pokémon makes it snow when it enters a battle.",
         "isHidden": false
       },
       {
@@ -14207,7 +13986,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Snow Warning",
-            "description": "Summons hail/snow when entering battle.",
+            "description": "The Pokémon makes it snow when it enters a battle.",
             "isHidden": false
           }
         ],
@@ -14429,7 +14208,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Ice Punch","type":"ice","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The target is attacked with an icy punch. This may also leave the target frozen."},
         {"name":"Icy Wind","type":"ice","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks with a gust of chilled air. This also lowers opposing Pokémon's Speed stats."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."},
         {"name":"Mega Kick","type":"normal","category":"physical","power":120,"accuracy":75,"pp":5,"description":"The target is attacked by a kick launched with muscle-packed power."},
         {"name":"Megahorn","type":"bug","category":"physical","power":120,"accuracy":85,"pp":10,"description":"Using its tough and impressive horn, the user rams into the target with no letup."},
@@ -14751,7 +14530,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Brutal Swing","type":"dark","category":"physical","power":60,"accuracy":100,"pp":20,"description":"The user swings its body around violently to inflict damage on everything in its vicinity."},
         {"name":"Bulldoze","type":"ground","category":"physical","power":60,"accuracy":100,"pp":20,"description":"The user strikes everything around it by stomping down on the ground. This lowers the Speed stats of those hit."},
         {"name":"Counter","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":20,"description":"A retaliatory attack that counters any physical move, inflicting double the damage taken."},
-        {"name":"Crabhammer","type":"water","category":"physical","power":100,"accuracy":90,"pp":10,"description":"The target is hammered with a large pincer. This move has a heightened chance of landing a critical hit."},
+        {"name":"Crabhammer","type":"water","category":"physical","power":95,"pp":10,"description":"The target is hammered with a large pincer. This move has a heightened chance of landing a critical hit."},
         {"name":"Cross Poison","type":"poison","category":"physical","power":70,"accuracy":100,"pp":20,"description":"A slashing attack with a poisonous blade that may also poison the target. This move has a heightened chance of landing a critical hit."},
         {"name":"Crunch","type":"dark","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user crunches up the target with sharp fangs. This may also lower the target's Defense stat."},
         {"name":"Dark Pulse","type":"dark","category":"special","power":80,"accuracy":100,"pp":15,"description":"The user releases a horrible aura imbued with ill intent. This may also make the target flinch."},
@@ -14779,7 +14558,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Payback","type":"dark","category":"physical","power":50,"accuracy":100,"pp":10,"description":"The user stores power, then attacks. This move's power is doubled if the user moves after the target."},
         {"name":"Pin Missile","type":"bug","category":"physical","power":25,"accuracy":95,"pp":20,"description":"The user attacks by shooting sharp spikes at the target. This move hits two to five times in a row."},
         {"name":"Poison Jab","type":"poison","category":"physical","power":80,"accuracy":100,"pp":20,"description":"The target is stabbed with a tentacle, an arm, or the like steeped in poison. This may also poison the target."},
-        {"name":"Power Whip","type":"grass","category":"physical","power":120,"accuracy":85,"pp":5,"description":""},
+        {"name":"Power Whip","type":"grass","category":"physical","power":120,"accuracy":85,"pp":5,"description":"The user violently whirls its vines, tentacles, or the like to harshly lash the target."},
         {"name":"Protect","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession."},
         {"name":"Psychic Fangs","type":"psychic","category":"physical","power":85,"accuracy":100,"pp":10,"description":"The user attacks by biting the target with its psychic capabilities. This move can also break barriers, such as Light Screen and Reflect."},
         {"name":"Quick Attack","type":"normal","category":"physical","power":40,"accuracy":100,"pp":30,"description":"The user lunges at the target to inflict damage, moving at blinding speed. This move always goes first."},
@@ -14946,7 +14725,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Safeguard","type":"normal","category":"status","power":null,"accuracy":null,"pp":25,"description":"The user creates a protective field that prevents status conditions for five turns."},
         {"name":"Shadow Ball","type":"ghost","category":"special","power":80,"accuracy":100,"pp":15,"description":"The user attacks by hurling a shadowy blob at the target. This may also lower the target’s Sp. Def stat."},
         {"name":"Shadow Claw","type":"ghost","category":"physical","power":70,"accuracy":100,"pp":15,"description":"The user attacks by slashing the target with a sharp claw made from shadows. This move has a heightened chance of landing a critical hit."},
-        {"name":"Shadow Sneak","type":"ghost","category":"physical","power":40,"accuracy":100,"pp":20,"description":""},
+        {"name":"Shadow Sneak","type":"ghost","category":"physical","power":40,"accuracy":100,"pp":20,"description":"The user extends its shadow and attacks the foe from behind. This move always goes first."},
         {"name":"Skill Swap","type":"psychic","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user employs its psychic power to exchange Abilities with the target."},
         {"name":"Sleep Talk","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user randomly uses one of the moves it knows. This move can only be used while the user is asleep."},
         {"name":"Snore","type":"normal","category":"special","power":50,"accuracy":100,"pp":15,"description":"This attack can be used only if the user is asleep. The harsh noise may also make the target flinch."},
@@ -14995,7 +14774,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Inner Focus",
-            "description": "Prevents flinching.",
+            "description": "The Pokémon's intensely focused, and that prevents it from flinching.",
             "isHidden": false
           }
         ],
@@ -15137,7 +14916,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Snow Warning",
-            "description": "Summons a hailstorm when entering battle.",
+            "description": "The Pokémon makes it snow when it enters a battle.",
             "isChampions": false
           }
         ],
@@ -15178,7 +14957,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Levitate",
-        "description": "Evades ground moves.",
+        "description": "By floating in the air, the Pokémon receives full immunity to all Ground-type moves.",
         "isHidden": false
       }
     ],
@@ -15265,7 +15044,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Levitate",
-        "description": "Immune to Ground-type moves.",
+        "description": "By floating in the air, the Pokémon receives full immunity to all Ground-type moves.",
         "isHidden": false
       }
     ],
@@ -15353,7 +15132,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Levitate",
-        "description": "Immune to Ground-type moves.",
+        "description": "By floating in the air, the Pokémon receives full immunity to all Ground-type moves.",
         "isHidden": false
       }
     ],
@@ -15441,7 +15220,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Levitate",
-        "description": "Immune to Ground-type moves.",
+        "description": "By floating in the air, the Pokémon receives full immunity to all Ground-type moves.",
         "isHidden": false
       }
     ],
@@ -15529,7 +15308,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Levitate",
-        "description": "Immune to Ground-type moves.",
+        "description": "By floating in the air, the Pokémon receives full immunity to all Ground-type moves.",
         "isHidden": false
       }
     ],
@@ -15617,7 +15396,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Levitate",
-        "description": "Immune to Ground-type moves.",
+        "description": "By floating in the air, the Pokémon receives full immunity to all Ground-type moves.",
         "isHidden": false
       }
     ],
@@ -15852,7 +15631,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Helping Hand","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user assists an ally by boosting the power of that ally's attack."},
         {"name":"High Horsepower","type":"ground","category":"physical","power":95,"accuracy":95,"pp":10,"description":"The user fiercely attacks the target using its entire body."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."},
         {"name":"Knock Off","type":"dark","category":"physical","power":65,"accuracy":100,"pp":20,"description":"The user slaps down the target's held item, making it unusable for that battle. This move does more damage if the target has a held item."},
         {"name":"Low Kick","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":20,"description":"A powerful low kick that makes the target fall over. The heavier the target, the greater the move's power."},
@@ -15956,7 +15735,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Shell Armor",
-        "description": "Protects against critical hits.",
+        "description": "A hard shell protects the Pokémon from critical hits.",
         "isHidden": true
       }
     ],
@@ -16064,7 +15843,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Shell Armor",
-        "description": "Blocks critical hits.",
+        "description": "A hard shell protects the Pokémon from critical hits.",
         "isHidden": true
       }
     ],
@@ -16178,12 +15957,12 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Sand Force",
-        "description": "Strengthens rock, ground, and steel moves to 1.3× their power during a sandstorm.  Protects against sandstorm damage.",
+        "description": "Boosts the power of Rock-, Ground-, and Steel-type moves in a sandstorm.",
         "isHidden": false
       },
       {
         "name": "Mold Breaker",
-        "description": "Bypasses targets' abilities if they could hinder or prevent a move.",
+        "description": "Moves can be used on the target regardless of its Abilities.",
         "isHidden": true
       }
     ],
@@ -16211,8 +15990,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Horn Drill","type":"normal","category":"physical","power":null,"accuracy":30,"pp":5,"description":"The user stabs the target with a horn that rotates like a drill. The target faints instantly if this attack hits."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
-        {"name":"Megahorn","type":"bug","category":"physical","power":120,"accuracy":85,"pp":5,"description":""},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Megahorn","type":"bug","category":"physical","power":120,"accuracy":85,"pp":5,"description":"Using its tough and impressive horn, the user rams into the target with no letup."},
         {"name":"Metal Sound","type":"steel","category":"status","power":null,"accuracy":85,"pp":40,"description":"A horrible sound like scraping metal harshly lowers the target's Sp. Def stat."},
         {"name":"Mud Shot","type":"ground","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks by hurling a blob of mud at the target. This also lowers the target's Speed stat."},
         {"name":"Mud-Slap","type":"ground","category":"special","power":20,"accuracy":100,"pp":10,"description":"The user hurls mud in the target's face to inflict damage and lower its accuracy."},
@@ -16264,8 +16043,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Piercing Drill",
-            "description": "When the Pokémon uses contact moves, it can hit even targets that are protecting themselves, dealing 1/4 of the damage that the move would otherwise deal. Everything aside from the target's protective effects is still triggered.",
-            "isChampions": true
+            "description": "When the Pokémon uses contact moves, it can hit even targets that are protecting themselves, dealing 1/4 of the damage that the move would otherwise deal.",
+            "isChampions": false
           }
         ],
         "isMega": true
@@ -16302,7 +16081,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Healer",
-        "description": "Has a 30% chance of curing each adjacent ally of any major status ailment after each turn.",
+        "description": "Sometimes cures the status conditions of the Pokémon's allies.",
         "isHidden": false
       },
       {
@@ -16409,7 +16188,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Healer",
-            "description": "Has a 30% chance of curing each adjacent ally of any major status ailment after each turn.",
+            "description": "Sometimes cures the status conditions of the Pokémon's allies.",
             "isChampions": false
           }
         ],
@@ -16452,12 +16231,12 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Sheer Force",
-        "description": "Removes added effects to increase move damage.",
+        "description": "Removes additional effects from moves but increases their power.",
         "isHidden": false
       },
       {
         "name": "Iron Fist",
-        "description": "Boosts the power of punching moves.",
+        "description": "Powers up punching moves.",
         "isHidden": true
       }
     ],
@@ -16560,12 +16339,12 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Prankster",
-        "description": "Raises non-damaging moves' priority by one stage.",
+        "description": "Gives priority to the Pokémon's status moves.",
         "isHidden": false
       },
       {
         "name": "Infiltrator",
-        "description": "Bypasses light screen, reflect, and safeguard.",
+        "description": "Passes through the opposing Pokémon's barrier, substitute, and the like and strikes.",
         "isHidden": false
       },
       {
@@ -16601,7 +16380,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Light Screen","type":"psychic","category":"status","power":null,"accuracy":null,"pp":30,"description":"A wondrous wall of light is put up to reduce damage from special moves for five turns."},
         {"name":"Memento","type":"dark","category":"status","power":null,"accuracy":100,"pp":10,"description":"The user faints. In return, the target's Attack and Sp. Atk stats are harshly lowered."},
         {"name":"Misty Terrain","type":"fairy","category":"status","power":null,"accuracy":null,"pp":10,"description":"This protects Pokémon on the ground from status conditions and halves damage from Dragon-type moves for five turns."},
-        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":15,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target's Sp. Atk stat."},
+        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":16,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target's Sp. Atk stat."},
         {"name":"Play Rough","type":"fairy","category":"physical","power":90,"accuracy":90,"pp":10,"description":"The user attacks by playing rough with the target. This may also lower the target's Attack stat."},
         {"name":"Poison Powder","type":"poison","category":"status","power":null,"accuracy":75,"pp":35,"description":"The user scatters a cloud of poisonous dust that poisons the target."},
         {"name":"Protect","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession."},
@@ -16662,7 +16441,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Intimidate",
-        "description": "Lowers opponents' Attack one stage upon entering battle.",
+        "description": "When the Pokémon enters a battle, it intimidates opposing Pokémon and makes them cower, lowering their Attack stats.",
         "isHidden": false
       },
       {
@@ -16716,7 +16495,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Helping Hand","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user assists an ally by boosting the power of that ally's attack."},
         {"name":"High Horsepower","type":"ground","category":"physical","power":95,"accuracy":95,"pp":10,"description":"The user fiercely attacks the target using its entire body."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"Has a 20% chance of making the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"Has a 20% chance of making the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."},
         {"name":"Knock Off","type":"dark","category":"physical","power":65,"accuracy":100,"pp":20,"description":"The user slaps down the target's held item, making it unusable for that battle. This move does more damage if the target has a held item."},
         {"name":"Lash Out","type":"dark","category":"physical","power":75,"accuracy":100,"pp":5,"description":"The user lashes out to vent its frustration toward the target. This move's power is doubled if the user's stats were lowered during this turn."},
@@ -16821,7 +16600,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Clear Smog","type":"poison","category":"special","power":50,"accuracy":null,"pp":15,"description":"The user attacks by throwing a clump of special mud. All status changes are returned to normal."},
         {"name":"Corrosive Gas","type":"poison","category":"status","power":null,"accuracy":100,"pp":20,"description":"Causes all other Pokémon on the field to lose their held items."},
         {"name":"Cross Poison","type":"poison","category":"physical","power":70,"accuracy":100,"pp":20,"description":"A slashing attack that may also leave the target poisoned. It has a high critical-hit ratio."},
-        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":20,"description":""},
+        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":20,"description":"A move that has different effects depending on whether the user is a Ghost type or not."},
         {"name":"Dark Pulse","type":"dark","category":"special","power":80,"accuracy":100,"pp":15,"description":"The user releases a horrible aura imbued with dark thoughts. It may also make the target flinch."},
         {"name":"Drain Punch","type":"fighting","category":"physical","power":75,"accuracy":100,"pp":10,"description":"An energy-draining punch. The user’s HP is restored by half the damage taken by the target."},
         {"name":"Endure","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"During the turn this move is used if the user takes damage from a move that would knock it out it will endure the hit with 1 HP. With each consecutive use this move's chance of success becomes 1/3 of what it was before."},
@@ -16942,7 +16721,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Mega Kick","type":"normal","category":"physical","power":120,"accuracy":75,"pp":5,"description":"The target is attacked by a kick launched with muscle-packed power."},
         {"name":"Memento","type":"dark","category":"status","power":null,"accuracy":100,"pp":20,"description":"Lowers the target's Attack and Sp. Atk stats by 2 stages. The user faints upon using this move."},
         {"name":"Nasty Plot","type":"dark","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user stimulates its brain by thinking bad thoughts. This sharply boosts the user's Sp. Atk stat."},
-        {"name":"Night Daze","type":"dark","category":"special","power":85,"accuracy":95,"pp":10,"description":"The user looses a pitch-black shock wave at the target to inflict damage. This may also lower the target's accuracy."},
+        {"name":"Night Daze","type":"dark","category":"special","power":90,"accuracy":95,"pp":10,"description":"The user looses a pitch-black shock wave at the target to inflict damage. This may also lower the target's accuracy."},
         {"name":"Night Shade","type":"ghost","category":"special","power":null,"accuracy":100,"pp":15,"description":"The user makes the target see a frightening mirage. It inflicts damage equal to the user's level."},
         {"name":"Night Slash","type":"dark","category":"physical","power":70,"accuracy":100,"pp":15,"description":"The user slashes the target the instant an opportunity arises. This move has a heightened chance of landing a critical hit."},
         {"name":"Pain Split","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user adds its HP to the target's HP, then equally splits the combined HP between the target and itself."},
@@ -17055,7 +16834,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Lash Out","type":"dark","category":"physical","power":75,"accuracy":100,"pp":5,"description":"The user lashes out to vent its frustration toward the target. This move's power is doubled if the user's stats were lowered during this turn."},
         {"name":"Low Kick","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":20,"description":"A powerful low kick that makes the target fall over. The heavier the target, the greater the move's power."},
         {"name":"Low Sweep","type":"fighting","category":"physical","power":65,"accuracy":100,"pp":20,"description":"The user makes a swift attack on the target's legs, which lowers the target's Speed stat."},
-        {"name":"Mega Kick","type":"normal","category":"physical","power":120,"accuracy":75,"pp":5,"description":""},
+        {"name":"Mega Kick","type":"normal","category":"physical","power":120,"accuracy":75,"pp":5,"description":"The target is attacked by a kick launched with muscle-packed power."},
         {"name":"Memento","type":"dark","category":"status","power":null,"accuracy":100,"pp":20,"description":"Lowers the target's Attack and Sp. Atk stats by 2 stages. The user faints upon using this move."},
         {"name":"Nasty Plot","type":"dark","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user stimulates its brain by thinking bad thoughts. This sharply boosts the user's Sp. Atk stat."},
         {"name":"Night Shade","type":"ghost","category":"special","power":null,"accuracy":100,"pp":15,"description":"The user makes the target see a frightening mirage. It inflicts damage equal to the user's level."},
@@ -17132,7 +16911,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Snow Warning",
-        "description": "The Pokémon summons a hailstorm in battle.",
+        "description": "The Pokémon makes it snow when it enters a battle.",
         "isHidden": false
       },
       {
@@ -17160,7 +16939,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"1st turn: Attack 2nd turn: Rest"},
         {"name":"Hyper Voice","type":"normal","category":"special","power":90,"accuracy":100,"pp":10,"description":"A loud attack that uses sound waves to injure."},
         {"name":"Ice Beam","type":"ice","category":"special","power":90,"accuracy":100,"pp":10,"description":"An attack that may freeze the foe."},
-        {"name":"Ice Shard","type":"ice","category":"physical","power":40,"accuracy":100,"pp":20,"description":""},
+        {"name":"Ice Shard","type":"ice","category":"physical","power":40,"accuracy":100,"pp":20,"description":"The user flash-freezes chunks of ice and hurls them at the target. This move always goes first."},
         {"name":"Ice Spinner","type":"ice","category":"physical","power":80,"accuracy":100,"pp":15,"description":"Removes any terrain."},
         {"name":"Icicle Crash","type":"ice","category":"physical","power":85,"accuracy":90,"pp":10,"description":"The user attacks by harshly dropping an icicle onto the target. It may also make the target flinch."},
         {"name":"Icicle Spear","type":"ice","category":"physical","power":25,"accuracy":100,"pp":30,"description":"Attacks the foe by firing 2 to 5 icicles in a row."},
@@ -17455,7 +17234,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Sleep Talk","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"Can be used only if the user is asleep. The user uses one of the other moves it knows at random."},
         {"name":"Sludge Bomb","type":"poison","category":"special","power":90,"accuracy":100,"pp":10,"description":"An attack that may poison the foe."},
         {"name":"Sludge Wave","type":"poison","category":"special","power":95,"accuracy":100,"pp":10,"description":"It swamps the area around the user with a giant sludge wave. It may also poison those hit."},
-        {"name":"Snap Trap","type":"grass","category":"physical","power":35,"accuracy":100,"pp":15,"description":"The user snares the target in a snap trap for four to five turns."},
+        {"name":"Snap Trap","type":"grass","category":"physical","power":35,"accuracy":100,"pp":16,"description":"The user snares the target in a snap trap for four to five turns."},
         {"name":"Snore","type":"normal","category":"special","power":50,"accuracy":100,"pp":15,"description":"An attack useable only while asleep."},
         {"name":"Spite","type":"ghost","category":"status","power":null,"accuracy":100,"pp":20,"description":"Removes 4 PP from the move last used by the target."},
         {"name":"Stealth Rock","type":"rock","category":"status","power":0,"accuracy":null,"pp":20,"description":"The user lays a trap of levitating stones around the foe. The trap hurts foes that switch into battle."},
@@ -17506,7 +17285,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Iron Fist",
-        "description": "Powers up punching moves by 20%.",
+        "description": "Powers up punching moves.",
         "isHidden": false
       },
       {
@@ -17516,7 +17295,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "No Guard",
-        "description": "All moves used by or against always hit.",
+        "description": "Ensures that all moves used by and against the Pokémon land.",
         "isHidden": true
       }
     ],
@@ -17561,7 +17340,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Icy Wind","type":"ice","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks with a gust of chilled air. This also lowers opposing Pokémon's Speed stats."},
         {"name":"Imprison","type":"psychic","category":"status","power":null,"accuracy":null,"pp":10,"description":"If opposing Pokémon know any move also known by the user, they are prevented from using it."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"Has a 20% chance of making the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"Has a 20% chance of making the target flinch."},
         {"name":"Knock Off","type":"dark","category":"physical","power":65,"accuracy":100,"pp":20,"description":"The user slaps down the target's held item, making it unusable for that battle. This move does more damage if the target has a held item."},
         {"name":"Low Kick","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":20,"description":"A powerful low kick that makes the target fall over. The heavier the target, the greater the move's power."},
         {"name":"Low Sweep","type":"fighting","category":"physical","power":65,"accuracy":100,"pp":20,"description":"The user makes a swift attack on the target's legs, which lowers the target's Speed stat."},
@@ -17622,7 +17401,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Unseen Fist",
-            "description": "Contact moves can hit through Protect and Detect.",
+            "description": "The Pokémon can deal damage with moves that make physical contact, even if the target is protected.",
             "isChampions": false
           }
         ],
@@ -17661,7 +17440,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Levitate",
-        "description": "Evades ground moves.",
+        "description": "By floating in the air, the Pokémon receives full immunity to all Ground-type moves.",
         "isHidden": false
       }
     ],
@@ -17889,7 +17668,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Bulletproof",
-        "description": "Protects against bullet, ball, and bomb-based moves.",
+        "description": "Protects the Pokémon from some ball and bomb moves.",
         "isHidden": true
       }
     ],
@@ -17933,7 +17712,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"High Horsepower","type":"ground","category":"physical","power":95,"accuracy":95,"pp":10,"description":"The user fiercely attacks the target using its entire body."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."},
         {"name":"Knock Off","type":"dark","category":"physical","power":65,"accuracy":100,"pp":20,"description":"The user slaps down the target's held item, making it unusable for that battle. This move does more damage if the target has a held item."},
         {"name":"Leaf Storm","type":"grass","category":"special","power":130,"accuracy":90,"pp":5,"description":"The user whips up a storm of leaves around the target. The recoil from this move harshly lowers the user's Sp. Atk stat."},
@@ -18190,7 +17969,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Protean",
-        "description": "Changes the bearer's type to match each move it uses.",
+        "description": "Changes the Pokémon's type to the type of the move it's about to use.",
         "isHidden": true
       }
     ],
@@ -18330,7 +18109,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Huge Power",
-        "description": "Doubles Attack in battle.",
+        "description": "Doubles the Pokémon's Attack stat.",
         "isHidden": true
       }
     ],
@@ -18360,7 +18139,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"High Horsepower","type":"ground","category":"physical","power":95,"accuracy":95,"pp":10,"description":"The user fiercely attacks the target using its entire body."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Ice Punch","type":"ice","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The target is attacked with an icy punch. This may also leave the target frozen."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."},
         {"name":"Low Kick","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":20,"description":"A powerful low kick that makes the target fall over. The heavier the target, the greater the move's power."},
         {"name":"Mega Kick","type":"normal","category":"physical","power":120,"accuracy":75,"pp":5,"description":"The target is attacked by a kick launched with muscle-packed power."},
@@ -18705,12 +18484,12 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Infiltrator",
-        "description": "Bypasses light screen, reflect, and safeguard.",
+        "description": "Passes through the opposing Pokémon's barrier, substitute, and the like and strikes.",
         "isHidden": false
       },
       {
         "name": "Prankster",
-        "description": "Raises non-damaging moves' priority by one stage.",
+        "description": "Gives priority to the Pokémon's status moves.",
         "isHidden": true
       }
     ],
@@ -18796,7 +18575,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Trace",
-            "description": "Psychic-type moves gain 30% power. Status moves bypass Protect.",
+            "description": "When it enters a battle, the Pokémon copies an opposing Pokémon's Ability.",
             "isChampions": false
           }
         ],
@@ -18857,7 +18636,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Head Smash","type":"rock","category":"physical","power":150,"accuracy":80,"pp":5,"description":"The user attacks the target with a hazardous full-power headbutt. This also damages the user terribly."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"King's Shield","type":"steel","category":"status","power":0,"accuracy":0,"pp":10,"description":"Protects the user from attacks. Lowers Attack of any attacker that makes contact."},
         {"name":"Metal Sound","type":"steel","category":"status","power":null,"accuracy":85,"pp":40,"description":"A horrible sound like scraping metal harshly lowers the target's Sp. Def stat."},
         {"name":"Night Slash","type":"dark","category":"physical","power":70,"accuracy":100,"pp":15,"description":"The user slashes the target the instant an opportunity arises. This move has a heightened chance of landing a critical hit."},
@@ -18921,7 +18700,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Mega Launcher",
-        "description": "Powers up pulse and aura moves by 50%.",
+        "description": "Powers up pulse moves.",
         "isHidden": false
       }
     ],
@@ -18933,7 +18712,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Body Slam","type":"normal","category":"physical","power":85,"accuracy":100,"pp":15,"description":"The user attacks by dropping onto the target with its full body weight. This may also leave the target with paralysis."},
         {"name":"Bounce","type":"flying","category":"physical","power":85,"accuracy":85,"pp":5,"description":"The user bounces up high on the first turn, then drops onto the target on the next turn. This may also leave the target with paralysis."},
         {"name":"Chilling Water","type":"water","category":"special","power":50,"accuracy":100,"pp":20,"description":"The user attacks the target by showering it with water that's so cold it saps the target's power. This also lowers the target's Attack stat."},
-        {"name":"Crabhammer","type":"water","category":"physical","power":100,"accuracy":90,"pp":10,"description":"The target is hammered with a large pincer. This move has a heightened chance of landing a critical hit."},
+        {"name":"Crabhammer","type":"water","category":"physical","power":95,"pp":10,"description":"The target is hammered with a large pincer. This move has a heightened chance of landing a critical hit."},
         {"name":"Dark Pulse","type":"dark","category":"special","power":80,"accuracy":100,"pp":15,"description":"The user releases a horrible aura imbued with ill intent. This may also make the target flinch."},
         {"name":"Dive","type":"water","category":"physical","power":80,"accuracy":100,"pp":10,"description":"The user dives on the first turn, then floats up and attacks on the next turn."},
         {"name":"Dragon Pulse","type":"dragon","category":"special","power":85,"accuracy":100,"pp":10,"description":"The target is attacked with a shock wave generated by the user's gaping mouth."},
@@ -19013,7 +18792,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Strong Jaw",
-        "description": "The Pokémon’s strong jaw gives it tremendous biting power.",
+        "description": "The Pokémon's strong jaw boosts the power of its biting moves.",
         "isHidden": false
       },
       {
@@ -19035,7 +18814,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Charm","type":"fairy","category":"status","power":0,"accuracy":100,"pp":20,"description":"Sharply lowers the foe's ATTACK."},
         {"name":"Close Combat","type":"fighting","category":"physical","power":120,"accuracy":100,"pp":5,"description":"The user fights the foe in close without guarding itself. It also cuts the user’s Defense and Sp. Def."},
         {"name":"Crunch","type":"dark","category":"physical","power":80,"accuracy":100,"pp":15,"description":"An attack that may lower SPCL.DEF."},
-        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":20,"description":""},
+        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":20,"description":"A move that has different effects depending on whether the user is a Ghost type or not."},
         {"name":"Dark Pulse","type":"dark","category":"special","power":80,"accuracy":100,"pp":15,"description":"The user releases a horrible aura imbued with dark thoughts. It may also make the target flinch."},
         {"name":"Dig","type":"ground","category":"physical","power":80,"accuracy":100,"pp":10,"description":"1st turn: Burrow 2nd turn: Attack"},
         {"name":"Draco Meteor","type":"dragon","category":"special","power":130,"accuracy":90,"pp":5,"description":"Comets are summoned down from the sky. The attack’s recoil sharply reduces the user’s Sp. Atk stat."},
@@ -19057,7 +18836,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Hyper Voice","type":"normal","category":"special","power":90,"accuracy":100,"pp":10,"description":"A loud attack that uses sound waves to injure."},
         {"name":"Ice Fang","type":"ice","category":"physical","power":65,"accuracy":95,"pp":15,"description":"The user bites with cold-infused fangs. It may also make the foe flinch or freeze. "},
         {"name":"Iron Defense","type":"steel","category":"status","power":0,"accuracy":null,"pp":15,"description":"Hardens the body’s surface to sharply raise DEFENSE."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The foe slams the target with its steel-hard head. It may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The foe slams the target with its steel-hard head. It may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"An attack that may reduce DEFENSE."},
         {"name":"Lash Out","type":"dark","category":"physical","power":75,"accuracy":100,"pp":5,"description":"The user lashes out to vent its frustration toward the target. If the user’s stats were lowered during this turn, the power of this move is doubled."},
         {"name":"Meteor Beam","type":"rock","category":"special","power":120,"accuracy":90,"pp":10,"description":"In this two-turn attack, the user gathers space power and boosts its Sp. Atk stat, then attacks the target on the next turn."},
@@ -19124,12 +18903,12 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Refrigerate",
-        "description": "Normal-type moves become Ice-type moves.",
+        "description": "Normal-type moves become Ice-type moves. The power of those moves is boosted a little.",
         "isHidden": false
       },
       {
         "name": "Snow Warning",
-        "description": "The Pokémon summons a hailstorm in battle.",
+        "description": "The Pokémon makes it snow when it enters a battle.",
         "isHidden": true
       }
     ],
@@ -19161,7 +18940,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Icicle Spear","type":"ice","category":"physical","power":25,"accuracy":100,"pp":30,"description":"Attacks the foe by firing 2 to 5 icicles in a row."},
         {"name":"Icy Wind","type":"ice","category":"special","power":55,"accuracy":95,"pp":15,"description":"An icy attack that lowers SPEED."},
         {"name":"Iron Defense","type":"steel","category":"status","power":0,"accuracy":null,"pp":15,"description":"Hardens the body’s surface to sharply raise DEFENSE."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The foe slams the target with its steel-hard head. It may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The foe slams the target with its steel-hard head. It may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"An attack that may reduce DEFENSE."},
         {"name":"Light Screen","type":"psychic","category":"status","power":0,"accuracy":null,"pp":30,"description":"Ups SPCL.DEF with a wall of light."},
         {"name":"Meteor Beam","type":"rock","category":"special","power":120,"accuracy":90,"pp":10,"description":"In this two-turn attack, the user gathers space power and boosts its Sp. Atk stat, then attacks the target on the next turn."},
@@ -19231,7 +19010,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Pixilate",
-        "description": "Turns the bearer's normal moves into fairy moves and strengthens them to 1.3× their power.",
+        "description": "Normal-type moves become Fairy-type moves. The power of those moves is boosted a little.",
         "isHidden": true
       }
     ],
@@ -19264,7 +19043,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Light Screen","type":"psychic","category":"status","power":null,"accuracy":null,"pp":30,"description":"A wondrous wall of light is put up to reduce damage from special moves for five turns."},
         {"name":"Misty Explosion","type":"fairy","category":"special","power":100,"accuracy":100,"pp":5,"description":"The user attacks everything around it and faints upon using this move. This move's power is boosted on Misty Terrain."},
         {"name":"Misty Terrain","type":"fairy","category":"status","power":null,"accuracy":null,"pp":10,"description":"This protects Pokémon on the ground from status conditions and halves damage from Dragon-type moves for five turns."},
-        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":15,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target's Sp. Atk stat."},
+        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":16,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target's Sp. Atk stat."},
         {"name":"Mud-Slap","type":"ground","category":"special","power":20,"accuracy":100,"pp":20,"description":"Lowers the target's accuracy by 1 stage."},
         {"name":"Mystical Fire","type":"fire","category":"special","power":75,"accuracy":100,"pp":10,"description":"The user attacks by breathing a special, hot fire. This also lowers the target's Sp. Atk stat."},
         {"name":"Play Rough","type":"fairy","category":"physical","power":90,"accuracy":90,"pp":10,"description":"The user attacks by playing rough with the target. This may also lower the target's Attack stat."},
@@ -19339,7 +19118,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Mold Breaker",
-        "description": "Bypasses targets' abilities if they could hinder or prevent a move.",
+        "description": "Moves can be used on the target regardless of its Abilities.",
         "isHidden": true
       }
     ],
@@ -19382,7 +19161,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Helping Hand","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user assists an ally by boosting the power of that ally's attack."},
         {"name":"High Jump Kick","type":"fighting","category":"physical","power":130,"accuracy":90,"pp":10,"description":"The target is attacked with a knee kick from a jump. If this move misses, the user takes damage instead."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Low Kick","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":20,"description":"A powerful low kick that makes the target fall over. The heavier the target, the greater the move's power."},
         {"name":"Low Sweep","type":"fighting","category":"physical","power":65,"accuracy":100,"pp":20,"description":"The user makes a swift attack on the target's legs, which lowers the target's Speed stat."},
         {"name":"Lunge","type":"bug","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user makes a lunge at the target, attacking with full force. This also lowers the target's Attack stat."},
@@ -19441,7 +19220,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "No Guard",
-            "description": "Flying and Fighting-type moves gain 30% power. Ignores the effects of Intimidate.",
+            "description": "Ensures that all moves used by and against the Pokémon land.",
             "isChampions": false
           }
         ],
@@ -19480,7 +19259,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Prankster",
-        "description": "Gives priority to a status move.",
+        "description": "Gives priority to the Pokémon's status moves.",
         "isHidden": false
       },
       {
@@ -19591,7 +19370,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Brutal Swing","type":"dark","category":"physical","power":60,"accuracy":100,"pp":20,"description":"The user swings its body around violently to inflict damage on everything in its vicinity."},
         {"name":"Bullet Seed","type":"grass","category":"physical","power":25,"accuracy":100,"pp":30,"description":"Shoots 2 to 5 seeds in a row to strike the foe."},
         {"name":"Confuse Ray","type":"ghost","category":"status","power":0,"accuracy":100,"pp":10,"description":"A move that causes confusion."},
-        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":20,"description":""},
+        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":20,"description":"A move that has different effects depending on whether the user is a Ghost type or not."},
         {"name":"Dark Pulse","type":"dark","category":"special","power":80,"accuracy":100,"pp":15,"description":"The user releases a horrible aura imbued with dark thoughts. It may also make the target flinch."},
         {"name":"Destiny Bond","type":"ghost","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user gains the Destiny Bound status. This move fails if used in succession."},
         {"name":"Disable","type":"normal","category":"status","power":null,"accuracy":100,"pp":20,"description":"Gives the target the Move Disabled status for 4 turns."},
@@ -19614,7 +19393,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Imprison","type":"psychic","category":"status","power":0,"accuracy":null,"pp":10,"description":"Prevents foes from using moves known by the user."},
         {"name":"Leech Seed","type":"grass","category":"status","power":0,"accuracy":90,"pp":10,"description":"Steals HP from the foe on every turn."},
         {"name":"Light Screen","type":"psychic","category":"status","power":0,"accuracy":null,"pp":30,"description":"Ups SPCL.DEF with a wall of light."},
-        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":15,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target’s Sp. Atk stat."},
+        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":16,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target’s Sp. Atk stat."},
         {"name":"Mystical Fire","type":"fire","category":"special","power":75,"accuracy":100,"pp":10,"description":"The user attacks by breathing a special, hot fire. This also lowers the target’s Sp. Atk stat."},
         {"name":"Nasty Plot","type":"dark","category":"status","power":0,"accuracy":null,"pp":20,"description":"The user stimulates its brain by thinking bad thoughts. It sharply raises the user’s Sp. Atk."},
         {"name":"Pain Split","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user adds its remaining HP to the target's remaining HP then splits the total in half for them to share."},
@@ -19688,7 +19467,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Infiltrator",
-        "description": "Bypasses light screen, reflect, and safeguard.",
+        "description": "Passes through the opposing Pokémon's barrier, substitute, and the like and strikes.",
         "isHidden": false
       },
       {
@@ -19863,7 +19642,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Snore","type":"normal","category":"special","power":50,"accuracy":100,"pp":15,"description":"This attack can be used only if the user is asleep. The harsh noise may also make the target flinch."},
         {"name":"Solar Beam","type":"grass","category":"special","power":120,"accuracy":100,"pp":10,"description":"The user gathers light on the first turn, then blasts a bundled beam on the next turn."},
         {"name":"Solar Blade","type":"grass","category":"physical","power":125,"accuracy":100,"pp":10,"description":"The user gathers light on the first turn, then fills a blade with the light's energy and attacks on the next turn."},
-        {"name":"Spirit Shackle","type":"ghost","category":"physical","power":80,"accuracy":100,"pp":10,"description":"The user attacks while simultaneously stitching the target's shadow to the ground to prevent the target from fleeing."},
+        {"name":"Spirit Shackle","type":"ghost","category":"physical","power":90,"accuracy":100,"pp":10,"description":"The user attacks while simultaneously stitching the target's shadow to the ground to prevent the target from fleeing."},
         {"name":"Spite","type":"ghost","category":"status","power":null,"accuracy":100,"pp":10,"description":"The user unleashes its grudge on the move last used by the target by cutting 4 PP from it."},
         {"name":"Steel Wing","type":"steel","category":"physical","power":70,"accuracy":90,"pp":25,"description":"The target is hit with wings of steel. This may also boost the user's Defense stat."},
         {"name":"Substitute","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user creates a substitute for itself using some of its own HP. The substitute serves as the user's decoy."},
@@ -19912,7 +19691,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Scrappy",
-        "description": "Can hit Ghost types with Normal and Fighting moves.",
+        "description": "The Pokémon can hit Ghost-type Pokémon with Normal- and Fighting-type moves.",
         "isHidden": false
       },
       {
@@ -20030,7 +19809,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Intimidate",
-        "description": "Lowers opponents' Attack one stage upon entering battle.",
+        "description": "When the Pokémon enters a battle, it intimidates opposing Pokémon and makes them cower, lowering their Attack stats.",
         "isHidden": true
       }
     ],
@@ -20076,7 +19855,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Heat Wave","type":"fire","category":"special","power":95,"accuracy":90,"pp":10,"description":"The user attacks by exhaling hot breath on opposing Pokémon. This may also leave them with a burn."},
         {"name":"Helping Hand","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user assists an ally by boosting the power of that ally's attack."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Lash Out","type":"dark","category":"physical","power":75,"accuracy":100,"pp":5,"description":"The user lashes out to vent its frustration toward the target. This move's power is doubled if the user's stats were lowered during this turn."},
         {"name":"Leech Life","type":"bug","category":"physical","power":80,"accuracy":100,"pp":10,"description":"The user drains the target's blood. The user's HP is restored by up to half the damage taken by the target."},
         {"name":"Low Kick","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":20,"description":"A powerful low kick that makes the target fall over. The heavier the target, the greater the move's power."},
@@ -20195,7 +19974,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Liquidation","type":"water","category":"physical","power":85,"accuracy":100,"pp":10,"description":"The user slams into the target using a full-force blast of water. This may also lower the target’s Defense stat."},
         {"name":"Misty Explosion","type":"fairy","category":"special","power":100,"accuracy":100,"pp":5,"description":"The user attacks everything around it and faints upon using this move. This move’s power is increased on Misty Terrain."},
         {"name":"Misty Terrain","type":"fairy","category":"status","power":0,"accuracy":null,"pp":10,"description":"The user covers the ground under everyone’s feet with mist for five turns. This protects Pokémon on the ground from status conditions."},
-        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":15,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target’s Sp. Atk stat."},
+        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":16,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target’s Sp. Atk stat."},
         {"name":"Perish Song","type":"normal","category":"status","power":0,"accuracy":null,"pp":5,"description":"Both user and foe faint in 3 turns."},
         {"name":"Play Rough","type":"fairy","category":"physical","power":90,"accuracy":90,"pp":10,"description":"The user plays rough with the target and attacks it. This may also lower the target’s Attack stat."},
         {"name":"Protect","type":"normal","category":"status","power":0,"accuracy":null,"pp":10,"description":"Foils attack that turn. It may fail."},
@@ -20264,12 +20043,12 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Skill Link",
-        "description": "Increases the frequency of multi-strike moves.",
+        "description": "Maximizes the number of times multistrike moves hit.",
         "isHidden": false
       },
       {
         "name": "Sheer Force",
-        "description": "Removes added effects to increase move damage.",
+        "description": "Removes additional effects from moves but increases their power.",
         "isHidden": true
       }
     ],
@@ -20279,7 +20058,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Air Cutter","type":"flying","category":"special","power":60,"accuracy":95,"pp":25,"description":"Hacks with razorlike wind. High critical-hit ratio."},
         {"name":"Air Slash","type":"flying","category":"special","power":75,"accuracy":95,"pp":15,"description":"The user attacks with a blade of air that slices even the sky. It may also make the target flinch."},
         {"name":"Attract","type":"normal","category":"status","power":0,"accuracy":100,"pp":15,"description":"Makes the opposite gender infatuated."},
-        {"name":"Beak Blast","type":"flying","category":"physical","power":100,"accuracy":100,"pp":15,"description":"The user first heats up its beak, and then it attacks the target. Making direct contact with the Pokémon while it’s heating up its beak results in a burn."},
+        {"name":"Beak Blast","type":"flying","category":"physical","power":120,"accuracy":100,"pp":15,"description":"The user first heats up its beak, and then it attacks the target. Making direct contact with the Pokémon while it’s heating up its beak results in a burn."},
         {"name":"Boomburst","type":"normal","category":"special","power":140,"accuracy":100,"pp":10,"description":"The user attacks everything around it with the destructive power of a terrible, explosive sound."},
         {"name":"Brave Bird","type":"flying","category":"physical","power":120,"accuracy":100,"pp":15,"description":"The user tucks in its wings and charges from a low altitude. The user also takes serious damage."},
         {"name":"Brick Break","type":"fighting","category":"physical","power":75,"accuracy":100,"pp":15,"description":"Destroys barriers such as REFLECT and causes damage."},
@@ -20368,7 +20147,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Iron Fist",
-        "description": "Strengthens punch-based moves to 1.2× their power.",
+        "description": "Powers up punching moves.",
         "isHidden": false
       },
       {
@@ -20390,7 +20169,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Chilling Water","type":"water","category":"special","power":50,"accuracy":100,"pp":20,"description":"The user attacks the target by showering it with water that's so cold it saps the target's power. This also lowers the target's Attack stat."},
         {"name":"Close Combat","type":"fighting","category":"physical","power":120,"accuracy":100,"pp":5,"description":"The user fights the target up close, inflicting damage without guarding itself. This also lowers the user's Defense and Sp. Def stats."},
         {"name":"Coaching","type":"fighting","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user properly coaches its ally Pokémon, boosting their Attack and Defense stats."},
-        {"name":"Crabhammer","type":"water","category":"physical","power":100,"accuracy":90,"pp":10,"description":"This move has a 1-stage Critical-Hit Ratio Boost."},
+        {"name":"Crabhammer","type":"water","category":"physical","power":95,"pp":10,"description":"This move has a 1-stage Critical-Hit Ratio Boost."},
         {"name":"Dig","type":"ground","category":"physical","power":80,"accuracy":100,"pp":10,"description":"The user burrows into the ground on the first turn, then attacks on the next turn."},
         {"name":"Drain Punch","type":"fighting","category":"physical","power":75,"accuracy":100,"pp":10,"description":"The user attacks with an energy-draining punch. The user's HP is restored by up to half the damage taken by the target."},
         {"name":"Dynamic Punch","type":"fighting","category":"physical","power":100,"accuracy":50,"pp":5,"description":"The user attacks by punching the target with full concentrated power. This also confuses the target."},
@@ -20413,10 +20192,10 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Icicle Spear","type":"ice","category":"physical","power":25,"accuracy":100,"pp":20,"description":"The user attacks 2 to 5 times in a row."},
         {"name":"Icy Wind","type":"ice","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks with a gust of chilled air. This also lowers opposing Pokémon's Speed stats."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Knock Off","type":"dark","category":"physical","power":65,"accuracy":100,"pp":20,"description":"The user slaps down the target's held item, making it unusable for that battle. This move does more damage if the target has a held item."},
         {"name":"Liquidation","type":"water","category":"physical","power":85,"accuracy":100,"pp":10,"description":"The user slams into the target using a full-force blast of water. This may also lower the target's Defense stat."},
-        {"name":"Mach Punch","type":"fighting","category":"physical","power":40,"accuracy":100,"pp":20,"description":""},
+        {"name":"Mach Punch","type":"fighting","category":"physical","power":40,"accuracy":100,"pp":20,"description":"A fast punch that lands first."},
         {"name":"Mud Shot","type":"ground","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks by hurling a blob of mud at the target. This also lowers the target's Speed stat."},
         {"name":"Mud-Slap","type":"ground","category":"special","power":20,"accuracy":100,"pp":10,"description":"The user hurls mud in the target's face to inflict damage and lower its accuracy."},
         {"name":"Payback","type":"dark","category":"physical","power":50,"accuracy":100,"pp":10,"description":"The user stores power, then attacks. This move's power is doubled if the user moves after the target."},
@@ -20464,7 +20243,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Iron Fist",
-            "description": "Punch-based moves deal 30% more damage and have a 20% chance to freeze the target.",
+            "description": "Powers up punching moves.",
             "isChampions": false
           }
         ],
@@ -20541,7 +20320,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Howl","type":"normal","category":"status","power":null,"accuracy":null,"pp":40,"description":"The user howls loudly to rouse itself and its allies. This boosts their Attack stats."},
         {"name":"Hyper Voice","type":"normal","category":"special","power":90,"accuracy":100,"pp":10,"description":"The user attacks by letting loose a horribly loud, resounding cry."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."},
         {"name":"Last Resort","type":"normal","category":"physical","power":140,"accuracy":100,"pp":5,"description":"This move can be used only after the user has used all the other moves it knows in the battle."},
         {"name":"Mud-Slap","type":"ground","category":"special","power":20,"accuracy":100,"pp":10,"description":"The user hurls mud in the target's face to inflict damage and lower its accuracy."},
@@ -20723,7 +20502,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Inner Focus",
-        "description": "Prevents flinching.",
+        "description": "The Pokémon's intensely focused, and that prevents it from flinching.",
         "isHidden": true
       }
     ],
@@ -20747,7 +20526,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"High Horsepower","type":"ground","category":"physical","power":95,"accuracy":95,"pp":10,"description":"The user fiercely attacks the target using its entire body."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Lash Out","type":"dark","category":"physical","power":75,"accuracy":100,"pp":5,"description":"The user lashes out to vent its frustration toward the target. This move's power is doubled if the user's stats were lowered during this turn."},
         {"name":"Low Kick","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":20,"description":"A powerful low kick that makes the target fall over. The heavier the target, the greater the move's power."},
         {"name":"Low Sweep","type":"fighting","category":"physical","power":65,"accuracy":100,"pp":20,"description":"The user makes a swift attack on the target's legs, which lowers the target's Speed stat."},
@@ -21088,9 +20867,9 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "name": "Trop Kick",
         "type": "grass",
         "category": "physical",
-        "power": 70,
+        "power": 85,
         "accuracy": 100,
-        "pp": 15,
+        "pp": 16,
         "description": "The user lands an intense kick of tropical origins on the target. This also lowers the target's Attack stat."
       },
       {
@@ -21643,7 +21422,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Inner Focus",
-        "description": "Prevents flinching.",
+        "description": "The Pokémon's intensely focused, and that prevents it from flinching.",
         "isHidden": false
       },
       {
@@ -21861,7 +21640,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Berserk",
-        "description": "Raises this Pokémon's Special Attack by one stage every time its HP drops below half.",
+        "description": "Boosts the Pokémon's Sp. Atk stat when it takes a hit that causes its HP to become half or less.",
         "isHidden": false
       },
       {
@@ -21965,7 +21744,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Berserk",
-            "description": "Dragon and Normal-type moves gain 30% power. Ignores the target's Abilities when attacking.",
+            "description": "Boosts the Pokémon's Sp. Atk stat when it takes a hit that causes its HP to become half or less.",
             "isChampions": false
           }
         ],
@@ -22004,7 +21783,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Bulletproof",
-        "description": "Protects against bullet, ball, and bomb-based moves.",
+        "description": "Protects the Pokémon from some ball and bomb moves.",
         "isHidden": false
       },
       {
@@ -22060,7 +21839,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Hyper Voice","type":"normal","category":"special","power":90,"accuracy":100,"pp":10,"description":"The user attacks by letting loose a horribly loud, resounding cry."},
         {"name":"Ice Punch","type":"ice","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The target is attacked with an icy punch. This may also leave the target frozen."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The target is slammed with a steel-hard tail. This may also lower the target's Defense stat."},
         {"name":"Low Kick","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":20,"description":"A powerful low kick that makes the target fall over. The heavier the target, the greater the move's power."},
         {"name":"Mega Kick","type":"normal","category":"physical","power":120,"accuracy":75,"pp":5,"description":"The target is attacked by a kick launched with muscle-packed power."},
@@ -22175,7 +21954,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Hurricane","type":"flying","category":"special","power":110,"accuracy":70,"pp":10,"description":"The user attacks by wrapping its opponent in a fierce wind. This may also confuse the target."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Light Screen","type":"psychic","category":"status","power":null,"accuracy":null,"pp":30,"description":"A wondrous wall of light is put up to reduce damage from special moves for five turns."},
         {"name":"Metal Sound","type":"steel","category":"status","power":null,"accuracy":85,"pp":40,"description":"A horrible sound like scraping metal harshly lowers the target's Sp. Def stat."},
         {"name":"Nasty Plot","type":"dark","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user stimulates its brain by thinking bad thoughts. This sharply boosts the user's Sp. Atk stat."},
@@ -22276,7 +22055,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Hurricane","type":"flying","category":"special","power":110,"accuracy":70,"pp":10,"description":"The user attacks by wrapping its opponent in a fierce wind that flies up into the sky. It may also confuse the target."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"1st turn: Attack 2nd turn: Rest"},
         {"name":"Iron Defense","type":"steel","category":"status","power":0,"accuracy":null,"pp":15,"description":"Hardens the body’s surface to sharply raise DEFENSE."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The foe slams the target with its steel-hard head. It may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The foe slams the target with its steel-hard head. It may also make the target flinch."},
         {"name":"Last Resort","type":"normal","category":"physical","power":140,"accuracy":100,"pp":5,"description":"This move fails unless the user has already used all the other moves it knows."},
         {"name":"Minimize","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"Boosts the user's evasiveness by 2 stages. The user gains the Minimized status."},
         {"name":"Mud Shot","type":"ground","category":"special","power":55,"accuracy":95,"pp":15,"description":"Hurls mud at the foe and reduces SPEED."},
@@ -22432,7 +22211,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Healer",
-        "description": "Has a 30% chance of curing each adjacent ally of any major status ailment after each turn.",
+        "description": "Sometimes cures the status conditions of the Pokémon's allies.",
         "isHidden": false
       },
       {
@@ -23004,7 +22783,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Infiltrator",
-        "description": "Bypasses light screen, reflect, and safeguard.",
+        "description": "Passes through the opposing Pokémon's barrier, substitute, and the like and strikes.",
         "isHidden": false
       },
       {
@@ -23119,7 +22898,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Sheer Force",
-        "description": "Strengthens moves with extra effects to 1.3× their power, but prevents their extra effects.",
+        "description": "Removes additional effects from moves but increases their power.",
         "isHidden": false
       },
       {
@@ -23137,7 +22916,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Ancient Power","type":"rock","category":"special","power":60,"accuracy":100,"pp":15,"description":"Has a 10% chance of boosting the user's Attack Defense Sp. Atk Sp. Def and Speed stats by 1 stage."},
         {"name":"Baton Pass","type":"normal","category":"status","power":null,"accuracy":null,"pp":40,"description":"The user switches places with a party Pokémon in waiting and passes along any stat changes."},
         {"name":"Brick Break","type":"fighting","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The user attacks with a swift chop. This move can also break barriers, such as Light Screen and Reflect."},
-        {"name":"Brutal Swing","type":"dark","category":"physical","power":60,"accuracy":100,"pp":15,"description":""},
+        {"name":"Brutal Swing","type":"dark","category":"physical","power":60,"accuracy":100,"pp":15,"description":"The user swings its body around violently to inflict damage on everything in its vicinity."},
         {"name":"Bug Bite","type":"bug","category":"physical","power":60,"accuracy":100,"pp":20,"description":"The user attacks by biting the target. If the target is holding a Berry, the user eats it and gains its effect."},
         {"name":"Bug Buzz","type":"bug","category":"special","power":90,"accuracy":100,"pp":10,"description":"The user vibrates to generate a damaging sound wave. This may also lower the target's Sp. Def stat."},
         {"name":"Close Combat","type":"fighting","category":"physical","power":120,"accuracy":100,"pp":5,"description":"The user fights the target up close, inflicting damage without guarding itself. This also lowers the user's Defense and Sp. Def stats."},
@@ -23228,7 +23007,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Bulletproof",
-        "description": "Protects against bullet, ball, and bomb-based moves.",
+        "description": "Protects the Pokémon from some ball and bomb moves.",
         "isHidden": false
       },
       {
@@ -23963,12 +23742,12 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Adaptability",
-        "description": "Increases the same-type attack bonus from 1.5× to 2×.",
+        "description": "Powers up moves of the same type as the Pokémon.",
         "isHidden": false
       },
       {
         "name": "Mold Breaker",
-        "description": "Bypasses targets' abilities if they could hinder or prevent a move.",
+        "description": "Moves can be used on the target regardless of its Abilities.",
         "isHidden": true
       }
     ],
@@ -24085,7 +23864,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Coaching","type":"fighting","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user properly coaches its ally Pokémon, boosting their Attack and Defense stats."},
         {"name":"Counter","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":20,"description":"The user retaliates to deal double the damage it took from an opponent's physical move during the turn this move is used."},
         {"name":"Dig","type":"ground","category":"physical","power":80,"accuracy":100,"pp":10,"description":"The user burrows into the ground on the first turn, then attacks on the next turn."},
-        {"name":"Dire Claw","type":"poison","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user lashes out at the target with ruinous claws. This may also leave the target poisoned, paralyzed, or asleep."},
+        {"name":"Dire Claw","type":"poison","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user lashes out at the target with ruinous claws. This may also leave the target poisoned, paralyzed, or asleep."},
         {"name":"Double Hit","type":"normal","category":"physical","power":35,"accuracy":90,"pp":20,"description":"The user attacks twice in a row."},
         {"name":"Endure","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user endures any attack with at least 1 HP. This move's chance of failing rises if used in succession."},
         {"name":"Facade","type":"normal","category":"physical","power":70,"accuracy":100,"pp":20,"description":"This move's power is doubled if the user is poisoned, burned, or paralyzed."},
@@ -24177,7 +23956,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Protean",
-        "description": "Changes the bearer's type to match each move it uses.",
+        "description": "Changes the Pokémon's type to the type of the move it's about to use.",
         "isHidden": true
       }
     ],
@@ -24399,7 +24178,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Iron Fist",
-        "description": "Strengthens punch-based moves to 1.2× their power.",
+        "description": "Powers up punching moves.",
         "isHidden": true
       }
     ],
@@ -25088,7 +24867,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Technician",
-        "description": "Strengthens moves of 60 base power or less to 1.5× their power.",
+        "description": "Powers up weak moves so the Pokémon can deal more damage with them.",
         "isHidden": true
       }
     ],
@@ -25221,7 +25000,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Ice Punch","type":"ice","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The target is attacked with an icy punch. This may also leave the target frozen."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Meteor Beam","type":"rock","category":"special","power":120,"accuracy":90,"pp":10,"description":"The user gathers energy from space and boosts its Sp. Atk stat on the first turn, then attacks on the next turn."},
         {"name":"Mud Shot","type":"ground","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks by hurling a blob of mud at the target. This also lowers the target's Speed stat."},
         {"name":"Power Gem","type":"rock","category":"special","power":80,"accuracy":100,"pp":20,"description":"The user attacks with a ray of light that sparkles as if it were made of gemstones."},
@@ -25417,7 +25196,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Helping Hand","type":"normal","category":"status","power":0,"accuracy":null,"pp":20,"description":"A move that boosts the power of the ally’s attack in a Double Battle. "},
         {"name":"Hex","type":"ghost","category":"special","power":65,"accuracy":100,"pp":10,"description":"This relentless attack does massive damage to a target affected by status problems."},
         {"name":"Iron Defense","type":"steel","category":"status","power":0,"accuracy":null,"pp":15,"description":"Hardens the body’s surface to sharply raise DEFENSE."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The foe slams the target with its steel-hard head. It may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The foe slams the target with its steel-hard head. It may also make the target flinch."},
         {"name":"Lava Plume","type":"fire","category":"special","power":80,"accuracy":100,"pp":15,"description":"An inferno of scarlet flames washes over all Pokémon in battle. It may also inflict burns."},
         {"name":"Light Screen","type":"psychic","category":"status","power":0,"accuracy":null,"pp":30,"description":"Ups SPCL.DEF with a wall of light."},
         {"name":"Night Shade","type":"ghost","category":"special","power":null,"accuracy":100,"pp":20,"description":"Deals 50 HP of damage."},
@@ -25570,7 +25349,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
           {
             "name": "Spicy Spray",
             "description": "When the Pokémon takes damage from a move, it burns the attacker.",
-            "isChampions": true
+            "isChampions": false
           }
         ],
         "isMega": true
@@ -25607,7 +25386,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Mold Breaker",
-        "description": "Bypasses targets' abilities if they could hinder or prevent a move.",
+        "description": "Moves can be used on the target regardless of its Abilities.",
         "isHidden": false
       },
       {
@@ -25716,7 +25495,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Aura Sphere","type":"fighting","category":"special","power":80,"accuracy":null,"pp":20,"description":"The user lets loose a pulse of aura power from deep within its body at the target. This attack never misses."},
         {"name":"Blizzard","type":"ice","category":"special","power":110,"accuracy":70,"pp":5,"description":"A howling blizzard is summoned to strike opposing Pokémon. This may also leave the opposing Pokémon frozen."},
         {"name":"Body Slam","type":"normal","category":"physical","power":85,"accuracy":100,"pp":15,"description":"The user attacks by dropping onto the target with its full body weight. This may also leave the target with paralysis."},
-        {"name":"Boomburst","type":"normal","category":"special","power":140,"accuracy":100,"pp":5,"description":""},
+        {"name":"Boomburst","type":"normal","category":"special","power":140,"accuracy":100,"pp":5,"description":"The user attacks everything around it with the destructive power of a terrible explosive sound."},
         {"name":"Bounce","type":"flying","category":"physical","power":85,"accuracy":85,"pp":15,"description":"The user gains the Sky-High status on the turn this move is used then attacks on the following turn. This move has a 30% chance of paralyzing the target."},
         {"name":"Bulk Up","type":"fighting","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user tenses its muscles to bulk up its body, boosting its Attack and Defense stats."},
         {"name":"Charm","type":"fairy","category":"status","power":null,"accuracy":100,"pp":20,"description":"The user gazes at the target rather charmingly, making it less wary. This harshly lowers the target's Attack stat."},
@@ -25747,7 +25526,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Ice Beam","type":"ice","category":"special","power":90,"accuracy":100,"pp":10,"description":"The target is struck with an icy-cold beam of energy. This may also leave the target frozen."},
         {"name":"Ice Punch","type":"ice","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The target is attacked with an icy punch. This may also leave the target frozen."},
         {"name":"Icy Wind","type":"ice","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks with a gust of chilled air. This also lowers opposing Pokémon's Speed stats."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Jet Punch","type":"water","category":"physical","power":60,"accuracy":100,"pp":15,"description":"The user summons a torrent around its fist and punches at blinding speed. This move always goes first."},
         {"name":"Liquidation","type":"water","category":"physical","power":85,"accuracy":100,"pp":10,"description":"The user slams into the target using a full-force blast of water. This may also lower the target's Defense stat."},
         {"name":"Outrage","type":"dragon","category":"physical","power":120,"accuracy":100,"pp":10,"description":"The user rampages and attacks for two to three turns. The user then becomes confused."},
@@ -25830,7 +25609,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"High Horsepower","type":"ground","category":"physical","power":95,"accuracy":95,"pp":10,"description":"The user fiercely attacks the target using its entire body."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"1st turn: Attack 2nd turn: Rest"},
         {"name":"Iron Defense","type":"steel","category":"status","power":0,"accuracy":null,"pp":15,"description":"Hardens the body’s surface to sharply raise DEFENSE."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The foe slams the target with its steel-hard head. It may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The foe slams the target with its steel-hard head. It may also make the target flinch."},
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"An attack that may reduce DEFENSE."},
         {"name":"Metal Burst","type":"steel","category":"physical","power":null,"accuracy":100,"pp":20,"description":"The user retaliates to deal 150% of the damage it took from an opponent's move during the turn this move is used."},
         {"name":"Metal Sound","type":"steel","category":"status","power":0,"accuracy":85,"pp":40,"description":"Emits a horrible screech that sharply lowers SP. DEF."},
@@ -25967,7 +25746,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Adaptability",
-            "description": "Poison-type moves gain 50% power. On Mega Evolution, sets Toxic Spikes.",
+            "description": "Powers up moves of the same type as the Pokémon.",
             "isChampions": false
           }
         ],
@@ -26819,7 +26598,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
           {
             "name": "Commander Surge",
             "description": "Dragon and Water moves gain 30% power. On Mega Evolution, raises ally's Sp. Atk by 1 stage.",
-            "isChampions": true
+            "isChampions": false
           }
         ],
         "isMega": true
@@ -26904,7 +26683,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Hyper Voice","type":"normal","category":"special","power":90,"accuracy":100,"pp":10,"description":"The user attacks by letting loose a horribly loud, resounding cry."},
         {"name":"Imprison","type":"psychic","category":"status","power":null,"accuracy":null,"pp":10,"description":"If opposing Pokémon know any move also known by the user, they are prevented from using it."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Light Screen","type":"psychic","category":"status","power":null,"accuracy":null,"pp":30,"description":"A wondrous wall of light is put up to reduce damage from special moves for five turns."},
         {"name":"Low Kick","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":20,"description":"A powerful low kick that makes the target fall over. The heavier the target, the greater the move's power."},
         {"name":"Mean Look","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"Gives the target the Can't Escape status."},
@@ -27009,7 +26788,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Guillotine","type":"normal","category":"physical","power":null,"accuracy":30,"pp":5,"description":"A vicious tearing attack with big pincers. The target faints instantly if this attack hits."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Kowtow Cleave","type":"dark","category":"physical","power":85,"accuracy":null,"pp":10,"description":"The user slashes at the target after kowtowing to make the target let down its guard. This attack never misses."},
         {"name":"Lash Out","type":"dark","category":"physical","power":75,"accuracy":100,"pp":5,"description":"The user lashes out to vent its frustration toward the target. This move's power is doubled if the user's stats were lowered during this turn."},
         {"name":"Low Kick","type":"fighting","category":"physical","power":null,"accuracy":100,"pp":20,"description":"A powerful low kick that makes the target fall over. The heavier the target, the greater the move's power."},
@@ -27170,7 +26949,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Stalwart",
-        "description": "Ignores moves and abilities that draw in moves.",
+        "description": "Ignores the effects of opposing Pokémon's Abilities and moves that draw in moves.",
         "isHidden": true
       }
     ],
@@ -27198,7 +26977,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Heavy Slam","type":"steel","category":"physical","power":null,"accuracy":100,"pp":10,"description":"The user slams into the target with its heavy body. The more the user outweighs the target, the greater the move's power."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Light Screen","type":"psychic","category":"status","power":null,"accuracy":null,"pp":30,"description":"A wondrous wall of light is put up to reduce damage from special moves for five turns."},
         {"name":"Metal Burst","type":"steel","category":"physical","power":null,"accuracy":100,"pp":10,"description":"The user retaliates with much greater force against the opponent that last inflicted damage on it."},
         {"name":"Metal Sound","type":"steel","category":"status","power":null,"accuracy":85,"pp":40,"description":"A horrible sound like scraping metal harshly lowers the target's Sp. Def stat."},
@@ -27370,7 +27149,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Thick Fat",
-        "description": "Halves damage from fire and ice moves.",
+        "description": "The Pokémon is protected by a layer of thick fat, which halves the damage taken from Fire- and Ice-type moves.",
         "isHidden": true
       }
     ],
@@ -27385,7 +27164,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Body Slam","type":"normal","category":"physical","power":85,"accuracy":100,"pp":15,"description":"The user attacks by dropping onto the target with its full body weight. This may also leave the target with paralysis."},
         {"name":"Bulldoze","type":"ground","category":"physical","power":60,"accuracy":100,"pp":20,"description":"The user strikes everything around it by stomping down on the ground. This lowers the Speed stats of those hit."},
         {"name":"Charm","type":"fairy","category":"status","power":null,"accuracy":100,"pp":20,"description":"Lowers the target's Attack stat by 2 stages."},
-        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":20,"description":""},
+        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":20,"description":"A move that has different effects depending on whether the user is a Ghost type or not."},
         {"name":"Dig","type":"ground","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user gains the Underground status on the turn this move is used then attacks on the following turn."},
         {"name":"Double Hit","type":"normal","category":"physical","power":35,"accuracy":90,"pp":20,"description":"The user attacks twice in a row."},
         {"name":"Double-Edge","type":"normal","category":"physical","power":120,"accuracy":100,"pp":5,"description":"The user takes 1/3 of the damage dealt by this move."},
@@ -27409,7 +27188,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Icicle Crash","type":"ice","category":"physical","power":85,"accuracy":90,"pp":10,"description":"The user attacks by crashing large icicles onto the target. This may also make the target flinch."},
         {"name":"Icicle Spear","type":"ice","category":"physical","power":25,"accuracy":100,"pp":20,"description":"The user attacks 2 to 5 times in a row."},
         {"name":"Icy Wind","type":"ice","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks with a gust of chilled air. This also lowers opposing Pokémon's Speed stats."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Knock Off","type":"dark","category":"physical","power":65,"accuracy":100,"pp":20,"description":"The user slaps down the target's held item, making it unusable for that battle. This move does more damage if the target has a held item."},
         {"name":"Mud Shot","type":"ground","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks by hurling a blob of mud at the target. This also lowers the target's Speed stat."},
         {"name":"Mud-Slap","type":"ground","category":"special","power":20,"accuracy":100,"pp":20,"description":"Lowers the target's accuracy by 1 stage."},
@@ -27482,7 +27261,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Infiltrator",
-        "description": "Passes through the opposing Pokémon's barriers, substitutes, and the like and strikes.",
+        "description": "Passes through the opposing Pokémon's barrier, substitute, and the like and strikes.",
         "isHidden": true
       }
     ],
@@ -27492,7 +27271,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Calm Mind","type":"psychic","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user quietly focuses its mind and calms its spirit to boost its Sp. Atk and Sp. Def stats."},
         {"name":"Clear Smog","type":"poison","category":"special","power":50,"accuracy":null,"pp":20,"description":"Removes all stat changes from the target. This move never misses."},
         {"name":"Confuse Ray","type":"ghost","category":"status","power":null,"accuracy":100,"pp":10,"description":"The target is exposed to a sinister ray that causes confusion."},
-        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":20,"description":""},
+        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":20,"description":"A move that has different effects depending on whether the user is a Ghost type or not."},
         {"name":"Dark Pulse","type":"dark","category":"special","power":80,"accuracy":100,"pp":15,"description":"The user releases a horrible aura imbued with ill intent. This may also make the target flinch."},
         {"name":"Double Team","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"Boosts the user's evasiveness by 1 stage."},
         {"name":"Endure","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user endures any attack with at least 1 HP. This move's chance of failing rises if used in succession."},
@@ -27564,7 +27343,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Infiltrator",
-            "description": "Ghost and Fire-type moves gain 30% power. On switch-in, lowers adjacent opponents' Sp. Def by 1 stage.",
+            "description": "Passes through the opposing Pokémon's barrier, substitute, and the like and strikes.",
             "isChampions": false
           }
         ],
@@ -27630,8 +27409,8 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Light of Ruin","type":"fairy","category":"special","power":140,"accuracy":90,"pp":5,"description":"The user attacks by drawing power from the Eternal Flower to fire off a powerful beam of light. The user also takes some recoil damage."},
         {"name":"Light Screen","type":"psychic","category":"status","power":null,"accuracy":null,"pp":30,"description":"A wondrous wall of light is put up to reduce damage from special moves for five turns."},
         {"name":"Misty Terrain","type":"fairy","category":"status","power":null,"accuracy":null,"pp":20,"description":"Turns the entire field into Misty Terrain for 5 turns."},
-        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":15,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target's Sp. Atk stat."},
-        {"name":"Petal Blizzard","type":"grass","category":"physical","power":90,"accuracy":100,"pp":10,"description":""},
+        {"name":"Moonblast","type":"fairy","category":"special","power":95,"accuracy":100,"pp":16,"description":"Borrowing the power of the moon, the user attacks the target. This may also lower the target's Sp. Atk stat."},
+        {"name":"Petal Blizzard","type":"grass","category":"physical","power":90,"accuracy":100,"pp":10,"description":"The user stirs up a violent petal blizzard and damages everything around it."},
         {"name":"Petal Dance","type":"grass","category":"special","power":120,"accuracy":100,"pp":5,"description":"The user gains the Rampaging status."},
         {"name":"Pollen Puff","type":"bug","category":"special","power":90,"accuracy":100,"pp":10,"description":"When used on an ally this move restores 1/2 of its max HP instead of dealing damage."},
         {"name":"Protect","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession."},
@@ -27639,7 +27418,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Rain Dance","type":"water","category":"status","power":null,"accuracy":null,"pp":20,"description":"Summons rain for 5 turns."},
         {"name":"Rest","type":"psychic","category":"status","power":null,"accuracy":null,"pp":20,"description":"Fully restores the user's HP and cures any status conditions. The user falls asleep for 2 turns. This move fails if the user's HP is full."},
         {"name":"Safeguard","type":"normal","category":"status","power":null,"accuracy":null,"pp":25,"description":"The user creates a protective field that prevents status conditions for five turns."},
-        {"name":"Seed Bomb","type":"grass","category":"physical","power":80,"accuracy":100,"pp":15,"description":""},
+        {"name":"Seed Bomb","type":"grass","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user attacks by slamming a barrage of hard-shelled seeds down on the target from above."},
         {"name":"Skill Swap","type":"psychic","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user and the target swap their Abilities."},
         {"name":"Sleep Talk","type":"normal","category":"status","power":null,"accuracy":null,"pp":20,"description":"Can be used only if the user is asleep. The user uses one of the other moves it knows at random."},
         {"name":"Solar Beam","type":"grass","category":"special","power":120,"accuracy":100,"pp":10,"description":"The user gathers light on the first turn, then blasts a bundled beam on the next turn."},
@@ -27673,7 +27452,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         "abilities": [
           {
             "name": "Fairy Aura",
-            "description": "Fairy-type moves gain 30% power. Restores 1/16 max HP at the end of each turn.",
+            "description": "Powers up each Pokémon's Fairy-type moves.",
             "isChampions": false
           }
         ],
@@ -27726,13 +27505,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "moves": [
         {"name":"Acid Armor","type":"poison","category":"status","power":null,"accuracy":null,"pp":20,"description":"Boosts the user's Defense stat by 2 stages."},
         {"name":"Acid Spray","type":"poison","category":"special","power":40,"accuracy":100,"pp":20,"description":"The user spits fluid that works to melt the target. This harshly lowers the target's Sp. Def stat."},
-        {"name":"Aqua Tail","type":"water","category":"physical","power":90,"accuracy":90,"pp":10,"description":""},
+        {"name":"Aqua Tail","type":"water","category":"physical","power":90,"accuracy":90,"pp":10,"description":"The user attacks by swinging its tail as if it were a vicious wave in a raging storm."},
         {"name":"Assurance","type":"dark","category":"physical","power":60,"accuracy":100,"pp":15,"description":"This move's power is doubled if the target has already taken damage during the turn this move is used."},
         {"name":"Blizzard","type":"ice","category":"special","power":110,"accuracy":70,"pp":5,"description":"A howling blizzard is summoned to strike opposing Pokémon. This may also leave the opposing Pokémon frozen."},
         {"name":"Body Press","type":"fighting","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The damage dealt by this move is calculated using the user's Defense stat instead of its Attack stat."},
         {"name":"Body Slam","type":"normal","category":"physical","power":85,"accuracy":100,"pp":15,"description":"The user drops onto the target with its full body weight. This may also leave the target with paralysis."},
         {"name":"Breaking Swipe","type":"dragon","category":"physical","power":60,"accuracy":100,"pp":15,"description":"The user swings its tough tail wildly and attacks opposing Pokémon. This also lowers their Attack stats."},
-        {"name":"Brutal Swing","type":"dark","category":"physical","power":60,"accuracy":100,"pp":15,"description":""},
+        {"name":"Brutal Swing","type":"dark","category":"physical","power":60,"accuracy":100,"pp":15,"description":"The user swings its body around violently to inflict damage on everything in its vicinity."},
         {"name":"Bulldoze","type":"ground","category":"physical","power":60,"accuracy":100,"pp":20,"description":"The user strikes everything around it by stomping down on the ground. This lowers the Speed stats of those hit."},
         {"name":"Charm","type":"fairy","category":"status","power":null,"accuracy":100,"pp":20,"description":"Lowers the target's Attack stat by 2 stages."},
         {"name":"Chilling Water","type":"water","category":"special","power":50,"accuracy":100,"pp":20,"description":"The user attacks the target by showering it with water that's so cold it saps the target's power. This also lowers the target's Attack stat."},
@@ -27761,7 +27540,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":10,"description":"Has a 30% chance of lowering the target's Defense stat by 1 stage."},
         {"name":"Knock Off","type":"dark","category":"physical","power":65,"accuracy":100,"pp":20,"description":"The user slaps down the target's held item, making it unusable for that battle."},
         {"name":"Life Dew","type":"water","category":"status","power":null,"accuracy":null,"pp":20,"description":"Restores 1/4 of the max HP of the user and its allies."},
-        {"name":"Mega Kick","type":"normal","category":"physical","power":120,"accuracy":75,"pp":5,"description":""},
+        {"name":"Mega Kick","type":"normal","category":"physical","power":120,"accuracy":75,"pp":5,"description":"The target is attacked by a kick launched with muscle-packed power."},
         {"name":"Mud Shot","type":"ground","category":"special","power":55,"accuracy":95,"pp":20,"description":"Lowers the target's Speed stat by 1 stage."},
         {"name":"Muddy Water","type":"water","category":"special","power":90,"accuracy":85,"pp":10,"description":"The user attacks by shooting muddy water at opposing Pokémon. This may also lower their accuracy."},
         {"name":"Outrage","type":"dragon","category":"physical","power":120,"accuracy":100,"pp":10,"description":"The user rampages and attacks for two to three turns. The user then becomes confused."},
@@ -27806,6 +27585,108 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "usageRate": 2.2
   },
   {
+    "id": 5706,
+    "name": "Hisuian Goodra",
+    "dexNumber": 706,
+    "types": [
+      "steel",
+      "dragon"
+    ],
+    "baseStats": {
+      "hp": 80,
+      "attack": 100,
+      "defense": 100,
+      "spAtk": 110,
+      "spDef": 150,
+      "speed": 60
+    },
+    "abilities": [
+      {
+        "name": "Sap Sipper",
+        "description": "Boosts Attack when hit by a Grass-type move. Grants immunity to Grass-type damage.",
+        "isHidden": false
+      },
+      {
+        "name": "Shell Armor",
+        "description": "The Pokémon's hard shell prevents critical hits from landing.",
+        "isHidden": false
+      },
+      {
+        "name": "Gooey",
+        "description": "Contact with the Pokémon lowers the attacker's Speed stat.",
+        "isHidden": true
+      }
+    ],
+    "moves": [
+        {"name":"Absorb","type":"grass","category":"special","power":20,"accuracy":100,"pp":25,"description":"A nutrient-draining attack. The user's HP is restored by half the damage taken by the target."},
+        {"name":"Acid Armor","type":"poison","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user alters its cellular structure to liquefy itself and sharply raise its Defense stat."},
+        {"name":"Acid Spray","type":"poison","category":"special","power":40,"accuracy":100,"pp":20,"description":"The user spits fluid that works to melt the target. This harshly lowers the target's Sp. Def stat."},
+        {"name":"Ancient Power","type":"rock","category":"special","power":60,"accuracy":100,"pp":5,"description":"The user attacks with a prehistoric power. This may also raise all the user's stats at once."},
+        {"name":"Blizzard","type":"ice","category":"special","power":110,"accuracy":70,"pp":5,"description":"A howling blizzard is summoned to strike opposing Pokémon. This may also leave the opposing Pokémon frozen."},
+        {"name":"Body Slam","type":"normal","category":"physical","power":85,"accuracy":100,"pp":15,"description":"The user drops onto the target with its full body weight. This may also leave the target with paralysis."},
+        {"name":"Breaking Swipe","type":"dragon","category":"physical","power":60,"accuracy":100,"pp":15,"description":"The user swings its tough tail wildly and attacks opposing Pokémon. This also lowers their Attack stats."},
+        {"name":"Bulldoze","type":"ground","category":"physical","power":60,"accuracy":100,"pp":20,"description":"The user strikes everything around it by stomping down on the ground. This lowers the Speed stats of those hit."},
+        {"name":"Charm","type":"fairy","category":"status","power":null,"accuracy":100,"pp":20,"description":"The user gazes at the target rather charmingly, making it less wary. This harshly lowers the target's Attack stat."},
+        {"name":"Chilling Water","type":"water","category":"special","power":50,"accuracy":100,"pp":20,"description":"The user attacks the target by showering it with water that's so cold it saps the target's power. This also lowers the target's Attack stat."},
+        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":10,"description":"A move that has different effects depending on whether the user is a Ghost type or not."},
+        {"name":"Draco Meteor","type":"dragon","category":"special","power":130,"accuracy":90,"pp":5,"description":"Comets are summoned down from the sky onto the target. The recoil from this move harshly lowers the user's Sp. Atk stat."},
+        {"name":"Dragon Breath","type":"dragon","category":"special","power":60,"accuracy":100,"pp":20,"description":"The user exhales a mighty gust at the target. This may also leave the target with paralysis."},
+        {"name":"Dragon Claw","type":"dragon","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slashes the target with huge sharp claws."},
+        {"name":"Dragon Pulse","type":"dragon","category":"special","power":85,"accuracy":100,"pp":10,"description":"The target is attacked with a shock wave generated by the user's gaping mouth."},
+        {"name":"Earthquake","type":"ground","category":"physical","power":100,"accuracy":100,"pp":10,"description":"The user sets off an earthquake that strikes every Pokémon around it."},
+        {"name":"Endure","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user endures any attack with at least 1 HP."},
+        {"name":"Facade","type":"normal","category":"physical","power":70,"accuracy":100,"pp":20,"description":"This move's power is doubled if the user is poisoned, burned, or paralyzed."},
+        {"name":"Fire Blast","type":"fire","category":"special","power":110,"accuracy":85,"pp":5,"description":"The target is attacked with an intense blast of all-consuming fire. This may also leave the target with a burn."},
+        {"name":"Fire Punch","type":"fire","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The target is punched with a fiery fist. This may also leave the target with a burn."},
+        {"name":"Flamethrower","type":"fire","category":"special","power":90,"accuracy":100,"pp":15,"description":"The target is scorched with an intense blast of fire. This may also leave the target with a burn."},
+        {"name":"Flash Cannon","type":"steel","category":"special","power":80,"accuracy":100,"pp":10,"description":"The user gathers all its light energy and releases it all at once. This may also lower the target's Sp. Def stat."},
+        {"name":"Giga Impact","type":"normal","category":"physical","power":150,"accuracy":90,"pp":5,"description":"The user charges at the target using every bit of its power. The user can't move on the next turn."},
+        {"name":"Heavy Slam","type":"steel","category":"physical","power":null,"accuracy":100,"pp":10,"description":"The user slams into the target with its heavy body. The more the user outweighs the target, the greater the move's power."},
+        {"name":"Hydro Pump","type":"water","category":"special","power":110,"accuracy":80,"pp":5,"description":"The user blasts the target with a huge volume of water launched under great pressure."},
+        {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The target is attacked with a powerful beam. The user can't move on the next turn."},
+        {"name":"Ice Beam","type":"ice","category":"special","power":90,"accuracy":100,"pp":10,"description":"The target is struck with an icy-cold beam of energy. This may also leave the target frozen."},
+        {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply raising its Defense stat."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Tail","type":"steel","category":"physical","power":100,"accuracy":75,"pp":15,"description":"The user slams the target with its steel-hard tail. This may also lower the target's Defense stat."},
+        {"name":"Knock Off","type":"dark","category":"physical","power":65,"accuracy":100,"pp":20,"description":"The user slaps down the target's held item, making it unusable for that battle."},
+        {"name":"Magnet Bomb","type":"steel","category":"physical","power":60,"accuracy":null,"pp":20,"description":"The user launches steel bombs that stick to the target. This attack never misses."},
+        {"name":"Mud Shot","type":"ground","category":"special","power":55,"accuracy":95,"pp":15,"description":"The user attacks by hurling a blob of mud at the target. This also lowers the target's Speed stat."},
+        {"name":"Muddy Water","type":"water","category":"special","power":90,"accuracy":85,"pp":10,"description":"The user attacks by shooting muddy water at opposing Pokémon. This may also lower their accuracy."},
+        {"name":"Outrage","type":"dragon","category":"physical","power":120,"accuracy":100,"pp":10,"description":"The user rampages and attacks for two to three turns. The user then becomes confused."},
+        {"name":"Protect","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"This move enables the user to protect itself from all attacks."},
+        {"name":"Rock Slide","type":"rock","category":"physical","power":75,"accuracy":90,"pp":10,"description":"Large boulders are hurled at opposing Pokémon to inflict damage. This may also make the opposing Pokémon flinch."},
+        {"name":"Rock Tomb","type":"rock","category":"physical","power":60,"accuracy":95,"pp":15,"description":"Boulders are hurled at the target. This also lowers the target's Speed stat."},
+        {"name":"Sludge Bomb","type":"poison","category":"special","power":90,"accuracy":100,"pp":10,"description":"Unsanitary sludge is hurled at the target. This may also poison the target."},
+        {"name":"Sludge Wave","type":"poison","category":"special","power":95,"accuracy":100,"pp":10,"description":"The user strikes everything around it by swamping the area with a giant sludge wave. This may also poison those hit."},
+        {"name":"Steel Beam","type":"steel","category":"special","power":140,"accuracy":95,"pp":5,"description":"The user fires a beam of steel collected from its entire body. This also damages the user."},
+        {"name":"Substitute","type":"normal","category":"status","power":null,"accuracy":null,"pp":10,"description":"The user creates a substitute for itself using some of its own HP."},
+        {"name":"Surf","type":"water","category":"special","power":90,"accuracy":100,"pp":15,"description":"The user attacks everything around it by swamping its surroundings with a giant wave."},
+        {"name":"Tackle","type":"normal","category":"physical","power":40,"accuracy":100,"pp":35,"description":"A physical attack in which the user charges and slams into the target with its whole body."},
+        {"name":"Take Down","type":"normal","category":"physical","power":90,"accuracy":85,"pp":20,"description":"A reckless, full-body charge attack for slamming into the target. This also damages the user a little."},
+        {"name":"Thunder","type":"electric","category":"special","power":110,"accuracy":70,"pp":10,"description":"A wicked thunderbolt is dropped on the target to inflict damage. This may also leave the target with paralysis."},
+        {"name":"Thunder Punch","type":"electric","category":"physical","power":75,"accuracy":100,"pp":15,"description":"The target is punched with an electrified fist. This may also leave the target with paralysis."},
+        {"name":"Thunderbolt","type":"electric","category":"special","power":90,"accuracy":100,"pp":15,"description":"A strong electric blast crashes down on the target. This may also leave the target with paralysis."},
+        {"name":"Toxic","type":"poison","category":"status","power":null,"accuracy":90,"pp":10,"description":"A move that leaves the target badly poisoned. Its poison damage worsens every turn."},
+        {"name":"Water Gun","type":"water","category":"special","power":40,"accuracy":100,"pp":25,"description":"The target is blasted with a forceful shot of water."},
+        {"name":"Water Pulse","type":"water","category":"special","power":60,"accuracy":100,"pp":20,"description":"The user attacks the target with a pulsing blast of water. This may also confuse the target."}
+      ],
+    "sprite": "/sprites/10242.png",
+    "officialArt": "/sprites/10242.png",
+    "generation": 6,
+    "forms": [],
+    "hasMega": false,
+    "recruitmentCost": null,
+    "homeCompatible": true,
+    "homeSource": [
+      "Scarlet/Violet",
+      "Legends Z-A",
+      "Legends: Arceus"
+    ],
+    "season": 1,
+    "tier": "B",
+    "usageRate": 2.8
+  },
+  {
     "id": 709,
     "name": "Trevenant",
     "dexNumber": 709,
@@ -27840,12 +27721,12 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     ],
     "moves": [
         {"name":"Ally Switch","type":"psychic","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user switches spots with one of its allies. With each consecutive use this move's chance of success becomes 1/3 of what it was before."},
-        {"name":"Brutal Swing","type":"dark","category":"physical","power":60,"accuracy":100,"pp":15,"description":""},
+        {"name":"Brutal Swing","type":"dark","category":"physical","power":60,"accuracy":100,"pp":15,"description":"The user swings its body around violently to inflict damage on everything in its vicinity."},
         {"name":"Bulldoze","type":"ground","category":"physical","power":60,"accuracy":100,"pp":15,"description":"Lowers targets' Speed stats by 1 stage. When Grassy Terrain is active this move's power is halved."},
         {"name":"Burning Jealousy","type":"fire","category":"special","power":70,"accuracy":100,"pp":15,"description":"Burns targets if their stats were boosted during the turn this move is used."},
         {"name":"Calm Mind","type":"psychic","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user quietly focuses its mind and calms its spirit to boost its Sp. Atk and Sp. Def stats."},
         {"name":"Confuse Ray","type":"ghost","category":"status","power":null,"accuracy":100,"pp":10,"description":"The target is exposed to a sinister ray that causes confusion."},
-        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":20,"description":""},
+        {"name":"Curse","type":"ghost","category":"status","power":null,"accuracy":null,"pp":20,"description":"A move that has different effects depending on whether the user is a Ghost type or not."},
         {"name":"Dark Pulse","type":"dark","category":"special","power":80,"accuracy":100,"pp":15,"description":"The user releases a horrible aura imbued with ill intent. This may also make the target flinch."},
         {"name":"Destiny Bond","type":"ghost","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user gains the Destiny Bound status. This move fails if used in succession."},
         {"name":"Dig","type":"ground","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user gains the Underground status on the turn this move is used then attacks on the following turn."},
@@ -27957,13 +27838,13 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
       },
       {
         "name": "Thick Fat",
-        "description": "Halves damage from fire and ice moves.",
+        "description": "The Pokémon is protected by a layer of thick fat, which halves the damage taken from Fire- and Ice-type moves.",
         "isHidden": true
       }
     ],
     "moves": [
         {"name":"Amnesia","type":"psychic","category":"status","power":null,"accuracy":null,"pp":20,"description":"The user temporarily empties its mind to forget its concerns. This sharply boosts the user's Sp. Def stat."},
-        {"name":"Apple Acid","type":"grass","category":"special","power":80,"accuracy":100,"pp":10,"description":"The user attacks the target with an acidic liquid created from tart apples. This also lowers the target's Sp. Def stat."},
+        {"name":"Apple Acid","type":"grass","category":"special","power":90,"accuracy":100,"pp":10,"description":"The user attacks the target with an acidic liquid created from tart apples. This also lowers the target's Sp. Def stat."},
         {"name":"Body Press","type":"fighting","category":"physical","power":80,"accuracy":100,"pp":10,"description":"The user attacks by slamming its body into the target. The higher the user's Defense stat, the greater the damage this move deals."},
         {"name":"Body Slam","type":"normal","category":"physical","power":85,"accuracy":100,"pp":15,"description":"The user drops onto the target with its full body weight. This may also leave the target with paralysis."},
         {"name":"Bulldoze","type":"ground","category":"physical","power":60,"accuracy":100,"pp":20,"description":"The user strikes everything around it by stomping down on the ground. This lowers the Speed stats of those hit."},
@@ -27988,7 +27869,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
         {"name":"High Horsepower","type":"ground","category":"physical","power":95,"accuracy":95,"pp":10,"description":"The user fiercely attacks the target using its entire body."},
         {"name":"Hyper Beam","type":"normal","category":"special","power":150,"accuracy":90,"pp":5,"description":"The user gains the Recharging status on the turn after this move is used."},
         {"name":"Iron Defense","type":"steel","category":"status","power":null,"accuracy":null,"pp":15,"description":"The user hardens its body's surface like iron, sharply boosting its Defense stat."},
-        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":15,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
+        {"name":"Iron Head","type":"steel","category":"physical","power":80,"accuracy":100,"pp":16,"description":"The user slams the target with its steel-hard head. This may also make the target flinch."},
         {"name":"Leaf Storm","type":"grass","category":"special","power":130,"accuracy":90,"pp":5,"description":"The user whips up a storm of leaves around the target. The recoil harshly lowers the user's Sp. Atk stat."},
         {"name":"Leech Seed","type":"grass","category":"status","power":null,"accuracy":90,"pp":10,"description":"A seed is planted on the target. It steals some HP from the target every turn."},
         {"name":"Light Screen","type":"psychic","category":"status","power":null,"accuracy":null,"pp":30,"description":"A wondrous wall of light is put up to reduce damage from special moves for five turns."},
@@ -28049,7 +27930,7 @@ export const POKEMON_SEED: ChampionsPokemon[] = [
     "abilities": [
       {
         "name": "Prankster",
-        "description": "Gives priority to status moves. Fails against Dark-type targets.",
+        "description": "Gives priority to the Pokémon's status moves.",
         "isHidden": false
       },
       {
