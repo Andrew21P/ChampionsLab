@@ -20,7 +20,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.7.0",
-    "next": "16.2.1",
+    "next": "^16.2.3",
     "nodemailer": "^8.0.4",
     "pako": "^2.1.0",
     "qrcode": "^1.5.4",
