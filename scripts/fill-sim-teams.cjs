@@ -7,9 +7,8 @@ const simPath = path.join(__dirname, '..', 'src', 'lib', 'simulation-data.ts');
 const teamsPath = path.join(__dirname, '..', 'src', 'lib', 'winning-teams.ts');
 
 // Get all Pokemon data
-const src = fs.readFileSync(dataPath, 'utf8');
-const match = src.match(/POKEMON_SEED[^=]*=\s*(\[[\s\S]*?\]);/);
-const allPokemon = JSON.parse(match[1]);
+const { loadRoster } = require('./load-roster.cjs');
+const allPokemon = loadRoster();
 const pokemonById = {};
 for (const p of allPokemon) pokemonById[p.id] = p;
 

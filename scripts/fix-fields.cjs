@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { parseRoster } = require('./load-roster.cjs');
 const file = 'src/lib/pokemon-data.ts';
 let src = fs.readFileSync(file, 'utf8');
 
@@ -24,8 +25,7 @@ if (match) {
 // We need to add "forms": [], before "hasMega"
 
 // Count entries missing forms
-const seedMatch = src.match(/export const POKEMON_SEED[^=]*=\s*(\[[\s\S]*?\n\];)/);
-const data = JSON.parse(seedMatch[1].slice(0, -1));
+const data = parseRoster(src);
 const missingForms = data.filter(p => !('forms' in p));
 console.log('Entries missing forms before fix:', missingForms.length);
 
@@ -52,8 +52,7 @@ src = src.replace(/"generation": (\d+),\n(\s*)"season"/g, (match, gen, indent) =
 console.log('Added forms+hasMega via generation+season pattern:', count2);
 
 // Verify
-const seedMatch2 = src.match(/export const POKEMON_SEED[^=]*=\s*(\[[\s\S]*?\n\];)/);
-const data2 = JSON.parse(seedMatch2[1].slice(0, -1));
+const data2 = parseRoster(src);
 const stillMissing = data2.filter(p => !('forms' in p));
 console.log('Entries still missing forms after fix:', stillMissing.length);
 if (stillMissing.length > 0) {

@@ -1,13 +1,12 @@
 // Add simulation data entries for 38 new Pokemon into SIM_POKEMON
 const fs = require('fs');
 const path = require('path');
+const { loadRoster } = require('./load-roster.cjs');
 
 const dataPath = path.join(__dirname, '..', 'src', 'lib', 'pokemon-data.ts');
 const simPath = path.join(__dirname, '..', 'src', 'lib', 'simulation-data.ts');
 
-const src = fs.readFileSync(dataPath, 'utf8');
-const match = src.match(/POKEMON_SEED[^=]*=\s*(\[[\s\S]*?\]);/);
-const allPokemon = JSON.parse(match[1]);
+const allPokemon = loadRoster();
 const pokemonById = {};
 for (const p of allPokemon) pokemonById[p.id] = p;
 

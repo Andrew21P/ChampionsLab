@@ -177,8 +177,8 @@ async function main() {
         name: md.name.split("-").map(w => w[0].toUpperCase() + w.slice(1)).join(" "),
         type: md.type.name,
         category: md.damage_class?.name === 'physical' ? 'physical' : md.damage_class?.name === 'special' ? 'special' : 'status',
-        power: md.power,
-        accuracy: md.accuracy,
+        power: md.power ?? null,
+        accuracy: md.accuracy ?? null,
         pp: md.pp,
         description: enEntry ? enEntry.flavor_text.replace(/[\n\f]/g, ' ').replace(/\s+/g, ' ').trim() : '',
       };
@@ -247,7 +247,7 @@ async function main() {
     // Get moves — from cache or build from global map
     let moves;
     if (moveCache[id]) {
-      moves = moveCache[id];
+      moves = moveCache[id].map(m => ({ accuracy: null, ...m }));
     } else {
       moves = [];
       const seen = new Set();
@@ -260,7 +260,7 @@ async function main() {
         if (seen.has(prettyName)) continue;
         seen.add(prettyName);
         const detail = knownMoves.get(prettyName);
-        if (detail) moves.push({...detail});
+        if (detail) moves.push({ accuracy: null, ...detail });
       }
       // Sort: damaging by power desc, then status
       moves.sort((a,b) => {
@@ -341,12 +341,28 @@ async function main() {
       continue;
     }
     
-    src = src.slice(0, insertIdx) + ',\n' + entryJSON + src.slice(insertIdx);
+    src = src.slice(0, insertIdx) + '\n' + entryJSON + ',' + src.slice(insertIdx);
     inserted++;
   }
   
   fs.writeFileSync(DATA_FILE, src, 'utf8');
   console.log(`\n✅ Done! Inserted ${inserted}/${entries.length} Pokémon`);
+
+  // Fix any move entries missing accuracy (from old script runs)
+  let fixCount = 0;
+  src = src.replace(
+    /\{"name":"([^"]+)","type":"[^"]+","category":"[^"]+","power":(null|\d+),"pp":/g,
+    (match, moveName) => {
+      const known = knownMoves.get(moveName);
+      const acc = known && 'accuracy' in known ? JSON.stringify(known.accuracy) : 'null';
+      fixCount++;
+      return match.replace(',"pp":', `,"accuracy":${acc},"pp":`);
+    }
+  );
+  if (fixCount > 0) {
+    fs.writeFileSync(DATA_FILE, src, 'utf8');
+    console.log(`🔧 Fixed ${fixCount} move entries missing accuracy`);
+  }
 }
 
 main().catch(console.error);

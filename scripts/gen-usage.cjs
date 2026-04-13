@@ -2,11 +2,10 @@
 // Uses each Pokémon's actual moveset from pokemon-data.ts to build competitive sets
 
 const fs = require('fs');
+const { loadRoster } = require('./load-roster.cjs');
 
 // Load roster
-const src = fs.readFileSync('src/lib/pokemon-data.ts', 'utf8');
-const seedMatch = src.match(/export const POKEMON_SEED[^=]*=\s*(\[[\s\S]*?\n\];)/);
-const roster = JSON.parse(seedMatch[1].slice(0, -1));
+const roster = loadRoster();
 
 // Load existing usage IDs
 const usageSrc = fs.readFileSync('src/lib/usage-data.ts', 'utf8');
@@ -280,9 +279,17 @@ for (const [id, sets] of Object.entries(SETS)) {
 }
 if (valid) console.log('All SP totals valid (66 each, max 32)');
 
+// Read existing file first to prevent duplicate keys
+const usageSrc2 = fs.readFileSync('src/lib/usage-data.ts', 'utf8');
+const existingUsageIds = new Set(
+  [...usageSrc2.matchAll(/^\s+(\d+):\s*\[/gm)].map(m => parseInt(m[1]))
+);
+
 // Generate the text to append to usage-data.ts
 const lines = [];
+let skipped = 0;
 for (const [id, sets] of Object.entries(SETS)) {
+  if (existingUsageIds.has(parseInt(id))) { skipped++; continue; }
   const pokemon = roster.find(p => p.id === parseInt(id));
   const name = pokemon ? pokemon.name : 'Unknown';
   lines.push('');
@@ -295,10 +302,13 @@ for (const [id, sets] of Object.entries(SETS)) {
   lines.push('  ],');
 }
 
-// Find the insertion point - just before the closing };
-const usageSrc2 = fs.readFileSync('src/lib/usage-data.ts', 'utf8');
-const insertPoint = usageSrc2.lastIndexOf('};');
-const newSrc = usageSrc2.slice(0, insertPoint) + lines.join('\n') + '\n' + usageSrc2.slice(insertPoint);
-fs.writeFileSync('src/lib/usage-data.ts', newSrc);
+if (skipped > 0) console.log(`Skipped ${skipped} Pokémon already in usage-data.ts`);
 
-console.log(`Added usage data for ${Object.keys(SETS).length} Pokémon`);
+if (lines.length === 0) {
+  console.log('No new usage data to add (all already exist)');
+} else {
+  const insertPoint = usageSrc2.lastIndexOf('};');
+  const newSrc = usageSrc2.slice(0, insertPoint) + lines.join('\n') + '\n' + usageSrc2.slice(insertPoint);
+  fs.writeFileSync('src/lib/usage-data.ts', newSrc);
+  console.log(`Added usage data for ${Object.keys(SETS).length - skipped} Pokémon`);
+}

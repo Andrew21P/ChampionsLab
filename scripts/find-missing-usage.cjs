@@ -4,10 +4,8 @@ const path = require('path');
 const dataPath = path.join(__dirname, '..', 'src', 'lib', 'pokemon-data.ts');
 const usagePath = path.join(__dirname, '..', 'src', 'lib', 'usage-data.ts');
 
-const src = fs.readFileSync(dataPath, 'utf8');
-const match = src.match(/POKEMON_SEED[^=]*=\s*(\[[\s\S]*?\]);/);
-if (!match) { console.error('No POKEMON_SEED found'); process.exit(1); }
-const data = JSON.parse(match[1]);
+const { loadRoster } = require('./load-roster.cjs');
+const data = loadRoster();
 
 const usageSrc = fs.readFileSync(usagePath, 'utf8');
 const usageIds = new Set();

@@ -7,9 +7,8 @@ const dataPath = path.join(__dirname, '..', 'src', 'lib', 'pokemon-data.ts');
 const teamsPath = path.join(__dirname, '..', 'data', 'shared-teams.json');
 const src = fs.readFileSync(dataPath, 'utf8');
 
-const seedMatch = src.match(/POKEMON_SEED[^=]*=\s*(\[[\s\S]*\]);/);
-if (!seedMatch) { console.error('Could not find POKEMON_SEED'); process.exit(1); }
-const data = JSON.parse(seedMatch[1]);
+const { loadRoster } = require('./load-roster.cjs');
+const data = loadRoster();
 
 // Load shared teams data if exists
 let sharedTeamsData = {};

@@ -9,7 +9,7 @@ const usagePath = path.join(__dirname, '..', 'src', 'lib', 'usage-data.ts');
 
 const src = fs.readFileSync(dataPath, 'utf8');
 const match = src.match(/POKEMON_SEED[^=]*=\s*(\[[\s\S]*?\]);/);
-const allPokemon = JSON.parse(match[1]);
+const allPokemon = JSON.parse(match[1].replace(/,(\s*[}\]])/g, (_, s) => s));
 
 // Build lookup
 const pokemonById = {};
@@ -343,7 +343,12 @@ newSets[956] = [
 // PART 2: Generate the output to append to usage-data.ts
 // ========================================================================
 
-const ids = Object.keys(newSets).map(Number).sort((a, b) => a - b);
+// Read existing usage-data.ts early to prevent duplicate keys
+const existingUsageContent = fs.readFileSync(usagePath, 'utf8');
+const existingUsageIds = new Set(
+  [...existingUsageContent.matchAll(/^\s+(\d+):\s*\[/gm)].map(m => parseInt(m[1]))
+);
+const ids = Object.keys(newSets).map(Number).sort((a, b) => a - b).filter(id => !existingUsageIds.has(id));
 let output = '\n';
 
 for (const id of ids) {
@@ -421,13 +426,14 @@ console.log('Updated usageRate for', updated, 'Pokemon');
 // ========================================================================
 // PART 4: Append new sets to usage-data.ts
 // ========================================================================
-let usageContent = fs.readFileSync(usagePath, 'utf8');
-// Find the closing }; of the USAGE_DATA object
-const closingIdx = usageContent.lastIndexOf('};');
-if (closingIdx === -1) { console.error('Could not find closing }; in usage-data.ts'); process.exit(1); }
-
-usageContent = usageContent.substring(0, closingIdx) + output + '};\n';
-fs.writeFileSync(usagePath, usageContent);
-console.log('Appended', ids.length, 'new entries to usage-data.ts');
+if (ids.length === 0) {
+  console.log('No new entries to add to usage-data.ts (all already exist)');
+} else {
+  const closingIdx = existingUsageContent.lastIndexOf('};');
+  if (closingIdx === -1) { console.error('Could not find closing }; in usage-data.ts'); process.exit(1); }
+  const updatedContent = existingUsageContent.substring(0, closingIdx) + output + '};\n';
+  fs.writeFileSync(usagePath, updatedContent);
+  console.log('Appended', ids.length, 'new entries to usage-data.ts');
+}
 
 console.log('\nDone! Run: node scripts/check-json.cjs to verify pokemon-data.ts');
